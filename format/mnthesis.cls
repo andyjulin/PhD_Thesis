@@ -318,8 +318,8 @@
   \begin{center}
   \bf\large\copyright\ \@author\ \ \@year\
   \\[0.25cm]
-  \includegraphics[width=1cm]{cc_icons/by.pdf}
-  \includegraphics[width=1cm]{cc_icons/cc.pdf}
+  \includegraphics[width=1cm]{figures/cc_icons/by.pdf}
+  \includegraphics[width=1cm]{figures/cc_icons/cc.pdf}
   \\
   The text of this work is licensed under a
   \href{https://creativecommons.org/licenses/by/4.0/}{Creative Commons
@@ -334,9 +334,9 @@
   \begin{center}
   \bf\large\copyright\ \@author\ \ \@year\
   \\[0.25cm]
-  \includegraphics[width=1cm]{cc_icons/by.pdf}
-  \includegraphics[width=1cm]{cc_icons/cc.pdf}
-  \includegraphics[width=1cm]{cc_icons/sa.pdf}
+  \includegraphics[width=1cm]{figures/cc_icons/by.pdf}
+  \includegraphics[width=1cm]{figures/cc_icons/cc.pdf}
+  \includegraphics[width=1cm]{figures/cc_icons/sa.pdf}
   \\
   The text of this work is licensed under a
   \href{https://creativecommons.org/licenses/by-sa/4.0/}{Creative Commons
