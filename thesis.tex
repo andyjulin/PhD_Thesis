@@ -1,0 +1,78 @@
+% thesis.tex: Primary TeX control file for thesis.
+\documentclass[11pt, oneside]{format/mnthesis}
+\usepackage{epsfig}    % Allows the inclusion of eps files
+\usepackage{epic}      % Enhanced picture mode
+\usepackage{eepic}     % Extensions for epic
+\usepackage{units}     % SI unit typesetting
+\usepackage{url}       % URL handling
+\usepackage{longtable} % Tables that continue onto multiple pages
+\usepackage{mathrsfs}  % Support for \mathscr script
+\usepackage{multirow}  % Span rows in tables
+\usepackage{bigstrut}  % Space struts in tables up and down
+\usepackage{amssymb}   % AMS math symbols and helpers
+\usepackage{graphicx}  % Enhanced graphics support
+\usepackage{setspace}  % Adjust spacing in captions, single by default
+\usepackage{xspace}    % Automatically adjusting space after macros
+\usepackage{amsmath}   % \text, and other math formatting options
+\usepackage{siunitx}   % \num{} formatting and SI unit formatting
+\usepackage{booktabs}  % Enhanced tables with \toprule, etc.
+\usepackage{hyperref}  % Add clickable links to other parts of the document
+\usepackage[noabbrev]{cleveref} % Automatically determine \cref type
+
+% Configure the siunitx package
+\sisetup{
+    group-separator = {,}, % Use , to separate groups of digits, like 12,345
+    list-final-separator = {, and } % Always use the serial comma in \SIlist
+}
+
+% Configure the cleveref package
+\newcommand{\creflastconjunction}{, and } % Always use the serial comma
+
+% Include the commands from 'definitions.tex'
+\input{definitions}
+
+\linespread{1.3}
+
+% Compile only the chapters listed here
+\includeonly{
+    sections/default/title,
+    sections/default/conclusion,
+    sections/main/01_introduction,
+    sections/main/02_theory,
+    sections/main/03_detector,
+    sections/main/04_software,
+    sections/appendix/A1_glossary,
+}
+
+\begin{document}
+
+% Set the bibliography style
+\bibliographystyle{format/hunsrt}
+
+% Title and other sections that come before the body of the document
+\include{sections/default/title}
+
+% Now lets include the body of the document...
+\include{sections/main/01_introduction}
+
+%% Base Chapters
+\include{sections/main/02_theory}
+\include{sections/main/03_detector}
+\include{sections/main/04_software}
+%
+%% Analysis Chapters
+%\include{chapters/data_set}
+%\include{chapters/event_selection}
+%\include{chapters/analysis}
+
+% Conclusion
+\include{sections/default/conclusion}
+
+% Bibliography
+\bibliography{references}
+
+% Appendices
+\appendix
+\include{sections/appendix/A1_glossary}
+
+\end{document}

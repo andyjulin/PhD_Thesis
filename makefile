@@ -1,10 +1,10 @@
 LATEXMK=./latexmk/latexmk
 
 # Various dependencies
-MAIN=thesis_masters
+MAIN=thesis
 MAIN_PDF=$(MAIN).pdf
 MAIN_TEX=$(MAIN).tex
-HELPER_FILES= makefile mnthesis.cls
+HELPER_FILES= makefile format/mnthesis.cls
 PRELIMS:=$(wildcard preliminaries/*.tex)
 CHAPTERS:=$(wildcard chapters/*.tex)
 FIGURES := $(wildcard figures/*)
