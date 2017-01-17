@@ -1,38 +1,43 @@
-% Physics constants
-\newcommand{\C}{{\mathrm{c}}}
+
+% Simplifying definitions
+\newcommand{\beq}{\begin{equation}}
+\newcommand{\eeq}{\end{equation}}
+
+\newcommand{\half}{\tfrac{1}{2}}
+
+\newcommand{\pp}{\phantom{0}}
+\newcommand{\PP}{\phantom{00}}
+
 
 % Add space between rows of tables
 \newcommand{\spacerows}[1]{\renewcommand{\arraystretch}{#1}}
 
-% Define a better looking eV by moving the V slightly left
-\DeclareSIUnit\electronvolt{e\hspace{-0.08em}V}
+\newcolumntype{L}[1]{>{\raggedright\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+\newcolumntype{R}[1]{>{\raggedleft\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
 
 
-\newcommand{\quark}{q}
-\newcommand{\up}{u}
-\newcommand{\down}{d}
-\newcommand{\charm}{c}
-\newcommand{\strange}{s}
-\newcommand{\bottom}{b}
-\newcommand{\top}{t}
+% Define SI units 
+\DeclareSIUnit\fm{fm}
+\DeclareSIUnit\lumunits{\per\square\cm\per\second}
+\DeclareSIUnit\mAmin{\mA\per\min}
+\DeclareSIUnit\torr{Torr}
+\DeclareSIUnit\invfb{\per fb}
 
-\newcommand{\aquark}{\bar{\quark}}
-\newcommand{\aup}{\bar{\up}
-\newcommand{\adown}{\bar{\down}}
-\newcommand{\acharm}{\bar{\charm}}
-\newcommand{\astrange}{\bar{\strange}}
-\newcommand{\abottom}{\bar{\bottom}}
-\newcommand{\atop}{\bar{\top}}
 
-\newcommand{\lepton}{l}
-\newcommand{\electron}{e^-}
-\newcommand{\muon}{\mu^-}
-\newcommand{\tau}{\tau^-}
+% Define physics variables
+\newcommand{\sC}{\mathrm{C}}
+\newcommand{\sP}{\mathrm{P}}
+\newcommand{\sT}{\mathrm{T}}
+\newcommand{\sCP}{\mathrm{CP}}
+\newcommand{\sCPT}{\mathrm{CPT}}
 
-\newcommand{\alepton}{\bar{\lepton}}
-\newcommand{\positron}{e^+}
-\newcommand{\amuon}{\mu^+}
-\newcommand{\atau}{\tau^+}
+\newcommand{\SUthree}{SU(3)}
+\newcommand{\SUtwo}{SU(2)}
+\newcommand{\Uone}{U(1)}
+
+\newcommand{\alphaQED}{\alpha}
+\newcommand{\alphaQCD}{\alpha_S}
 
 \newcommand{\cRed}{r}
 \newcommand{\cGreen}{g}
@@ -41,3 +46,116 @@
 \newcommand{\acRed}{\bar{\cRed}}
 \newcommand{\acGreen}{\bar{\cGreen}}
 \newcommand{\acBlue}{\bar{\cBlue}}
+
+
+% Define standard model particles
+\newcommand{\quark}{q}
+\newcommand{\qup}{u}
+\newcommand{\qdown}{d}
+\newcommand{\qcharm}{c}
+\newcommand{\qstrange}{s}
+\newcommand{\qbottom}{b}
+\newcommand{\qtop}{t}
+
+\newcommand{\aquark}{\bar{\quark}}
+\newcommand{\aqup}{\bar{\qup}}
+\newcommand{\aqdown}{\bar{\qdown}}
+\newcommand{\aqcharm}{\bar{\qcharm}}
+\newcommand{\aqstrange}{\bar{\qstrange}}
+\newcommand{\aqbottom}{\bar{\qbottom}}
+\newcommand{\aqtop}{\bar{\qtop}}
+
+\newcommand{\lepton}{l}
+\newcommand{\lel}{e^-}
+\newcommand{\lmu}{\mu^-}
+\newcommand{\ltau}{\tau^-}
+\newcommand{\neutrino}{\nu}
+\newcommand{\vel}{\nu_{e}}
+\newcommand{\vmu}{\nu_{\mu}}
+\newcommand{\vtau}{\nu_{\tau}}
+
+\newcommand{\alepton}{\bar{\lepton}}
+\newcommand{\alel}{e^+}
+\newcommand{\almu}{\mu^+}
+\newcommand{\altau}{\tau^+}
+\newcommand{\aneutrino}{\bar{\neutrino}}
+\newcommand{\avel}{\bar{\ve}}
+\newcommand{\avmu}{\bar{\vmu}}
+\newcommand{\avtau}{\bar{\vtau}}
+
+\newcommand{\W}{W}
+\newcommand{\Z}{Z}
+\newcommand{\photon}{\gamma}
+\newcommand{\gluon}{g}
+\newcommand{\Higgs}{H}
+
+
+% Define hadrons 
+\newcommand{\jpsi}{J/\psi}
+\newcommand{\psip}{\psi(2S)}
+\newcommand{\apsip}{\psi(3686)}
+\newcommand{\psipp}{\psi(3770)}
+
+\newcommand{\Dp}{D^+}
+\newcommand{\Dm}{D^-}
+\newcommand{\DO}{D^0}
+\newcommand{\aDO}{\bar{\DO}}
+
+
+\newcommand{\pip}{\pi^+}
+\newcommand{\pim}{\pi^-}
+\newcommand{\piO}{\pi^0}
+\newcommand{\Kp}{K^+}
+\newcommand{\Km}{K^m}
+\newcommand{\Ks}{K^0_S}
+
+% Define particle pairs
+\newcommand{\ee}{\alel\lel}
+\newcommand{\DDbar}{D\overline{D}}
+\newcommand{\qqbar}{\quark\aquark}
+\newcommand{\ttbar}{\ltau\altau}
+
+
+% Define particle variables
+\newcommand{\xsecDDbar}{\sigma_{\DDbar}}
+
+\newcommand{\Mpsipp}{M^{\psipp}}
+\newcommand{\Gpsipp}{\Gamma^{\psipp}}
+\newcommand{\Geepsipp}{\Gamma_{ee}^{\psipp}}
+\newcommand{\Ppsipp}{\phi^{\psipp}}
+\newcommand{\Gpsip}{\Gamma^{\psip}}
+\newcommand{\Geepsip}{\Gamma_{ee}^{\psip}}
+\newcommand{\GeepsipptoDD}{\Gamma_{ee}^{\psipptoDD}}
+
+
+% Define detector / collider variables
+\newcommand{\DeltaE}{\Delta E}
+\newcommand{\mbc}{m_{\text{BC}}}
+\newcommand{\Ecm}{E_{\text{cm}}}
+\newcommand{\Ebeam}{E_{\text{beam}}}
+
+
+% Define derivation variables
+\newcommand{\BDD}{\mathcal{B}_{\DDbar}}
+\newcommand{\BnDD}{\mathcal{B}_{n\DDbar}}
+\newcommand{\zDD}{z_{\Dp\Dm}}
+\newcommand{\Nprop}{N_{\text{prop}}}
+\newcommand{\Ngen}{N_{\text{gen}}}
+
+
+% Define decay modes
+\newcommand{\psipptoDD}{\psipp \rightarrow \DDbar}
+\newcommand{\bhabha}{\ee \rightarrow \ee}
+
+\newcommand{\DOmodeA}{\DO \rightarrow \Km \, \pip}
+\newcommand{\DOmodeB}{\DO \rightarrow \Km \, \pip \, \piO}
+\newcommand{\DOmodeC}{\DO \rightarrow \Km \, \pip \, \pip \, \pim}
+
+\newcommand{\DpmodeA}{\Dp \rightarrow \Km \, \pip \, \pip}
+\newcommand{\DpmodeB}{\Dp \rightarrow \Km \, \pip \, \pip \, \piO}
+\newcommand{\DpmodeC}{\Dp \rightarrow \Ks \, \pip}
+\newcommand{\DpmodeD}{\Dp \rightarrow \Ks \, \pip \, \piO}
+\newcommand{\DpmodeE}{\Dp \rightarrow \Ks \, \pip \, \pip \, \pim}
+\newcommand{\DpmodeF}{\Dp \rightarrow \Kp \, \Km  \, \pip}
+
+

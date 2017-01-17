@@ -1,0 +1,78 @@
+\chapter{Measurement of $\xsecDDbar$ near $\psipp$}
+\label{ch_cross_section}
+
+As a simplifying assumption, we use $\BnDD = 0$ throughout the analysis.
+
+\section{Form Factors}
+\label{sec_form_factors}
+
+In Eq. \ref{eq_form_factor}, we assume the $\psip$ resonant contribution is negligible in the energy range of our measurements, so the only major resonant contribution is from the $\psipp$:
+\beq
+F_D(W) = F_D^{\text{NR}}(W) + F^{\psipp}_D(W) \, e^{i \phi^{\psipp} }.
+\eeq
+
+\noindent
+Currently, there is no definitive model for the non-resonant term, so we use two alternative parameterizations for this.
+The first is a simple exponential model:
+\beq
+\label{eq_exp_model}
+F_D^{NR} = F_{NR} \, \exp ( -q_D^2 / a_{NR}^2 ),
+\eeq
+
+\noindent 
+where both $F_{NR}$ and $a_{NR}$ are parameters determined through fitting. 
+The second treatment implements a Vector Dominance Model (VDM).
+This assumes the interference effects are due to the $\psip$ mediating $\DDbar$ production above threshold,
+\beq
+\label{eq_vdm_model}
+F_D^{NR}(W) = F_D^{\psip}(W) + F_0,
+\eeq
+
+\noindent
+and that the effective properties of the $\psip$ are similar to those of the $\psipp$.
+The real constant $F_0$ represents the potential effect of higher resonances, like the $\psi(4040)$.
+The first term is similar to Eq. \ref{eq_breit_wigner}, but with a modification to the total width:
+\beq
+\label{eq_Gamma_psip}
+\Gpsip(W) = \left( \frac{M^{\psip}}{W} \right) \left[ \frac{ z_{\DO \aDO}(W) \, d_{\DO \aDO}(W) + z_{\Dp \Dm}(W) \, d_{\Dp \Dm}(W) }{ z_{\DO \aDO}(M^{\psi''}) \, d_{\DO \aDO}(M^{\psi''}) + z_{\Dp \Dm}(M^{\psi''}) \, d_{\Dp \Dm}(M^{\psi''}) } \right] \Gpsip(M).
+\eeq
+
+\noindent
+Without this modification, the mass of the $\psip$ would be below the $\DDbar$ threshold, and thus, the vanishing $z_{\DDbar}$ terms would cause a singularity in the width.
+Therefore, we use the mass of the $\psipp$ in its place to estimate the effects in this region.
+While it may behave like the total width in Eq. \ref{eq_Gamma_psip}, the true the physical meaning of the parameter $\Gpsip(W)$ is uncertain.
+For the radii in Eq. \ref{eq_blatt_weisskopf}, however, the values used are distinct for each meson: $R_{\psip} = \SI{0.75}{\fm}$ and $R_{\psipp} = \SI{1.00}{\fm}$.
+
+
+\section{Data and Monte Carlo Samples}
+\label{sec_samples}
+
+\subsection{Luminosity Calculation}
+\label{ssec_luminosity}
+
+\subsection{Monte Carlo Generation}
+\label{ssec_monte_carlo}
+
+
+\section{Signal Determination}
+\label{sec_signal}
+
+
+\section{Efficiency Correction}
+\label{sec_efficiency}
+
+\subsection{$CP$ Violation Correction}
+\label{ssec_cp_correction}
+
+
+\section{Fitting Procedure}
+\label{sec_fitting}
+
+\subsection{Coulomb Correction}
+\label{ssec_coulomb}
+
+
+\section{Systematics}
+\label{sec_systematics}
+
+

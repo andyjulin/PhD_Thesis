@@ -1,86 +1,289 @@
 \chapter{Theoretical Background}
-\label{ch_theory}
+\label{ch:theory}
 
 \section{Standard Model}
-\label{sec_standard_model}
+\label{sec:standard_model}
 
 Developed throughout the 1960s and 1970s, the Standard Model provides the most complete description of observable matter in the universe to date.
 It is a classification of all confirmed subatomic particles currently known, and predicts the most accurate results of any scientific theory ever measured.
-Each of the Electromagnetic, Weak, and Strong fundamental forces are well described by this formulation.
+Each of the electromagnetic, weak, and strong fundamental forces are well described by this formulation.
+These three are described by an $\SUthree \times \SUtwo \times \Uone$ group, where the $\SUthree$ corresponds to the strong force, the $\SUtwo$ corresponds to the weak force, and the $\Uone$ corresponds to the electromagnetic force.
+The remaining fundamental force, gravity, is negligible on the scale of the masses of fundamental particles, and will be ignored in the discussions that follow.
 
 
-This is not to say the theory is complete, however.  
-For example, the discovery of neutrino oscillations disproves the Standard Model assumption that they are massless.
-Additionally, the remaining fundamental force, Gravity, is completely absent from this theory. 
-This omission, along with the aspects such as dark matter or dark energy, remain major hinderances in constructing a unified theory.
-However, since gravitational effects are negligible on the scale of the masses of fundamental particles, it will be ignored in the discussions that follow.
+\subsection{Electromagnetic Force}
+\label{ssec:electromagnetic}
+
+The electromagnetic force is responsible for attracting and repelling objects, most notably binding together electrons and protons to form atomic structures.
+The most prominent theory of electromagnetic interactions is known as Quantum Electrodynamics (QED).
+The mediator of this force is the photon, a massless vector boson.
+As there is only a single mediator, and a single conserved quantity (electric charge), the formulation of QED is relatively simple compared to the other forces.
+Still, the predictions it makes show astounding consistency with experiment, such as correctly calculating the anomalous magnetic dipole moment of the electron to more than 10 significant figures.
+Much of this success is due to QED being expandable through perturbation theory, where corrections are applied in terms of higher order factors of the coupling constant, $\alphaQED$.
+This is possible due to a relatively small coupling constant ($\alphaQED \approx 1/137$), as higher order terms are convergent.
+
+\subsection{Weak Force}
+\label{ssec:weak}
+
+The weak force is responsible for the decays of various particles into other forms.
+This is distinct from the electromagnetic and strong interactions, where the constituent particles cannot change their types (or flavors).
+The mediators of this force are the $\W$ and $\Z$, which are massive vector bosons.
+Not only are each of these masses non-zero, they are considerably heavy particles at \SIlist{80.4;90.2}{\GeV}, respectively.
+These large masses not only inhibit the interaction distance of the weak force, but also minimize the interaction strength (which is inversely proportion to mass).
+Furthermore, this mass excess also leads to much slower interaction times, further reducing the effects of the weak force in comparison to the strong and electromagnetic forces.
 
 
-There are two primary groups contained in the Standard Model, bosons and fermions. 
-This division is based off the Spin Statistics theorem, where bosons have integer spins, and fermions have half-integer values.
-Because of these values, the Pauli Exclusion principle restricts fermions from occupying the same spatial state, and thus there are restrictions on their spatial density.
-Bosons, however, do not have this restriction, and can have any number occupying the same space.
-Thus, fermions are typically more tangible matter (such as electrons), while bosons typically represent the forces interacting between them (such as photons).
+In addition to transforming particle flavor, the weak force is also unique in its violation of various symmetries.
+The first discovery of symmetry violation came in 1957, when Wu and others discovered the weak force did not behave identically under parity ($\sP$) transformations (i.e., mirror reflection).
+To account for this, a new theory conserving a compound symmetry was proposed.
+This combined charge conjugation ($\sC$), the swapping of particles with their antiparticles, with parity to form $\sCP$ parity.
+However, in 1964, evidence of $\sCP$ violation was also discovered by Cronin and Fitch.
+The resolution to this symmetry conservation involves yet a third symmetry, time reversal ($\sT$), in which time is replaced with its negative ($t \rightarrow -t$).
+While the weak force violates these symmetries individually, the application of all three ($\sCPT$) is conserved across all known processes.
 
 
-\subsection{Fermions}
-\label{ssec_fermions}
-
-The fermions are divided by their interaction types into two major groups, quarks ($\quark$) and leptons ($\lepton$).
-Each of these groups contains six particles and their six corresponding antiparticle (12 entities total).
-These can also be categorized into three generations, which aligns particles with the same electric charges, but greatly differing masses.  
-For example, the up ($\up$), charm ($\charm$), and top ($\top$) quarks all have an electric charge of +2/3, but $\top$ is many orders of magnitude more massive than $\up$.
-In \ref{img_standard_model}, the rows indicate particles with the same electric charge, while the columns represent each generation of particles.
+At higher energy scales, the electromagnetic and weak forces unify into the electroweak force.
+In this theory, there are initially four massless gauge bosons mediating the interactions.
+Due to the Higgs mechanism, the initial gauge symmetry is broken at lower energies, and three of these bosons acquire a mass.
+These three bosons are the $\W^\pm$ and $\Z$, while the remaining massless boson is the $\photon$.
+The energies scales required for this unification were only present in the early universe.
+Before this, it is also believed there was an epoch of even higher energy, in which the electroweak force merged with the strong force.
 
 
-While all fermions interact both electromagnetically and weakly, only the quarks interact strongly.
-With the strong interaction potential being very high at large separations, quarks cannot exist as isolated particles.
-This behavior is known as confinement, and is why quarks are only found in nature as groups of particles called hadrons.
-The most common types of hadrons exist as quark-antiquark pairs, known as mesons, or as groups of three quarks (or antiquarks), known as baryons.
-There are, however, indications of more exotic combinations of quarks, such as tetra- ($\quark\quark\aquark\aquark$) or penta-quark ($\quark\quark\quark\quark\aquark$) states seen by recent experiments.
+\subsection{Strong Force}
+\label{ssec:strong}
+
+The strong force is responsible for binding together particles known as hadrons.
+The most prominent theory of strong interactions is known as Quantum Chromodynamics (QCD).
+Like the electromagnetic force, the mediator of the strong force is also a massless vector boson, the gluon.
+However, while massless particles typically correspond to an infinite interaction range, the strong potential becomes very large at higher separations.
+This prevents particles which interact through the strong force from existing as isolated entities, and is known as confinement.
+The typical interaction range is on the order of the proton radius, around \SI{e-15}{\m}.
+QCD provides additional challenges, however, as the coupling constant is not small ($\alphaQCD \gtrsim 1$).
+This excludes the use of perturbation theory for most cases, as the higher order terms do not converge.
 
 
 Strong interactions are associated with a corresponding conserved quantity known as color charge. 
-Each quark carries one of three values for color charge, red ($\cRed$), green ($\cGreen$), or blue ($\cBlue$).
-The possible colors for antiquarks are opposite of these values ($\acRed, \acGreen,$ and $\acBlue$).
-In order for quarks to form observable hadrons, the total values of their constituents must be colorless.
-The colorless combinations are $\cRed \acRed, \cGreen \acGreen, $ or $\cBlue \acBlue$ for mesons and $\cRed \cGreen \cBlue$ or $\acRed \acGreen \acBlue$ for baryons.
-As color charge is not observable in nature, the number of possible hadron combinations are effectively tripled, due to each quark having three possible values.
+There are three colors associated with this charge, red ($\cRed$), green ($\cGreen$), and blue ($\cBlue$).
+For anti-particles, there are oppositely charged values ($\acRed, \acGreen,$ and $\acBlue$).
+In order for hadrons to be formed, the total color values of the constituents must be colorless.
+This means the total sum must involve all three colors ($\cRed \cGreen \cBlue$ or $\acRed \acGreen \acBlue$) or pairs of opposite colors ($\cRed \acRed, \cGreen \acGreen, $ or $\cBlue \acBlue$).
+However, these individual colors are not observable in nature.
+This effectively triples the number of possible particle combinations, due to combinatorics.
 
 
-\subsection{Bosons}
-\label{ssec_bosons}
-
-For each of the three forces included in the Standard Model, there are accompanying gauge bosons.  
-These include the photon ($\photon$) for Electromagnetic force, the $\W$ and $\Z$ for the Weak force, and the gluon ($\gluon$) for the Strong force.
-There is also the Higgs boson ($\Higgs$), which unifies the Electromagnetic and Weak forces, and whose interactions with other particles is responsible for their mass.
-
-
-Both the photon and gluon are massless, while the $\W$ and $\Z$ have masses around 70 and 80 $\GeV$ respectively.
-This means the interaction ranges of the Electromagnetic and Strong forces are effectively infinite, while the Weak force is extremely short ranged.
-However, due to confinement, the strong interaction is generally limited to short distances in nature.
-This range is on the order of the proton radius, around $10^{-15}$ \m. 
-
-
-Each of the gauge bosons are a spin-1 vector boson, which means there are three available polarization states (-1, 0, +1).  
-However, since the photon and gluon are both massive, gauge invariance requires these to have transverse polarizations.
-This means the 0 state is eliminated, and there are only two polarization states for each.
-The Higgs boson is the only known fundamental spin-0 particle, which means it has only one polarization state.
-
- 
-Though they are both massless, the photon and gluon have another important distinction in their interactions.
-The photon, the mediator of the Electromagnetic force, has no electrical charge.
-In contrast, the gluon, the mediator of the Strong force, also carries a color charge.
+Unlike the photon, which is neutral to the electromagnetic force, the gluon also carries color charge.
 There are eight possible color combinations which a gluon may possess, which are typically expressed using the Gell-Mann representation of $\SUthree$.
 With this basis, each gluon is linearly independent, and no combination of gluons can be used to form a color singlet state.
 This inclusion of color by the force carrier makes QCD significantly more complex than QED.
 In fact, carrying color charge means gluons can also interact with each other directly, leading to certain theoretical states such as glueballs. 
 
 
+\subsection{Elementary Particles}
+
+There are two primary groups contained in the Standard Model, fermions and boson. 
+This division is based off the Spin Statistics theorem, where fermions have half-integer spins, and bosons have integer values.
+Because of these values, the Pauli Exclusion principle restricts fermions from occupying the same spatial state, and thus there are restrictions on their spatial density.
+Bosons, however, do not have this restriction, and can have any number occupying the same space.
+Thus, fermions are typically more tangible matter (such as electrons), while bosons typically represent the forces interacting between them (such as photons).
+
+% Standard Model Image
+
+\subsubsection{Fermions}
+\label{sssec:fermions}
+
+The fermions are divided by their interaction types into two major groups, quarks ($\quark$) and leptons ($\lepton$).
+Each of these groups contains six particles with their corresponding antiparticle.
+These can also be categorized into three generations, which aligns particles with the same electric charges, but greatly differing masses.  
+For example, the up ($\qup$), charm ($\qcharm$), and top ($\qtop$) quarks all have an electric charge of +2/3, but $\qtop$ is approximately five orders of magnitude more massive than $\qup$.
+In \ref{img:standard_model}, the rows indicate particles with the same electric charge, while the columns represent each generation of particles.
+
+
+Although all fermions interact both electromagnetically and weakly, only the quarks interact strongly.
+Because of confinement, quarks cannot exist as isolated particles, and are only found in nature as groups of particles called hadrons.
+The most common types of hadrons exist as quark-antiquark pairs, known as mesons, or as groups of three quarks (or antiquarks), known as baryons.
+There are, however, indications of more exotic combinations of quarks, such as tetra- ($\quark\quark\aquark\aquark$) or penta-quark ($\quark\quark\quark\quark\aquark$) states seen by recent experiments.
+
+
+While the negatively charged quarks ($\qdown, \qstrange$, and $\qbottom$) are labeled as definite states, each of the quarks are actually mixed states.
+Through weak interactions, each of these quarks can transform into other states.
+The probabilities for these transformations are given by the Cabibbo-Kobayashi-Maskawa (CKM) Matrix, shown in Fig. \ref{img:CKM_matrix}.
+Note that while the convention splits the negatively charged quarks into mixed states (leaving the positively charged quarks fixed), this choice has no physical basis.
+The reverse choice of having mixed positively charged quarks is also valid.
+
+% CKM Matrix Image / Table
+
+The leptons are also divided into two major distinctions based on their charge.
+The electron ($\lel$), muon ($\lmu$), and tau ($\ltau$) are all negatively charged particles.
+With the exception of mass, the interaction properties of each flavor is very similar.
+However, the three flavors themselves are treated as separate conserved quantities.
+There is also a neutral particle, a neutrino ($\neutrino$), corresponding to each one ($\vel, \vmu, \vtau$).
+These are very small mass ($< \SI{1}{\eV}$) particles with extremely low interactions.
+
+
+The original formulation of the Standard Model assumed these neutrinos to be massless particles.
+However, this was violated by the discovery of neutrino oscillations, where transformations occur between neutrino flavor states due to differences in their masses.
+Additionally, the flavor states, $\vel, \vmu$, and $\vtau$, are not the states observed in nature.
+Rather, the states with definite mass, labeled $\nu_1, \nu_2,$ and $\nu_3$, are linear combinations of the three flavor states.
+This can be expressed in a rotation of bases analogous to the CKM Matrix for quarks. 
+
+
+\subsubsection{Bosons}
+\label{sssec:bosons}
+
+For each of the three forces included in the Standard Model, there are accompanying gauge bosons.  
+These include the photon ($\photon$) for electromagnetic force, the $\W$ and $\Z$ for the weak force, and the gluon ($\gluon$) for the strong force.
+Each of the gauge bosons are a spin-1 vector boson, which means there are three available polarization states (-1, 0, +1).  
+However, since the photon and gluon are both massive, gauge invariance requires these to have transverse polarizations.
+This means the spin-0 state is eliminated, and there are only two polarization states for each.
+There is also the Higgs boson ($\Higgs$), which unifies the electromagnetic and weak forces, and whose interactions with other particles is responsible for their mass.
+This is the only known fundamental spin-0 particle, which means it has only one polarization state.
+
+
+Even with the amazing success of the Standard Model, the theory is not complete.  
+Along with neutrino oscillations, other effects, such as dark matter or dark energy, remain major hindrances in constructing a unified theory.
+Such a theory must also include gravity, but there remain significant difficulties in explaining its effects through a quantum field theory.
+There also remains no conclusive explanation for various constants, such as the masses of each fundamental particle.
+Still, the Standard Model remains the most precise description of the universe to date, and continues to provide the basis for future experimental and theoretical work.
+
+
 \section{Charmonium}
 
-\section{OZI Suppression}
+The majority of this analysis focuses on a specific group of particles known as Charmonium.
+These particles are resonances formed by a $\qcharm \aqcharm$ pair, and can be treated analogous to the hydrogen atom.
+Namely, there is a spectrum of various excited states in the Charmonium region, just as with the emission lines of hydrogen.
+The three states which are focused on include the $\jpsi, \psi'$, and $\psi''$.
+The ' and '' marks indicate these are the first and second excited states of the $\jpsi$, respectively.
+More commonly, the $\psi'$ is denoted as either $\apsip$ or $\psip$ and the $\psi''$ is denoted $\psipp$.
+The numbers in parentheses represent the mass of the particle in $\si{\MeV}$.
 
-\section{Cross Sections}
 
-\section{Breit-Wigner Formulation}
+An alternative label for these states uses the quantum numbers for each particle.
+This is written in the form $N^{2s+1}L_J$, where $N$ refers to the principal quantum number, $s$ refers to the total spin of the particle, $L$ refers to the angular momentum, and $J$ refers to the total angular momentum.
+Here, the values of $L$ are in spectroscopic notation, where $L = 1, 2, 3, 4 \ldots$ is denoted $S, P, D, F \ldots$, and higher values follow alphabetically (excluding $J$).
+As each of these states are comprised of two spin-$\half$ particles, the value of $s$ in this case can only be 0 (opposite) or 1 (aligned).
+With this, the $\jpsi, \apsip$, and $\psipp$ are typically denoted $1^3 S_1, \, 2^3 S_1$, and $1^3 D_1$.
+The values of $n$ and $L$ are used for the alternate notation in $\psip$, however the form of $\psi(1D)$ is not often used for $\psipp$.
+This is due to evidence of mixing between the $2^3 S_1$ and $1^3 D_1$ states that suggests more complicated underlying interactions.
+
+
+In fact, while the comparisons from this model work well for states less massive than the $\psipp$, the predictions made above this often break down.
+This is likely based on the energy required to produce open-charm $D$ mesons, such as $\Dp (\qcharm\aqup)$ and $\DO (\qcharm\aqdown)$.
+The $\DDbar$ threshold (twice the mass of the $\DO$) is just above the $\psip$ mass, and just slightly below the $\psipp$ mass.
+Therefore, the decay products of the two particles end up being drastically different, even while the available phase space is relatively similar.
+
+
+The difference is most clearly seen in the total decay widths, where the most recent experimental averages are $\Gpsip = \SI{286}{\keV}$ and $\Gpsipp = \SI{27.5}{\MeV}$.
+An explanation for this discrepancy was proposed independently in the 1960s by Okubo, Zweig, and Iizuka, and is named the OZI rule.
+Effectively, any Feynman Diagram where the initial and final particles are separated at some point by only gluons represents a suppressed decay.
+This behavior requires that the momentum transfer from the initial particles must occur entirely through these gluons.
+Because of the decreasing strength of the strong interaction with higher momentum transfer, the rate of these decays is thereby inhibited.
+This is further compounded by the need for three gluons in such an interaction, as one gluon could not conserve color charge, and two could not converse $\sC$-parity.
+Once above the $\DDbar$ threshold, the allowed open-charm decays dominate, and the total width is massively increased.
+Such dominance points to a high branching fraction expected for decays of the type $\psipptoDD$.
+
+% Open / Closed Charm Feynman Diagrams
+
+\section{$\psipptoDD$ Cross Section}
+
+The production rate for a pair of $D$ mesons coming from $\psipp$ at a given center-of-mass energy can be calculated following an approach of Kuraev and Fadin applied by the KEDR collaboration.
+This method also corrects for Initial State Radiation (ISR), affecting particles accelerated in a collider, and is given by the following:
+\beq
+\label{eq_xsec_rc}
+\sigma^{RC}_{\DDbar}(W) = \int z_{\DDbar}(W \sqrt{1-x}) \, \sigma_{\DDbar}(W \sqrt{1-x}) \, \mathcal{F}(x, W^2) \, dx.
+\eeq
+
+\noindent 
+Here, $W$ is the given center-of-mass energy, $x$ is an approximation for the fraction of radiated energy, and $\mathcal{F}(x, W^2)$ is the probability of losing this energy from ISR:
+\beq
+\label{eq_fancy_f}
+\begin{split}
+\mathcal{F}(x, W^2) &= \beta \, x^{\beta - 1} \left[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^2}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta + \beta^2 \left( \frac{37}{96} - \frac{\pi^2}{12} - \frac{L}{72} \right) \right] = \beta \, x^{\beta - 1} F(W^2), \\
+& \qquad \qquad \beta = \frac{2 \alpha}{\pi} (L - 1),
+\qquad L = \log \left( \frac{W^2}{m_e^2} \right).
+\end{split}
+\eeq
+
+\noindent
+The factor $z_{\DDbar}$ includes the expected Coulomb interaction between the mesons in of the charged mode ($\Dp \Dm$),
+\beq
+\label{eq_z_Dp}
+z_{\Dp \Dm} = \frac{\pi \alpha / \beta_{\Dp} }{ 1 - \text{exp} (-\pi \alpha / \beta_{\Dp} ) } \times \theta (W - 2 m_{\Dp} ),
+\eeq
+
+\noindent 
+but only accounts for the $\DDbar$ energy threshold in the neutral mode ($\DO \aDO$),
+\beq
+\label{eq_z_D0}
+z_{\DO \aDO} = \theta (W - 2 m_{\DO} ).
+\eeq
+
+\noindent
+The theta function imposes the step in the cross section at the production threshold.
+ 
+The integral in Eq. \ref{eq_xsec_rc} can be simplified by taking advantage of the relatively constant values of $z_{\DDbar}$ and $\sigma_{\DDbar}$ over sufficiently small intervals.
+By splitting the full $W$ range into such intervals and integrating over each, this becomes
+\beq
+\int \mathcal{F}(x, W^2)~dx \approx \sum\limits_{n=0}^N F(W^2) \int_{\tfrac{n}{N}}^{\tfrac{n+1}{N}} \beta x^{\beta-1}~dx = \sum\limits_n^N F(W^2) \left[ x_{\text{upper}}^\beta - x_{\text{lower}}^\beta \right].
+\eeq
+
+\noindent 
+The upper, lower, and mid-point values are given by
+\beq
+\label{eq_x_terms}
+x_i = \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right] \left( \frac{n_i}{ N } \right), \qquad n_i : \begin{cases} n_{\text{lower}} &= n \\ n_{\text{mid}} &= n + \tfrac{1}{2} \\ n_{\text{upper}} &= n + 1 \end{cases}.
+\eeq
+
+\noindent
+The bracketed expression in Eq. \ref{eq_x_terms} represents the maximum value of $x$ determined by the theta functions of Eqs. \ref{eq_z_Dp} and \ref{eq_z_D0}.
+To maintain sufficient precision with this interval approximation, the value of $N = 1024$ is used.
+Combining this with the other factors in Eq. \ref{eq_xsec_rc}, the cross section including the effect of ISR becomes
+\beq
+\label{eq_xsec_rc_simp}
+\sigma^{RC}_{\DDbar}(W) = \sum_{n = 0}^N z_{\DDbar}(W') \, \sigma_{\DDbar}(W') \, F(W^2) \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right]^\beta \left[ \frac{ [(n + 1)^\beta - n^\beta] }{ N^\beta } \right],
+\eeq
+where $W' = W \sqrt{1 - x_{\text{mid}}}$.
+The Born level $\DDbar$ cross section is given theoretically by
+\beq
+\label{eq_born_xsec}
+\sigma_{\DDbar} = \frac{ \pi \alpha^2 }{ 3 W^2 } \beta_D^3 |F_D(W)|^2, \qquad \beta_D = \sqrt{1 - \frac{ 4 m_D^2 }{ W^2 } }.
+\eeq
+
+\noindent
+Here, $\beta_D$ is the velocity of the $D$ meson in the center-of-mass system.
+The form factor $F_D$ represents the contribution of each individual resonant ($R$) component and the total non-resonant ($NR$) component.
+Each resonant piece is parametrized with a phase angle relative to the non-resonant contribution:
+\beq
+\label{eq_form_factor}
+F_D(W) = F_D^{\text{NR}}(W) + \sum_r F^{R_r}_D(W) \, e^{i \phi_r }.
+\eeq
+
+\noindent
+Each resonant contribution to the form factor is modeled by a Breit-Wigner amplitude,
+\beq
+\label{eq_breit_wigner}
+F^R_D(W) = \frac{ 6 \, W \sqrt{ (\Gamma_{ee} / \alpha^2 ) ( \Gamma_{\DDbar}(W) / \beta^3_D ) } }{ M^2 - W^2 - i M \Gamma(W) },
+\eeq
+
+\noindent 
+where $\Gamma_{ee}$ is the electron partial width, and $\Gamma(W)$ represents the total width of the resonance with mass $M$: 
+\beq\label{eq_Gamma}
+\Gamma(W) = \left( \frac{M}{W} \right) \left[ \frac{ z_{\DDbar}(W) \, d_{\DDbar}(W) }{ z_{\DO \aDO}(M) \, d_{\DO \aDO}(M) + z_{\Dp \Dm}(M) \, d_{\Dp \Dm}(M) } \right] \Gamma(M).
+\eeq
+
+\noindent
+The value of $\Gamma(M)$ represents the total width at the nominal mass of the resonance.
+The factors $d_{\Dp \Dm}$ and $d_{\DO \aDO}$ are the Blatt-Weisskopf damping factors for a vector resonance \cite{blatt:1952}:
+\beq
+\label{eq_blatt_weisskopf}
+d_{\DDbar} = \frac{ \rho_{\DDbar}^3 }{ \rho_{\DDbar}^2 + 1 }, \qquad \rho_{\DDbar} = q_D R_0 = \left( \frac{ \beta_D \, W }{ 2 } \right) R_0.
+\eeq
+
+\noindent
+Here, $q_D$ is the $D$ momentum in the center-of-mass frame, while $R_0$ represents the radius of the parent particle. 
+The $\DDbar$ partial width listed in Eq. \ref{eq_breit_wigner} is simply the total width rescaled according to $\BnDD$, the sum of all non-$\DDbar$ decay modes of $\psipp$:
+\beq
+\label{eq_Gamma_DDbar}
+\Gamma_{\DDbar}(W) = \Gamma(W) \times (1 - \BnDD).
+\eeq
+
