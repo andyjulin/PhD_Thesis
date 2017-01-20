@@ -9,11 +9,11 @@ The first BEPC and BES were originally constructed in 1989, while the upgrade to
 These two sites were closed in 2004 to prepare for the upgrades to the current systems.
 
 
-In 2009, BEPCII and BESIII began operation with the goal of utilizing greatly increased luminosity.
+In 2009, BEPCII and BESIII resumed operation with the goal of utilizing greatly increased luminosity.
 For example, instead of the single-bunch electron collisions of BEPC, the new design utilized multiple bunch collisions.
 BEPCII also utilizes a dual-storage ring for the electrons and positrons, compared to the single-ring available at BEPC.
 The improvements provide BEPCII with a design luminosity of \SI{e33}{\lumunits}, two orders of magnitude larger than the previous installation.
-This luminosity is optimized for energies just above the $\DDbar$ threshold, as BESIII conducts many precision measurements and rare decay searches around this region.
+This luminosity is optimized for energies near the $\psipp$ resonance, as BESIII conducts many precision measurements and rare decay searches around this region.
 
 
 \section{BEPCII Accelerator}
@@ -48,7 +48,7 @@ Recycling these leftover electrons and positrons saves considerable time, and al
 Centered around the interaction point of BEPCII, the BESIII detector records information about the particles produced by the resulting collisions.
 Each collision occurs within the beam-pipe of the detector, which is used to minimize multiple-scatterings and secondary interactions.
 Its inner and outer radii are \SIlist{31.5;57.0}{\mm}, and is pressurized to \SI{5e-10}{\torr}.
-Surrounding the entire apparatus is a uniform, \SI{1}{\tesla} magnetic field provided by a super-conducting solenoid with a mean radius of \SI{1.482}{\m} and a length of \SI{3.53}{\m}.
+Surrounding the entire apparatus is a uniform, \SI{1.0}{\tesla} magnetic field provided by a super-conducting solenoid with a mean radius of \SI{1.482}{\m} and a length of \SI{3.53}{\m}.
 The field points in the $z$-direction, which is along the direction of the $\alel$ beam.
 The $x$-direction points towards the center of the storage rings, while the $y$-direction is vertically upwards.
 This magnetic field is used to provide better precision on momenta measurements.
@@ -57,11 +57,11 @@ An appropriate field strength curves the tracks of charged particles sufficientl
 % BESIII Detector Image
 
 The BESIII detector is split into four main layers which analyze different aspects for identifying particles.
-Starting from the most interior, these layers are the Multi-Layer Drift Chamber (MDC), the Time-of-Flight System (ToF), the Electromagnetic Calorimeter (EMC), and the Muon Identifier (MU).
+Starting from the most interior, these layers are the Multi-Layer Drift Chamber (MDC), the Time-of-Flight System (ToF), the Electromagnetic Calorimeter (EMC), and the Muon Identifier (MUC).
 Using the information provided by each layer, the particles seen in the detector are given a hypothesis for their most likely candidate.
-Only particles stable enough to sufficiently traverse the detector are identifiable.
-These include electrons ($e$), muons ($\mu$), pions ($\pi$), kaons ($K$), and protons ($p$).
-Particles such as $\DO$ and $\Dp$ must be reconstructed from their decays into these constituents.
+Only charged particles stable enough to sufficiently traverse the detector are identifiable in this way.
+The candidate particles identified at BESIII are electrons ($e$), muons ($\mu$), pions ($\pi$), kaons ($K$), and protons ($p$).
+Short-lived particles, such as $\DO$ and $\Dp$, must be reconstructed from their decays into these constituents, as well as neutral shower energy from photons ($\photon$).
 
 
 \subsection{Multi-Layer Drift Chamber}
@@ -71,13 +71,22 @@ The purpose of the Multi-Layer Drift Chamber is to determine the momenta and tra
 Because of the magnetic field encasing the detector, charged particles will travel in helical trajectories.
 The direction of travel is used to determine their charge, while the curvature of the track is used to determine their momenta.
 
-The MDC comprised of many layers of tungsten and sense wires to detect the ionization of particles which pass through its gas-filled volume.
+
+The MDC is comprised of many layers of tungsten and sense wires to detect the ionization of particles which pass through its gas-filled volume.
 The tungsten wires create a constant electric field which causes ionized electrons to drift towards the sense wires.
 This field is tuned to a strength which minimizes secondary ionization.
 Conversely, the electric field near each of the sense wires is much larger than the rest of the volume.
 This forces an avalanche of secondary ionizations in order to create a current in the sense wires.
 The amount of energy deposited by this process is proportional to the original ionization levels.
 Tracing the path of energy depositions over time allows for the reconstruction of each charged particle trajectory.
+
+
+The main design of the MDC focuses on a multi-layer assortment of cells corresponding to the individual sense wires. 
+The inner and outer radii of the MDC are \SIlist{59;810}{\mm}, respectively.
+There are 43 layers of sense wires which cover $93\%$ of the $4\pi$ solid angle in the detector.
+This provides position resolutions of \SI{130}{\um} and \SI{2}{\mm} in the $r-\phi$ plane and beam direction, respectively, for each cell.
+The uncertainty in these measurements is dominated by electron diffusion and the readout time uncertainty for the electronics.
+For the transverse momentum, the resolution is about \SI{0.5}{\%} for tracks with momenta of \SI{1}{\GeV}, with uncertainties coming mainly from wire position measurements, and multiple scatterings from other material in the MDC.
 
 
 The gas used for ionization is a mixture of $60 \%$ helium (He) and $40 \%$ methane ($\text{C}_3\text{H}_8$).
@@ -89,14 +98,21 @@ Without this effect, the ionization energy would not be diffused, and would degr
 
 In addition to trajectory, the MDC also measures the rate of energy loss over distance for a particle traveling through a material, 
 \beq
--\frac{dE}{dx} = 4 \pi N \frac{z^2 e^4}{m_e \beta^2} \left[ \log \left( \frac{2 m_e \beta^2}{I (1 - \beta^2)} \right) - \beta^2 \right],
+-\dEdx = 4 \pi N \frac{z^2 e^4}{m_e \beta^2} \left[ \log \left( \frac{2 m_e \beta^2}{I (1 - \beta^2)} \right) - \beta^2 \right],
 \eeq
 where $N$ is the electron number density of the material, $z$ is the charge of the particle in terms of $e$, the charge of the electron, $m_e$ is the mass of the electron, $\beta$ is the velocity of the particle, and $I$ is the mean excitation potential for electrons in the material being traversed.
-This provides a method of distinguishing particle candidates, as this quantity depends on the velocity of the particle.
+The resolution of $\tdEdx$ is about \SI{6}{\%} for particles incident \ang{90} to the beam-axis.
+The uncertainty is due to fluctuations in the number of primary ionizations along the flight path, fluctuations in the avalanche process, as well as from edge effects on each cell.
 
+% Energy Deposition by Momentum Image
 
-There are 43 layers of sense wires within the MDC which cover $93\%$ of the $4\pi$ solid angle in the detector.
-These wires create a constant electric field 
+The energy deposition provides a method of distinguishing particle candidates, as this quantity depends on the velocity of the particle.
+To identify a particle from the various candidates, the measured energy deposition ($\tdEdx_{\text{meas}}$) is compared against the expected value ($\tdEdx_{\text{exp}}$) of each hit used to reconstruct the particle's trajectory ($i$):
+\beq
+\chi^2 = \sum\limits_i\chi_i^2 = \left( \frac{\tdEdx_{\text{meas}} - \tdEdx_{\text{exp}}}{\sigma} \right)_i^2,
+\eeq
+where $\sigma$ represents the uncertainty on the measured energy deposition.
+This process provides a separation of $3\sigma$ between $K$ and $\pi$ tracks with momenta up to \SI{770}{\MeV}.
 
 
 \subsection{Time-of-Flight System}
@@ -106,7 +122,7 @@ The purpose of the Time-of-Flight System is to determine the velocity of charged
 This is useful for distinguishing particles with similar momenta, but different masses.
 It uses information provided by the MDC to determine the probability for each charged track to match the possible particle hypotheses.
 Namely, this includes the measured momentum, the expected time interval based on its trajectory, and the mass for each particle hypothesis.
-This provides a separation of $3\sigma$ for $K / \pi$ particles with momenta up to \SI{900}{\MeV}.
+This process provides a separation of $3\sigma$ between $K$ and $\pi$ tracks with momenta up to \SI{900}{\MeV}.
 
 % p vs. m^2 Plot
 
@@ -147,21 +163,26 @@ It covers the regions $|\cos\theta| < 0.83$ (barrel) and $0.85 < |\cos\theta| < 
 The purpose of the Muon Identifier is to determine the likelihood of a charged particle being a muon.
 Since electrons are significantly lower mass, they deposit virtually all of their remaining energy in the EMC.
 Additionally, since muons do not interact strongly, they will penetrate notably further than will pions, kaons, or protons.
-This provides a clear indication of a muon when a particle traverses much of the MU layer.
+This provides a clear indication of a muon when a particle traverses much of the MUC layer.
 However, due to the magnetic field, only muons with $p > \SI{0.4}{\GeV}$ will be able to traverse deep enough to be identifiable.
 
 
-The MU is comprised of resistive plate counters (RPC) which are interspersed between the steel plates of the super-conducting solenoid.
-Like the other layers, it is split into a barrel and an endcap region.
-The barrel has a total thickness of \SI{41}{\cm} including nine RPC layers.
-In the endcap, the first RPC layer is after a \SI{4}{\cm} layer of steel, and thus, has only eight RPC layers.
+The MUC is comprised of resistive plate counters (RPC) which are interspersed between the steel plates of the super-conducting solenoid.
+Each of the steel layers generally increase in thickness working outwards from the center: \SI{3}{\cm}, \SI{3}{\cm}, \SI{3}{\cm}, \SI{4}{\cm}, \SI{4}{\cm}, \SI{8}{\cm}, \SI{8}{\cm}, \SI{8}{\cm}, and \SI{15}{\cm}.
+Like the other layers, the MUC is also split into a barrel and an endcap region.
+The barrel has nine RPC layers of \SI{4}{\cm} thickness.
+In the endcap, the first RPC layer is after the first steel layer, leaving only eight RPC layers.
+Each of these layers have RPC strips oriented along only one direction.
+For the barrel, the $z$ ($\phi$) orientation is read out for only the odd (even) layers.
+Conversely, the endcap only reads out the $x$ ($y$) orientation in the odd (even) layers.
 
 
 \section{Triggering Systems}
 \label{sec:triggering_systems}
 
 In order to maintain a high efficiency for selecting physics events, many backgrounds must be filtered out.
-At BESIII, this is done through a triggering system with two-tiers, level 1 (L1) and level 3 (L3), illustrated in Fig. \ref{fig_triggering}.
+At BESIII, this is done through a triggering system with two-tiers: a hardware trigger (L1) and a software event filter (L3).
+This process is illustrated in Fig. \ref{fig:triggering}.
 The filtered background events are primarily from beam-related sources, such as beam-gas or beam-wall interactions, and occur at a rate of about \SI{13}{\MHz}.
 To assist with this process, collimators and masks are used to prevent lost electrons from interacting with the detector.
 However, there are also other sources of backgrounds, such as cosmic rays, which occur at a rate of about \SI{1.5}{\kHz}.
@@ -171,28 +192,28 @@ For Bhabha events ($\bhabha$), which are used for calibration and luminosity mea
 
 % Figure for Triggering Process
 
-The first triggering step (L1) reads out every clock cycle (\SI{24}{\ns}) at a rate of \SI{41.65}{\MHz}.
+The first step (L1) reads out every clock cycle (\SI{24}{\ns}) at a rate of \SI{41.65}{\MHz}.
 It uses information from the MDC, ToF, and EMC collectively to reduce the rates of beam-related backgrounds to \SI{1.84}{\kHz} and cosmic rays to about \SI{200}{\Hz}.
-However, the L1 has a maximum rate of about \SI{4}{\kHz}.
-Because of this, when the buffer holding the subdetector data is around \SI{80}{\%} full, L1 triggers are halted until the buffer drops below \SI{~10}{\%} full.
-The efficiency of the L1 process is summarized in Table \ref{tab_L1}.
+However, L1 has a maximum rate of about \SI{4}{\kHz}.
+Because of this, when the buffer holding the subdetector data is around \SI{80}{\%} full, L1 triggering is halted until the buffer drops below \SI{~10}{\%} full.
+The efficiency of the L1 process is summarized in Table \ref{tab:L1}.
 
 % Table for L1 efficiencies
 
-From the MDC, the L1 gathers information about each charged track.
+From the MDC, L1 gathers information about each charged track.
 The main parameter examined is the number of superlayers a track passed through.
 These are defined as `short' tracks if they deposit energy in segments of superlayers 3-5, or `long' tracks for superlayers 3-5 and 10.
-To ensure a sufficient momentum to reach the outer superlayers while originating the interaction point, a minimum transverse momentum cut is applied to each track.
+To ensure a sufficient momentum to reach the outer superlayers while originating at the interaction point, a minimum transverse momentum cut is applied to each track.
 This cut is \SI{90}{\MeV} and \SI{120}{\MeV} for short and long tracks, respectively.
 In addition to the numbers of short and long tracks for an event, the information about back-to-back tracks is also used.
 
 
-From the ToF, the L1 gathers information about the number of hits in the barrel and end-cap regions.
+From the ToF, L1 gathers information about the number of hits in the barrel and end-cap regions.
 It also examines the number of back-to-back hits in each of the two regions.
 Here, `back-to-back' is defined as having hits within a range of 9 counters on the opposite side of the detector.
 
 
-From the EMC, the L1 gathers information about the clustering of energies around a local maximum-energy crystal.
+From the EMC, L1 gathers information about the clustering of energies around a local maximum-energy crystal.
 This includes the number of isolated clusters, as well as the information about back-to-back hits in the barrel and end-cap.
 Additionally, the balance of energy in the $\phi$-direction (barrel) and in the $z$-direction (endcap) is also used.
 

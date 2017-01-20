@@ -19,6 +19,8 @@
 \usepackage{hyperref}  % Add clickable links to other parts of the document
 \usepackage[noabbrev]{cleveref} % Automatically determine \cref type
 
+\usepackage{dcolumn}
+% \newcolumntype{d}[1]{D{.}{X}{#1} }
 % Configure the siunitx package
 \sisetup{
     group-separator = {,}, % Use , to separate groups of digits, like 12,345
@@ -41,8 +43,7 @@
     sections/main/02_theory,
     sections/main/03_detector,
     sections/main/04_software,
-    sections/main/05_analysis,
-    sections/main/06_cross_section,
+    sections/main/05_cross_section,
     sections/appendix/A1_glossary,
 }
 
@@ -61,8 +62,7 @@
 \include{sections/main/02_theory}
 \include{sections/main/03_detector}
 \include{sections/main/04_software}
-\include{sections/main/05_analysis}
-\include{sections/main/06_cross_section}
+\include{sections/main/05_cross_section}
 %
 %% Analysis Chapters
 %\include{chapters/data_set}

@@ -1,18 +1,274 @@
 \chapter{Analysis Software}
-\label{ch_software}
+\label{ch:software}
 
-\section{Simulation}
+\section{BESIII Offline Software System}
 
-\section{Monte Carlo Generators}
+Reconstructing and processing event data gathered by the BESIII detector is done using the BESIII Offline Software System (BOSS).
+This is an analysis software distribution written using the C++ language and running primarily on the Scientific Linux CERN operating system.
+There are five main parts to BOSS: framework, simulation, reconstruction, calibration, and analysis.
 
-\section{Reconstruction}
+
+\subsection{Framework}
+
+The framework is built on the Gaudi software architecture, which provides a standard interface and utilities for things such as event simulation, data processing, and physics analysis.
+The software is managed using the Configuration Management Tool, which provides a method for creating packages, handling package dependencies, and producing executables from source code.
+There are three main filetypes for data stored by the framework: raw data ($\texttt{.raw}$), reconstructed data ($\texttt{.rec}$), and Data-Summary-Tape ($\texttt{.dst}$).
+The latter two of these file types are derived from the ROOT format ($\texttt{.root}$) for easy management and usage in various analyses.
+
+
+\subsection{Simulation}
+
+There are four main parts to the simulation process: event generation, detector description, particle tracking, and detector response.
+Event generation is primarily handled by the Monte Carlo (MC) generators KKMC, BesEvtGen, and Babayaga, which are described below.
+To model its geometry and materials, a unique description of the detector has been created using a format based on XML.
+This allows both simulation and reconstruction packages to appropriately model the behavior of events within the specific environment of BESIII.
+For particle tracking, interactions with detector materials are handled by GEANT4.
+Lastly, detector responses are modeled by the so-called `digitization code'.
+This takes into account each detector component, as well as readout electronics, and realistic situation such as noise or dead channels.
+There is also a simulation of the trigger systems implemented.
+
+
+\subsubsection{KKMC}
+
+Originally developed for the LEP and SLC colliders, KKMC is a generator used to model electroweak interactions.
+Namely, the processes generated are of the form $\ee \rightarrow \ffbar + (n)\photon$, where $\fermion = \{ \mu, \tau, \qup, \qdown, \qstrange, \qcharm, \qbottom \}$, and $(n)\photon$ represents any number of additional photons.
+These are modeled taking into account second-order sub-leading corrections, as well as initial-state radiation, and interference between initial- and final-state radiation.
+The effects of beam energy spread, typically on the order of \SI{1}{\MeV} near the $\psipp$, can also be included.
+
+
+After generation, the $\ffbar$ pair is decayed by models depending on the fermions involved.
+The TAUOLA library is used to decay $\tautau$ pairs, and takes into account spin-polarization effects.
+The PYTHIA model is used to hadronize final-state $\qqbar$ continuum production using the parton shower model.
+For resonances like the $\psipp$, the only action performed by KKMC is the generation of ISR.
+After this, the virtual photon produced is handed off to BesEvtGen.
+
+
+\subsubsection{BesEvtGen}
+
+Originally developed for the CLEO and BaBar collaborations, EvtGen is another widely used generator.
+It is the basis for BesEvtGen, which incorporates many different decay models into a single utility.
+Over 30 exclusive decay models are available in BesEvtGen, as well as the capability to incorporate user-created models.
+
+
+The decay process occurs sequentially using dynamic information from amplitude probabilities and forward / backward spin-density matrices.
+From this, final state radiation is handled by the PHOTOS model.
+To generate unknown decays of charmonium resonances, the LundCharm model is used, while other unknown hadronic decays are handled by PYTHIA.
+For radiative processes, such as radiative return to $\jpsi$ or $\psip$, the VECTORISR model is used.
+This occurs when one particle in the initial $\ee$ pair radiates a photon of high enough energy that only lower mass resonances can be produced from the reduced center-of-mass energy.
+When the radiation is less intense, the $\psipp$ resonance is directly produced through the combination of KKMC and BesEvtGen.
+
+
+\subsubsection{Babayaga}
+
+Production of QED processes is done using the Babayaga generator.
+This includes $\ee \rightarrow \{\ee, \mumu, \twophoton\}$.
+The results are of very high precision, with an estimated theoretical accuracy of \SI{0.1}{\%}.
+It also matches exact next-leading-order corrections from the parton shower algorithm.
+The high precision also helps determine the efficiencies and acceptances required to precisely measure the integrated luminosities of each data sample.
+
+% \v
+\subsection{Reconstruction}
+
+Reconstruction primarily involves information about specific types of particles from each of the four main detector layers.
+These sources of information are as follows:
+\begin{itemize}
+    \item a charged track finding algorithm and a Kalman-filter-based track-fitter
+    \item a particle identifying algorithm based on $\tdEdx$ and time-of-flight measurements
+    \item a shower- and cluster-finding algorithm for EMC energy and position 
+    \item a muon track finding algorithm
+\end{itemize}
+Further descriptions about each of these processes can be found in Sec. \ref{sec:detector_simulation}.
+Additionally, algorithms for determining the corresponding beam bunch crossing, as well as for secondary vertex and track refitting, are also utilized.
+
+
+\subsection{Calibration}
+
+To maintain consistent production and analysis of datasets, a centralized source of run-dependent information is maintained by BOSS.
+This includes algorithms which determine the calibration constants for each sub-detector, as well as a centralized database to store the results.
+Each of the calibration outputs are stored in a ROOT file along with other details such as the beam energy, luminosity, magnetic field information, trigger conditions, and hardware / software versions.
+While all of this information is stored by a central MySQL server at IHEP, databases for other institutions in BESIII regularly synchronize with this server to create a mirrored copy of these values.
+
+
+\subsection{Analysis}
+
+
+\section{Detector Simulation}
+\label{sec:detector_simulation}
+
+The following sections detail the simulation, calibration, and reconstruction processes for each layer.
+Each of these relies on a geometry description created using GEANT4.
+
 
 \subsection{Multi-Layer Drift Chamber}
 
+Simulating events in the MDC accounts for the axial layers and endplates, the stereo layers, and the stereo cells.
+The simulation also heavily relies on the calibration parameters to determine things such as wire efficiency and resolution as a function of drift distance for each wire, noise in each layer, and other misalignment issues.
+
+
+Calibration of the MDC uses $\jpsi \rightarrow \mumu$ events to determine position and $\tdEdx$ measurements.
+Using $\jpsi$ events allows for quickly obtaining sufficient statistics due to the very large production cross section at the peak.
+The information determined includes constants such as $x-t$ relations, timing, alignment, and absolute wire efficiency.
+Each of these values are stored in the database for each run.
+Additionally, turning off the magnetic field could allow for precise determination of wire positions.
+
+
+Reconstructing MDC events starts by finding axial track segments using raw hits.
+Each of these are found by searching for pre-calculated patterns.
+Next, these segments are linked to circular tracks by a circular fit using the least-squares method.
+Stereo segments are then added using an iterative helix fit.
+Lastly, additional hits which were possibly missed from the initial reconstruction are applied using a Kalman-filter process.
+This process also examines the tracks over multiple particle hypotheses.
+The reconstruction is remarkably efficient, with over \SI{98}{\%} of tracks with $p_T > \SI{150}{\MeV}$ being reconstructed, even amidst high backgrounds.
+From this, the charge, momentum, and trajectory can be determined for each track.
+
+
+In addition to tracking, the MDC also analyzes $\tdEdx$ for each particle.
+This calculates the energy deposition of each track as it passes through the chamber, and corrects the measured charge amplitudes to determine a probability for each particle hypothesis.
+Corrections applied account for things such as multiple scatterings, magnetic deflections, and ionization.
+This likelihood from $\tdEdx$ is used in conjunction with information from the ToF to identify the actual type of particle for each track.
+
+
 \subsection{Time-of-Flight System}
+
+Simulating events in the ToF accounts for the scintillator, wrapping materials, and photomultiplier tubes.
+The process converts the energy deposited in the scintillator into photons, then propagates the shape of a photon pulse (rather than individual photons) to the PMTs in order to generate an electronic signal.
+A discriminator is applied to each pulse to determine the analog-to-digital conversion (ADC) and time-to-digital conversion (TDC) outputs.
+The algorithm is tested using the results of beam tests, however, subsequently gathered data sets require updated tuning.
+A full simulation tracing each optical photon can also be used for further details on the timing measurement.
+
+
+Calibration of the ToF also uses $\jpsi$ decays to leptons to determine both timing and energy measurements.
+The information determined includes effective velocity, attenuation length, and muon energy loss.
+The status and performance of the ToF are also regularly monitored by a laser-fiberoptics pulsing system.
+
+
+Reconstructing ToF events starts by using tracks with trajectories extrapolated from the MDC.
+Each track is then matched with a particular ToF module; either the two layers of the barrel, or the single-layer endcap.
+The travel time for each hypothesis is then calculated using a weighted average of results from PMTs at both ends of the scintillator.
+Corrections are also applied to account for aspects like the effective light velocity in the scintillator and the light attenuation length.
+Measurements of $\tdEdx$ are obtained for both charged and neutral particles, and are added back into the EMC in order to improve the shower energy resolution.
+
 
 \subsection{Electromagnetic Calorimeter}
 
+Simulating events in the EMC accounts for the crystals, casing, silicon photodiodes, preamplifier boxes, cables, and the support system.
+For each of the crystals and photodiodes, hit information is recorded, and the deposited energy is summed.
+From this, photon statistics are computed, and the resulting photodiode response is converted into electronic signals.
+To obtain the waveform in the time domain, an inverse Laplace transform is applied.
+Then, a sampling and peak searching process is simulated to yield energy and time information.
+For each bin, Gaussian-type electronic noise is added, and the background is produced by summing over the waveforms.
+
+
+Calibration of the EMC uses Bhabha electrons with $E > \SI{1.55}{\GeV}$ for the high energy response, and $\piO \rightarrow \twophoton$ decays for the low energy response.
+The responses for individual crystals must be analyzed separately, due to their potential intrinsic variations.
+As a result, they are monitored frequently by a LED light pulser, and periodically recalibrated.
+Corrections due to temperature variations can also be applied.
+
+
+Reconstructing EMC events starts by converting the ADC value of each crystal into energy based on the calibration constants.
+After this, clusters in both the barrel and endcaps are formed by analyzing local maximum energy deposits, called seeds.
+A clustering algorithm then relates hits around these seeds and sums the values for a particular shower.
+The positions of each shower is then calculated using energy-weighted first moments.
+If multiple seeds are found in one cluster, a splitting algorithm is invoked to split the cluster into multiple showers.
+Additionally, matching energy deposits from the ToF are also added back into the total shower energy.
+This improves the energy resolution, particularly for low energy photons.
+
+
 \subsection{Muon Identifier}
 
-\section{Database}
+Simulating events in the MUC accounts for forming each RPC, creating sets of strips to form each read-out plane, combining each of these with aluminum boxes to form a muon counter module, and placing the modules alongside iron slabs.
+The digitization from the read-out planes is selected to fire based off the distance away of each track.
+Noise is simulated using Poisson distributions initially determined from measurements made during the construction of the chamber, and updated with the taking of actual data.
+
+
+Calibration of the MUC analyzes RPC detection efficiencies over a function of area.
+The cluster size and noise levels are also studied.
+
+
+Reconstructing MUC events starts by searching for collected hits in each of the barrel and endcap orientations.
+The two collections are then combined with reconstructed tracks from the MDC.
+Since low momentum muons may cause only a few layers to fire, a subsequent search is performed over unused hits based on the extrapolated trajectories of MDC tracks.
+The reconstruction process primarily analyzes the depth of the track in the MUC, the maximum number of hits in the layers fired by a track, and the matching between a MDC track with the MUC stand-alone track.
+These parameters, along with the track momentum and MDC exit angle, are input into an Artificial Neural Network in order to distinguish between hadron and muon tracks.
+The distinction process is quite effective, generally removing \SI{\sim96}{\%} of pions and keeping around \SI{\sim90}{\%} of muons.
+
+
+
+\section{$D$-Tagging}
+\label{sec:d_tagging}
+
+From the decay of the $\psipp$, the most commonly produced particles are $\DO\aDO$ or $\Dp\Dm$ pairs.
+Since the $\DDbar$ pairs produced are two-body decays, the energy available to each $D$ is half of the center-of-mass energy (in the center-of-mass reference frame).
+Each of these $D$ mesons then quickly decays to certain sets of particles.
+Reconstructing one of these decays requires assembling the right combination of such particles.
+From energy and momentum conservation, the total 4-momentum of the constituents must match the total energy of the $D$ meson.
+
+
+This reconstruction technique is known as `$D$-Tagging', and was pioneered by MARK-III.
+For our analysis, the particles analyzed in the detector include $\pi^\pm, K^\pm, \piO,$ and $\Ks$, and the decay modes used are shown in \Cref{tab:dtag_modes}.
+There are three $\DO$ modes and six $\Dp$ modes, where charge conjugation (converting all particles to their anti-particles) is implied throughout the analysis.
+The modes used are chosen for their effectiveness of reconstruction in the detector; they generally have higher branching fractions and minimize multiplicity (the number of tracks used).
+Additionally, for the neutral modes, the doubly-Cabbibo suppressed decays (DCS) (such as $\DO \rightarrow \Kp \; \pim$) are also included by this procedure.
+
+\begin{table}[h]
+    \centering
+    \begin{tabular}{l|l l}
+        \hline
+        (0) $\DOmodeA$ & (200) $\DpmodeA$ & (203) $\DpmodeD$ \\
+        (1) $\DOmodeB$ & (201) $\DpmodeB$ & (204) $\DpmodeE$ \\
+        (3) $\DOmodeC$ & (202) $\DpmodeC$ & (205) $\DpmodeF$ \\
+        \hline
+    \end{tabular}
+    \caption{The reconstructed $D$-tag modes used in this analysis.}
+    \label{tab:dtag_modes}
+\end{table}
+
+This process occurs for each event by examining each decay mode over each charm (i.e., both $\Dp$ and $\Dm$).
+The combinations chosen for reconstruction are those with the smallest energy difference from the expected value.
+More than one $D$ combination can be extracted from a given event, as long as it satisfies all other requirements (see \Cref{ssec:selection_cuts,ssec:tagging_cuts}).
+While this may sound like it overestimates the number of actual $D$ particles found, the process is also used to calculate reconstruction efficiency, and will cancel out this effect.
+
+
+\subsection{Selection Cuts}
+\label{ssec:selection_cuts}
+
+Before being considered as potential reconstruction candidates, each track in the detector must also pass other cuts specific to its identified particle type.
+The following describes the necessary criteria required for the particles in the decay modes we are using.
+
+\subsubsection{$\pi^\pm / K^\pm$ Selection}
+
+Each of the reconstructed charged tracks must pass vertex cuts in both the transverse ($x-y$) and beam ($z$) directions.relative to the interaction point.
+This requires tracks originate sufficiently close to the interaction point to ensure they are not other backgrounds, such as cosmic rays, or other tracks which have decayed in flight.
+There is also a cut on the angle measured within the MDC ($\theta$) to ensure the track has not disappeared down the beam-line (where detection cannot occur).
+Lastly, from the particle identification process, the probability of being a pion (kaon) must be more likely than being a kaon (pion).
+The values for each of these requirements can be found in \Cref{tab:kpi_cuts}.
+
+\begin{table}
+    \centering
+    \begin{tabular}{c| D{<}{\; < \;}{-1} }
+        \hline
+        Vertex ($xy$) & V_{xy} < \pp \SI{1}{\cm} \\
+        Vertex ($z$)  & |Vz|   < \SI{10}{\cm} \\
+        Angle         & |\cos\theta| < 0.93 \\
+        Pion Probability & \multicolumn{1}{c}{ $\pp P(\pi) > 0, \quad P(\pi) > P(K)$ } \\
+        Kaon Probability & \multicolumn{1}{c}{ $P(K)   > 0, \quad P(K) > P(\pi)$ } \\
+        \hline
+    \end{tabular}
+    \caption{The required cuts to identify charged tracks as $\pi^\pm$ or $K^\pm$.}
+    \label{tab:kpi_cuts}
+\end{table}
+
+\subsubsection{$\Ks$ Selection}
+
+\subsubsection{$\photon$ Selection}
+
+\subsubsection{$\piO$ Selection}
+
+
+\subsection{Tagging Cuts}
+\label{ssec:tagging_cuts}
+
+\beq
+\DeltaE = |\Ebeam - E_{\text{DTag}}|.
+\eeq
+

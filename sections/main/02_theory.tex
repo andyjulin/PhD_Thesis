@@ -184,19 +184,19 @@ Such dominance points to a high branching fraction expected for decays of the ty
 
 % Open / Closed Charm Feynman Diagrams
 
-\section{$\psipptoDD$ Cross Section}
+\section{Derivation of $\sigma_{\psipptoDD}$}
 
 The production rate for a pair of $D$ mesons coming from $\psipp$ at a given center-of-mass energy can be calculated following an approach of Kuraev and Fadin applied by the KEDR collaboration.
 This method also corrects for Initial State Radiation (ISR), affecting particles accelerated in a collider, and is given by the following:
 \beq
-\label{eq_xsec_rc}
+\label{eq:xsec_rc}
 \sigma^{RC}_{\DDbar}(W) = \int z_{\DDbar}(W \sqrt{1-x}) \, \sigma_{\DDbar}(W \sqrt{1-x}) \, \mathcal{F}(x, W^2) \, dx.
 \eeq
 
 \noindent 
 Here, $W$ is the given center-of-mass energy, $x$ is an approximation for the fraction of radiated energy, and $\mathcal{F}(x, W^2)$ is the probability of losing this energy from ISR:
 \beq
-\label{eq_fancy_f}
+\label{eq:fancy_f}
 \begin{split}
 \mathcal{F}(x, W^2) &= \beta \, x^{\beta - 1} \left[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^2}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta + \beta^2 \left( \frac{37}{96} - \frac{\pi^2}{12} - \frac{L}{72} \right) \right] = \beta \, x^{\beta - 1} F(W^2), \\
 & \qquad \qquad \beta = \frac{2 \alpha}{\pi} (L - 1),
@@ -207,21 +207,21 @@ Here, $W$ is the given center-of-mass energy, $x$ is an approximation for the fr
 \noindent
 The factor $z_{\DDbar}$ includes the expected Coulomb interaction between the mesons in of the charged mode ($\Dp \Dm$),
 \beq
-\label{eq_z_Dp}
+\label{eq:z_Dp}
 z_{\Dp \Dm} = \frac{\pi \alpha / \beta_{\Dp} }{ 1 - \text{exp} (-\pi \alpha / \beta_{\Dp} ) } \times \theta (W - 2 m_{\Dp} ),
 \eeq
 
 \noindent 
 but only accounts for the $\DDbar$ energy threshold in the neutral mode ($\DO \aDO$),
 \beq
-\label{eq_z_D0}
+\label{eq:z_D0}
 z_{\DO \aDO} = \theta (W - 2 m_{\DO} ).
 \eeq
 
 \noindent
 The theta function imposes the step in the cross section at the production threshold.
  
-The integral in Eq. \ref{eq_xsec_rc} can be simplified by taking advantage of the relatively constant values of $z_{\DDbar}$ and $\sigma_{\DDbar}$ over sufficiently small intervals.
+The integral in Eq. \ref{eq:xsec_rc} can be simplified by taking advantage of the relatively constant values of $z_{\DDbar}$ and $\sigma_{\DDbar}$ over sufficiently small intervals.
 By splitting the full $W$ range into such intervals and integrating over each, this becomes
 \beq
 \int \mathcal{F}(x, W^2)~dx \approx \sum\limits_{n=0}^N F(W^2) \int_{\tfrac{n}{N}}^{\tfrac{n+1}{N}} \beta x^{\beta-1}~dx = \sum\limits_n^N F(W^2) \left[ x_{\text{upper}}^\beta - x_{\text{lower}}^\beta \right].
@@ -230,22 +230,22 @@ By splitting the full $W$ range into such intervals and integrating over each, t
 \noindent 
 The upper, lower, and mid-point values are given by
 \beq
-\label{eq_x_terms}
+\label{eq:x_terms}
 x_i = \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right] \left( \frac{n_i}{ N } \right), \qquad n_i : \begin{cases} n_{\text{lower}} &= n \\ n_{\text{mid}} &= n + \tfrac{1}{2} \\ n_{\text{upper}} &= n + 1 \end{cases}.
 \eeq
 
 \noindent
-The bracketed expression in Eq. \ref{eq_x_terms} represents the maximum value of $x$ determined by the theta functions of Eqs. \ref{eq_z_Dp} and \ref{eq_z_D0}.
+The bracketed expression in Eq. \ref{eq:x_terms} represents the maximum value of $x$ determined by the theta functions of Eqs. \ref{eq:z_Dp} and \ref{eq:z_D0}.
 To maintain sufficient precision with this interval approximation, the value of $N = 1024$ is used.
-Combining this with the other factors in Eq. \ref{eq_xsec_rc}, the cross section including the effect of ISR becomes
+Combining this with the other factors in Eq. \ref{eq:xsec_rc}, the cross section including the effect of ISR becomes
 \beq
-\label{eq_xsec_rc_simp}
+\label{eq:xsec_rc_simp}
 \sigma^{RC}_{\DDbar}(W) = \sum_{n = 0}^N z_{\DDbar}(W') \, \sigma_{\DDbar}(W') \, F(W^2) \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right]^\beta \left[ \frac{ [(n + 1)^\beta - n^\beta] }{ N^\beta } \right],
 \eeq
 where $W' = W \sqrt{1 - x_{\text{mid}}}$.
 The Born level $\DDbar$ cross section is given theoretically by
 \beq
-\label{eq_born_xsec}
+\label{eq:born_xsec}
 \sigma_{\DDbar} = \frac{ \pi \alpha^2 }{ 3 W^2 } \beta_D^3 |F_D(W)|^2, \qquad \beta_D = \sqrt{1 - \frac{ 4 m_D^2 }{ W^2 } }.
 \eeq
 
@@ -254,20 +254,20 @@ Here, $\beta_D$ is the velocity of the $D$ meson in the center-of-mass system.
 The form factor $F_D$ represents the contribution of each individual resonant ($R$) component and the total non-resonant ($NR$) component.
 Each resonant piece is parametrized with a phase angle relative to the non-resonant contribution:
 \beq
-\label{eq_form_factor}
+\label{eq:form_factor}
 F_D(W) = F_D^{\text{NR}}(W) + \sum_r F^{R_r}_D(W) \, e^{i \phi_r }.
 \eeq
 
 \noindent
 Each resonant contribution to the form factor is modeled by a Breit-Wigner amplitude,
 \beq
-\label{eq_breit_wigner}
+\label{eq:breit_wigner}
 F^R_D(W) = \frac{ 6 \, W \sqrt{ (\Gamma_{ee} / \alpha^2 ) ( \Gamma_{\DDbar}(W) / \beta^3_D ) } }{ M^2 - W^2 - i M \Gamma(W) },
 \eeq
 
 \noindent 
 where $\Gamma_{ee}$ is the electron partial width, and $\Gamma(W)$ represents the total width of the resonance with mass $M$: 
-\beq\label{eq_Gamma}
+\beq\label{eq:Gamma}
 \Gamma(W) = \left( \frac{M}{W} \right) \left[ \frac{ z_{\DDbar}(W) \, d_{\DDbar}(W) }{ z_{\DO \aDO}(M) \, d_{\DO \aDO}(M) + z_{\Dp \Dm}(M) \, d_{\Dp \Dm}(M) } \right] \Gamma(M).
 \eeq
 
@@ -275,15 +275,15 @@ where $\Gamma_{ee}$ is the electron partial width, and $\Gamma(W)$ represents th
 The value of $\Gamma(M)$ represents the total width at the nominal mass of the resonance.
 The factors $d_{\Dp \Dm}$ and $d_{\DO \aDO}$ are the Blatt-Weisskopf damping factors for a vector resonance \cite{blatt:1952}:
 \beq
-\label{eq_blatt_weisskopf}
+\label{eq:blatt_weisskopf}
 d_{\DDbar} = \frac{ \rho_{\DDbar}^3 }{ \rho_{\DDbar}^2 + 1 }, \qquad \rho_{\DDbar} = q_D R_0 = \left( \frac{ \beta_D \, W }{ 2 } \right) R_0.
 \eeq
 
 \noindent
 Here, $q_D$ is the $D$ momentum in the center-of-mass frame, while $R_0$ represents the radius of the parent particle. 
-The $\DDbar$ partial width listed in Eq. \ref{eq_breit_wigner} is simply the total width rescaled according to $\BnDD$, the sum of all non-$\DDbar$ decay modes of $\psipp$:
+The $\DDbar$ partial width listed in Eq. \ref{eq:breit_wigner} is simply the total width rescaled according to $\BnDD$, the sum of all non-$\DDbar$ decay modes of $\psipp$:
 \beq
-\label{eq_Gamma_DDbar}
+\label{eq:Gamma_DDbar}
 \Gamma_{\DDbar}(W) = \Gamma(W) \times (1 - \BnDD).
 \eeq
 
