@@ -3,17 +3,17 @@
 
 \section{BESIII Offline Software System}
 
-Reconstructing and processing event data gathered by the BESIII detector is done using the BESIII Offline Software System (BOSS).
-This is an analysis software distribution written using the C++ language and running primarily on the Scientific Linux CERN operating system.
+Reconstructing and processing event data gathered by the BESIII detector is done using the BESIII Offline Software System (BOSS) \cite{ref:Li:2006}.
+This is an analysis software distribution written using the C++ language and running primarily on the Scientific Linux CERN operating system \cite{ref:SLC5}.
 There are five main parts to BOSS: framework, simulation, reconstruction, calibration, and analysis.
 
 
 \subsection{Framework}
 
-The framework is built on the Gaudi software architecture, which provides a standard interface and utilities for things such as event simulation, data processing, and physics analysis.
-The software is managed using the Configuration Management Tool, which provides a method for creating packages, handling package dependencies, and producing executables from source code.
+The framework is built on the Gaudi software architecture \cite{ref:Barrand:2001}, which provides a standard interface and utilities for things such as event simulation, data processing, and physics analysis.
+The software is managed using the Configuration Management Tool \cite{ref:Arnault:2000}, which provides a method for creating packages, handling package dependencies, and producing executables from source code.
 There are three main filetypes for data stored by the framework: raw data ($\texttt{.raw}$), reconstructed data ($\texttt{.rec}$), and Data-Summary-Tape ($\texttt{.dst}$).
-The latter two of these file types are derived from the ROOT format ($\texttt{.root}$) for easy management and usage in various analyses.
+The latter two of these file types are derived from the ROOT \cite{ref:ROOT} format ($\texttt{.root}$) for easy management and usage in various analyses.
 
 
 \subsection{Simulation}
@@ -22,7 +22,7 @@ There are four main parts to the simulation process: event generation, detector 
 Event generation is primarily handled by the Monte Carlo (MC) generators KKMC, BesEvtGen, and Babayaga, which are described below.
 To model its geometry and materials, a unique description of the detector has been created using a format based on XML.
 This allows both simulation and reconstruction packages to appropriately model the behavior of events within the specific environment of BESIII.
-For particle tracking, interactions with detector materials are handled by GEANT4.
+For particle tracking, interactions with detector materials are handled by GEANT4 \cite{ref:Agostinelli:2003}.
 Lastly, detector responses are modeled by the so-called `digitization code'.
 This takes into account each detector component, as well as readout electronics, and realistic situation such as noise or dead channels.
 There is also a simulation of the trigger systems implemented.
@@ -30,43 +30,42 @@ There is also a simulation of the trigger systems implemented.
 
 \subsubsection{KKMC}
 
-Originally developed for the LEP and SLC colliders, KKMC is a generator used to model electroweak interactions.
+Originally developed for the LEP and SLC colliders, KKMC \cite{ref:Jadach:2000} is a generator used to model electroweak interactions.
 Namely, the processes generated are of the form $\ee \rightarrow \ffbar + (n)\photon$, where $\fermion = \{ \mu, \tau, \qup, \qdown, \qstrange, \qcharm, \qbottom \}$, and $(n)\photon$ represents any number of additional photons.
 These are modeled taking into account second-order sub-leading corrections, as well as initial-state radiation, and interference between initial- and final-state radiation.
 The effects of beam energy spread, typically on the order of \SI{1}{\MeV} near the $\psipp$, can also be included.
 
 
 After generation, the $\ffbar$ pair is decayed by models depending on the fermions involved.
-The TAUOLA library is used to decay $\tautau$ pairs, and takes into account spin-polarization effects.
-The PYTHIA model is used to hadronize final-state $\qqbar$ continuum production using the parton shower model.
+The TAUOLA library \cite{ref:Jadach:1993} is used to decay $\tautau$ pairs, and takes into account spin-polarization effects.
+The PYTHIA model \cite{ref:PYTHIA} is used to hadronize final-state $\qqbar$ continuum production using the parton shower model.
 For resonances like the $\psipp$, the only action performed by KKMC is the generation of ISR.
 After this, the virtual photon produced is handed off to BesEvtGen.
 
 
 \subsubsection{BesEvtGen}
 
-Originally developed for the CLEO and BaBar collaborations, EvtGen is another widely used generator.
-It is the basis for BesEvtGen, which incorporates many different decay models into a single utility.
+Originally developed for the CLEO and BaBar collaborations, EvtGen \cite{ref:Lange:2001} is another widely used generator.
+It is the basis for BesEvtGen \cite{ref:Ping:2008}, which incorporates many different decay models into a single utility.
 Over 30 exclusive decay models are available in BesEvtGen, as well as the capability to incorporate user-created models.
 
 
 The decay process occurs sequentially using dynamic information from amplitude probabilities and forward / backward spin-density matrices.
-From this, final state radiation is handled by the PHOTOS model.
-To generate unknown decays of charmonium resonances, the LundCharm model is used, while other unknown hadronic decays are handled by PYTHIA.
-For radiative processes, such as radiative return to $\jpsi$ or $\psip$, the VECTORISR model is used.
+From this, final state radiation is handled by the PHOTOS model \cite{ref:Barberio:1991}.
+To generate unknown decays of charmonium resonances, the LundCharm model \cite{ref:Chen:2000} is used, while other unknown hadronic decays are handled by PYTHIA.
+For radiative processes, such as radiative return to $\jpsi$ or $\psip$, the VECTORISR model \cite{ref:Bonneau:1971} is used.
 This occurs when one particle in the initial $\ee$ pair radiates a photon of high enough energy that only lower mass resonances can be produced from the reduced center-of-mass energy.
 When the radiation is less intense, the $\psipp$ resonance is directly produced through the combination of KKMC and BesEvtGen.
 
 
 \subsubsection{Babayaga}
 
-Production of QED processes is done using the Babayaga generator.
+Production of QED processes is done using the Babayaga generator \cite{ref:Carloni:2004}.
 This includes $\ee \rightarrow \{\ee, \mumu, \twophoton\}$.
 The results are of very high precision, with an estimated theoretical accuracy of \SI{0.1}{\%}.
 It also matches exact next-leading-order corrections from the parton shower algorithm.
 The high precision also helps determine the efficiencies and acceptances required to precisely measure the integrated luminosities of each data sample.
 
-% \v
 \subsection{Reconstruction}
 
 Reconstruction primarily involves information about specific types of particles from each of the four main detector layers.
@@ -86,7 +85,7 @@ Additionally, algorithms for determining the corresponding beam bunch crossing, 
 To maintain consistent production and analysis of datasets, a centralized source of run-dependent information is maintained by BOSS.
 This includes algorithms which determine the calibration constants for each sub-detector, as well as a centralized database to store the results.
 Each of the calibration outputs are stored in a ROOT file along with other details such as the beam energy, luminosity, magnetic field information, trigger conditions, and hardware / software versions.
-While all of this information is stored by a central MySQL server at IHEP, databases for other institutions in BESIII regularly synchronize with this server to create a mirrored copy of these values.
+While all of this information is stored by a central MySQL \cite{ref:MySQL} server at IHEP, databases for other institutions in BESIII regularly synchronize with this server to create a mirrored copy of these values.
 
 
 \subsection{Analysis}
@@ -204,7 +203,7 @@ Reconstructing one of these decays requires assembling the right combination of 
 From energy and momentum conservation, the total 4-momentum of the constituents must match the total energy of the $D$ meson.
 
 
-This reconstruction technique is known as `$D$-Tagging', and was pioneered by MARK-III.
+This reconstruction technique is known as `$D$-Tagging', and was pioneered by the MARK-III collaboration \cite{ref:Baltrusaitis:1986,ref:Adler:1988}.
 For our analysis, the particles analyzed in the detector include $\pi^\pm, K^\pm, \piO,$ and $\Ks$, and the decay modes used are shown in \Cref{tab:dtag_modes}.
 There are three $\DO$ modes and six $\Dp$ modes, where charge conjugation (converting all particles to their anti-particles) is implied throughout the analysis.
 The modes used are chosen for their effectiveness of reconstruction in the detector; they generally have higher branching fractions and minimize multiplicity (the number of tracks used).
