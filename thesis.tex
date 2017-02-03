@@ -11,6 +11,9 @@
 \usepackage{bigstrut}  % Space struts in tables up and down
 \usepackage{amssymb}   % AMS math symbols and helpers
 \usepackage{graphicx}  % Enhanced graphics support
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{float}
 \usepackage{setspace}  % Adjust spacing in captions, single by default
 \usepackage{xspace}    % Automatically adjusting space after macros
 \usepackage{amsmath}   % \text, and other math formatting options
@@ -46,7 +49,10 @@
     sections/main/03_detector,
     sections/main/04_software,
     sections/main/05_cross_section,
+    sections/main/06_non_DDbar,
     sections/appendix/A1_glossary,
+    sections/appendix/A2_D0_signal_fits,
+    sections/appendix/A3_Dp_signal_fits,
 }
 
 \begin{document}
@@ -60,16 +66,12 @@
 % Now lets include the body of the document...
 \include{sections/main/01_intro}
 
-%% Base Chapters
+% Main Chapters
 \include{sections/main/02_theory}
 \include{sections/main/03_detector}
 \include{sections/main/04_software}
 \include{sections/main/05_cross_section}
-%
-%% Analysis Chapters
-%\include{chapters/data_set}
-%\include{chapters/event_selection}
-%\include{chapters/analysis}
+\include{sections/main/06_non_DDbar}
 
 % Conclusion
 \include{sections/default/conclusion}
@@ -81,5 +83,7 @@
 % Appendices
 \appendix
 \include{sections/appendix/A1_glossary}
+\include{sections/appendix/A2_D0_signal_fits}
+\include{sections/appendix/A3_Dp_signal_fits}
 
 \end{document}

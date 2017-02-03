@@ -197,14 +197,14 @@ The distinction process is quite effective, generally removing \SI{\sim96}{\%} o
 \label{sec:d_tagging}
 
 From the decay of the $\psipp$, the most commonly produced particles are $\DO\aDO$ or $\Dp\Dm$ pairs.
-Since the $\DDbar$ pairs produced are two-body decays, the energy available to each $D$ is half of the center-of-mass energy (in the center-of-mass reference frame).
-Each of these $D$ mesons then quickly decays to certain sets of particles.
+Since the $\DDbar$ pairs produced are two-body decays, the energy available to each $\D$ is half of the center-of-mass energy (in the center-of-mass reference frame).
+Each of these $\D$ mesons then quickly decays to certain sets of particles.
 Reconstructing one of these decays requires assembling the right combination of such particles.
-From energy and momentum conservation, the total 4-momentum of the constituents must match the total energy of the $D$ meson.
+From energy and momentum conservation, the total 4-momentum of the constituents must match the total energy of the $\D$ meson.
 
 
-This reconstruction technique is known as `$D$-Tagging', and was pioneered by the MARK-III collaboration \cite{ref:Baltrusaitis:1986,ref:Adler:1988}.
-For our analysis, the particles analyzed in the detector include $\pi^\pm, K^\pm, \piO,$ and $\Ks$, and the decay modes used are shown in \Cref{tab:dtag_modes}.
+This reconstruction technique is known as `$\D$-Tagging', and was pioneered by the MARK-III collaboration \cite{ref:Baltrusaitis:1986,ref:Adler:1988}.
+For our analysis, the particles analyzed in the detector include $\pipm, \Kpm, \piO,$ and $\Ks$, and the decay modes used are shown in \Cref{tab:dtag_modes}.
 There are three $\DO$ modes and six $\Dp$ modes, where charge conjugation (converting all particles to their anti-particles) is implied throughout the analysis.
 The modes used are chosen for their effectiveness of reconstruction in the detector; they generally have higher branching fractions and minimize multiplicity (the number of tracks used).
 Additionally, for the neutral modes, the doubly-Cabbibo suppressed decays (DCSD), such as $\DO \rightarrow \Kp \; \pim$, are also included by this procedure.
@@ -218,14 +218,14 @@ Additionally, for the neutral modes, the doubly-Cabbibo suppressed decays (DCSD)
         (3) $\DOmodeC$ & (202) $\DpmodeC$ & (205) $\DpmodeF$ \\
         \hline
     \end{tabular}
-    \caption{The reconstructed $D$-tag modes used in this analysis.}
+    \caption{The reconstructed $\Dtag$ modes used in this analysis.}
     \label{tab:dtag_modes}
 \end{table}
 
 This process occurs for each event and searches over each decay mode for each charm (i.e., both $\Dp$ and $\Dm$).
 The combinations chosen for reconstruction are those with the smallest energy difference from the expected value.
-More than one $D$ combination can be extracted from a given event, as long as it satisfies all other requirements (see \Cref{ssec:selection_cuts}).
-While this may sound like it overestimates the number of actual $D$ particles found, the process is also used to calculate reconstruction efficiency, and will cancel out this effect.
+More than one $\D$ combination can be extracted from a given event, as long as it satisfies all other requirements (see \Cref{ssec:selection_cuts}).
+While this may sound like it overestimates the number of actual $\D$ particles found, the process is also used to calculate reconstruction efficiency, and will cancel out this effect.
 
 
 \subsection{Selection Cuts}
@@ -235,7 +235,7 @@ Before being considered as potential reconstruction candidates, each track in th
 The following describes the necessary criteria required for the particles in the decay modes we are using.
 
 
-\subsubsection{$\pi^\pm / K^\pm$ Selection}
+\subsubsection{$\pipm / \Kpm$ Selection}
 \label{sssec:kpi_selection}
 
 Each of the reconstructed charged tracks must pass vertex cuts in both the transverse ($x-y$) and beam ($z$) directions relative to the interaction point.
@@ -255,7 +255,7 @@ The values for each of these requirements can be found in \Cref{tab:kpi_cuts}.
         Kaon Probability & \multicolumn{1}{c}{ $P(K)   > 0, \quad P(K) > P(\pi)$ } \\
         \hline
     \end{tabular}
-    \caption{The required cuts to identify charged tracks as $\pi^\pm$ or $K^\pm$.}
+    \caption{The required cuts to identify charged tracks as $\pipm$ or $\Kpm$.}
     \label{tab:kpi_cuts}
 \end{table}
 
@@ -289,7 +289,7 @@ Reconstructing $\piO$ mesons involves finding $\twophoton$ pairs, as this is its
 Each of the $\photon$ showers used must pass the cuts described above. 
 Additionally, at least one photon in the pair must be found in the barrel region.
 Each of the two photons are then kinematically fit to compare with the invariant mass of the $\piO$, and must also pass a proper fit cut.
-The resulting momentum from this fit is used for reconstructing $D$-tag candidates.
+The resulting momentum from this fit is used for reconstructing $\Dtag$ candidates.
 The values used for each of these requirements are shown in \Cref{tab:pi0_cuts}.
 
 \begin{table}[h]
@@ -313,7 +313,7 @@ While $\piO\piO$ pairs are also a substantial decay mode (\SI{\sim30}{\%}), thes
 To account for the $\Ks$ decaying in flight, each of the charged pions considered are not subjected to the vertex or probability cuts in \Cref{tab:kpi_cuts}.
 Instead, the two found pions are kinematically constrained to a common vertex.
 The results must pass a nominal mass cut (\SI{\sim3}{\sigma}) and a proper fit cut to be deemed a $\Ks$.
-From this, the resulting momentum from the vertex fit is used for reconstructing $D$-tag candidates.
+From this, the resulting momentum from the vertex fit is used for reconstructing $\Dtag$ candidates.
 The values used for each of these requirements are shown in \Cref{tab:ks_cuts}.
 
 \begin{table}[h]
@@ -352,13 +352,12 @@ The values used for each of these requirements are shown in \Cref{tab:veto_cuts}
 \subsection{Reconstruction}
 \label{ssec:dtag_reconstruction}
 
-After each of the constituent particles are identified, a reconstructed $D$ candidate can be characterized by two main properties:
+After each of the constituent particles are identified, a reconstructed $\D$ candidate can be characterized by two main properties:
 \beq
 \DeltaE = |\Ebeam - \Etag|, \qquad \qquad \mbc = \sqrt{\Ebeam^2 - |\ptag|^2}.
 \eeq
-These are the energy difference ($\DeltaE$) and the beam-constrained mass ($\mbc$), and effectively represent the energy and momentum of the $D$-tag, respectively.
+These are the energy difference ($\DeltaE$) and the beam-constrained mass ($\mbc$), and effectively represent the energy and momentum of the $\Dtag$, respectively.
 As the candidate with the smallest $\DeltaE$ for each decay mode in each event is selected, the values will typically peak near \SI{0}{\MeV}.
 Distributions of $\mbc$, meanwhile, typically peak near $m_{\DO} = \SI{1.865}{\GeV}$ or $m_{\Dp} = \SI{1.870}{\GeV}$.
 Additionally, while invariant mass ($\minv = \sqrt{\Etag^2 - |\ptag|^2}$) can also be examined, $\mbc$ is generally preferred due to a higher precision for the beam energy than of the individual particles comprising the $D$ candidate.
-
 

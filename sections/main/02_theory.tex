@@ -28,7 +28,7 @@ This is possible due to a relatively small coupling constant ($\alphaQED \approx
 The weak force is responsible for the decays of various particles into other forms.
 This is distinct from the electromagnetic and strong interactions, where the constituent particles cannot change their types (or flavors).
 The mediators of this force are the $\W$ and $\Z$, which are massive vector bosons.
-Not only are each of these masses non-zero, they are considerably heavy particles at \SIlist{80.4;90.2}{\GeV}, respectively.
+Not only are each of these masses non-zero, they are considerably heavy particles at \SIlist{80.4;90.2}{\GeV}, respectively \cite{ref:Olive:2014}.
 These large masses not only inhibit the interaction distance of the weak force, but also minimize the interaction strength (which is inversely proportion to mass).
 Furthermore, this mass excess also leads to much slower interaction times, further reducing the effects of the weak force in comparison to the strong and electromagnetic forces.
 
@@ -174,7 +174,7 @@ The $\DDbar$ threshold (twice the mass of the $\DO$) is just above the $\psip$ m
 Therefore, the decay products of the two particles end up being drastically different, even while the available phase space is relatively similar.
 
 
-The difference is most clearly seen in the total decay widths, where the most recent experimental averages are $\Gpsip = \SI{286}{\keV}$ and $\Gpsipp = \SI{27.5}{\MeV}$ \cite{ref:Olive:2014}.
+The difference is most clearly seen in the total decay widths, where the most recent experimental averages \cite{ref:Olive:2014} are $\Gpsip = \SI{286}{\keV}$ and $\Gpsipp = \SI{27.5}{\MeV}$.
 An explanation for this discrepancy was proposed independently in the 1960s by Okubo \cite{ref:Okubo:1963}, Zweig \cite{ref:Zweig:1964}, and Iizuka \cite{ref:Iizuka:1966}, and is named the OZI rule.
 Effectively, any Feynman Diagram where the initial and final particles are separated at some point by only gluons represents a suppressed decay.
 This behavior requires that the momentum transfer from the initial particles must occur entirely through these gluons.
@@ -186,6 +186,7 @@ Such dominance points to a high branching fraction expected for decays of the ty
 % Open / Closed Charm Feynman Diagrams
 
 \section{Derivation of $\sigma_{\psipptoDD}$}
+\label{sec:xsec_derivation}
 
 The production rate for a pair of $D$ mesons coming from $\psipp$ at a given center-of-mass energy can be calculated following an approach of Kuraev and Fadin \cite{ref:Kuraev:1985} applied by the KEDR collaboration \cite{ref:Anashin:2012}.
 This method also corrects for Initial State Radiation (ISR), affecting particles accelerated in a collider, and is given by the following:
@@ -287,4 +288,6 @@ The $\DDbar$ partial width listed in Eq. \ref{eq:breit_wigner} is simply the tot
 \label{eq:Gamma_DDbar}
 \Gamma_{\DDbar}(W) = \Gamma(W) \times (1 - \BnDD).
 \eeq
+However, as a simplifying assumption, we use $\BnDD = 0$ throughout the analysis.
+
 
