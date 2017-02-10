@@ -15,11 +15,11 @@ Currently, there is no definitive model for the non-resonant term, so we use two
 The first is a simple exponential model:
 \beq
 \label{eq:exp_model}
-F_D^{NR} = F_{NR} \, \exp ( -q_D^2 / a_{NR}^2 ),
+F_D^{NR} = \FNR \, \exp ( -q_D^2 / \aNR^2 ),
 \eeq
 
 \noindent 
-where both $F_{NR}$ and $a_{NR}$ are parameters determined through fitting. 
+where both $\FNR$ and $\aNR$ are parameters determined through fitting. 
 The second treatment implements a Vector Dominance Model (VDM).
 This assumes the interference effects are due to the $\psip$ mediating $\DDbar$ production above threshold,
 \beq
@@ -616,8 +616,8 @@ Each of these contributions, as well as their total, can be found in \Cref{tab:s
 
 Each systematic is obtained by changing a specific aspect, and re-fitting to the altered values using the VDM method.
 The uncertainties for each parameter are obtained by taking the difference between this result and the nominal fit (\Cref{fig:vdm_results}).
-Generally, each change was done both positively and negatively, and the value used is the largest difference seen between the two changes.
-The contributing systematics are summarized below:
+Generally, each change was done both positively and negatively, and the values used are the largest differences seen between the two changes.
+The systematics examined in this analysis are summarized below, where a * denotes aspects which were deemed negligible.
 
 
 \subsection*{Luminosity}
@@ -647,12 +647,12 @@ A \SI{1.5}{\%} change was applied for each $\Ks$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 
 
-\subsection*{Signal Shape}
-\label{ssec:sys_signal_shape}
+\subsection*{Single Tag Fitting}
+\label{ssec:sys_single_tag}
 
 A mode-dependent change was applied to $N$ in \Cref{eq:xsec_rc_data}.
-Differences in signal shapes were obtained by Derrick Toth after examining the use of single-Gaussian convolved signal shapes, and are shown in \Cref{tab:sys_signal_shape}. 
-The changes applied were obtained from the sums of the mode-dependent values averaged over their branching fractions.
+Differences from fitting were obtained by Derrick Toth after examining the use of single-Gaussian convolved signal shapes, and are shown in \Cref{tab:sys_single_tag}. 
+The changes applied were obtained from the sums of the mode-dependent values averaged over their efficiencies.
 
 
 \begin{table}[H]
@@ -666,7 +666,7 @@ $\DOmodeA$ & 0.27 \\
 $\DOmodeB$ & 0.10 \\
 $\DOmodeC$ & 0.47 \\
 \hline
-\multicolumn{2}{c}{$\DO$ Average: \SI{0.24}{\%}} \\
+\multicolumn{2}{c}{$\DO$ Average: \SI{0.25}{\%}} \\
 \hline
 $\DpmodeA$ & 0.20 \\
 $\DpmodeB$ & 0.00 \\
@@ -675,47 +675,123 @@ $\DpmodeD$ & 0.29 \\
 $\DpmodeE$ & 0.17 \\
 $\DpmodeF$ & 0.74 \\
 \hline
-\multicolumn{2}{c}{$\Dp$ Average: \SI{0.19}{\%}} \\
+\multicolumn{2}{c}{$\Dp$ Average: \SI{0.20}{\%}} \\
 \hline
 \end{tabular}
-\caption{Signal shape differences by mode.}
-{The total $\DO$ and $\Dp$ values are averaged over the branching fractions for each mode.}
-\label{tab:sys_signal_shape}
+\caption{Single-tag fitting differences by mode.}
+{The total $\DO$ and $\Dp$ values are averaged over the efficiencies for each mode.}
+\label{tab:sys_single_tag}
 \end{table}
 
-In generating the MC samples for this analysis, several used a modified form of KKMC which accounted for the line shape of the $\psipp$.
+
+\subsection*{KKMC Generation*}
+\label{ssec:sys_kkmc}
+
+In generating MC for this analysis, the $\DDbar$ samples used a modified form of KKMC which generates events based off an input Born cross-section shape for the $\psipp$.
 However, as this shape is also the final output of the procedure, only an estimation of the results can be used for generation.
-To assess the variation from the input shape, we compared the output fit parameters to those used in the generation process, and found very similar fit parameters.
-This process used the Exponential method, and can be found in Table \ref{tab:KKMC_parameters}.
-The numbers listed are from an earlier iteration of the MC than shown in Sec. \ref{sec:fitting}, but the consistency seen is representative of all iterations.
+To assess the variation from the input shape, we compared the output fit parameters to those used in the generation process.
+This process used the Exponential method, and the results are shown in \Cref{tab:KKMC_parameters}.
+The numbers listed are from an earlier iteration of the MC than shown in \Cref{sec:fitting}, but the consistency seen is representative of all iterations.
 Very little difference is seen in the primary fitting parameters of the $\psipp$.
 These similarities show the fit result values converging, even after only a single iteration.
+From this, we treat variations due to MC iteration as negligible.
 
 \begin{table}[h!]
-\begin{tabular}{c|cccccc}
-\hline 
- & $\Mpsipp$ [GeV] & $\Gpsipp$ [MeV] & $\GeepsipptoDD$ [eV] & $\Ppsipp$ & $\Gpsip$ [MeV] & $F_{0}$ \\ 
-\hline 
-Fit Results & 3.7814 $\pm$ 0.0003~& 24.839 $\pm$ 0.681~& 214.65 $\pm$ 11.10~& 3.6375 $\pm$ 0.0518~& 20.147 $\pm$ 1.765~& -1.5265 $\pm$ 0.5119 \\ 
-KKMC Input & 3.7815 $\pm$ 0.0003~& 24.887 $\pm$ 0.686~& 217.55 $\pm$ 11.18~& 3.6374 $\pm$ 0.0513~& 21.394 $\pm$ 1.866~& -1.6202 $\pm$ 0.5271 \\ 
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{l c|r@{ $\pm$ }l r@{ $\pm$ }l|c}
+\hline
+\multicolumn{2}{c}{Parameter} & \multicolumn{2}{c}{KKMC Input} & \multicolumn{2}{c}{Fit Results} & Difference \\
+\hline
+$\Mpsipp$       & [\si{\GeV}] &   3.7815 &  0.0003 &   3.7814 &  0.0003 & 0.0001 \\
+$\Gpsipp$       & [\si{\MeV}] &  24.887  &  0.686  &  24.839  &  0.681  & 0.048  \\
+$\GeepsipptoDD$ & [\si{\eV}]  & 217.55   & 11.18   & 214.65   & 11.10   & 2.90   \\
+$\Ppsipp$       &             &   3.6374 &  0.0513 &   3.6375 &  0.0518 & 0.0001 \\
+$\FNR$          &             &  21.394  &  1.866  &  20.147  &  1.765  & 0.992  \\
+$\aNR$          &             &  -1.6202 &  0.5271 &  -1.5265 &  0.5119 & 0.0937 \\
 \hline
 \end{tabular} 
-\caption{The parameters used to modify the KKMC lineshape of the $\psipp$ compared to the Exponential fit results.}
+\caption{Comparison of input and output fit parameters.}
+{The MC generation is done using the Exponential form factor model as an input Born cross section to generate $\DDbar$ events using KKMC.}
 \label{tab:KKMC_parameters}
 \end{table}
 
-We also considered an alternative MC simulation of the $\DDbar$ samples based on the ConExc generator in place of KKMC.
+
+\subsection*{ConExc Generation*}
+\label{ssec:sys_conexc}
+
+To compare to the MC samples generated by KKMC, we also generated alternative MC samples of $\DDbar$ using the ConExc generator.
 This process used an input Born level shape identical to that used in the final iteration produced with KKMC.
 Each of the background samples used (such as $\qqbar$ and $\tautau$) were the same as in the nominal procedure.
-The cross section results using the VDM model are shown in Fig. \ref{fig:ConExc}, and provide $\psipp$ fit parameters within the statistical errors of the nominal method, as seen in Fig. \ref{fig:vdm_results}.
-From this, we treat variations due to the MC generation as negligible.
+The cross section results using the VDM model are shown in \Cref{fig:ConExc}, and provide $\psipp$ fit parameters within the statistical errors of the nominal method, as seen in \Cref{fig:vdm_results}.
+From this, we treat variations due to the MC generator as negligible.
 
 \begin{figure}
 \centering
-\includegraphics[scale=0.45]{figures/plots/lineshape_vdm_ConExc.pdf}
-\caption{The Vector Dominance Model fit results for (left) $\DO$ and (right) $\Dp$.  The underlying MC shapes for the $\DDbar$ components were generated using ConExc instead of KKMC.}
+\includegraphics[scale=0.75]{figures/plots/lineshape_vdm_ConExc.pdf}
+\caption{The Vector Dominance Model fit results using ConExc.}
+{The results for $\DO$ are shown on the top and the results for $\Dp$ are shown on the bottom. The underlying MC shapes for the  $\DDbar$ components were generated with an alternative generator to compare to KKMC.}
 \label{fig:ConExc}
 \end{figure}
+
+
+
+\subsection*{Intermediate Resonances*}
+\label{ssec:sys_intermediate_resonances}
+
+In looking at the mode $\DpmodeA$, we also analyzed the contribution of intermediate resonances, like the $\rho^0$.
+Using the \SI{2.93}{\invfb} data sample of $\psipp$ events at $\Ecm = \SI{3.773}{\GeV}$, we split the signal region of this mode based on a \SI{1.0}{(\GeV)^2} cut in both the invariant masses of $K \pi$ and $\pi \pi$ separately.
+These cuts were chosen to separate the sample into distinctly different regions, as can be seen in \Cref{fig:Kpipi_mass}.
+Fitting the signal distributions for each of these subsamples, we found no statistically significant deviations in the measured yields.
+From this, we treat variations due to intermediate resonances as negligible.
+
+\begin{figure}[h]
+\centering
+\includegraphics[scale=0.5]{figures/plots/Kpi_vs_pipi_Ecm.pdf}
+\caption{The $K \pi$ vs. $\pi \pi$ invariant masses for the mode $\DpmodeA$ with the on-peak $\psipp$ sample.}
+\label{fig:Kpipi_mass}
+\end{figure}
+
+
+\subsection*{Form Factor}
+\label{ssec:sys_form_factor}
+
+In addition to the systematics described above, there is a significant source of uncertainty coming from the non-resonant form factor used.
+Each of the models examined, Exponential and VDM, provided quality fit results for the cross section shapes.
+From this, we conservatively assign an uncertainty based on the differences in fit parameters provided by these two methods.
+Following the example of KEDR, we treat this as separate from the systematics, and list it as a model uncertainty.
+
+
+
+
+
+
+
+
+
+\begin{table}[h]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|C{3cm}C{3cm}C{3cm}C{3cm}}
+\hline 
+Systematic & $\Mpsipp$ [\%] & $\Gpsipp$ [\%] & $\GeepsipptoDD$ [\%] & $\Ppsipp$ [\%] \\
+\hline 
+Luminosity                          & 0.000 & 0.008 & 0.998 & 0.020 \\
+$\Kpm / \pipm$ Tracking             & 0.000 & 0.008 & 3.472 & 0.058 \\
+$\piO$ Tracking                     & 0.000 & 0.008 & 1.712 & 0.045 \\
+$\Ks$ Tracking                      & 0.000 & 0.004 & 1.278 & 0.036 \\ 
+Single Tag Fits                     & 0.000 & 0.004 & 1.186 & 0.022 \\
+Meson Radii                         & 0.016 & 2.646 & 3.154 & 1.502 \\
+Non-Resonant Form Factor$^\dagger$  & 0.037 & 7.939 & 6.815 & 4.131 \\
+\hline
+Total [\%]                          & 0.016 & 2.646 & 5.383 & 1.505 \\
+Relative Stat. Error [$\sigma$]     & 3.000 & 1.026 & 1.114 & 1.030 \\
+\hline
+\multicolumn{5}{c}{$^\dagger$The Form Factor is treated as an uncertainty on the model, and is not included in the total systematic error.}
+\end{tabular} 
+\caption{Systematic uncertainties relative to the measured parameters of the $\psipp$.}
+\label{tab:systematics}
+\end{table}
 
 
 
