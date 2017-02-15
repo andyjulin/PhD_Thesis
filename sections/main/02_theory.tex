@@ -34,17 +34,17 @@ Furthermore, this mass excess also leads to much slower interaction times, furth
 
 
 In addition to transforming particle flavor, the weak force is also unique in its violation of various symmetries.
-The first discovery of symmetry violation came in 1957, when Wu and others discovered the weak force did not behave identically under parity ($\sP$) transformations (i.e., mirror reflection).
+The first discovery of symmetry violation came in 1957, when Wu and others \cite{ref:Wu:1957} discovered the weak force did not behave identically under parity ($\sP$) transformations (i.e., mirror reflection).
 To account for this, a new theory conserving a compound symmetry was proposed.
 This combined charge conjugation ($\sC$), the swapping of particles with their antiparticles, with parity to form $\sCP$ parity.
-However, in 1964, evidence of $\sCP$ violation was also discovered by Cronin and Fitch.
+However, in 1964, evidence of $\sCP$ violation was also discovered by Cronin and Fitch \cite{ref:Christenson:1964}.
 The resolution to this symmetry conservation involves yet a third symmetry, time reversal ($\sT$), in which time is replaced with its negative ($t \rightarrow -t$).
 While the weak force violates these symmetries individually, the application of all three ($\sCPT$) is conserved across all known processes.
 
 
 At higher energy scales, the electromagnetic and weak forces unify into the electroweak force.
 In this theory, there are initially four massless gauge bosons mediating the interactions.
-Due to the Higgs mechanism, the initial gauge symmetry is broken at lower energies, and three of these bosons acquire a mass.
+As a result of the Higgs mechanism, the initial gauge symmetry is broken at lower energies, and three of these bosons acquire a mass.
 These three bosons are the $\W^\pm$ and $\Z$, while the remaining massless boson is the $\photon$.
 The energies scales required for this unification were only present in the early universe.
 Before this, it is also believed there was an epoch of even higher energy, in which the electroweak force merged with the strong force.
@@ -87,7 +87,15 @@ Because of these values, the Pauli Exclusion principle restricts fermions from o
 Bosons, however, do not have this restriction, and can have any number occupying the same space.
 Thus, fermions are typically more tangible matter (such as electrons), while bosons typically represent the forces interacting between them (such as photons).
 
-% Standard Model Image
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.30]{figures/images/standard_model.png}
+\caption{The standard model of particle physics.}
+{It is comprised of two main groups: fermions, which includes the quarks and leptons, and bosons, which includes the gauge bosons and the Higgs boson. Image reproduced courtesy of \cite{ref:Wikimedia:2006}. }
+\label{fig:standard_model}
+\end{figure}
+
 
 \subsubsection{Fermions}
 \label{sssec:fermions}
@@ -95,23 +103,86 @@ Thus, fermions are typically more tangible matter (such as electrons), while bos
 The fermions are divided by their interaction types into two major groups, quarks ($\quark$) and leptons ($\lepton$).
 Each of these groups contains six particles with their corresponding antiparticle.
 These can also be categorized into three generations, which aligns particles with the same electric charges, but greatly differing masses.  
-For example, the up ($\qup$), charm ($\qcharm$), and top ($\qtop$) quarks all have an electric charge of +2/3, but $\qtop$ is approximately five orders of magnitude more massive than $\qup$.
-In \ref{img:standard_model}, the rows indicate particles with the same electric charge, while the columns represent each generation of particles.
+As an example, the up ($\qup$), charm ($\qcharm$), and top ($\qtop$) quarks all have an electric charge of +2/3, but $\qtop$ is approximately five orders of magnitude more massive than $\qup$.
+For the quarks and fermions in \Cref{fig:standard_model}, rows indicate particles with the same electric charge, while columns represent each generation of particles.
 
 
 Although all fermions interact both electromagnetically and weakly, only the quarks interact strongly.
 Because of confinement, quarks cannot exist as isolated particles, and are only found in nature as groups of particles called hadrons.
 The most common types of hadrons exist as quark-antiquark pairs, known as mesons, or as groups of three quarks (or antiquarks), known as baryons.
-There are, however, indications of more exotic combinations of quarks, such as tetra- ($\quark\quark\aquark\aquark$) or penta-quark ($\quark\quark\quark\quark\aquark$) states seen by recent experiments.
+There are, however, indications of more exotic combinations of quarks, such as tetra- ($\quark\quark\aquark\aquark$) or penta-quark ($\quark\quark\quark\quark\aquark$) states seen by recent experiments \cite{ref:Ablikim:2013,ref:Liu:2013,ref:Aaij:2015}.
 
 
 While the negatively charged quarks ($\qdown, \qstrange$, and $\qbottom$) are labeled as definite states, each of the quarks are actually mixed states.
 Through weak interactions, each of these quarks can transform into other states.
-The probabilities for these transformations are given by the Cabibbo-Kobayashi-Maskawa (CKM) Matrix, shown in Fig. \ref{img:CKM_matrix}.
-Note that while the convention splits the negatively charged quarks into mixed states (leaving the positively charged quarks fixed), this choice has no physical basis.
+The probabilities for these transformations are given by the Cabibbo-Kobayashi-Maskawa (CKM) Matrix \cite{ref:Kobayashi:1973}, shown in \Cref{fig:ckm_matrix}.
+From the experimentally measured values \cite{ref:Olive:2014}, is it evident the matrix is nearly diagonal.
+It is also clear that correlations are strongest for the earlier generations, as off-diagonal terms are larger for the $\qup$ quark, but very small for the $\qtop$ quark.
+Additionally, though the convention splits the negatively charged quarks into mixed states (leaving the positively charged quarks fixed), this choice has no physical basis.
 The reverse choice of having mixed positively charged quarks is also valid.
 
-% CKM Matrix Image / Table
+\begin{figure}[H]
+\centering
+$
+\begin{bmatrix}
+   |V_{ud}| & |V_{us}| & |V_{ub}| \\
+   |V_{cd}| & |V_{cs}| & |V_{cb}| \\
+   |V_{td}| & |V_{ts}| & |V_{tb}| \\
+\end{bmatrix}
+=
+\begin{bmatrix}
+    0.97427 \pm 0.00014 & 0.22536 \pm 0.00061 & 0.00355 \pm 0.00015 \\
+    0.22522 \pm 0.00061 & 0.97343 \pm 0.00015 & 0.0414  \pm 0.0012  \\
+    0.00886^{+0.00033}_{-0.00032} & 0.0405^{+0.0011}_{-0.0012} & 0.99914 \pm 0.00005 \\
+\end{bmatrix}
+$
+\caption{The Cabibbo-Kobayashi-Maskawa (CKM) Matrix.}
+\label{fig:ckm_matrix}
+\end{figure}
+
+The values of the CKM matrix are typically parameterized using three Euler angles ($\theta_{12}, \theta_{23}, \theta_{13}$) and a $\sCP$-violating phase parameter ($\delta_{13}$), where the indices represent the three generations of quarks.
+This formulation allows the matrix to be cast in the ``standard'' parametrization, shown in \Cref{fig:ckm_standard}.
+The form with three separated matrices clearly shows the connections between each generation of quarks.
+Namely, the third shows the original formulation in terms of a single rotation, the Cabbibo angle ($\theta_{12}$), before the discovery of the charm quark.
+This procedure was known as the Glashow-Iliopoulos-Maiani (GIM) mechanism [\cite{ref:Glashow:1970}.
+% Current measurements for the standard parameters are $\theta_{12} = \ang{13.04 \pm 0.05}, \; \theta_{13} = \ang{0.201 \pm 0.011}, \; \theta_{23} = \ang{2.38 \pm 0.06}$ and $\delta_{13} = \SI{1.20 \pm 0.08}{\rad}$.
+
+\begin{figure}[H]
+\centering
+$
+    \begin{bmatrix}
+        1 &  0      & 0      \\
+        0 &  c_{23} & s_{23} \\
+        0 & -s_{23} & c_{23} \\
+    \end{bmatrix}
+    \begin{bmatrix}
+         c_{13}                  & 0 & s_{13} e^{-i\delta_{13}}  \\
+         0                       & 1 & 0                         \\
+        -s_{13} e^{i\delta_{13}} & 0 & c_{13}                    \\
+    \end{bmatrix}
+    \begin{bmatrix}
+         c_{12} & s_{12} & 0 \\
+        -s_{12} & c_{12} & 0 \\
+         0      & 0      & 1 \\
+    \end{bmatrix}
+\linebreak
+=
+    \begin{bmatrix}
+          c_{12} c_{13} 
+       &  s_{12} c_{13}
+       &  s_{13} e^{-i\delta_{13}} \\
+         -s_{12} c_{23} - c_{12} s_{23} s_{13} e^{i\delta_{13}}
+       &  c_{12} c_{23} - s_{12} s_{23} s_{13} e^{i\delta_{13}}
+       &  s_{23} c_{13} \\
+          s_{12} s_{23} - c_{12} c_{23} s_{13} e^{i\delta_{13}}
+       & -c_{12} s_{23} - s_{12} c_{23} s_{13} e^{i\delta_{13}}
+       &  c_{23} c_{13} \\
+    \end{bmatrix}
+$
+\caption{The standard form of the Cabibbo-Kobayashi-Maskawa (CKM) Matrix.}
+    {The parameterization is in terms of three angles ($\theta_{12}, \theta_{23}, \theta_{13}$) and a phase angle ($\delta_{13}$). Here, $c_{ij} = \cos\theta_{ij}$ and $s_{ij} = \sin\theta_{ij}$.} 
+\label{fig:ckm_standard}
+\end{figure}
 
 The leptons are also divided into two major distinctions based on their charge.
 The electron ($\lel$), muon ($\lmu$), and tau ($\ltau$) are all negatively charged particles.
@@ -125,7 +196,8 @@ The original formulation of the Standard Model assumed these neutrinos to be mas
 However, this was violated by the discovery of neutrino oscillations, where transformations occur between neutrino flavor states due to differences in their masses.
 Additionally, the flavor states, $\vel, \vmu$, and $\vtau$, are not the states observed in nature.
 Rather, the states with definite mass, labeled $\nu_1, \nu_2,$ and $\nu_3$, are linear combinations of the three flavor states.
-This can be expressed in a rotation of bases analogous to the CKM Matrix for quarks. 
+This can be expressed in a rotation of bases called the Pontecorvo-Maki-Nakagawa-Sakata (PMNS) matrix \cite{ref:Pontecorvo:1957,ref:Maki:1962}.
+Its formulation is analogous to the CKM Matrix for quarks. 
 
 
 \subsubsection{Bosons}
@@ -159,7 +231,7 @@ The numbers in parentheses represent the mass of the particle in $\si{\MeV}$.
 
 
 An alternative label for these states uses the quantum numbers for each particle.
-This is written in the form $N^{2s+1}L_J$, where $N$ refers to the principal quantum number, $s$ refers to the total spin of the particle, $L$ refers to the angular momentum, and $J$ refers to the total angular momentum.
+This is written in the form $N^{2s+1}L_J$, where $N$ refers to the principal quantum number, $s$ refers to the total spin angular momentum of the particle, $L$ refers to the orbital angular momentum, and $J$ refers to the total angular momentum.
 Here, the values of $L$ are in spectroscopic notation, where $L = 1, 2, 3, 4 \ldots$ is denoted $S, P, D, F \ldots$, and higher values follow alphabetically (excluding $J$).
 As each of these states are comprised of two spin-$\half$ particles, the value of $s$ in this case can only be 0 (opposite) or 1 (aligned).
 With this, the $\jpsi, \apsip$, and $\psipp$ can be denoted $1^3 S_1, \, 2^3 S_1$, and $1^3 D_1$.
@@ -172,18 +244,35 @@ In fact, while the comparisons from this model work well for states less massive
 This is likely based on the energy required to produce open-charm $D$ mesons, such as $\Dp (\qcharm\aqup)$ and $\DO (\qcharm\aqdown)$.
 The $\DDbar$ threshold (twice the mass of the $\DO$) is just above the $\psip$ mass, and just slightly below the $\psipp$ mass.
 Therefore, the decay products of the two particles end up being drastically different, even while the available phase space is relatively similar.
+Example Feynman diagrams for these two particles can be seen in \Cref{fig:OZI_psip,fig:OZI_psipp}.
 
 
-The difference is most clearly seen in the total decay widths, where the most recent experimental averages \cite{ref:Olive:2014} are $\Gpsip = \SI{286}{\keV}$ and $\Gpsipp = \SI{27.5}{\MeV}$.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{figures/images/OZI_psip.png}
+\caption{An example Feynman diagram for the decay of $\apsip$.}
+{Without sufficient energy to produce $D$ mesons, the closed-charm decays of $\apsip$ are suppressed by the need for three gluons.}
+\label{fig:OZI_psip}
+\end{figure}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{figures/images/OZI_psipp.png}
+\caption{An example Feynman diagram for the decay of $\psipp$.}
+{With sufficient energy to produce $D$ mesons, the open-charm decays of $\psipp$ are allowed to proceed, greatly increasing the total decay width.}
+\label{fig:OZI_psipp}
+\end{figure}
+
+
+The difference is also clearly seen in the total decay widths, where the most recent experimental averages \cite{ref:Olive:2014} are $\Gpsip = \SI{286}{\keV}$ and $\Gpsipp = \SI{27.5}{\MeV}$.
 An explanation for this discrepancy was proposed independently in the 1960s by Okubo \cite{ref:Okubo:1963}, Zweig \cite{ref:Zweig:1964}, and Iizuka \cite{ref:Iizuka:1966}, and is named the OZI rule.
-Effectively, any Feynman Diagram where the initial and final particles are separated at some point by only gluons represents a suppressed decay.
-This behavior requires that the momentum transfer from the initial particles must occur entirely through these gluons.
+This states that any Feynman Diagram where the initial and final particles are separated at some point by only gluons represents a suppressed decay.
+Such behavior requires that the momentum transfer from the initial particles must occur entirely through these gluons.
 Because of the decreasing strength of the strong interaction with higher momentum transfer, the rate of these decays is thereby inhibited.
 This is further compounded by the need for three gluons in such an interaction, as one gluon could not conserve color charge, and two could not converse $\sC$-parity.
 Once above the $\DDbar$ threshold, the allowed open-charm decays dominate, and the total width is massively increased.
-Such dominance points to a high branching fraction expected for decays of the type $\psipptoDD$.
+This dominance points to a high branching fraction expected for decays of the type $\psipptoDD$.
 
-% Open / Closed Charm Feynman Diagrams
 
 \section{Derivation of $\sigma_{\psipptoDD}$}
 \label{sec:xsec_derivation}

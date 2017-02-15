@@ -5,7 +5,7 @@
 \section{Form Factors}
 \label{sec:form_factors}
 
-In Eq. \ref{eq:form_factor}, we assume the $\psip$ resonant contribution is negligible in the energy range of our measurements, so the only major resonant contribution is from the $\psipp$:
+In \Cref{eq:form_factor}, we assume the $\psip$ resonant contribution is negligible in the energy range of our measurements, so the only major resonant contribution is from the $\psipp$:
 \beq
 F_D(W) = F_D^{\text{NR}}(W) + F^{\psipp}_D(W) \, e^{i \phi^{\psipp} }.
 \eeq
@@ -30,7 +30,7 @@ F_D^{NR}(W) = F_D^{\psip}(W) + F_0,
 \noindent
 and that the effective properties of the $\psip$ are similar to those of the $\psipp$.
 The real constant $F_0$ represents the potential effect of higher resonances, like the $\psi(4040)$.
-The first term is similar to Eq. \ref{eq:breit_wigner}, but with a modification to the total width:
+The first term is similar to \Cref{eq:breit_wigner}, but with a modification to the total width:
 \beq
 \label{eq:Gamma_psip}
 \Gpsip(W) = \left( \frac{M^{\psip}}{W} \right) \left[ \frac{ z_{\DO \aDO}(W) \, d_{\DO \aDO}(W) + z_{\Dp \Dm}(W) \, d_{\Dp \Dm}(W) }{ z_{\DO \aDO}(M^{\psi''}) \, d_{\DO \aDO}(M^{\psi''}) + z_{\Dp \Dm}(M^{\psi''}) \, d_{\Dp \Dm}(M^{\psi''}) } \right] \Gpsip(M).
@@ -39,8 +39,8 @@ The first term is similar to Eq. \ref{eq:breit_wigner}, but with a modification 
 \noindent
 Without this modification, the mass of the $\psip$ would be below the $\DDbar$ threshold, and thus, the vanishing $z_{\DDbar}$ terms would cause a singularity in the width.
 Therefore, we use the mass of the $\psipp$ in its place to estimate the effects in this region.
-While it may behave like the total width in Eq. \ref{eq:Gamma_psip}, the true the physical meaning of the parameter $\Gpsip(W)$ is uncertain.
-For the radii in Eq. \ref{eq:blatt_weisskopf}, however, the values used are distinct for each meson: $R_{\psip} = \SI{0.75}{\fm}$ and $R_{\psipp} = \SI{1.00}{\fm}$.
+While it may behave like the total width in \Cref{eq:Gamma_psip}, the true the physical meaning of the parameter $\Gpsip(W)$ is uncertain.
+For the radii in \Cref{eq:blatt_weisskopf}, however, the values used are distinct for each meson: $R_{\psip} = \SI{0.75}{\fm}$ and $R_{\psipp} = \SI{1.00}{\fm}$.
 
 
 \section{Data and Monte Carlo Samples}
@@ -181,7 +181,7 @@ An example fit is shown in Fig. \ref{fig:example_fit}, while the complete set of
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75]{figures/plots/fit_results/D0_bin_15.pdf}
-\caption{An example 2D signal fit.}{The covers $\DO$ events in the region $\SI{3.773}{\GeV} < \Ecm \leq \SI{3.776}{\GeV}$.
+\caption{An example 2D ($\DeltaE$ vs. $\mbc$) signal fit.}{The covers $\DO$ events in the region $\SI{3.773}{\GeV} < \Ecm \leq \SI{3.776}{\GeV}$.
 The data points (black) are fitted by the total MC shape (blue), which is the sum of the signal (green) and background (red) components.}
 \label{fig:example_fit}
 \end{figure}
@@ -565,7 +565,7 @@ Results for the Exponential and VDM choices are shown in \Cref{fig:exp_results,f
 \label{fig:exp_results}
 \end{figure}
 
-\begin{figure}%[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_vdm.pdf}
 \caption{The Vector Dominance Model fit results.}
@@ -582,7 +582,7 @@ Namely, including the Coulomb effect pulls the $\DO \aDO$ and $\Dp \Dm$ cross se
 We found the best fits were achieved by altering \Cref{eq:z_Dp} to set the Coulomb factor to 1.
 While this disagrees with conventional theoretical wisdom, it is consistent with studies of $\Upsilon(4S) \rightarrow B\overline{B}$ where applying a Coulomb correction for the charged final state also leads to inconsistency with data.
 
-\begin{figure}%[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_vdm_Coulomb.pdf}
 \caption{The Vector Dominance Model fit results with Coulomb interactions.}
@@ -592,14 +592,14 @@ While this disagrees with conventional theoretical wisdom, it is consistent with
 
 This is most clearly seen in the ratio of $\Dp \Dm$ and $\DO \aDO$ cross sections, shown in \Cref{fig:Coulomb_ratio}, where the `No Coulomb' method sets $\zDD$ in \Cref{eq:xsec_rc_simp,eq:Gamma} to unity, the `Partial Coulomb' sets this factor to unity only for \Cref{eq:xsec_rc_simp}, and the `Full Coulomb' is the default assumption.
 Agreement of the measured cross section ratio with the `No Coulomb' calculation is substantially better.
-This is also true for the high statistics points measured at the $\psipp$ peak by Derrick Toth \cite{ref:Derrick_memo} (light blue).
+This is also true for the high statistics points measured at the $\psipp$ peak by Derrick Toth \cite{ref:Toth:2014} (light blue).
 As the data tend to follow the `No Coulomb' method, we choose this as our nominal method for the results, presented in \Cref{sec:results}.
 However, the interpretation for this behavior is still undetermined.
 
-\begin{figure}%[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/Coulomb_ratio.pdf}
-\caption{The ratio of $\Dp$ to $\DO$ cross sections.}
+\caption{The ratio of measured $\Dp$ to $\DO$ cross sections.}
 {Several levels of Coulomb interactions are examined.}
 \label{fig:Coulomb_ratio}
 \end{figure}
@@ -614,6 +614,10 @@ Others, like the modification to KKMC generation (see \Cref{ssec:monte_carlo}), 
 The remaining systematics are typically due to less well-known parameters, like the radii used to describe the $\psip$ and $\psipp$ (see \Cref{sec:form_factors}).
 Each of these contributions, as well as their total, can be found in \Cref{tab:systematics}. 
 
+
+\subsection{$\psipp$ Parameter Systematics}
+\label{ssec:sys_psipp}
+
 Each systematic is obtained by changing a specific aspect, and re-fitting to the altered values using the VDM method.
 The uncertainties for each parameter are obtained by taking the difference between this result and the nominal fit (\Cref{fig:vdm_results}).
 Generally, each change was done both positively and negatively, and the values used are the largest differences seen between the two changes.
@@ -623,36 +627,41 @@ The systematics examined in this analysis are summarized below, where a * denote
 \subsection*{Luminosity}
 \label{ssec:sys_luminosity}
 
-A \SI{1}{\%} change was applied to $\lum$ in \Cref{eq:xsec_rc_data}.
+A \SI{1}{\%} change \cite{ref:Ablikim:2013b} was applied to $\lum$ in \Cref{eq:xsec_rc_data}.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
 
 \subsection*{$\pipm / \Kpm$ Tracking}
 \label{ssec:sys_Kpi_tracking}
 
-A \SI{1.0}{\%} change was applied for each $\pipm$ or $\Kpm$ in a given decay mode.  
+A \SI{1.0}{\%} change \cite{ref:Rong:2015} was applied for each $\pipm$ or $\Kpm$ in a given decay mode.  
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
 
 \subsection*{$\piO$ Tracking}
 \label{ssec:sys_pi0_tracking}
 
-A \SI{2.0}{\%} change was applied for each $\piO$ in a given decay mode.
+A \SI{2.0}{\%} change \cite{ref:Ke:2015} was applied for each $\piO$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
 
 \subsection*{$\Ks$ Tracking}
 \label{ssec:sys_Ks_tracking}
 
-A \SI{1.5}{\%} change was applied for each $\Ks$ in a given decay mode.
+A \SI{1.5}{\%} change \cite{ref:Ma:2014} was applied for each $\Ks$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
 
 \subsection*{Single Tag Fitting}
 \label{ssec:sys_single_tag}
 
-A mode-dependent change was applied to $N$ in \Cref{eq:xsec_rc_data}.
+A mode-dependent change \cite{ref:Toth:2014} was applied to $N$ in \Cref{eq:xsec_rc_data}.
 Differences from fitting were obtained by Derrick Toth after examining the use of single-Gaussian convolved signal shapes, and are shown in \Cref{tab:sys_single_tag}. 
 The changes applied were obtained from the sums of the mode-dependent values averaged over their efficiencies.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
 
 \begin{table}[H]
@@ -684,6 +693,16 @@ $\DpmodeF$ & 0.74 \\
 \end{table}
 
 
+\subsection*{Meson Radii*}
+\label{ssec:sys_radii}
+
+The most uncertain parameters used in the analysis are the radii of the mesons $\psip$ and $\psipp$.
+We take the same values as used by KEDR, however, each of these is quoted to have an $\sim$25\% uncertainty.
+With this, we adjust the two radii values up or down by 25\% over the four possible combinations (both up, both down, and each opposite).
+The maximum deviations from the nominal method seen across all four cases is used as the systematic uncertainty.
+Due to the high level of uncertainty on these parameters, this effect provides one of the largest systematic sources in the analysis.
+
+
 \subsection*{KKMC Generation*}
 \label{ssec:sys_kkmc}
 
@@ -696,7 +715,7 @@ Very little difference is seen in the primary fitting parameters of the $\psipp$
 These similarities show the fit result values converging, even after only a single iteration.
 From this, we treat variations due to MC iteration as negligible.
 
-\begin{table}[h!]
+\begin{table}[H]
 \centering
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{l c|r@{ $\pm$ }l r@{ $\pm$ }l|c}
@@ -720,20 +739,19 @@ $\aNR$          &             &  -1.6202 &  0.5271 &  -1.5265 &  0.5119 & 0.0937
 \subsection*{ConExc Generation*}
 \label{ssec:sys_conexc}
 
-To compare to the MC samples generated by KKMC, we also generated alternative MC samples of $\DDbar$ using the ConExc generator.
+To compare to the generation process of KKMC, we also generated alternative MC samples of $\DDbar$ using the ConExc generator.
 This process used an input Born level shape identical to that used in the final iteration produced with KKMC.
 Each of the background samples used (such as $\qqbar$ and $\tautau$) were the same as in the nominal procedure.
 The cross section results using the VDM model are shown in \Cref{fig:ConExc}, and provide $\psipp$ fit parameters within the statistical errors of the nominal method, as seen in \Cref{fig:vdm_results}.
 From this, we treat variations due to the MC generator as negligible.
 
-\begin{figure}
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_vdm_ConExc.pdf}
 \caption{The Vector Dominance Model fit results using ConExc.}
 {The results for $\DO$ are shown on the top and the results for $\Dp$ are shown on the bottom. The underlying MC shapes for the  $\DDbar$ components were generated with an alternative generator to compare to KKMC.}
 \label{fig:ConExc}
 \end{figure}
-
 
 
 \subsection*{Intermediate Resonances*}
@@ -745,57 +763,202 @@ These cuts were chosen to separate the sample into distinctly different regions,
 Fitting the signal distributions for each of these subsamples, we found no statistically significant deviations in the measured yields.
 From this, we treat variations due to intermediate resonances as negligible.
 
-\begin{figure}[h]
+\begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{figures/plots/Kpi_vs_pipi_Ecm.pdf}
-\caption{The $K \pi$ vs. $\pi \pi$ invariant masses for the mode $\DpmodeA$ with the on-peak $\psipp$ sample.}
+\caption{The $K \pi$ vs. $\pi \pi$ invariant masses for the mode $\DpmodeA$.}
+{The data used are from the on-peak $\psipp$ sample, as the statistics are significantly higher than for the scan data.}
 \label{fig:Kpipi_mass}
 \end{figure}
 
 
-\subsection*{Form Factor}
+\subsection*{Non-Resonant Form Factor}
 \label{ssec:sys_form_factor}
 
 In addition to the systematics described above, there is a significant source of uncertainty coming from the non-resonant form factor used.
 Each of the models examined, Exponential and VDM, provided quality fit results for the cross section shapes.
 From this, we conservatively assign an uncertainty based on the differences in fit parameters provided by these two methods.
-Following the example of KEDR, we treat this as separate from the systematics, and list it as a model uncertainty.
+Following the example of KEDR, we treat this as separate from the other systematics, and list it as a model uncertainty.
 
 
-
-
-
-
-
-
-
-\begin{table}[h]
+\begin{table}[H]
 \centering
 \renewcommand\arraystretch{1.0}
-\begin{tabular}{c|C{3cm}C{3cm}C{3cm}C{3cm}}
+\begin{tabular}{c|cccc}
 \hline 
 Systematic & $\Mpsipp$ [\%] & $\Gpsipp$ [\%] & $\GeepsipptoDD$ [\%] & $\Ppsipp$ [\%] \\
 \hline 
-Luminosity                          & 0.000 & 0.008 & 0.998 & 0.020 \\
-$\Kpm / \pipm$ Tracking             & 0.000 & 0.008 & 3.472 & 0.058 \\
-$\piO$ Tracking                     & 0.000 & 0.008 & 1.712 & 0.045 \\
-$\Ks$ Tracking                      & 0.000 & 0.004 & 1.278 & 0.036 \\ 
-Single Tag Fits                     & 0.000 & 0.004 & 1.186 & 0.022 \\
-Meson Radii                         & 0.016 & 2.646 & 3.154 & 1.502 \\
-Non-Resonant Form Factor$^\dagger$  & 0.037 & 7.939 & 6.815 & 4.131 \\
+Luminosity              & 0.000 & 0.008 & 0.998 & 0.020 \\
+$\Kpm / \pipm$ Tracking & 0.000 & 0.008 & 3.472 & 0.058 \\
+$\piO$ Tracking         & 0.000 & 0.008 & 1.712 & 0.045 \\
+$\Ks$ Tracking          & 0.000 & 0.004 & 1.278 & 0.036 \\ 
+Single Tag Fits         & 0.000 & 0.004 & 1.186 & 0.022 \\
+Meson Radii             & 0.016 & 2.646 & 3.154 & 1.502 \\
+Form Factor$^\dagger$   & 0.037 & 7.939 & 6.815 & 4.131 \\
 \hline
-Total [\%]                          & 0.016 & 2.646 & 5.383 & 1.505 \\
-Relative Stat. Error [$\sigma$]     & 3.000 & 1.026 & 1.114 & 1.030 \\
+Total [\%]                      & 0.016 & 2.646 & 5.383 & 1.505 \\
+Relative Stat. Error [$\sigma$] & 3.000 & 1.026 & 1.114 & 1.030 \\
 \hline
-\multicolumn{5}{c}{$^\dagger$The Form Factor is treated as an uncertainty on the model, and is not included in the total systematic error.}
 \end{tabular} 
-\caption{Systematic uncertainties relative to the measured parameters of the $\psipp$.}
+\caption{Systematic uncertainties relative to the measured parameters of the $\psipp$.}{
+$^\dagger$The Form Factor is treated as an uncertainty on the model, and is not included in the total systematic error.}
 \label{tab:systematics}
 \end{table}
 
 
+\subsection{Cross Section Systematics}
+\label{ssec:sys_cross_section}
+
+In addition to the statistical uncertainties provided in \Cref{tab:xsec_rc_data}, we also provide systematic uncertainties on the cross section measurements.
+These are calculated from the systematic shifts ($\Delta S$) which affect \Cref{eq:xsec_rc_data}: Luminosity, $\Kpm / \pipm$ Tracking, $\piO$ Tracking, $\Ks$ Tracking, and Single Tag Fits.
+For the luminosity, this value is the same 1\% shift used previously.
+The others are calculated by weighting the efficiency from each decay mode:
+\beq
+\Delta S = \frac{ \sum\limits_m \epsilon_m \Delta S_m }{ \sum\limits_m \epsilon_m }
+\eeq
+The value of $\Delta S_m$ for $\Kpm / \pipm$ Tracking is 1.0\% per $\Kpm$ or $\pipm$ in each decay mode, and defined similarly for the other systematics using the previously listed values.
+The calculated shifts are listed in \Cref{tab:sys_shifts}, and the resulting cross section values are listed in \Cref{tab:xsec_rc_data_sys}.
+
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|cc}
+\hline 
+Systematic & $\Delta S$ ($\DO$) [\%]  & $\Delta S$ ($\Dp$) [\%] \\
+\hline 
+Luminosity              & 1.00 & 1.00 \\
+$\Kpm / \pipm$ Tracking & 2.58 & 2.59 \\
+$\piO$ Tracking         & 0.94 & 0.63 \\
+$\Ks$ Tracking          & 0.00 & 0.42 \\ 
+Single Tag Fits         & 0.25 & 0.20 \\
+\hline
+Total                   & 2.93 & 2.88 \\
+\hline
+\end{tabular} 
+\caption{Systematics shifts affecting the cross section measurements.}
+    {The total shifts are used to calculate the systematic uncertainties of the $\DO$ and $\Dp$ cross sections.}
+\label{tab:sys_shifts}
+\end{table}
+
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c C{3.5cm} C{3.5cm}}
+\hline 
+$E_{\text{mid}}$ [GeV] & $\sigma^{RC}_{\DO \aDO}$ [nb] & $\sigma^{RC}_{\Dp \Dm}$ [nb] \\
+\hline
+3.7355 & $0.153 \pm 0.064 \pm 0.004$ &              -              \\ 
+3.7364 & $0.210 \pm 0.065 \pm 0.006$ &              -              \\ 
+3.7377 & $0.202 \pm 0.068 \pm 0.006$ &              -              \\ 
+3.7447 & $0.754 \pm 0.071 \pm 0.022$ & $0.146 \pm 0.037 \pm 0.004$ \\ 
+3.7464 & $0.815 \pm 0.063 \pm 0.024$ & $0.357 \pm 0.045 \pm 0.010$ \\ 
+3.7485 & $0.960 \pm 0.055 \pm 0.028$ & $0.442 \pm 0.039 \pm 0.013$ \\ 
+3.7503 & $1.198 \pm 0.055 \pm 0.035$ & $0.549 \pm 0.039 \pm 0.016$ \\ 
+3.7525 & $1.321 \pm 0.056 \pm 0.039$ & $0.736 \pm 0.043 \pm 0.021$ \\ 
+3.7541 & $1.448 \pm 0.059 \pm 0.042$ & $0.759 \pm 0.044 \pm 0.022$ \\ 
+3.7556 & $1.606 \pm 0.059 \pm 0.047$ & $0.878 \pm 0.043 \pm 0.025$ \\ 
+3.7586 & $1.921 \pm 0.063 \pm 0.056$ & $1.165 \pm 0.048 \pm 0.034$ \\ 
+3.7616 & $2.280 \pm 0.071 \pm 0.067$ & $1.478 \pm 0.054 \pm 0.043$ \\ 
+3.7646 & $2.635 \pm 0.086 \pm 0.077$ & $1.865 \pm 0.069 \pm 0.054$ \\ 
+3.7675 & $3.021 \pm 0.103 \pm 0.089$ & $2.153 \pm 0.085 \pm 0.062$ \\ 
+3.7705 & $3.358 \pm 0.118 \pm 0.099$ & $2.584 \pm 0.102 \pm 0.074$ \\ 
+3.7735 & $3.672 \pm 0.129 \pm 0.108$ & $3.055 \pm 0.117 \pm 0.088$ \\ 
+3.7765 & $3.637 \pm 0.129 \pm 0.107$ & $3.028 \pm 0.117 \pm 0.087$ \\ 
+3.7795 & $3.338 \pm 0.120 \pm 0.098$ & $2.553 \pm 0.104 \pm 0.074$ \\
+3.7826 & $2.798 \pm 0.105 \pm 0.082$ & $2.226 \pm 0.094 \pm 0.064$ \\
+3.7855 & $1.929 \pm 0.080 \pm 0.057$ & $1.573 \pm 0.075 \pm 0.045$ \\
+3.7885 & $1.297 \pm 0.064 \pm 0.038$ & $1.135 \pm 0.064 \pm 0.033$ \\
+3.7925 & $0.894 \pm 0.049 \pm 0.026$ & $0.681 \pm 0.044 \pm 0.020$ \\
+3.7964 & $0.556 \pm 0.039 \pm 0.016$ & $0.399 \pm 0.040 \pm 0.012$ \\
+3.8005 & $0.400 \pm 0.037 \pm 0.012$ & $0.236 \pm 0.037 \pm 0.007$ \\
+3.8036 & $0.321 \pm 0.039 \pm 0.009$ & $0.221 \pm 0.043 \pm 0.006$ \\
+3.8065 & $0.320 \pm 0.049 \pm 0.009$ & $0.278 \pm 0.049 \pm 0.008$ \\
+3.8095 & $0.204 \pm 0.048 \pm 0.006$ & $0.137 \pm 0.055 \pm 0.004$ \\
+3.8124 & $0.056 \pm 0.049 \pm 0.002$ & $0.166 \pm 0.065 \pm 0.005$ \\
+3.8157 & $0.046 \pm 0.049 \pm 0.001$ & $0.067 \pm 0.061 \pm 0.002$ \\
+3.8237 & $0.127 \pm 0.080 \pm 0.004$ & $0.194 \pm 0.107 \pm 0.006$ \\
+3.8315 & $0.117 \pm 0.086 \pm 0.003$ & $0.039 \pm 0.113 \pm 0.001$ \\
+3.8397 & $0.251 \pm 0.107 \pm 0.007$ & $0.237 \pm 0.118 \pm 0.007$ \\
+3.8475 & $0.248 \pm 0.108 \pm 0.007$ & $0.171 \pm 0.120 \pm 0.005$ \\
+3.8556 & $0.373 \pm 0.116 \pm 0.011$ & $0.266 \pm 0.107 \pm 0.008$ \\
+3.8636 & $0.234 \pm 0.098 \pm 0.007$ & $0.136 \pm 0.094 \pm 0.004$ \\
+\hline
+\end{tabular} 
+\caption{Measurements of the $\DO$ / $\Dp$ cross sections.}
+{The first errors are statistical and the second are systematic.}
+\label{tab:xsec_rc_data_sys}
+\end{table}
+
 
 \section{Results}
 \label{sec:results}
+
+After incorporating the systematic and model uncertainties, the total results for the main $\psipp$ parameters are shown in \Cref{tab:results}.
+The results shown are from the VDM model, as we treat this as the nominal results.
+The Exponential model is used as a measure of uncertainty, however, the quality of fits found by this approach means it cannot be excluded as a viable option.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{C{2.25cm} l c}
+\hline 
+    $\Mpsipp$       & $    3780.4 \pm     0.2   \pm 0.6   \pm 1.4$ & $[\si{\MeV}]$    \\
+    $\Gpsipp$       & $\PP 23.7   \pm     0.6   \pm 0.6   \pm 1.9$ & $[\si{\MeV}]$    \\
+    $\GeepsipptoDD$ & $\PP 207 \; \pm     10 \; \pm 11    \; \pm    14$  & $[\si{\eV}]$     \\
+    $\Ppsipp$       & $\PP 206 \; \pm \pp 3  \; \pm \pp 3 \; \pm \pp 9$ & $[\si{^\circ}]$ \\
+\hline
+\end{tabular} 
+\caption{Final results for the $\psipp$ parameters.}
+{The first error listed is statistical, the second is systematic, and the third is from the form factor model.}
+\label{tab:results}
+\end{table}
+
+
+Additionally, since this analysis is based on an approach developed by the KEDR collaboration, a comparison to their results is also shown in \cref{tab:fit_results}.  
+For their measurement of $\Geepsipp$, two solutions were found with very close $\chi^2$ values, so both are quoted in their final results.
+With the larger statistics available at BESIII, no alternate solution was found during searches over the parameter space.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{C{3cm} L{3cm} L{3cm} L{3cm}}
+\hline
+Method & $\Mpsipp$ [MeV] & $\Gpsipp$ [MeV] & $\GeepsipptoDD$ [eV] \\
+\hline
+Exponential & $3781.8 \pm 0.3 \pm 0.6$ & $25.6 \pm 0.7 \pm 0.7$ & $221 \pm 13 \pm 12$ \\
+VDM         & $3780.4 \pm 0.2 \pm 0.6$ & $23.7 \pm 0.6 \pm 0.6$ & $207 \pm 10 \pm 11$ \\
+KEDR        & $3779.2^{+1.8 +0.5 +0.3}_{-1.7 -0.7 -0.3}$ & $24.9^{+4.6 + 0.5 +0.2}_{-4.0 -0.6 -0.9}$ & $154^{+79 +17 +13}_{-58 -9\pp -25}$, $414^{+72 +24 +90}_{-80 -26 -10}$ \\
+PDG         & $3773.15 \pm 0.33$     & $27.2 \pm 0.9$       & $[262 \pm 18] \times ~\BDD$ \\
+\hline
+\end{tabular}
+\caption{Fit results compared to the KEDR results and the PDG.}
+{The first errors listed are statistical, while the second are systematic.  In the case of KEDR, the third error is from the model. }
+\label{tab:fit_results}
+\end{table}
+
+
+We can also compare our results to the cross section values found in the previous analysis of BESIII's on-peak $\psipp$ data sample of \SI{2.93}{\invfb} by Derrick Toth \cite{ref:Toth:2014}.
+The values displayed on \Cref{fig:exp_results,fig:vdm_results} are his double-tag (DT) values.
+Each of these cross sections are shown in \Cref{tab:Derrick_xsec}.
+Further analysis to better understand the differences seen is still in progress, however both methods used in this analysis are within ${\sim}1\sigma$ of the high statistics method.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.2}
+\begin{tabular}{C{3cm} L{3.5cm} L{3.5cm}}
+\hline
+Model & \multicolumn{1}{c}{$\sigma_{\DO \aDO}$ [nb]} & \multicolumn{1}{c}{$\sigma_{\Dp \Dm}$ [nb]} \\
+\hline
+Derrick (DT) & $3.615 \pm 0.010 \pm 0.035$ & $2.830 \pm 0.011 \pm 0.026$ \\
+Exponential  & $3.627 \pm 0.131 \pm 0.106$ & $2.942 \pm 0.118 \pm 0.085$ \\
+VDM          & $3.743 \pm 0.131 \pm 0.110$ & $2.951 \pm 0.118 \pm 0.085$ \\
+\hline
+\end{tabular}
+\caption{Comparison of cross section calculations at $\Ecm = \SI{3.7732}{\GeV}$}
+    {The values measured previously used a \SI{2.93}{\invfb} data sample of $\psipp$ events to reconstruct double-tag (DT) decays.  The first errors listed are statistical, while the second is systematic.}
+\label{tab:Derrick_xsec}
+\end{table}
 
 

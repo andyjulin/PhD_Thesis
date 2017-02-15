@@ -55,9 +55,16 @@ The $x$-direction points towards the center of the storage rings, while the $y$-
 This magnetic field is used to provide better precision on momenta measurements.
 An appropriate field strength curves the tracks of charged particles sufficiently to interact with more of the tracking volume, while minimizing those which curl too much to reach all layers of the detector.
 
-% BESIII Detector Image
 
-The BESIII detector is split into four main layers which analyze different aspects for identifying particles.
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.50]{figures/images/detector.pdf}
+\caption{A schematic of the BESIII detector.}
+{There are four main layers surrounding the beam-pipe: the Main Drift Chamber (MDC), the Time-of-Flight (ToF), the Electromagnetic Calorimeter (EMC), and the Muon Chamber (MUC).  Each of these are surrounded by a \SI{1}{\tesla} magnetic field.}
+\label{fig:detector}
+\end{figure}
+
+The BESIII detector, shown in \Cref{fig:detector}, is split into four main layers which analyze different aspects for identifying particles.
 Starting from the most interior, these layers are the Multi-Layer Drift Chamber (MDC), the Time-of-Flight System (ToF), the Electromagnetic Calorimeter (EMC), and the Muon Identifier (MUC).
 Using the information provided by each layer, the particles seen in the detector are given a hypothesis for their most likely candidate.
 Only charged particles stable enough to sufficiently traverse the detector are identifiable in this way.
@@ -105,9 +112,17 @@ where $N$ is the electron number density of the material, $z$ is the charge of t
 The resolution of $\tdEdx$ is about \SI{6}{\%} for particles incident \ang{90} to the beam-axis.
 The uncertainty is due to fluctuations in the number of primary ionizations along the flight path, fluctuations in the avalanche process, as well as from edge effects on each cell.
 
-% Energy Deposition by Momentum Image
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.60]{figures/images/dEdx.pdf}
+\caption{MDC energy deposition for various particles as a function of momenta.}
+{Distinction between $K$ and $\pi$ tracks is easier for low momenta, but becomes very difficult for higher values.}
+\label{fig:dEdx}
+\end{figure}
 
 The energy deposition provides a method of distinguishing particle candidates, as this quantity depends on the velocity of the particle.
+An example of this behavior for multiple types of particles can be seen in \Cref{fig:dEdx}.
 To identify a particle from the various candidates, the measured energy deposition ($\tdEdx_{\text{meas}}$) is compared against the expected value ($\tdEdx_{\text{exp}}$) of each hit used to reconstruct the particle's trajectory ($i$):
 \beq
 \chi^2 = \sum\limits_i\chi_i^2 = \left( \frac{\tdEdx_{\text{meas}} - \tdEdx_{\text{exp}}}{\sigma} \right)_i^2,
@@ -120,12 +135,19 @@ This process provides a separation of $3\sigma$ between $K$ and $\pi$ tracks wit
 \label{ssec:detector_tof}
 
 The purpose of the Time-of-Flight System is to determine the velocity of charged particles.
-This is useful for distinguishing particles with similar momenta, but different masses.
+This is useful for distinguishing particles with similar momenta, but different masses, as shown in \Cref{fig:ToF}.
 It uses information provided by the MDC to determine the probability for each charged track to match the possible particle hypotheses.
 Namely, this includes the measured momentum, the expected time interval based on its trajectory, and the mass for each particle hypothesis.
 This process provides a separation of $3\sigma$ between $K$ and $\pi$ tracks with momenta up to \SI{900}{\MeV}.
 
-% p vs. m^2 Plot
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.60]{figures/images/ToF.pdf}
+\caption{ToF measurements for various particles as a function of momenta.}
+{Distinction between $K$ and $\pi$ tracks is very easy for low momenta, but becomes more difficult for higher values.}
+\label{fig:ToF}
+\end{figure}
 
 The ToF is comprised of two bands of staggered plastic scintillators attached to photomultiplier tubes (PMTs).
 These two bands, located at \SIlist{0.81;0.86}{\m} from the beam-pipe, measure a time difference used to determine the speed of each charged particle.
@@ -142,10 +164,16 @@ The purpose of the Electromagnetic Calorimeter is to determine the energy deposi
 Since each of the candidates identified in the detector will be relativistic, they are minimum ionizing particles.
 This causes each to deposit a relatively constant value of energy, independent of the measured momenta.
 However, electrons, with their extremely small mass, will deposit significant amounts of energy due to Bremsstrahlung radiation.
-This provides a clear distinction in the detector between electron and muon tracks above \SI{200}{\MeV}.
+This provides a clear distinction in the detector between electron and muon tracks above \SI{200}{\MeV}, as seen in \Cref{fig:EMC}.
 Energy measurements from the EMC are also useful for identifying neutral particles which decay only to photons, such as $\piO$.
 
-% E_{EMC} vs. p Plot
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.60]{figures/images/EMC.pdf}
+\caption{EMC energy deposition for various particles as a function of momenta.}
+{As the mass of $\lel$ is so small, it deposits virtually all of its energy in the EMC.  Both $\lmu$ and $\pi$ are generally minimum ionizing particles in this momenta range, and their similar masses make them difficult to distinguish from the EMC measurements alone.}
+\label{fig:EMC}
+\end{figure}
 
 The EMC is comprised of tellurium-doped cesium iodide (CsI(Tl)) crystals with square front faces attached to a photodiode.
 Each of the 6240 crystals are \SI{5.2}{\cm} long on the square edges and \SI{28}{\cm} (15 radiation lengths) deep.
@@ -183,7 +211,7 @@ Conversely, the endcap only reads out the $x$ ($y$) orientation in the odd (even
 
 In order to maintain a high efficiency for selecting physics events, many backgrounds must be filtered out.
 At BESIII, this is done through a triggering system with two-tiers: a hardware trigger (L1) and a software event filter (L3).
-This process is illustrated in Fig. \ref{fig:triggering}.
+This process is illustrated in \Cref{fig:triggering}.
 The filtered background events are primarily from beam-related sources, such as beam-gas or beam-wall interactions, and occur at a rate of about \SI{13}{\MHz}.
 To assist with this process, collimators and masks are used to prevent lost electrons from interacting with the detector.
 However, there are also other sources of backgrounds, such as cosmic rays, which occur at a rate of about \SI{1.5}{\kHz}.
@@ -191,15 +219,19 @@ The total backgrounds must be suppressed to a rate which does not overwhelm the 
 This rate is roughly \SI{2}{\kHz} at the $\jpsi$ peak, and \SI{600}{\Hz} for the $\psip$ when running near peak luminosity.
 For Bhabha events ($\bhabha$), which are used for calibration and luminosity measurements, this rate is \SI{800}{\Hz} within detector acceptance.
 
-% Figure for Triggering Process
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{figures/images/triggering.pdf}
+\caption{Triggering systems for event filtering at BESIII.}
+{To prevent overloading the event recording system, non-physics background events must be disregarded in the detection system.  This processing uses simple read-out information from each of the layer of the detector to quickly and efficiently determine whether or not events should be further considered for analysis.}
+\label{fig:triggering}
+\end{figure}
 
 The first step (L1) reads out every clock cycle (\SI{24}{\ns}) at a rate of \SI{41.65}{\MHz}.
 It uses information from the MDC, ToF, and EMC collectively to reduce the rates of beam-related backgrounds to \SI{1.84}{\kHz} and cosmic rays to about \SI{200}{\Hz}.
 However, L1 has a maximum rate of about \SI{4}{\kHz}.
 Because of this, when the buffer holding the subdetector data is around \SI{80}{\%} full, L1 triggering is halted until the buffer drops below \SI{~10}{\%} full.
-The efficiency of the L1 process is summarized in Table \ref{tab:L1}.
 
-% Table for L1 efficiencies
 
 From the MDC, L1 gathers information about each charged track.
 The main parameter examined is the number of superlayers a track passed through.
