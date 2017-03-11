@@ -1,0 +1,70 @@
+Replace Tables
+
+Table 5.1✓
+    Bin; Run Min - Run Max; Ecm Min - Ecm Max; Luminosity(Error)
+
+Table 5.4✓
+    Bin; N_prop, N_gen (D0ModeA); N_prop, N_gen (D0ModeB); N_prop, N_gen (D0ModeC); 
+
+Table 5.5✓
+    Bin; N_prop, N_gen (DpModeA); N_prop, N_gen (DpModeB); N_prop, N_gen (DpModeC); 
+
+Table 5.6✓
+    Bin; N_prop, N_gen (DpModeD); N_prop, N_gen (DpModeE); N_prop, N_gen (DpModeF); 
+
+Table 5.7✓
+    Decay Mode; PDG B_i; MC Efficiency
+    (separated by total \epsilon_D)
+
+Table 5.8✓
+    Bin; \epsilon_D0; \epsilon_Dp
+
+Table 5.10✓
+    E_mid; N_D0D0 \pm error; \xsec_D0 \pm error; N_DpDm \pm error; \xsec_Dp \pm error
+
+Table 5.13✓
+    Systematic; M_psipp; Gamma_psipp; Gamma_psipp_ee; phi_psipp
+
+Table 5.14✓
+    Systematic; \DeltaD0; \DeltaDp
+
+Table 5.15✓
+    E_mid; xsec_D0 \pm stat. \pm sys.; xsec_Dp \pm stat. \pm sys. 
+
+Table 5.16✓
+    Parameter; Value \pm stat. \pm sys. \pm model
+
+Table 5.17✓
+    Method; M_psipp \pm stat. \pm sys.; Gamma_psipp \pm stat. \pm sys.; Gamma_psipp_ee \pm stat. \pm sys.
+
+Table 5.18✓
+    Model; xsec_D0 \pm stat. \pm sys.; xsec_Dp \pm stat. \pm sys.
+
+
+
+Replace Plots
+
+Figure 5.1
+    2D Signal Fit near peak
+
+Figure 5.3
+    Data cross section points
+
+Figure 5.4✓
+    Exponential Fit Results
+
+Figure 5.5✓
+    VDM Fit Results
+
+Figure 5.6✓
+    VDM Fit Results (with Coulomb correction)
+
+Figure 5.7✓
+    Cross Section Ratios (with Coulomb corrections)
+    
+Figure 5.8
+    Replace with table comparing parameters
+
+Appendix B
+
+Appendix C
