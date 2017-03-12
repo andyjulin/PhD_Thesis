@@ -1,7 +1,7 @@
 \chapter{Measurement of $\xsecpsipptoDDbar$ near $\psipp$}
 \label{ch:cross_section}
 
-The main focus of this analysis is measuring the $\xsecpsipptoDDbar$ cross section at center-of-mass energies around the $\psipp$.
+The main objective of this analysis is to measure the $\xsecpsipptoDDbar$ cross section at center-of-mass energies around the $\psipp$.
 While the cross section very near the $\psipp$ mass has been measured with excellent precision \cite{ref:Toth:2014}, the shape over a wider energy range has not been measured to a precise degree.
 This has left open the possibility of multiple functional shapes which could describe the cross section, and asks the question of whether or not to include interference effects. 
 Fits to this region with a single Breit-Wigner shape (i.e., no interference) have provided a unsatisfactory description of the $\psipp$, and further necessitate the need for interference.
@@ -10,7 +10,7 @@ The most prominent candidate for shapes with interference assume a contribution 
 \section{Form Factors}
 \label{sec:form_factors}
 
-The procedure for this analysis largely follows the methodology of the KEDR collaboration.
+The procedure for this analysis largely follows the methodology of the KEDR collaboration \cite{ref:Anashin:2012}.
 With the larger statistics available at BESIII, however, an inclusive cross section measurement (such as performed by KEDR) is not required.
 Instead, the goal is to measure the production rate of $\DDbar$ events decaying from $\psipp$ directly.
 The derivation for this cross section is given in \Cref{sec:xsec_derivation}.
@@ -60,53 +60,107 @@ For the radii in \Cref{eq:blatt_weisskopf}, however, the values used are distinc
 \label{ssec:data_samples}
 
 This analysis primarily uses scan data produced by BEPCII and collected by BESIII in 2010 over an energy range of \SIrange{3.643}{3.890}{\GeV}.
-These data are partitioned into 35 center-of-mass energy ($\Ecm$) bins of variable size over a range of \SIrange{3.735}{3.870}{\GeV}.
-The range was chosen to be above the $\DO\aDO$ threshold (\SI{3.730}{\GeV}) and below the $D^{*0}\aDO$ threshold (\SI{3.872}{\GeV}).
-This range includes bins which are below the threshold for $\Dp \Dm$ (\SI{3.739}{\GeV}), with production beginning in the fourth bin.
+These data are partitioned into 34 center-of-mass energy ($\Ecm$) bins of variable size over a range of \SIrange{3.735}{3.870}{\GeV}.
+The bin partitioning was determined from measurements of center-of-mass energies (\Cref{ssec:energy_measurement}).
+The total range was chosen to be above the $\DO\aDO$ threshold (\SI{3.730}{\GeV}) and below the $D^{*0}\aDO$ threshold (\SI{3.872}{\GeV}).
+This range includes bins which are below the threshold for $\Dp \Dm$ (\SI{3.739}{\GeV}), with production beginning in the third bin.
 
 Additionally, there are three higher statistics points used for comparison.
-These include an `On-Peak $\psipp$' sample of \SI{2.93}{\invfb} at $\Ecm = \SI{3.773}{\GeV}$, an `$XYZ$-scan' sample of \SI{50.54}{\invpb} at $\Ecm = \SI{3.810}{\GeV}$, and an `$R$-scan' sample of \SI{7.95}{\invpb} at $\Ecm = \SI{3.850}{\GeV}$.
-The first of these was analyzed by Derrick Toth with a separate procedure using double-tag reconstruction (both $\D$ and $\aD$ in a single event).
+These include an `On-Peak $\psipp$' sample of \SI{2.93}{\invfb} at $\Ecm = \SI{3.7732}{\GeV}$, an `$XYZ$-scan' sample of \SI{50.54}{\invpb} at $\Ecm = \SI{3.810}{\GeV}$, and an `$R$-scan' sample of \SI{7.95}{\invpb} at $\Ecm = \SI{3.850}{\GeV}$.
+The first of these is the high statistics measurement very near the $\psipp$ mass using double-tag reconstruction (both $\D$ and $\aD$ in a single event) performed by Derrick Toth.
 The other two samples were analyzed using the same procedure as for the scan data (See \Cref{sec:signal,sec:efficiency,sec:fitting}).
 None of these points are used to determine the final results, as the differences between samples introduce additional systematics which overshadow any statistical improvement.
 However, these provide useful comparisons at important energy points along the cross section shape.
 
 
-\subsection{Beam Energy Measurement}
-\label{ssec:beam_energy}
+\subsection{Center-of-Mass Energy Measurement}
+\label{ssec:energy_measurement}
 
-To precisely determine the values of beam energy along the scan data region, events of $\ee \rightarrow \mumu$ collisions were analyzed to determine their invariant mass ($\minv$).
-Assuming minimal radiating energy from the muons, this value is effectively equal to the center-of-mass energy produced by the collider.
-The selection process for such events is shown in \Cref{tab:beam_energy_selection_cuts}.
-The statistics of the scan data are too small to determine the energy for individual runs.
-Therefore, the runs in each bin were combined together, as it is assumed the runs were taken at nearly identical energies.
-A comparison of the measured values to the online beam energies is shown in \Cref{fig:beam_energy_scan}.
+To precisely determine the values of center-of-mass energy along the scan data region, events of $\ee \rightarrow \mumu$ collisions were analyzed to determine their invariant mass ($\minv$).
+Assuming minimal radiating energy from the muons, this value is effectively equal to the energy produced by the collider.
+The selection process for such events is shown in \Cref{tab:muon_cuts}.
+The statistics of the scan data are too small to precisely determine the energy for individual runs.
+Therefore, multiple runs were combined together into bins based off the assumption each was taken at nearly identical energies.
+A comparison of the measured values to the online beam energies is shown in \Cref{fig:scan_E_cm_fit}.
 
-However, the process of using muons to analyze beam energy is subject to an overall scale shift due to potentially miscalibrated magnetic field effects.
-This requires a point of reference for the measured values in order to ensure they are correctly determined.
-As the beam energy of the on-peak $\psipp$ sample was also measured to a very precise degree, we can use these values to compare to our measurements over these same runs.
-The results of each procedure for the on-peak data are shown in \Cref{fig:beam_energy_psipp}.
-The difference between average values of our measurement (blue) compared to the average values of the previous (red) is taken as this offset, and is about \SI{2}{\MeV}.
-This means the measured beam energies shown in \Cref{fig:beam_energy_scan} must be increased by \SI{2}{\MeV} to determine the true values.
-The final results, along with the luminosities of each bin, are shown in \Cref{tab:luminosity}.
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c| c}%D{<}{\; < \;}{-1} }
+\hline
+Vertex ($xy$) & $V_{xy} < \pp \SI{1}{\cm}$ \\
+Vertex ($z$)  & $|Vz|   < \SI{10}{\cm}$ \\
+MDC Angle          & $|\cos\theta|^{\mu^\pm} < 0.80$ \\
+Muon Opening Angle & $\cos(179.64^\circ) < \cos\theta_{\mu\mu} < \cos(178.60^\circ)$ \\
+Energy-Momentum Ratio & $0.05 \leq (E / p)^{\mu^\pm} < 0.15$ \\ 
+Shower Energy & $\SI{0.0}{\GeV} < E_{EMC}^{\mu^\pm} < \SI{0.3}{GeV}$ \\
+\hline
+\end{tabular}
+\caption{Selection cuts on muon tracks used to determine the center-of-mass energy.}
+\label{tab:muon_cuts}
+\end{table}
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{figures/plots/E_cm_shifts_scan_fit_cut_new.pdf}
+\caption{The differences measured for scan data center-of-mass energies.}
+{The average difference (green) is about \SI{1.29}{\MeV} higher than the recorded energy values provided by the collider at run time (red).}
+\label{fig:scan_E_cm_fit}
+\end{figure}
 
 
-\subsection{Luminosity Calculation}
-\label{ssec:luminosity}
+The use of muons to determine energy is subject to an overall scale shift due to potentially miscalibrated magnetic field effects.
+This requires a point of reference in order to ensure the measured values are correctly determined.
+We use the first round of the on-peak $\psipp$ sample for this comparison, as its center-of-mass energy has been alternatively measured to a very precise degree \cite{ref:Dong:2014}.
+The results of this method compared to our own for the on-peak data are shown in \Cref{fig:on_peak_E_cm_fit}.
+It is evident the official procedure using $\DDbar$ events provides more stability over the run range than using muons.
+Still, the difference between average values of each measurement is taken as the offset for shifting the measured scan data points.
+From this, the measured center-of-mass energies for the scan data are increased by \SI{1.86}{\MeV} to determine the final values.
+Compared to the initial measurements of scan data energy, this indicates the values were lower by ${\sim}\SI{0.7}{\MeV}$ on average.
+The final center-of-mass energies of the scan data, along with the luminosity of each bin, are shown in \Cref{tab:luminosity}.
 
-The integrated luminosity for each run is calculated following the procedure described in Ref. \cite{ref:Hafner:2015}.
-For each run, \num{1.4e6} $\bhabha (\gamma)$ events were generated using Babayaga 3.5.
-We then select events with only two (oppositely) charged tracks, satisfying the event selection criteria $V_{xy} < 1$ cm, $|V_z| < 5$ cm, and $|\cos\theta| < 0.8$.
-After this, we accept only tracks that satisfy $E_{\text{EMC}} > 0.73 \times \Ebeam$ (cuts on $\ee \rightarrow \mu^+ \mu^- (\gamma)$ events) and $p > 0.93 \times \Ebeam$ (cuts on $\ee \rightarrow \gamma \jpsi, \; \jpsi \rightarrow \ee$ events).
-Applying these cuts to both data and MC identically, we use the resulting number of events found in the MC divided by the total generated to determine the efficiency $(\epsilon_{MC})$.
-From this, and using the cross section provided by the generator $(\sigma_{BB})$, we can take the events found in data $(N_{\text{data}})$ to determine the integrated luminosity $(\lum)$ of each run:
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.75]{figures/plots/E_cm_fit_cut_new.pdf}
+\caption{The values measured for on-peak data center-of-mass energies.}
+{The difference between our measured values (blue) and the official values (red) is used to shift the results of the measured scan data energy values.}
+\label{fig:on_peak_E_cm_fit}
+\end{figure}
+
+
+\subsection{Luminosity Measurement}
+\label{ssec:luminosity_measurement}
+
+To precisely determine the values of luminosity for each bin, radiative Bhabha events ($\bhabha (\gamma)$) were analyzed to determine the total number of collisions produced.
+The procedure used is described in Ref. \cite{ref:Hafner:2015}.
+For each run, \num{1.4e6} events were generated using Babayaga 3.5.
+We select events with only two (oppositely) charged tracks, satisfying the event selection criteria shown in \Cref{tab:bhabha_cuts}.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c| D{<}{\; < \;}{-1} }
+\hline
+Vertex ($xy$) & V_{xy} < \pp \SI{1}{\cm} \\
+Vertex ($z$)  & |Vz|   < \SI{10}{\cm} \\
+MDC Angle         & |\cos\theta| < 0.80 \\
+Exclude $\ee \rightarrow \mu^+ \mu^- (\gamma)$ Events & \multicolumn{1}{c}{ $E_{\text{EMC}} > 0.73 \times \Ebeam$ } \\
+Exclude $\ee \rightarrow \gamma \jpsi, \; \jpsi \rightarrow \ee$ Events & \multicolumn{1}{c}{$p > 0.93 \times \Ebeam$ } \\
+\hline
+\end{tabular}
+\caption{Selection cuts on electron tracks used to determine the luminosity.}
+\label{tab:bhabha_cuts}
+\end{table}
+
+Applying these cuts to both data and MC identically, we use the resulting number of events found in the MC divided by the number of total generated events to determine the efficiency $(\epsilon_{MC})$.
+From this, and using the cross section provided by the generator $(\sigma_{\text{Bhabha}})$, we can take the events found in data $(N_{\text{data}})$ to determine the integrated luminosity $(\lum)$ of each run:
 \beq
-\lum = \frac{N_{\text{data}}}{\sigma_{BB} ~ \epsilon_{MC}}
+\lum = \frac{N_{\text{data}}}{\sigma_{\text{Bhabha}} ~ \epsilon_{MC}}
 \eeq
 The integrated luminosity for each bin is shown in \Cref{tab:luminosity}.
-The total luminosity for the data used is \SI{70.05 \pm 0.03}{\invpb}, where the error listed is statistical.
+The total luminosity for the scan data used is \SI{69.80 \pm 0.03}{\invpb}, where the error listed is statistical.
 
-\begin{table}%[h]
+\begin{table}[H]
 \centering
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{r l c l}
@@ -146,7 +200,7 @@ Bin & Run Range & $\Ecm$ Range [\si{\GeV}] & $\lum$ [\si{\invpb}] \\
 30 & 14298 - 14298 & 3.839 - 3.849 & 0.2802(18) \\
 31 & 14299 - 14299 & 3.849 - 3.855 & 0.2764(18) \\
 32 & 14300 - 14301 & 3.855 - 3.863 & 0.3188(19) \\
-33 & 14302 - 14303 & 3.863 - 3.873 & 0.3002(19) \\
+33 & 14302 - 14303 & 3.863 - 3.870 & 0.3002(19) \\
 %  0 & 14000 - 14000 & 3.735 - 3.736 & 0.3357(21) \\ 
 %  1 & 14000 - 14000 & 3.736 - 3.737 & 0.4940(25) \\ 
 %  2 & 14000 - 14000 & 3.737 - 3.744 & 0.3310(21) \\ 
@@ -193,7 +247,7 @@ Bin & Run Range & $\Ecm$ Range [\si{\GeV}] & $\lum$ [\si{\invpb}] \\
 \label{ssec:monte_carlo}
 
 To compare to the scan data sample, several Monte Carlo (MC) samples were produced.
-For the main signal determination, samples of generic $\DO \aDO$ from $\psipp$ and generic $\Dp \Dm$ from $\psipp$ were generated with \num{e5} events per run.
+For the main signal determination, samples of generic $\DO \aDO$ from $\psipp$ and generic $\Dp \Dm$ from $\psipp$ were generated with \num{2e5} events per bin.
 In addition, $100\times$ data-size samples were produced for $\qqbar$, $\tautau$, radiative return to $\jpsi$ (denoted $\gamma \jpsi$), and radiative return to $\psip$ (denoted $\gamma \psi'$).
 Each of these samples was generated at the University of Minnesota in July of 2014 using BOSS 6.6.4.p02.
 The $\DO \aDO$, $\Dp \Dm$, $\qqbar$, and $\tautau$ states were generated using KKMC, while the $\gamma \jpsi$ and $\gamma \psi'$ were generated with BesEvtGen.
@@ -224,7 +278,7 @@ Data                          & \num{4.844e8} \\
 
 In general, all MC samples were generated based off communal decay card information used within BESIII. 
 However, the $\DDbar$ samples were generated by implementing the Born-level cross section shape from the final fit into KKMC.
-This procedure was repeated over four iterations in order to provide a more data-driven basis for the ISR corrections.
+This procedure was repeated over five iterations in order to provide a more data-driven basis for the ISR corrections.
 The effects of this process are examined in \Cref{sec:systematics}.
 
 
@@ -287,7 +341,7 @@ Each $\DO$ efficiency also includes the corresponding DCSD terms for its decay (
 To determine the cross section at each point, this procedure was applied separately for each energy bin.
 The total number of proper and generated particles for each energy bin are shown in \Cref{tab:DTag_eff_D0} for $\DO$ and \Cref{tab:DTag_eff_Dp_p1,tab:DTag_eff_Dp_p2} for $\Dp$.
 The efficiencies for $\Dp$ and $\DO$ were also calculated across the total sample, and are shown for each mode in \Cref{tab:DTag_eff} and \Cref{fig:D_eff_by_mode}.
-Each energy bin's total efficiency for both $\DO$ and $\Dp$ is shown in \Cref{tab:DTag_eff_E_bin}.
+Total efficiencies of each bin for both $\DO$ and $\Dp$ are shown in \Cref{tab:DTag_eff_E_bin}.
 
 \begin{table}
 \renewcommand\arraystretch{1.0}
@@ -575,7 +629,7 @@ $\DpmodeF$ &  0.95 & 0.03 & 0.4317 & 0.0018 \\
 % \hline
 \end{tabular}
 \caption{Mode-by-mode reconstruction efficiencies for $\DO$ and $\Dp$.}
-{The values shown are over the entire data sample, while calculations for the cross sections use the values of each energy point individually (see \Cref{tab:DTag_eff_E_bin}). The errors listed on the PDG branching fractions are shown for reference, and are not included in the efficiency errors.}
+{The values shown are over the entire data sample, while calculations for the cross sections use the values of each energy point individually (see \Cref{tab:DTag_eff_E_bin}). The errors listed on the PDG branching fractions are shown for reference, and are not included in the efficiency errors (see \Cref{ssec:sys_pdg}).}
 \label{tab:DTag_eff}
 \end{table}
 
@@ -694,7 +748,7 @@ These are taken from the $CPV$-allowed values in \cite{ref:HFAG:2015} for $\DOmo
 The value of $y = 0.0066^{+0.0007}_{-0.0010}$ is also from \cite{ref:HFAG:2015}, and is the same for all modes.
 After applying each of the mode-dependent corrections, the efficiency for the full sample changes from $\epsilon_{\DO} = (11.320 \pm 0.213)\%$ to $\epsilon_{\DO} = (11.352 \pm 0.213)\%$, and similarly for the efficiencies of each $\Ecm$ bin.
 
-\begin{table}[h]
+\begin{table}[H]
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{l|r@{$\;\pm\;$}l r@{~}l r@{~}l|r@{~}l}
 \hline 
@@ -966,7 +1020,7 @@ $\DpmodeF$ & 0.74 \\
 \subsection*{PDG Branching Fractions}
 \label{ssec:sys_pdg}
 
-A mode-dependent change based on the PDG branching fraction errors (\Cref{tab:DTag_eff}) was applied to $\epsilon_m$ in \Cref{eq:DDbar_data}.
+A mode-dependent change based on the PDG branching fraction errors (\Cref{tab:DTag_eff}) was applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 The branching fraction for each mode was changed by its uncertainty. 
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
@@ -1077,7 +1131,7 @@ From this, we treat variations due to intermediate resonances as negligible.
 
 In addition to the systematics described above, there is a significant source of uncertainty coming from the non-resonant form factor used.
 Each of the models examined, Exponential and VDM, provided quality fit results for the cross section shapes.
-From this, we conservatively assign an uncertainty based on the differences in fit parameters provided by these two methods.
+From this, we conservatively assign an uncertainty equal to the differences in fit parameters provided by these two methods.
 Following the example of KEDR, we treat this as separate from the other systematics, and list it as a model uncertainty.
 
 

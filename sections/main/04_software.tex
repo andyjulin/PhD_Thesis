@@ -24,15 +24,15 @@ To model its geometry and materials, a unique description of the detector has be
 This allows both simulation and reconstruction packages to appropriately model the behavior of events within the specific environment of BESIII.
 For particle tracking, interactions with detector materials are handled by GEANT4 \cite{ref:Agostinelli:2003}.
 Lastly, detector responses are modeled by the so-called `digitization code'.
-This takes into account each detector component, as well as readout electronics, and realistic situation such as noise or dead channels.
-There is also a simulation of the trigger systems implemented.
+This takes into account each detector component, as well as readout electronics, and realistic situations such as noise or dead channels.
+There is also a simulation of the triggering system implemented.
 
 
 \subsubsection{KKMC}
 
 Originally developed for the LEP and SLC colliders, KKMC \cite{ref:Jadach:2000} is a generator used to model electroweak interactions.
 Namely, the processes generated are of the form $\ee \rightarrow \ffbar + (n)\photon$, where $\fermion = \{ \mu, \tau, \qup, \qdown, \qstrange, \qcharm, \qbottom \}$, and $(n)\photon$ represents any number of additional photons.
-These are modeled taking into account second-order sub-leading corrections, as well as initial-state radiation, and interference between initial- and final-state radiation.
+These are modeled taking into account second-order sub-leading corrections, as well as initial-state radiation (ISR), and interference between initial- and final-state radiation (FSR).
 The effects of beam energy spread, typically on the order of \SI{1}{\MeV} near the $\psipp$, can also be included.
 
 
@@ -50,7 +50,7 @@ It is the basis for BesEvtGen \cite{ref:Ping:2008}, which incorporates many diff
 Over 30 exclusive decay models are available in BesEvtGen, as well as the capability to incorporate user-created models.
 
 
-The decay process occurs sequentially using dynamic information from amplitude probabilities and forward / backward spin-density matrices.
+The simulation process occurs sequentially using dynamic information from decay amplitude probabilities and forward / backward spin-density matrices.
 From this, final state radiation is handled by the PHOTOS model \cite{ref:Barberio:1991}.
 To generate unknown decays of charmonium resonances, the LundCharm model \cite{ref:Chen:2000} is used, while other unknown hadronic decays are handled by PYTHIA.
 For radiative processes, such as radiative return to $\jpsi$ or $\psip$, the VECTORISR model \cite{ref:Bonneau:1971} is used.
@@ -88,7 +88,7 @@ Each of the calibration outputs are stored in a ROOT file along with other detai
 While all of this information is stored by a central MySQL \cite{ref:MySQL} server at IHEP, databases for other institutions in BESIII regularly synchronize with this server to create a mirrored copy of these values.
 
 
-\subsection{Analysis}
+% \subsection{Analysis}
 
 
 \section{Detector Simulation}
@@ -129,7 +129,7 @@ This likelihood from $\tdEdx$ is used in conjunction with information from the T
 
 \subsection{Time-of-Flight System}
 
-Simulating events in the ToF accounts for the scintillator, wrapping materials, and photomultiplier tubes.
+Simulating events in the ToF accounts for the scintillator, wrapping materials, and photomultiplier tubes (PMTs).
 The process converts the energy deposited in the scintillator into photons, then propagates the shape of a photon pulse (rather than individual photons) to the PMTs in order to generate an electronic signal.
 A discriminator is applied to each pulse to determine the analog-to-digital conversion (ADC) and time-to-digital conversion (TDC) outputs.
 The algorithm is tested using the results of beam tests, however, subsequently gathered data sets require updated tuning.
@@ -225,7 +225,7 @@ Additionally, for the neutral modes, the doubly-Cabbibo suppressed decays (DCSD)
 This process occurs for each event and searches over each decay mode for each charm (i.e., both $\Dp$ and $\Dm$).
 The combinations chosen for reconstruction are those with the smallest energy difference from the expected value.
 More than one $\D$ combination can be extracted from a given event, as long as it satisfies all other requirements (see \Cref{ssec:selection_cuts}).
-While this may sound like it overestimates the number of actual $\D$ particles found, the process is also used to calculate reconstruction efficiency, and will cancel out this effect.
+While this may sound like it overestimates the number of actual $\D$ particles found, the process is also used to calculate reconstruction efficiency, thereby cancelling out this effect. 
 
 
 \subsection{Selection Cuts}

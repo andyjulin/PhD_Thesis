@@ -11,6 +11,7 @@ These two sites were closed in 2004 to prepare for the upgrades to the current s
 
 In 2009, BEPCII and BESIII resumed operation with the goal of utilizing greatly increased luminosity.
 For example, instead of the single-bunch electron collisions of BEPC, the new design utilized multiple bunch collisions.
+This creates many groups of electrons and positrons which are tightly packed in each ring during run time.
 BEPCII also utilizes a dual-storage ring for the electrons and positrons, compared to the single-ring available at BEPC.
 The improvements provide BEPCII with a design luminosity of \SI{e33}{\lumunits}, two orders of magnitude larger than the previous installation.
 This luminosity is optimized for energies near the $\psipp$ resonance, as BESIII conducts many precision measurements and rare decay searches around this region.
@@ -66,7 +67,7 @@ An appropriate field strength curves the tracks of charged particles sufficientl
 
 The BESIII detector, shown in \Cref{fig:detector}, is split into four main layers which analyze different aspects for identifying particles.
 Starting from the most interior, these layers are the Multi-Layer Drift Chamber (MDC), the Time-of-Flight System (ToF), the Electromagnetic Calorimeter (EMC), and the Muon Identifier (MUC).
-Using the information provided by each layer, the particles seen in the detector are given a hypothesis for their most likely candidate.
+Using the information provided by each layer, the tracks seen in the detector are given a particle hypothesis for their most likely candidate.
 Only charged particles stable enough to sufficiently traverse the detector are identifiable in this way.
 The candidate particles identified at BESIII are electrons ($e$), muons ($\mu$), pions ($\pi$), kaons ($K$), and protons ($p$).
 Short-lived particles, such as $\DO$ and $\Dp$, must be reconstructed from their decays into these constituents, as well as neutral shower energy from photons ($\photon$).
@@ -235,7 +236,8 @@ Because of this, when the buffer holding the subdetector data is around \SI{80}{
 
 From the MDC, L1 gathers information about each charged track.
 The main parameter examined is the number of superlayers a track passed through.
-These are defined as `short' tracks if they deposit energy in segments of superlayers 3-5, or `long' tracks for superlayers 3-5 and 10.
+Here, a superlayer is the collection of wires at the same radial distance away from the center of the detector.
+Tracks are defined as `short' if they deposit energy in segments of superlayers 3-5, or `long' for superlayers 3-5 and 10.
 To ensure a sufficient momentum to reach the outer superlayers while originating at the interaction point, a minimum transverse momentum cut is applied to each track.
 This cut is \SI{90}{\MeV} and \SI{120}{\MeV} for short and long tracks, respectively.
 In addition to the numbers of short and long tracks for an event, the information about back-to-back tracks is also used.
