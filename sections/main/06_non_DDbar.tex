@@ -1,17 +1,193 @@
 \chapter{Measurement of Hadronic Production and $\Gamma(\psipp \rightarrow \text{non-}\DDbar)$}
 \label{ch:non_DDbar}
 
+
 \section{Data and Monte Carlo Samples}
 \label{sec:non_DDbar_data_samples}
+
+\subsection{Data Samples}
+\label{ssec:data_samples_non_DDbar}
+
+The data used for this analysis was also produced by BEPCII and collected by BESIII.
+The samples used include continuum data taken at \SI{3.650}{\GeV} in 2009, as well as multiple other continuum points taken around this energy in 2013.
+We also use Round 1 (R1) and Round 2 (R2) of the high-statistics $\psipp$ data taken in 2010 and 2011, respectively.
+Each of these samples, and their measured luminosities, can be seen in \Cref{tab:data_samples_non_DDbar}.
+The values of luminosity were measured during a previous version of this analysis using the procedure described in \Cref{ssec:luminosity_measurement}.
+The labels given to each continuum point are the intended energy targets, but may differ from their true values.
+In addition to these datasets, the scan data described previously (\Cref{ssec:data_samples}) is also used.
+
+
+\subsection{Center-of-Mass Energy Measurement}
+\label{ssec:energy_measurement_non_DDbar}
+
+As before, a precise measurement of each energy point is vital to the accuracy of the final results.
+Most notably, due to the rapidly increasing shape of the $\psip$ cross section near the high end of the continuum points, the value of the 3671 (New) point has a dramatic effect on the $\qqbar$ extrapolation.
+Following the procedure of \Cref{ssec:energy_measurement}, we measured the $\Ecm$ value of each continuum point.
+This resulted in a \SIrange{4}{6}{\MeV} shift downwards for each of the new continuum points, but virtually no shift for the old continuum point.
+The energy measurements are shown in \Cref{tab:data_samples_non_DDbar}.
+
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{l|c r}
+\hline
+Sample Name & $\Ecm$ [\si{\GeV}] & Luminosity \si{\invpb} \\
+\hline
+3500 (New) & 3.496 & \num{  3.680 \pm 0.009} \\
+3542 (New) & 3.538 & \num{  3.481 \pm 0.009} \\
+3600 (New) & 3.596 & \num{  0.395 \pm 0.019} \\
+3650 (New) & 3.644 & \num{  5.420 \pm 0.009} \\
+3671 (New) & 3.665 & \num{  4.669 \pm 0.009} \\
+3650 (Old) & 3.650 & \num{ 44.334 \pm 0.009} \\
+3773 (R1)  & 3.773 & \num{926.922 \pm 0.092} \\
+3773 (R2)  & 3.773 & \num{1978.92 \pm 0.091} \\
+\hline
+\end{tabular}
+\caption{Data samples used for the inclusive measurement.}
+{While the 3600 (New) sample was intended to be similar in luminosity to the other continuum points, accelerator issues inhibited the data collection procedure. 
+There is also a sizable difference in total luminosity between the new continuum points and the other datasets used in this analysis.}
+\label{tab:data_samples_non_DDbar}
+\end{table}
+
 
 \section{Event Selection}
 \label{sec:non_DDbar_event_selection}
 
-\section{Efficiency Extrapolation}
-\label{sec:efficiency_extrapolation}
+In order to select the number of hadronic events in each sample, we apply a variety of cuts.
+For charged tracks in the MDC, these include the cuts shown in \Cref{tab:charged_cuts_non_DDbar}.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c| r@{$\; < \;$}l}
+\hline
+Vertex ($xy$) & $V_{xy}$ & \pp \SI{1}{\cm} \\
+Vertex ($z$)  & $|Vz|$   & \SI{10}{\cm} \\
+MDC Angle & $|\cos\theta|$ & 0.93 \\
+\hline
+\end{tabular}
+\caption{Selection cuts on charged tracks used to count hadronic events.}
+\label{tab:charged_cuts_non_DDbar}
+\end{table}
+
+For neutral tracks in the EMC, these include the cuts shown in \Cref{tab:neutral_cuts_non_DDbar}.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|l r}
+\hline
+Minimum Energy (Barrel) & $E_{\text{EMC}} > \SI{25}{\MeV}$ & $(|\cos\theta| < 0.80)$ \\
+Minimum Energy (Endcap) & $E_{\text{EMC}} > \SI{50}{\MeV}$ & $(0.86 < |\cos\theta| < 0.92)$ \\
+TDC Timing & $(0 \leq t \leq 14) \times \SI{50}{\ns}$ & \\
+\hline
+\end{tabular}
+\caption{Selection cuts on neutral tracks used to count hadronic events.}
+\label{tab:neutral_cuts_non_DDbar}
+\end{table}
+
+
+To reject background events of $\bhabha$ or $\ee \rightarrow \gamma\gamma$, we also employ cuts related to the most energetic and highest momentum tracks in the event.
+These are listed in \Cref{tab:bhabha_cuts_non_DDbar}.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{l|l@{}l l@{}l}
+\hline
+\multirow{4}{*}{Highest Energy}   & $\cosmax_+ <  $ & 0.8                            & \multirow{2}{*}{($\Ntrk$} & \multirow{2}{*}{ = 2)} \\
+                                  & $\cosmax_- > -$ & 0.8                            & & \\
+\cline{2-5}
+                                  & $\cosmax_+ <  $ & 0.8 or $\pEmax_+ \leq 0.3$     & \multirow{2}{*}{($\Ntrk$} & \multirow{2}{*}{ = 3, 4)} \\
+                                  & $\cosmax_- > -$ & 0.8 or $\pEmax_- \leq 0.3$     & & \\
+\hline
+\multirow{2}{*}{Highest Momentum} & \multicolumn{2}{l}{$0.8 \leq \Epmax_+ \leq 1.1$} & & \\
+                                  & \multicolumn{2}{l}{$0.8 \leq \Epmax_- \leq 1.1$} & & \\
+\hline
+\end{tabular}
+\caption{Selection cuts to remove Bhabha and two-photon backgrounds.}
+{The $_+$ and $_-$ denote positively and negatively charged tracks, respectively.  The $^{\text{max}}$ notation indicates the highest energy or momenta track for the corresponding charge.  The energy cuts depend on the total number of charged tracks in the event, $\Ntrk$.}
+\label{tab:bhabha_cuts_non_DDbar}
+\end{table}
+
+After applying these sets of cuts, there are three groups of cuts which are considered: Standard (SHAD), Loose (LHAD), and Tight (THAD).
+For the nominal procedure, SHAD is used, while LHAD and THAD are for systematic consideration.
+The cuts included in each of these sets are shown in \Cref{tab:shad_cuts_non_DDbar,tab:lhad_cuts_non_DDbar,tab:thad_cuts_non_DDbar}.
+These apply to the number of charged tracks ($\Ntrk$), the visible energy ($\Evis$), the total visible momentum in the $z$-direction ($\pzvistot$), the maximum shower energy ($\Eemcmax$), and the total shower energy ($\Eemctot$).
+Here, `visible' refers to the sum over charged and neutral tracks.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{l|r@{ }l l}
+\hline
+Number of Tracks                     & $\Ntrk$ & $ > 2$               &                  \\
+\hline
+Visible Energy                       & $\EvisE$ & $ > 0.3$            &                  \\
+\hline
+Visible Momentum                     & $\pzEvis$ & $ < 0.6$           & $(\Ntrk = 3, 4)$ \\
+\hline
+Maximum Shower Energy                & $\EemcEmax$ & $ < 0.75$           & $(\Ntrk = 3, 4)$ \\
+\hline
+\multirow{2}{*}{Total Shower Energy} & \multicolumn{2}{c}{$0.25 < \EemcEtot < 0.75$} & $(\Ntrk = 3)$ \\
+                                     & \multicolumn{2}{c}{$0.15 < \EemcEtot < 0.75$} & $(\Ntrk = 4)$ \\
+\hline
+\end{tabular}
+\caption{Standard selection cuts (SHAD) for counting hadronic events.}
+\label{tab:shad_cuts_non_DDbar}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{l|r@{ }l l}
+\hline
+Number of Tracks                       & $\Ntrk$ & $ > 1$               &                  \\
+\hline
+\multirow{2}{*}{Visible Energy}        & $\EvisE$ & $ > 0.4$            & $(\Ntrk = 2)$    \\
+                                       & $\EvisE$ & $ > 0.3$            & $(\Ntrk \geq 3)$ \\
+\hline                                 
+\multirow{2}{*}{Visible Momentum}      & $\pzEvis$ & $ < 0.3$           & $(\Ntrk = 2)$    \\
+                                       & $\pzEvis$ & $ < 0.6$           & $(\Ntrk = 3, 4)$ \\
+\hline
+\multirow{2}{*}{Maximum Shower Energy} & $\EemcEmax$ & $ < 0.50$           & $(\Ntrk = 2)$    \\
+                                       & $\EemcEmax$ & $ < 0.75$           & $(\Ntrk = 3, 4)$ \\
+\hline                                 
+\multirow{2}{*}{Total Shower Energy}   & \multicolumn{2}{c}{$0.25 < \EemcEtot < 0.75$} & $(\Ntrk = 2, 3)$ \\
+                                       & \multicolumn{2}{c}{$0.15 < \EemcEtot < 0.75$} & $(\Ntrk = 4)$    \\
+\hline
+\end{tabular}
+\caption{Loose selection cuts (LHAD) for counting hadronic events.}
+\label{tab:lhad_cuts_non_DDbar}
+\end{table}
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{l|r@{ }l l}
+\hline
+Number of Tracks                     & $\Ntrk$ & $ > 3$               &                  \\
+\hline
+Visible Energy                       & $\EvisE$ & $ > 0.4$            &                  \\
+\hline
+Visible Momentum                     & $\pzEvis$ & $ < 0.6$           & $(\Ntrk = 4)$ \\
+\hline
+Maximum Shower Energy                & $\EemcEmax$ & $ < 0.75$           & $(\Ntrk = 4, 5)$ \\
+\hline
+\multirow{2}{*}{Total Shower Energy} & \multicolumn{2}{c}{$0.15 < \EemcEtot < 0.75$} & $(\Ntrk = 4)$ \\
+                                     & \multicolumn{2}{c}{$0.00 < \EemcEtot < 0.75$} & $(\Ntrk = 5)$ \\
+\hline
+\end{tabular}
+\caption{Tight selection cuts (THAD) for counting hadronic events.}
+\label{tab:thad_cuts_non_DDbar}
+\end{table}
 
 \section{Background Subtraction}
 \label{sec:background_subtraction}
+
+\section{Efficiency Extrapolation}
+\label{sec:efficiency_extrapolation}
 
 \section{$\DDbar$ Correction}
 \label{sec:DDbar_correction}

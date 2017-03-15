@@ -245,18 +245,18 @@ Lastly, from the particle identification process, the probability of being a pio
 The values for each of these requirements can be found in \Cref{tab:kpi_cuts}.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{c| D{<}{\; < \;}{-1} }
-        \hline
-        Vertex ($xy$) & V_{xy} < \pp \SI{1}{\cm} \\
-        Vertex ($z$)  & |Vz|   < \SI{10}{\cm} \\
-        MDC Angle         & |\cos\theta| < 0.93 \\
-        Pion Probability & \multicolumn{1}{c}{ $\pp P(\pi) > 0, \quad P(\pi) > P(K)$ } \\
-        Kaon Probability & \multicolumn{1}{c}{ $P(K)   > 0, \quad P(K) > P(\pi)$ } \\
-        \hline
-    \end{tabular}
-    \caption{The required cuts to identify charged tracks as $\pipm$ or $\Kpm$.}
-    \label{tab:kpi_cuts}
+\centering
+\begin{tabular}{c| r@{$\; < \;$}l }
+\hline
+Vertex ($xy$   ) & $V_{xy}$ & \pp \SI{1}{\cm} \\
+Vertex ($z$)     & $|Vz|$   & \SI{10}{\cm} \\
+MDC Angle        & $|\cos\theta|$ & 0.93 \\
+Pion Probability & \multicolumn{2}{c}{ $\pp P(\pi) > 0, \quad P(\pi) > P(K)$ } \\
+Kaon Probability & \multicolumn{2}{c}{ $P(K)   > 0, \quad P(K) > P(\pi)$ } \\
+\hline
+\end{tabular}
+\caption{The required cuts to identify charged tracks as $\pipm$ or $\Kpm$.}
+\label{tab:kpi_cuts}
 \end{table}
 
 
@@ -269,16 +269,16 @@ Each photon must also pass a TDC timing cut to ensure they are consistent with a
 The values for each of these requirements can be found in \Cref{tab:photon_cuts}.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{c|c}
-        \hline
-        Minimum Energy (Barrel) & \SI{25}{\MeV} \\
-        Minimum Energy (Endcap) & \SI{50}{\MeV} \\
-        TDC Timing & $ t < 14 \times \SI{50}{\ns} $ \\ 
-        \hline
-    \end{tabular}
-    \caption{The required cuts to identify neutral showers as a $\photon$.}
-    \label{tab:photon_cuts}
+\centering
+\begin{tabular}{c|c r}
+\hline
+Minimum Energy (Barrel) & $E_{\text{EMC}} > \SI{25}{\MeV}$ & $(|\cos\theta| < 0.80)$ \\
+Minimum Energy (Endcap) & $E_{\text{EMC}} > \SI{50}{\MeV}$ & $(0.84 < |\cos\theta| < 0.92)$ \\
+TDC Timing & $ (0 \leq t \leq 14) \times \SI{50}{\ns} $ \\ 
+\hline
+\end{tabular}
+\caption{The required cuts to identify neutral showers as a $\photon$.}
+\label{tab:photon_cuts}
 \end{table}
 
 
@@ -293,15 +293,15 @@ The resulting momentum from this fit is used for reconstructing $\Dtag$ candidat
 The values used for each of these requirements are shown in \Cref{tab:pi0_cuts}.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{c|c}
-        \hline
-        Nominal Mass & $\SI{115}{\MeV} < m_{\piO} < \SI{150}{\MeV}$ \\
-        Fit Quality  & $\chi^2 < 200$, Converged \\
-        \hline
-    \end{tabular}
-    \caption{The required cuts to reconstruct $\twophoton$ pairs as a $\piO$.}
-    \label{tab:pi0_cuts}
+\centering
+\begin{tabular}{c|c}
+\hline
+Nominal Mass & $\SI{115}{\MeV} < m_{\piO} < \SI{150}{\MeV}$ \\
+Fit Quality  & $\chi^2 < 200$, Converged \\
+\hline
+\end{tabular}
+\caption{The required cuts to reconstruct $\twophoton$ pairs as a $\piO$.}
+\label{tab:pi0_cuts}
 \end{table}
 
 
@@ -317,15 +317,15 @@ From this, the resulting momentum from the vertex fit is used for reconstructing
 The values used for each of these requirements are shown in \Cref{tab:ks_cuts}.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{c|c}
-        \hline
-        Nominal Mass & $\SI{487}{\MeV} < m_{\Ks} < \SI{511}{\MeV}$ \\
-        Fit Quality  & $\chi^2 < 100$, Converged \\
-        \hline
-    \end{tabular}
-    \caption{The required cuts to reconstruct $\pip\pim$ pairs as a $\Ks$.}
-    \label{tab:ks_cuts}
+\centering
+\begin{tabular}{c|c}
+\hline
+Nominal Mass & $\SI{487}{\MeV} < m_{\Ks} < \SI{511}{\MeV}$ \\
+Fit Quality  & $\chi^2 < 100$, Converged \\
+\hline
+\end{tabular}
+\caption{The required cuts to reconstruct $\pip\pim$ pairs as a $\Ks$.}
+\label{tab:ks_cuts}
 \end{table}
 
 \subsubsection{Cosmic Ray and Lepton Veto}
@@ -337,15 +337,15 @@ To prevent this, cuts on the timing difference between the tracks, as well as on
 The values used for each of these requirements are shown in \Cref{tab:veto_cuts}.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{c|c}
-        \hline
-        Timing (TDC) & $|t_1 - t_2| < 5 \times \SI{50}{\ns}$ \\
-        Particle Identification & $(\chi_{\lel}^2 + \chi_{\alel}^2) - (\chi_{\Km}^2 + \chi_{\pip}^2) > 10$ \\
-        \hline
-    \end{tabular}
-    \caption{Cuts to prevent cosmic ray and lepton backgrounds in $\DOmodeA$.}
-    \label{tab:veto_cuts}
+\centering
+\begin{tabular}{c|c}
+\hline
+Timing (TDC) & $|t_1 - t_2| < 5 \times \SI{50}{\ns}$ \\
+Particle Identification & $(\chi_{\lel}^2 + \chi_{\alel}^2) - (\chi_{\Km}^2 + \chi_{\pip}^2) > 10$ \\
+\hline
+\end{tabular}
+\caption{Cuts to prevent cosmic ray and lepton backgrounds in $\DOmodeA$.}
+\label{tab:veto_cuts}
 \end{table}
 
 
