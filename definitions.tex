@@ -8,6 +8,7 @@
 \newcommand{\pp}{\phantom{0}}
 \newcommand{\PP}{\phantom{00}}
 
+\newcommand{\mcd}[1]{\multicolumn{#1}{c}{-}}
 
 % Add space between rows of tables
 \newcommand{\spacerows}[1]{\renewcommand{\arraystretch}{#1}}
@@ -22,9 +23,12 @@
 \DeclareSIUnit\lumunits{\per\square\cm\per\second}
 \DeclareSIUnit\mAmin{\mA\per\min}
 \DeclareSIUnit\torr{Torr}
-\DeclareSIUnit\invfb{fb^{-1}}
-\DeclareSIUnit\invpb{pb^{-1}}
+\DeclareSIUnit\fb{fb}
+\DeclareSIUnit\invfb{\fb^{-1}}
+\DeclareSIUnit\pb{pb}
+\DeclareSIUnit\invpb{\pb^{-1}}
 \DeclareSIUnit\nb{nb}
+\DeclareSIUnit\invnb{\nb^{-1}}
 \DeclareSIUnit\rad{rad}
 
 
@@ -126,7 +130,11 @@
 \newcommand{\qqbar}{\quark\aquark}
 \newcommand{\ffbar}{\fermion\afermion}
 \newcommand{\DDbar}{\D\aD}
-\newcommand{\twophoton}{\photon\photon}
+\newcommand{\nonDDbar}{\text{non-}\DDbar}
+\newcommand{\yy}{\photon\photon}
+\newcommand{\twophoton}{2\photon}
+\newcommand{\yjpsi}{\gamma\jpsi}
+\newcommand{\ypsip}{\gamma\psip}
 
 
 % Define particle variables
@@ -172,6 +180,8 @@
 \newcommand{\pzEvis}{(\pzvistot / \Evis)}
 \newcommand{\EemcEmax}{(\Eemcmax / \Ebeam)}
 \newcommand{\EemcEtot}{(\Eemctot / \Ecm)}
+\newcommand{\Nhad}{N_{\text{had}}}
+\newcommand{\effmc}{\epsilon_{\text{MC}}}
 
 % Define derivation variables
 \newcommand{\BDD}{\mathcal{B}_{\DDbar}}
