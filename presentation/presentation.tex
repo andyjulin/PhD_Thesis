@@ -1,0 +1,713 @@
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+% Beamer Presentation
+% LaTeX Template
+% Version 1.0 (10/11/12)
+%
+% This template has been downloaded from:
+% http://www.LaTeXTemplates.com
+%
+% License:
+% CC BY-NC-SA 3.0 (http://creativecommons.org/licenses/by-nc-sa/3.0/)
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
+%----------------------------------------------------------------------------------------
+%	PACKAGES AND THEMES
+%----------------------------------------------------------------------------------------
+
+\documentclass[t]{beamer}
+
+\mode<presentation> {
+
+% The Beamer class comes with a number of default slide themes
+% which change the colors and layouts of slides. Below this is a list
+% of all the themes, uncomment each in turn to see what they look like.
+
+% \usetheme{default}
+% \usetheme{AnnArbor}
+% \usetheme{Antibes}
+% \usetheme{Bergen}
+% \usetheme{Berkeley}
+% \usetheme{Berlin}
+% \usetheme{Boadilla}
+% \usetheme{CambridgeUS}
+% \usetheme{Copenhagen}
+% \usetheme{Darmstadt}
+% \usetheme{Dresden} %*
+% \usetheme{Frankfurt}
+% \usetheme{Goettingen}
+% \usetheme{Hannover}
+% \usetheme{Ilmenau}
+% \usetheme{JuanLesPins}
+% \usetheme{Luebeck}
+\usetheme{Madrid} %*
+% \usetheme{Malmoe}
+% \usetheme{Marburg}
+% \usetheme{Montpellier}
+% \usetheme{PaloAlto}
+% \usetheme{Pittsburgh}
+% \usetheme{Rochester}
+% \usetheme{Singapore}
+% \usetheme{Szeged}
+% \usetheme{Warsaw}
+
+% As well as themes, the Beamer class has a number of color themes
+% for any slide theme. Uncomment each of these in turn to see how it
+% changes the colors of your current slide theme.
+
+% \usecolortheme{albatross}
+% \usecolortheme{beaver}
+% \usecolortheme{beetle}
+% \usecolortheme{crane}
+% \usecolortheme{dolphin}
+% \usecolortheme{dove}
+% \usecolortheme{fly}
+% \usecolortheme{lily}
+% \usecolortheme{orchid}
+% \usecolortheme{rose}
+% \usecolortheme{seagull}
+% \usecolortheme{seahorse}
+% \usecolortheme{whale}
+% \usecolortheme{wolverine}
+
+%\setbeamertemplate{footline} % To remove the footer line in all slides uncomment this line
+%\setbeamertemplate{footline}[page number] % To replace the footer line in all slides with a simple slide count uncomment this line
+
+%\setbeamertemplate{navigation symbols}{} % To remove the navigation symbols from the bottom of all slides uncomment this line
+}
+
+\usepackage{graphicx} % Allows including images
+\usepackage{booktabs} % Allows the use of \toprule, \midrule and \bottomrule in tables
+\usepackage{units}    % SI unit typesetting
+\usepackage{siunitx}  % \num{} formatting and SI unit formatting
+\usepackage{setspace}
+\usepackage[normalem]{ulem}
+
+\sisetup{
+    group-separator = {,}, % Use , to separate groups of digits, like 12,345
+    list-final-separator = {, and }, % Always use the serial comma in \SIlist
+    separate-uncertainty = true,
+}
+
+\input{../definitions}
+
+\newcommand{\sectionframe}[1]{
+\section{#1}
+\begin{frame}[c]{}
+\linespread{2.5}
+\begin{block}{$\;$}
+\begin{center}
+{\Huge #1}
+\end{center}
+\end{block}
+\end{frame}
+}
+
+\newcommand{\addframe}[2]{
+\begin{frame}
+\frametitle{#1}
+#2
+\end{frame}
+}
+
+\newcommand{\additem}[1]{
+\begin{itemize}
+\item #1
+\end{itemize}
+}
+
+%----------------------------------------------------------------------------------------
+%	TITLE PAGE
+%----------------------------------------------------------------------------------------
+
+\title[Thesis Defense] % The short title appears at the bottom of every slide
+{Measurement of $\DDbar$ Decays \linebreak from the $\psipp$ Resonance} % The full title is only on the title page
+
+\author{Andy Julin} % Your name
+
+\institute[UMN] % The short institution appears on the bottom of every slide
+{University of Minnesota - Twin Cities} % The full institution is only on the title page
+
+\date{May 11th, 2017} % Date, can be changed to a custom date
+
+\begin{document}
+
+\addframe{}{
+\titlepage % Print the title page as the first slide
+}
+
+\addframe{Overview}{ % Table of contents slide, comment this block out to remove it
+\tableofcontents % Throughout your presentation, if you choose to use \section{} and \subsection{} commands, these will automatically be printed on this slide as an overview of your presentation
+}
+
+%--------------------------------------------------------------------------------------
+%   EXAMPLES
+%--------------------------------------------------------------------------------------
+
+% \begin{columns}[c] % The "c" option specifies centered vertical alignment while the "t" option is used for top vertical alignment
+% 
+% \column{.45\textwidth} % Left column and width
+% \textbf{Heading}
+% \begin{enumerate}
+% \item Statement
+% \item Explanation
+% \item Example
+% \end{enumerate}
+% 
+% \column{.5\textwidth} % Right column and width
+% Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer lectus nisl, ultricies in feugiat rutrum, porttitor sit amet augue. Aliquam ut tortor mauris. Sed volutpat ante purus, quis accumsan dolor.
+% 
+% \end{columns}
+
+
+% \begin{table}
+% \begin{tabular}{l l l}
+% \toprule
+% \textbf{Treatments} & \textbf{Response 1} & \textbf{Response 2}\\
+% \midrule
+% Treatment 1 & 0.0003262 & 0.562 \\
+% Treatment 2 & 0.0015681 & 0.910 \\
+% Treatment 3 & 0.0009271 & 0.296 \\
+% \bottomrule
+% \end{tabular}
+% \caption{Table caption}
+% \end{table}
+
+
+% \begin{theorem}[Mass--energy equivalence]
+% $E = mc^2$
+% \end{theorem}
+
+
+% %\begin{figure}
+% %\includegraphics[width=0.8\linewidth]{test}
+% %\end{figure}
+
+
+% \begin{frame}[fragile] % Need to use the fragile option when verbatim is used in the slide
+% \frametitle{Citation}
+% An example of the \verb|\cite| command to cite within the presentation:\\~
+% 
+% This statement requires citation \cite{p1}.
+% }
+
+
+% \footnotesize{
+% \begin{thebibliography}{99} % Beamer does not support BibTeX so references must be inserted manually as below
+% \bibitem[Smith, 2012]{p1} John Smith (2012)
+% \newblock Title of the publication
+% \newblock \emph{Journal Name} 12(3), 45 -- 678.
+% \end{thebibliography}
+
+
+
+
+%----------------------------------------------------------------------------------------
+%	PRESENTATION SLIDES
+%----------------------------------------------------------------------------------------
+
+\sectionframe{Introduction}
+
+\addframe{Introduction}{
+Describe basic meaning of $\psipptoDD$ cross section
+}
+
+\addframe{Previous Measurements}{
+Show list of previous experimental results 
+
+Explain need for interference
+}
+
+\addframe{Really Quick Overview}{
+Describe need to measure decay products
+
+Describe background subtraction
+
+Describe getting counts to determine cross section
+}
+
+
+\sectionframe{Theoretical Background}
+% Show pictures of Feynman diagrams and other things
+
+\addframe{Fundamental Forces}{
+\vspace{-0.25cm}
+
+1) Electromagnetic (QED)
+\begin{itemize}
+\item Responsible for attracting / repelling electrically charged objects
+\item Mediated by the massless photon ($\photon$)
+\item Very precisely calculable through perturbation theory
+\end{itemize}
+
+2) Weak
+\begin{itemize}
+\item Responsible for radioactive decays and flavor changes
+\item Mediated by the very heavy $\W^\pm$ and $\Z$
+\item Led to discovery of $\sC$ and $\sCP$ violation
+\end{itemize}
+
+3) Strong (QCD)
+\begin{itemize}
+\item Responsible for binding together hadrons
+\item Mediated by the massless gluon ($\gluon$)
+\item Complicated calculations not described by perturbation theory
+\end{itemize}
+
+\sout{4) Gravity} {\sl Negligible at this mass scale}
+}
+
+\addframe{Fermions and Bosons}{
+
+\begin{columns}
+
+\column{.45\textwidth} % Left column and width
+\textbf{Fermions}
+\begin{enumerate}
+\item Half-Integer Spin
+\item Explanation
+\item Example
+\end{enumerate}
+
+Examples:
+\additem{Quarks  ($\quark$):             \\ $\qup, \; \qdown, \; \qstrange, \; \qcharm, \; \qbottom, \; \qtop$}
+\additem{Leptons ($\lepton$):            \\ $\lel, \; \lmu,   \; \ltau,     \; \vel,    \; \vmu,     \; \vtau$}
+\additem{Baryons ($\quark\quark\quark$): \\ $p,    \; n,      \; \Delta,    \; \Lambda, \; \ldots$}
+
+\column{.45\textwidth} % Right column and width
+\textbf{Bosons}
+\begin{enumerate}
+\item Integer Spin 
+\item Explanation
+\item Example
+\end{enumerate}
+
+Examples:
+\additem{Gauge Bosons:             \\ $\photon, \; \W^\pm, \; \Z,   \; \gluon$}
+\additem{Higgs Boson:              \\ $\Higgs$}
+\additem{Mesons ($\quark\aquark$): \\ $\pipm,   \; \piO,   \; \Kpm, \; \Ks, \; \ldots$} 
+
+\end{columns}
+}
+
+\addframe{Standard Standard Model Slide}{
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../figures/images/standard_model.png}
+\end{figure}
+}
+
+\addframe{Charmonium}{
+Resonances formed by a $\qcharm\aqcharm$ pair: $\jpsi, \; \psip, \; \psipp, \; \ldots$
+\additem{Original interpretation of $\psip$ and $\psipp$ as excited states of $\jpsi$}
+\additem{Evidence of mixed-states suggests more complicated picture}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/R_scan.pdf}
+\end{figure}
+}
+
+\addframe{OZI Rule}{
+\vspace{-1.0cm}
+
+\begin{columns}
+
+\column{.5\textwidth} % Left column and width
+\begin{center}
+\textbf{$\psip$}
+\end{center}
+\vspace{-0.5cm}
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/OZI_psip.png}
+\end{figure}
+
+\begin{itemize}
+\item Requires three gluons for decay 
+
+\item{Very narrow decay width
+\additem{$\Gamma_{\psip} = \SI{0.286}{\MeV}$}}
+
+\end{itemize}
+
+\column{.5\textwidth} % Right column and width
+\begin{center}
+\textbf{$\psipp$}
+\end{center}
+\vspace{-0.3cm}
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/OZI_psipp.png}
+\end{figure}
+
+\vspace{0.35cm}
+\begin{itemize}
+
+\item Decays via open charm ($\DDbar$)
+
+\item {Much larger decay width
+\additem{$\Gamma_{\psipp} = \SI{27.5}{\MeV}$}}
+
+\end{itemize}
+
+\end{columns}
+
+\vspace{0.3cm}
+
+\begin{center}
+Introduction of $\DDbar$ decays provides drastically different behavior!
+\end{center}
+}
+
+\sectionframe{Accelerator and Detector}
+% Show pictures of Beijing map and campus, if possible 
+
+\addframe{Institute of High Energy Physics (IHEP)}{
+BESIII is hosted by the IHEP Campus located in Beijing, China
+
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/BESIII_layout.jpg}
+\end{figure}
+}
+
+\addframe{Accelerator - Beijing Electron-Positron Collider II (BEPCII)}{
+
+\begin{enumerate}
+
+\item{Create positrons by firing electrons into stationary material
+\additem{Generates high energy $\gamma$s which interact with material to form $\ee$}}
+
+\item{Separate newly created positrons magnetically}
+
+\item{Accelerate positrons in linear accelerator and feed into storage ring}
+
+\item{Accelerate electrons and feed into the oppositely circulating ring
+\additem{Electrons readily available, so extraction from photons unnecessary}}
+
+\item{Focus each beam using magnets along storage rings until collision}
+
+\end{enumerate}
+
+\begin{figure}
+\includegraphics[width=0.42\linewidth]{../figures/images/accelerator.jpg}
+\hspace{1.5cm}
+\includegraphics[width=0.42\linewidth]{../figures/images/storage_ring.jpg}
+\end{figure}
+
+}
+
+\addframe{Detector - Beijing Spectrometer III (BESIII)}{
+Collision of beams tuned to occur at central point of detector
+\additem{Beams angled during collision to improve integrated luminosity}
+
+\vspace{-0.3cm}
+
+\begin{columns}
+
+\column{.5\textwidth} % Left column and width
+
+Four main subdetector systems:
+\begin{itemize}
+\item Main Drift Chamber
+\item Time-of-Flight
+\item Electromagnetic Calorimeter
+\item Muon Chamber
+\end{itemize}
+
+\vspace{-0.3cm}
+
+\begin{figure}
+\includegraphics[width=0.85\linewidth]{../figures/images/detector.jpg}
+\end{figure}
+
+\column{.5\textwidth} % Right column and width
+
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/detector.pdf}
+\end{figure}
+
+\end{columns}
+
+}
+
+\addframe{Main Drift Chamber (MDC)}{
+Measures curvature and interactions of charged tracks to determine momenta
+}
+
+\addframe{Time-of-Flight (ToF)}{
+Analyzes time delay for particles to hit two layers to determine velocity
+}
+
+\addframe{Electromagnetic Calorimeter (EMC)}{
+Measures deposition of electromagnetic energy to identify neutral tracks
+}
+
+\addframe{Muon Chamber (MUC)}{
+Identifies tracks traversing through multiple layers as muons
+}
+
+\addframe{Triggering System}{
+Collisions filtered unless passing event reconstruction criteria
+}
+
+
+\sectionframe{Analysis Software}{
+% Show images of event display and... generic code? I dont know
+
+\addframe{Monte Carlo Generation}{
+Describe process and usage of MC samples
+}
+
+\addframe{Monte Carlo Generators}{
+Describe usage of KKMC
+
+Describe usage of BesEvtGen
+
+Describe usage of Babayaga
+}
+
+\addframe{$D$-Tagging}{
+Describe process and usage of $D$-Tagging
+}
+
+\addframe{Selection Cuts}{
+Show cuts on $\pipm, \Kpm, \piO, \Ks$
+}
+
+
+\sectionframe{Measurement of the $\DDbar$ Cross Section}
+% Show images of derivation formulas, energy measurements, fitting plots, cross sections, and systematics
+
+\addframe{Procedure}{
+Derive theoretical model used to describe cross section
+
+List data samples used for measurement
+
+Determine $\Ecm$ and $\lum$ for each data point
+
+Identify signal and background components
+
+Measure efficiency of reconstruction
+
+Combine everything to determine cross section
+
+Assess systematic uncertainties
+}
+
+\addframe{Derivation of $\xsecpsipptoDDbar$ - Part I}{
+Show derivation of cross section
+}
+
+\addframe{Derivation of $\xsecpsipptoDDbar$ - Part II}{
+Show derivation of cross section
+}
+
+\addframe{Derivation of $\xsecpsipptoDDbar$ - Part III}{
+Show derivation of cross section
+}
+
+\addframe{Form Factors}{
+Explain form factor choices and describe necessary modifications
+}
+
+\addframe{Data Samples}{
+Show scan data and describe usage $\psipp$, $R$-scan, and $XYZ$-scan samples
+}
+
+\addframe{Center-of-Mass Energy}{
+Describe measurement and correction process
+}
+
+\addframe{Luminosity}{
+Describe measurement process
+}
+
+\addframe{Monte Carlo Generation}{
+List included MC samples and explain KKMC modification
+}
+
+\addframe{Signal Determination}{
+Describe process of 2D fitting to $\DeltaE$ and $\mbc$
+
+Show example results plot near $\psipp$
+}
+
+\addframe{Efficiency Correction}{
+Describe process of averaging efficiency over all decay modes
+}
+
+\addframe{$\sCP$ Violation Correction}{
+Quickly list process of correcting for $\sCP$
+}
+
+\addframe{Cross Section Fitting}{
+Describe procedure of obtaining $\psipp$ parameters
+}
+
+\addframe{Exponential Results}{
+Show Exponential results
+}
+
+\addframe{Vector Dominance Model Results}{
+Show VDM results
+}
+
+\addframe{Systematic Uncertainties}{
+Describe process of measuring systematics
+}
+
+\addframe{Systematics}{
+Luminosity
+
+$\pipm / \Kpm$ Tracking
+
+$\piO$ Tracking
+
+$\Ks$ Tracking
+
+Single Tag Fitting
+
+PDG Branching Fractions
+
+Meson Radii
+}
+
+\addframe{Negligible Systematics}{
+MC Iteration
+
+MC ISR Generation
+
+Intermediate Resonances
+}
+
+\addframe{Model Dependent Systematic}{
+Form Factor assumption
+}
+
+\addframe{Final Results}{
+Show final results with systematics
+
+Compare to KEDR and PDG
+}
+
+
+\sectionframe{Measurement of the $\NonDDbar$ Branching Fraction}
+% Show images of data counts, extrapolations, $\DDbar$ corrections
+
+\addframe{Procedure}{
+Event Selection
+
+Hadron Cut Methods
+
+Signal Counting Fits
+
+MC Background Subtraction
+
+Efficiency Extrapolation
+
+$\DDbar$ Multiplicity Correction
+
+Examination of Results for $\psipp$ Data
+
+Background Investigation
+
+Examination of Results for Scan Data
+}
+
+\addframe{Data Samples}{
+Show 3650 Data Sets
+
+Mention energy measurement
+}
+
+\addframe{Event Selection}{
+Charged Track Selection
+
+Neutral Track Selection
+
+Background Rejection
+}
+
+\addframe{Hadronic Selection}{
+Show SHAD, LHAD, and THAD cut tables
+}
+
+\addframe{Signal Counting}{
+Show signal counting fits for data
+}
+
+\addframe{Background Subtraction}{
+List MC samples considered (and note those excluded)
+
+Relate to total number of hadrons found for future extrapolation
+}
+
+\addframe{Efficiency Extrapolation}{
+Repeat procedure for new continuum data
+
+Extrapolate efficiency based on $\Ecm$
+
+Show extrapolation plots for SHAD, LHAD, and THAD
+}
+
+\addframe{Procedure for $\psipp$ Data}{
+Repeat procedure for $\psipp$ data
+
+Introduction of new backgrounds and $\DDbar$ component
+}
+
+\addframe{$\DDbar$ Correction}{
+Create multiplicity distributions from single-tag events
+
+Obtain correction factors for R1 and R2 separately
+
+Example plots for $\DO$ and $\Dp$ of R1
+}
+
+\addframe{Reconstruction Efficiencies}{
+Show different backgrounds for SHAD
+
+Describe correction used for $\ypsip$ events
+
+Point out cross sections used by Derrick for $\psipp$ data
+}
+
+\addframe{Initial Results - $\psipp$ Data}{
+Show cross section / branching fractions
+
+Point out likely high values due to $\psip$ shape
+}
+
+\addframe{Background Investigation - Part I}{
+Describe alternate estimation for $\psip$ events
+
+Show branching fraction results with estimation
+}
+
+\addframe{Background Investigation - Part II}{
+Describe alternate estimation ignoring $\psip$ events
+
+Show branching fraction results with estimation
+}
+
+\addframe{Procedure for Scan Data}{
+Using best information available from $\psipp$ results
+
+Show hadronic cross section over region
+}
+
+\addframe{Results for Scan Data}{
+Show $\nonDDbar$ cross section over region
+
+Show $\nonDDbar$ branching fraction over region
+}
+
+
+\sectionframe{Conclusion}
+
+\addframe{Conclusion}{
+Show overview of measurements for $\DDbar$ cross section and $\nonDDbar$ branching fraction
+
+List results of parameters for $\psipp$
+
+List branching fraction range for $\nonDDbar$
+}
+
+\end{document} 

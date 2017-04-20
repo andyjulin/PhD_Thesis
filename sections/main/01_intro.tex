@@ -2,7 +2,7 @@
 \label{ch_intro}
 
 
-Since the discovery of the $\jpsi$ particle in 1974, the charm energy range (\SIrange{3.0}{4.5}{\GeV}) has been one of the most precisely studied regions in particle physics.
+Since the discovery of the $\jpsi$ resonance in 1974, the charm energy range (\SIrange{3.0}{4.5}{\GeV}) has been investigated by many experiments in particle physics.
 This has led to the further discovery of many more resonances, as shown in \Cref{fig:R_scan}.
 
 \begin{figure}[H]
@@ -25,12 +25,11 @@ A variety of these particles are shown in \Cref{fig:charmonia}.
 \label{fig:charmonia}
 \end{figure}
 
-The resonances below the $\DDbar$ threshold, like the $\jpsi$ and the $\psip$, show solid agreement with their theoretical predictions.
+The resonances below the $\DDbar$ threshold, like the $\jpsi$ and the $\psip$, show solid agreement with theoretical predictions.
 However, many of the ones above, such as the $\psipp$, still show some disagreement.
 This is likely due to the more complicated interactions introduced from $\DDbar$ decays.
 Several experiments have attempted to measure the shape of the $\psipp$ based on different assumptions.
-The most prominent of these is the assumption of interference.
-This can have notable effects on the resultant parameters of the $\psipp$, such as the mass, shown in \Cref{tab:previous_results}.
+Many did not account for interference effects, which can have notable effects on the measured parameters of the $\psipp$, such as the mass, shown in \Cref{tab:previous_results}.
 
 \begin{table}[H]
 \centering
@@ -48,8 +47,8 @@ BaBar  \cite{ref:Aubert:2008a}   & 3775.5 $\pm$ 2.4 $\pm$ 0.5 & & \\
 \label{tab:previous_results}
 \end{table}
 
-Both BaBar \cite{ref:Aubert:2008b} and KEDR \cite{ref:Anashin:2012} found it necessary to include interference effects for fitting the $\DDbar$ spectrum.
-However, the statistics of the KEDR sample were insufficient to fully resolve the discrepancies seen with other experiments that ignored interference.
+Both BaBar \cite{ref:Aubert:2008b} and KEDR \cite{ref:Anashin:2012} found it necessary to include interference effects in $\DDbar$ production in order to fit to the cross sections of $\ee \rightarrow \gamma\DDbar$ and $\ee \rightarrow \text{(hadrons)}$, respectively.
+In the case of KEDR, the statistics were insufficient to fully resolve the discrepancies seen with other experiments that ignored interference.
 {\bf Using the larger data sample available at BESIII, we have precisely measured and analyzed the shape of the $\DDbar$ spectrum around the $\psipp$ resonance.}
 We have also used this measurement to probe the branching fraction of $\nonDDbar$ decays in this region.
 
@@ -57,33 +56,30 @@ We have also used this measurement to probe the branching fraction of $\nonDDbar
 \section{Procedure}
 \label{sec:procedure}
 
-The basis of this measurement involves identifying $\DDbar$ pairs which have decayed from $\psipp$.
-All data used in this analysis was collected from $\ee$ collisions analyzed by the BESIII detector.
-As $\lel$ and $\alel$ are fundamental particles, the total energy of each is transferred in the collision.
-Additionally, the ability to precisely tune these two beam energies allows for the targeted production of specific particles, such as the $\psipp$.
+The basis of this measurement involves identifying $\DDbar$ produced in $\psipp$ decays.
+All data used in this analysis were collected from $\ee$ collisions analyzed by the BESIII detector.
+The $\lel$ and $\alel$ annihilate through a virtual photon, meaning the total energy is transferred to the final state.
+Because the energy can be precisely tuned, specific states with the right quantum numbers, such as the $\psipp$ can be produced.
 However, resonances like this will decay almost instantaneously.
-For example, the $\psipp$ has an average lifetime of ${\sim}\SI{e-23}{\s}$.
-Even if it were traveling at $c$, the farthest distance this could travel would be $(\SI{3e8}{m/s}) \times ({\sim}\SI{e-23}{\s}) \approx \SI{1}{\fm}$.
-This distance, approximately the radius of a proton, is far too small to be resolved by our detectors.
-Even the initial decay into $\DDbar$ pairs is too small to precisely measure, as their lifetime of \SI{~4e-13}{\s} corresponds to a maximum distance of ${\sim}\SI{1}{\mm}$ if it were traveling at $c$.
-However, the limited available energy in these decays ($m_{\psipp} - 2 \times m_{D} \approx \SI{40}{\MeV})$ means the velocity is much, much slower.
+For example, the $\psipp$ has an average lifetime of ${\sim}\SI{e-23}{\s}$, and disappears far too quickly to be directly observed.
+Even the initial decay into $\DDbar$ pairs is too fast to precisely measure, as the average lifetime ($\tau_{D} \approx \SI{~4e-13}{\s}$) would correspond to a distance of ${\sim}\SI{1}{\mm}$ if it were traveling at $c$.
+Because the available energy in these decays is small ($m_{\psipp} - 2 \times m_{D} \approx \SI{40}{\MeV}$), the maximum velocity ($\beta \approx 0.15$) is too small to observe any displacement.
 
 % \tau = 1 / 25 [1/MeV] * (200 MeV / 1e-15 m) / (3e8 m / s) = 200 / (3 * 25) e-23 s ~ 10^-13 s
 
 Instead, the reconstruction of candidate $D$ particles relies on measuring their decays into other known modes.
-While there are dozens of possible decays modes, we focus on those which have high branching fractions, and are comprised of particles identifiable by the BESIII detector.
+While dozens of decays modes have been measured, we focus on those which have high branching fractions, and are comprised of particles identifiable by the BESIII detector.
 For our purposes, these are $\pipm, \Kpm, \piO,$ and $\Ks$.
-Each of these particles leave `tracks' within the detector; charged particles travel along curved paths and interact electromagnetically with charged wires along their trajectory, while neutral particles travel along straight paths and deposit bursts of energy after contacting crystals located along the inner walls of the detector.
+Each of these particles leaves `tracks' within the detector; charged particles travel along curved paths and interact electromagnetically with charged wires along their trajectory, while neutral particles travel along straight paths and deposit energy in the detector crystals located outside the tracking region.
 The various components of the BESIII detector analyze these tracks to determine the type of particle, as well as its momentum and energy.
-By analyzing sets of particles corresponding to the chosen decay modes, we can reconstruct the combination most likely to have originated from a $D$ based on their total energy.
+By analyzing sets of particles corresponding to the chosen decay modes, we can reconstruct the possible combinations and select those most likely to have originated from a $D$ based on their total energy and momentum.
 
 
-To determine the $\psipptoDD$ cross section, we need to count the number of $\DDbar$ pairs produced, as well as measure the integrated luminosity, at each energy point in our data sample.
-This counting is done not only for the actual collision data collected, but also for computed generated Monte Carlo (MC) background samples.
-Each of these backgrounds corresponds to a particular event type which may be mistaken as signal, such as $\ee \rightarrow \tautau$.
+To determine the $\psipptoDD$ cross section, we need to count the number of $\DDbar$ pairs produced, as well as measure the quantity of $\ee$ collisions, at each energy point in our data sample.
+This counting is done not only for the actual collision data collected, but also for simulated samples, known as Monte Carlo (MC), to estimate detection efficiencies and backgrounds in our measurement.
+Each potential background corresponds to a particular event type which may be mistaken as signal, such as $\ee \rightarrow \tautau$.
 We subtract these misidentified contributions from the total amount found in data to determine the actual number of reconstructed $\DDbar$ events.
-Also from MC, we calculate the efficiency of reconstructing $\DDbar$ decays based on our selection criteria.
-By dividing the actual reconstructed events by this efficiency, we identify the true number of $\DDbar$ events produced.
+The detection efficiency of reconstructing $\DDbar$ is determined by counting the number of simulated signal events that pass our selection criteria and dividing by the number of events generated.
 Then, using the measured luminosity for each energy point, we determine the cross section as a function of center-of-mass energy.
 
 % 
@@ -97,8 +93,8 @@ Then, using the measured luminosity for each energy point, we determine the cros
 % Effect is very calculable, and included in cross section derivation
 
 
-The specific details of this analysis start with background on relevant theoretical concepts.
-Next, we list the specifications for the collider and detector which collected the data used for these measurements along with their related analysis software and reconstruction methods. 
-From here, we further describe the procedure for determining the $\psipptoDD$ cross section and show the results with systematic uncertainties.
-Finally, we examine the current progress of measuring the $\nonDDbar$ branching fraction.
+The specific details of this analysis start with Chapter 2, which provides a discussion of relevant theoretical concepts.
+Next, Chapter 3 lists the specifications for the collider and detector which collected the data used for these measurements while Chapter 4 describes some of the related analysis software and reconstruction methods. 
+From here, Chapter 5 describes the procedure for determining the $\psipptoDD$ cross section and shows our measured $\psipp$ parameters with systematic uncertainties.
+Finally, Chapter 6 examines the current progress of a related investigation for measuring the $\nonDDbar$ branching fraction of the $\psipp$.
 

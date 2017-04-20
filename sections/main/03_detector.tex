@@ -4,16 +4,16 @@
 All data used for this analysis were collected at the third Beijing Spectrometer (BESIII), located in Beijing, China, at the Institute of High Energy Physics (IHEP) campus.
 This detector records $\ee$ collision events provided by the second Beijing Electron-Positron Collider (BEPCII).
 The center-of-mass energy range for this facility was selected to concentrate on $\tautau$ and $\cc$ production, from about \SIrange{2.0}{4.6}{\GeV}.
-Both of these machines are upgrades from previous versions built on the same sites. 
+Both of these machines are upgrades from previous versions built on the same site. 
 The first BEPC and BES were originally constructed in 1989, while the upgrade to BESII occurred in 1996.
 Their operation was terminated in 2004 to prepare for the upgrades to the current systems.
 
 
 In 2009, BEPCII and BESIII began operation with the goal of utilizing greatly increased luminosity.
 For example, instead of the single-bunch electron collisions of BEPC, the new design utilized multiple bunch collisions.
-This creates many groups of electrons and positrons which are tightly packed in each ring during run time.
+This creates many groups of electrons and positrons which are tightly packed during run time.
 BEPCII also utilizes a dual-storage ring for the electrons and positrons, compared to the single-ring available at BEPC.
-The improvements provide BEPCII with a design luminosity of \SI{e33}{\lumunits}, two orders of magnitude larger than the previous installation.
+The improvements provide BEPCII with a design luminosity of \SI{e33}{\lumunits}, two orders of magnitude larger than the maximum of BEPC.
 This luminosity is optimized for energies near the $\psipp$ resonance, as BESIII conducts many precision measurements and rare decay searches around this region.
 A detailed description of the BESIII detector can be found in Ref. \cite{ref:Ablikim:2009}.
 
@@ -24,18 +24,18 @@ A detailed description of the BESIII detector can be found in Ref. \cite{ref:Abl
 The setup for collisions in BEPCII begins with bombarding a fixed target with electrons in a linear accelerator.
 This generates high energy photons which interact with the target material to form $\ee$ pairs.
 The positrons from these pairs are then separated magnetically.
-These positrons are then injected into the desired storage ring until they reach the desired beam current.
-As electrons do not need to be created in this manner, they are instead directly accelerated in the linear accelerator and injected into the opposite storage ring.
+These positrons are then injected into one of the two storage rings and accumulate up to the desired beam current.
+Following positron injection, electrons are accelerated in the linear accelerator and injected into oppositely circulating orbits in the second storage ring.
 These injections occur at a rate of \SI{50}{\mAmin} for positrons and \SI{200}{\mAmin} for electrons.
 
 
-To achieve the necessary high beam currents, many bunches of electrons and positrons are packed into the evacuated rings.
+To achieve the necessary beam currents, many bunches of electrons and positrons are packed into the evacuated rings.
 During operation, each ring contains 93 bunches of length \SI{1.5}{\cm} separated by \SI{8}{\ns} (\SI{2.4}{\m}).
 These provide a maximum beam current of \SI{0.91}{\A} while operating in collision mode.
 At the interaction point, each beam is focused using super-conducting quadrupole magnets to compress the beam size to about \SI{5.7}{\um} vertically, while the horizontal beam size is about \SI{380}{\um}.
 For collisions, each beam is also angled towards the center of the storage rings with an angle of \SI{11}{\milli\radian}.
-This crossing angle introduces a net momentum in the radial direction to help prevent against tracks which may continue in the direction of the beam pipe, thereby avoiding detection.
-% It also reduces the amount of beam-beam interactions, thereby reducing the instantaneous luminosity, but increases the total integrated luminosity.
+Though head-on collisions increase the instantaneous luminosity, this also results in beam-beam interaction spread through the confines of the electron and positron bunches which quickly degrade the beam current.
+Having this angle ensures more collisions occur at the targeted interaction point and results in an increased total integrated luminosity.
 
 
 For a normal run, collisions continue occurring until the instantaneous luminosity falls below useful levels.
@@ -48,8 +48,8 @@ Recycling these leftover electrons and positrons saves considerable time, and al
 \section{BESIII Detector}
 \label{sec:BESIII_detector}
 
-Centered around the interaction point of BEPCII, the BESIII detector records information about the particles produced by the $\lel$-$\alel$ collisions.
-Each collision occurs within the beam-pipe of the detector, which has an inner and outer radii of \SIlist{31.5;57.0}{\mm}, and is evacuated to \SI{5e-10}{\torr}.
+Centered around the interaction point of BEPCII, the BESIII detector records information about the particles produced by the $\ee$ collisions.
+Each collision occurs within the beam-pipe of the detector, which has inner and outer radii of \SIlist{31.5;57.0}{\mm}, and is evacuated to \SI{5e-10}{\torr}.
 Most of the apparatus is a region of uniform \SI{1.0}{\tesla} magnetic field provided by a super-conducting solenoid with a mean radius of \SI{1.482}{\m} and a length of \SI{3.53}{\m}.
 The field points in the $z$-direction, which is along the direction of the $\alel$ beam.
 The $x$-direction points towards the center of the storage rings, while the $y$-direction is vertically upwards.
@@ -99,9 +99,9 @@ The uncertainty in the transverse plane measurements is dominated by electron di
 For the transverse momentum, the resolution is about \SI{0.5}{\%} for tracks with momenta of \SI{1}{\GeV}, with uncertainties coming mainly from wire position measurements, and multiple scattering from material in the MDC.
 
 
-The gas used for ionization is a mixture of $60 \%$ helium (He) and $40 \%$ methane ($\text{C}_3\text{H}_8$).
-Helium, because of its low atomic number, and thus, long radiation length, also minimizes multiple scattering which degrades the momentum resolution.
-Methane, with extra rotational and vibrational degrees of freedom not accessible to helium, quenches the ionization energy.
+The gas used for ionization is a mixture of $60 \%$ helium (He) and $40 \%$ propane ($\text{C}_3\text{H}_8$).
+Helium, because of its low atomic number, and thus, long radiation length, also minimizes the multiple scattering that degrades the momentum resolution.
+Propane, with extra rotational and vibrational degrees of freedom not accessible to helium, quenches the ionization energy.
 Without this effect, electrons would be accelerated by the electric field, produced secondary ionization energy, and lead to electric breakdown.
 
 
@@ -150,10 +150,11 @@ This process provides a separation of $3\sigma$ between $K$ and $\pi$ tracks wit
 \label{fig:ToF}
 \end{figure}
 
-The ToF is comprised of two bands of staggered plastic scintillators attached to photomultiplier tubes (PMTs).
-These two bands, located at \SIlist{0.81;0.86}{\m} from the beam-pipe, measure a time difference used to determine the speed of each charged particle.
+The main body of the ToF is comprised of two bands of staggered plastic scintillators attached to photomultiplier tubes (PMTs).
+These two bands, located at \SIlist{0.81;0.86}{\m} from the beam-pipe, provide two time measurements of the travel time from the interaction point.
+The difference between these two helps determine the speed of each charged particle.
 The resolution is about \SI{100}{\ps}, and is largely limited by the scintillation light rise time, as well as fluctuations associated with the PMTs.
-The layer is split into two regions, barrel and endcap, which cover the ranges $|\cos\theta| < 0.82$ and $0.85 < |\cos\theta| < 0.95$, respectively.
+The ToF is split into two regions, barrel and endcap, which cover the ranges $|\cos\theta| < 0.82$ and $0.85 < |\cos\theta| < 0.95$, respectively.
 The former is dual-layer with each containing 88 scintillators of \SI{5}{\cm} thickness arranged in a trapezoidal cross section, while the latter contains two single layers of 48 fan-shaped scintillators.
 Between the two are support structures for the MDC as well as other service lines.
 
@@ -162,10 +163,10 @@ Between the two are support structures for the MDC as well as other service line
 \label{ssec:detector_emc}
 
 The purpose of the Electromagnetic Calorimeter is to measure the energy deposited by photons and electrons.
-Since most of the candidates identified in the detector are relativistic, they are minimum ionizing particles.
+Since most of the charged tracks identified in the detector are relativistic, they are minimum ionizing particles.
 This causes each to deposit a relatively constant value of energy, independent of the measured momenta.
 However, electrons, with their extremely small mass, will deposit significant amounts of energy due to Bremsstrahlung radiation and subsequent secondary $\ee$ pair production.
-This provides a clear distinction in the detector between electron and muon tracks above \SI{200}{\MeV}, as seen in \Cref{fig:EMC}.
+This provides a clear distinction in the detector between $\lel$ and $\pi / \lmu$ tracks above \SI{200}{\MeV}, as seen in \Cref{fig:EMC}.
 Energy measurements from the EMC are also useful for identifying neutral particles which decay only to photons, such as $\piO$.
 
 \begin{figure}[H]
@@ -176,13 +177,13 @@ Energy measurements from the EMC are also useful for identifying neutral particl
 \label{fig:EMC}
 \end{figure}
 
-The EMC is comprised of tellurium-doped cesium iodide (CsI(Tl)) crystals with square front faces attached to a photodiode.
+The EMC is comprised of tellurium-doped cesium iodide (CsI(Tl)) crystals with square front faces attached to two photodiodes.
 Each of the 6240 crystals is \SI{5.2}{\cm} long on the square edges and \SI{28}{\cm} (15 radiation lengths) deep.
-To prevent photons from aligning with the gaps between each crystal, each one is offset with a tilt of \ang{1.5} in the $\phi$-direction and \ang{1.5} to \ang{3} in the $\theta$-direction.
+To prevent photons from aligning with the gaps between crystals, each one is offset with a tilt of \ang{1.5} in the $\phi$-direction and \ang{1.5} to \ang{3} in the $\theta$-direction.
 These crystals provide an energy resolution ($\sigma / E$) of $2.5\%$ at \SI{1}{\GeV} and $4\%$ down to \SI{100}{\MeV}.
-This is limited by energy not deposited over the length of the crystal, the gaps between crystals, and by non-uniform light production.
-Additionally, only measurements of energy above \SI{20}{\MeV} are considered, because of the irreducible noise level in the detector.
-The position resolution is $\sigma = \SI{0.6}{\cm} / \sqrt{E \; [\si{\GeV}]}$, and is primarily limited by the crystal segmentation.
+This is limited by energy leaking out of the back of the crystals, the gaps between crystals, and by non-uniform light production.
+Only measurements of energy above \SI{20}{\MeV} are considered, because of the irreducible noise level in the detector.
+The position resolution is $\sigma = \SI{0.6}{\cm} / \sqrt{E \; [\si{\GeV}]}$, and is limited by the crystal segmentation.
 The EMC has an inner radius of \SI{94}{\cm} and a total weight of approximately 24 tons.
 It covers the regions $|\cos\theta| < 0.83$ (barrel) and $0.85 < |\cos\theta| < 0.93$ (endcap), with a gap in between that does not provide reliable energy measurements.
 
@@ -193,12 +194,12 @@ It covers the regions $|\cos\theta| < 0.83$ (barrel) and $0.85 < |\cos\theta| < 
 The purpose of the Muon Identifier is to determine the likelihood of a charged particle being a muon.
 Since electrons are significantly lower mass, they deposit virtually all of their remaining energy in the EMC.
 Additionally, since muons do not interact strongly, they will penetrate notably further than will pions, kaons, or protons.
-This provides a clear indication of a muon when a particle penetrates the MUC.
+This provides a clear indication of a muon when a particle penetrates into the MUC.
 However, due to the magnetic field, only muons with $p > \SI{0.4}{\GeV}$ can traverse deep enough to be identifiable.
 
 
 The MUC is comprised of resistive plate counters (RPC) which are interspersed between the steel plates of the super-conducting solenoid's flux-return iron.
-Each of the steel layers increase in thickness working outwards from the center: \SI{3}{\cm}, \SI{3}{\cm}, \SI{3}{\cm}, \SI{4}{\cm}, \SI{4}{\cm}, \SI{8}{\cm}, \SI{8}{\cm}, \SI{8}{\cm}, and \SI{15}{\cm}.
+The steel layers increase in thickness working outwards from the center: \SI{3}{\cm}, \SI{3}{\cm}, \SI{3}{\cm}, \SI{4}{\cm}, \SI{4}{\cm}, \SI{8}{\cm}, \SI{8}{\cm}, \SI{8}{\cm}, and \SI{15}{\cm}.
 Like the other components, the MUC is split into a barrel and an endcap region.
 The barrel has nine RPC layers of \SI{4}{\cm} thickness.
 In the endcap, the first RPC layer is after the first steel layer, leaving only eight RPC layers.
