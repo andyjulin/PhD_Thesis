@@ -116,6 +116,12 @@
 \end{itemize}
 }
 
+\newcommand{\addcenter}[1]{
+\begin{center}
+#1
+\end{center}
+}
+
 %----------------------------------------------------------------------------------------
 %	TITLE PAGE
 %----------------------------------------------------------------------------------------
@@ -237,7 +243,7 @@ Describe getting counts to determine cross section
 \begin{itemize}
 \item Responsible for attracting / repelling electrically charged objects
 \item Mediated by the massless photon ($\photon$)
-\item Very precisely calculable through perturbation theory
+\item Very precisely calculable using perturbation theory
 \end{itemize}
 
 2) Weak
@@ -298,7 +304,7 @@ Examples:
 
 \addframe{Charmonium}{
 Resonances formed by a $\qcharm\aqcharm$ pair: $\jpsi, \; \psip, \; \psipp, \; \ldots$
-\additem{Original interpretation of $\psip$ and $\psipp$ as excited states of $\jpsi$}
+\additem{$\psip$ and $\psipp$ originally interpreted as excited states of $\jpsi$}
 \additem{Evidence of mixed-states suggests more complicated picture}
 
 \begin{figure}
@@ -307,15 +313,16 @@ Resonances formed by a $\qcharm\aqcharm$ pair: $\jpsi, \; \psip, \; \psipp, \; \
 }
 
 \addframe{OZI Rule}{
+
 \vspace{-1.0cm}
 
 \begin{columns}
 
 \column{.5\textwidth} % Left column and width
-\begin{center}
-\textbf{$\psip$}
-\end{center}
+\addcenter{\textbf{$\psip$}}
+
 \vspace{-0.5cm}
+
 \begin{figure}
 \includegraphics[width=\linewidth]{../figures/images/OZI_psip.png}
 \end{figure}
@@ -329,20 +336,21 @@ Resonances formed by a $\qcharm\aqcharm$ pair: $\jpsi, \; \psip, \; \psipp, \; \
 \end{itemize}
 
 \column{.5\textwidth} % Right column and width
-\begin{center}
-\textbf{$\psipp$}
-\end{center}
+\addcenter{\textbf{$\psipp$}}
+
 \vspace{-0.3cm}
+
 \begin{figure}
 \includegraphics[width=\linewidth]{../figures/images/OZI_psipp.png}
 \end{figure}
 
 \vspace{0.35cm}
+
 \begin{itemize}
 
 \item Decays via open charm ($\DDbar$)
 
-\item {Much larger decay width
+\item {Much wider decay width
 \additem{$\Gamma_{\psipp} = \SI{27.5}{\MeV}$}}
 
 \end{itemize}
@@ -351,16 +359,18 @@ Resonances formed by a $\qcharm\aqcharm$ pair: $\jpsi, \; \psip, \; \psipp, \; \
 
 \vspace{0.3cm}
 
-\begin{center}
-Introduction of $\DDbar$ decays provides drastically different behavior!
-\end{center}
+\addcenter{Addition of $\DDbar$ decays introduces drastically different behavior!}
 }
 
 \sectionframe{Accelerator and Detector}
 % Show pictures of Beijing map and campus, if possible 
 
 \addframe{Institute of High Energy Physics (IHEP)}{
-BESIII is hosted by the IHEP Campus located in Beijing, China
+\vspace{-0.3cm}
+
+\addcenter{BESIII is hosted at the IHEP Campus located in Beijing, China}
+
+\vspace{-0.3cm}
 
 \begin{figure}
 \includegraphics[width=\linewidth]{../figures/images/BESIII_layout.jpg}
@@ -428,15 +438,89 @@ Four main subdetector systems:
 }
 
 \addframe{Main Drift Chamber (MDC)}{
-Measures curvature and interactions of charged tracks to determine momenta
+\vspace{-0.8cm}
+\begin{columns}
+
+\column{.55\textwidth} % Left column and width
+
+\additem{Reconstruct charged tracks from interactions with sense wires (hits)
+\additem{Wires surrounded by ionizable gas}
+\additem{Initial ionization due to particle triggers avalanche of electrons}
+\additem{High electric field near wires draws in released electrons to measure energy deposited}
+}
+
+\additem{Determine properties of particle from curvature in magnetic field
+\additem{Radius determines momentum}
+\additem{Direction determines charge}
+}
+
+\additem{Energy deposition rate ($\tdEdx$) helps determine particle candidate}
+
+
+\column{.5\textwidth} % Right column and width
+
+\addcenter{
+BESIII Event Display
+
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/BESVis.png}
+\end{figure}
+}
+
+\end{columns}
 }
 
 \addframe{Time-of-Flight (ToF)}{
-Analyzes time delay for particles to hit two layers to determine velocity
+
+\additem{Measure particle velocity using travel time after initial collision 
+\additem{Scintillator bands located at \SIlist{0.81;0.86}{\m} from interaction point}
+\additem{Attached to photomultiplier tubes to measure light output}
+}
+
+\additem{Helps distinguish between $\Kpm$ and $\pipm$ candidates at lower momenta
+\additem{Combined with MDC $\tdEdx$ measurements to set particle hypothesis}
+}
+
+\vspace{-0.6cm}
+
+\begin{columns}
+
+\column{0.5\textwidth} % Left column and width
+\addcenter{MDC Measurements}
+
+\vspace{-0.6cm}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/dEdx.pdf}
+\end{figure}
+
+
+\column{0.5\textwidth} % Right column and width
+\addcenter{ToF Measurements}
+
+\vspace{-0.6cm}
+
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/images/ToF.pdf}
+\end{figure}
+
+\end{columns}
 }
 
 \addframe{Electromagnetic Calorimeter (EMC)}{
-Measures deposition of electromagnetic energy to identify neutral tracks
+\additem{Measure energy deposited by electron and photon tracks
+\additem{Other particles are generally relativistic and thereby minimum ionizing
+\additem{These deposit relatively constant energy, independent of momenta}
+}
+\additem{Use CsI(Tl) crystals attached to photodiodes to measure energy
+\additem{Energy lost primarily in gaps of arrangement or out the back of crystals}
+}
+}
+\additem{Allows reconstruction of neutral particles, such as $\piO \rightarrow \photon\photon$}
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{../figures/images/EMC.pdf}
+\end{figure}
 }
 
 \addframe{Muon Chamber (MUC)}{

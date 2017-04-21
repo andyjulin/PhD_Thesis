@@ -119,7 +119,7 @@ The reconstruction is remarkably efficient, with over \SI{98}{\%} of tracks with
 From this, the charge, momentum, and trajectory can be determined for each track.
 
 
-In addition to tracking, the MDC also measures $\tdEdx$, the ionization energy deposited per unit length, for each particle.
+In addition to tracking, the MDC also measures the ionization energy deposited per unit length, $\tdEdx$, for each particle.
 The energy deposition of each track as it passes through the chamber is compared to expectations to determine a probability for each particle hypothesis.
 Corrections applied account for things such as multiple scatterings, magnetic deflection, and ionization.
 This likelihood from $\tdEdx$ is combined with information from the ToF to determine the type of particle that best matches the track properties.
@@ -134,7 +134,7 @@ The algorithm was designed and tested with dedicated test beam data, however, ea
 A full simulation tracing each optical photon is also available for detailed study of the timing measurements.
 
 
-Calibration of the ToF also uses $\jpsi$ decays to leptons to determine both timing and energy measurements.
+Calibration of the ToF also uses $\jpsi$ decays to dileptons for both timing and energy measurements.
 The information determined includes effective velocity, attenuation length, and muon energy loss.
 The status and performance of the ToF are regularly monitored by a laser-fiberoptics pulsing system.
 
@@ -262,7 +262,7 @@ Kaon Probability & \multicolumn{2}{c}{ $P(K)   > 0, \quad P(K) > P(\pi)$ } \\
 
 To distinguish photon energy from noise, each shower in the EMC is required to have a certain amount of deposited energy.
 These cuts are different for the barrel ($|\cos\theta| < 0.80$) and endcap ($0.84 < |\cos\theta| < 0.92$) regions.
-Each photon must also pass a TDC timing cut to ensure they are consistent with actual physics events, and not originating at other times.
+Each photon must also pass a timing cut to ensure they are consistent with actual physics events, and not originating at other times.
 The values for each of these requirements can be found in \Cref{tab:photon_cuts}.
 
 \begin{table}[h]
@@ -306,7 +306,7 @@ Fit Quality  & $\chi^2 < 200$, Converged \\
 \label{sssec:ks_selection}
 
 Reconstructing $\Ks$ mesons involves finding $\pip\pim$ pairs, as this is its most common decay (\SI{\sim70}{\%}).
-While $\piO\piO$ pairs are also a substantial decay mode (\SI{\sim30}{\%}), these are not considered due to the increased difficulty of correctly reconstructing the $4\photon$ final state.
+While $\piO\piO$ pairs are also a substantial decay mode (\SI{\sim30}{\%}), these are not considered due to the difficulty of correctly reconstructing the $4\photon$ final state.
 To account for the $\Ks$ decaying in flight, each of the charged pions considered are not subjected to the vertex or probability cuts in \Cref{tab:kpi_cuts}.
 Instead, the two found pions are kinematically constrained to a common vertex.
 The results must pass a nominal mass cut (\SI{\sim3}{\sigma}) and a proper fit cut to be deemed a $\Ks$.
@@ -329,7 +329,7 @@ Fit Quality  & $\chi^2 < 100$, Converged \\
 \label{sssec:cosmic_and_lepton}
 
 Lastly, when reconstructing the mode $\DOmodeA$, an additional veto is used.
-Since this mode has only two charged tracks, it is common to misidentify particles which come from cosmic ray and backgrounds like $\ee \rightarrow {\gamma\ee, \gamma\mumu}$.
+Since this mode has only two charged tracks, it is common to misidentify particles which come from cosmic ray and backgrounds like $\ee \rightarrow \{\gamma\ee, \; \gamma\mumu\}$.
 To prevent this, cuts on the timing difference between the tracks, as well as on the particle identification variables, are imposed.
 The values used for these requirements are shown in \Cref{tab:veto_cuts}.
 
