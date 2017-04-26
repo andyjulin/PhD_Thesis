@@ -2,11 +2,11 @@
 \label{ch:cross_section}
 
 The main objective of this analysis is to measure the $\xsecpsipptoDDbar$ cross section at center-of-mass energies around the $\psipp$.
-While the cross section very near the $\psipp$ mass has been measured with excellent precision \cite{ref:Toth:2014}, the shape over a wider energy range has not been measured to a precise degree.
-This has left open the possibility of multiple functional shapes which could describe the cross section, and asks the question of whether or not to include interference effects. 
-Fits to this region with a single Breit-Wigner shape (i.e., no interference) have provided a unsatisfactory description of the $\psipp$, and further necessitate the need for interference.
-The most prominent candidate for shapes with interference assume a contribution from the lower mass $\psip$ state, and is the form considered here.
-The procedure for this analysis largely follows the methodology of the KEDR collaboration \cite{ref:Anashin:2012}.
+While the cross section very near the $\psipp$ mass has been measured with excellent precision \cite{ref:Toth:2014}, the shape over a wider energy range has not been measured as precisely.
+As such, it has been impossible to fully determine the functional form that best describes the cross section or to definitively determine the extent which interference effects must be included.
+Fits to this region with a single Breit-Wigner shape (i.e., no interference) have provided a unsatisfactory description of the $\psipp$.
+The most straightforward modification of this assumption is to incorporate a contribution from the $\psip$.
+This is the form considered here, where the procedure largely follows the methodology of the KEDR collaboration \cite{ref:Anashin:2012}.
 With the larger statistics available at BESIII, however, an inclusive cross section measurement (such as performed by KEDR) is not required.
 Instead, we measure the production of $\psipptoDD$ events directly.
 
@@ -14,26 +14,23 @@ Instead, we measure the production of $\psipptoDD$ events directly.
 \section{Derivation of $\xsecpsipptoDDbar$}
 \label{sec:xsec_derivation}
 
-The production rate for a pair of $D$ mesons coming from $\psipp$ at a given center-of-mass energy can be calculated following an approach of Kuraev and Fadin \cite{ref:Kuraev:1985} applied by the KEDR collaboration \cite{ref:Anashin:2012}.
-This method also corrects for Initial State Radiation (ISR), affecting particles accelerated in a collider, and is given by the following:
+The production rate for a pair of $D$ mesons coming from $\psipp$ at a given center-of-mass energy can be calculated following an approach of Kuraev and Fadin \cite{ref:Kuraev:1985}.
+This method includes Initial State Radiation (ISR), which effectively replaces the well-defined $\ee$ center-of-mass energy of the accelerator with a distribution of energies, is given by the following:
 \beq
 \label{eq:xsec_rc}
 \sigma^{RC}_{\DDbar}(W) = \int z_{\DDbar}(W \sqrt{1-x}) \, \sigma_{\DDbar}(W \sqrt{1-x}) \, \mathcal{F}(x, W^2) \, dx.
 \eeq
 
 \noindent 
-Here, $W$ is the given center-of-mass energy, $x$ is an approximation for the fraction of radiated energy, and $\mathcal{F}(x, W^2)$ is the probability of losing this energy from ISR:
-\beq
+Here, $W$ is the center-of-mass energy after the collision, $x$ parametrizes the fraction of radiated energy, and $\mathcal{F}(x, W^2)$ is the probability of losing this energy by ISR:
 \label{eq:fancy_f}
-\begin{split}
-\mathcal{F}(x, W^2) &= \beta \, x^{\beta - 1} \left[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^2}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta + \beta^2 \left( \frac{37}{96} - \frac{\pi^2}{12} - \frac{L}{72} \right) \right] = \beta \, x^{\beta - 1} F(W^2), \\
-& \qquad \qquad \beta = \frac{2 \alpha}{\pi} (L - 1),
-\qquad L = \log \left( \frac{W^2}{m_e^2} \right).
-\end{split}
-\eeq
+\begin{align}
+\mathcal{F}(x, W^2) &= \beta \, x^{\beta - 1} \left[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^2}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta + \beta^2 \left( \frac{37}{96} - \frac{\pi^2}{12} - \frac{L}{72} \right) \right] = \beta \, x^{\beta - 1} F(W^2), \notag \\ 
+& \qquad \qquad \qquad \beta = \frac{2 \alpha}{\pi} (L - 1), \qquad L = \log \left( \frac{W^2}{m_e^2} \right).
+\end{align}
 
 \noindent
-The factor $z_{\DDbar}$ includes the expected Coulomb interaction between the mesons in of the charged mode ($\Dp \Dm$),
+The factor $z_{\DDbar}$ accounts for the expected Coulomb interaction between the mesons for the charged mode ($\Dp \Dm$),
 \beq
 \label{eq:z_Dp}
 z_{\Dp \Dm} = \frac{\pi \alpha / \beta_{\Dp} }{ 1 - \text{exp} (-\pi \alpha / \beta_{\Dp} ) } \times \theta (W - 2 m_{\Dp} ),
@@ -50,7 +47,7 @@ z_{\DO \aDO} = \theta (W - 2 m_{\DO} ).
 The theta function imposes the step in the cross section at the production threshold.
  
 The integral in Eq. \ref{eq:xsec_rc} can be simplified by taking advantage of the relatively constant values of $z_{\DDbar}$ and $\sigma_{\DDbar}$ over sufficiently small intervals.
-By splitting the full $W$ range into such intervals and integrating over each, this becomes
+By splitting the full $W$ range into such intervals approximating the integral over each, this becomes
 \beq
 \int \mathcal{F}(x, W^2)~dx \approx \sum\limits_{n=0}^N F(W^2) \int_{\tfrac{n}{N}}^{\tfrac{n+1}{N}} \beta x^{\beta-1}~dx = \sum\limits_n^N F(W^2) \left[ x_{\text{upper}}^\beta - x_{\text{lower}}^\beta \right].
 \eeq
@@ -58,8 +55,15 @@ By splitting the full $W$ range into such intervals and integrating over each, t
 \noindent 
 The upper, lower, and mid-point values are given by
 \beq
+\renewcommand\arraystretch{1.0}
 \label{eq:x_terms}
-x_i = \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right] \left( \frac{n_i}{ N } \right), \qquad n_i : \begin{cases} n_{\text{lower}} &= n \\ n_{\text{mid}} &= n + \tfrac{1}{2} \\ n_{\text{upper}} &= n + 1 \end{cases}.
+x_i = \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right] \left( \frac{n_i}{ N } \right),
+\qquad n_i : 
+\begin{cases}
+    n_{\text{lower}} &= n \\[-0.7em]
+    n_{\text{mid}}   &= n + \tfrac{1}{2} \\[-0.7em]
+    n_{\text{upper}} &= n + 1 
+\end{cases}.
 \eeq
 
 \noindent
@@ -71,7 +75,7 @@ Combining this with the other factors in Eq. \ref{eq:xsec_rc}, the cross section
 \sigma^{RC}_{\DDbar}(W) = \sum_{n = 0}^N z_{\DDbar}(W') \, \sigma_{\DDbar}(W') \, F(W^2) \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right]^\beta \left[ \frac{ [(n + 1)^\beta - n^\beta] }{ N^\beta } \right],
 \eeq
 where $W' = W \sqrt{1 - x_{\text{mid}}}$.
-The Born level $\DDbar$ cross section is given theoretically by
+The Born level (lowest order) $\DDbar$ cross section is given by
 \beq
 \label{eq:born_xsec}
 \sigma_{\DDbar} = \frac{ \pi \alpha^2 }{ 3 W^2 } \beta_D^3 |F_D(W)|^2, \qquad \beta_D = \sqrt{1 - \frac{ 4 m_D^2 }{ W^2 } }.
@@ -79,7 +83,7 @@ The Born level $\DDbar$ cross section is given theoretically by
 
 \noindent
 Here, $\beta_D$ is the velocity of the $D$ meson in the center-of-mass system.
-The form factor $F_D$ represents the contribution of each individual resonant ($R$) component and the total non-resonant ($NR$) component.
+The form factor $F_D$ governs the contributions of each individual resonant ($R$) component and the total non-resonant ($NR$) component.
 Each resonant piece is parametrized with a phase angle relative to the non-resonant contribution:
 \beq
 \label{eq:form_factor}
@@ -94,14 +98,13 @@ F^R_D(W) = \frac{ 6 \, W \sqrt{ (\Gamma_{ee} / \alpha^2 ) ( \Gamma_{\DDbar}(W) /
 \eeq
 
 \noindent 
-where $\Gamma_{ee}$ is the electron partial width, and $\Gamma(W)$ represents the total width of the resonance with mass $M$: 
+where $\Gamma_{ee}$ is the dielectron partial width, and $\Gamma(W)$ represents the total width of the resonance with mass $M$: 
 \beq\label{eq:Gamma}
 \Gamma(W) = \left( \frac{M}{W} \right) \left[ \frac{ z_{\DDbar}(W) \, d_{\DDbar}(W) }{ z_{\DO \aDO}(M) \, d_{\DO \aDO}(M) + z_{\Dp \Dm}(M) \, d_{\Dp \Dm}(M) } \right] \Gamma(M).
 \eeq
 
 \noindent
-The value of $\Gamma(M)$ represents the total width at the nominal mass of the resonance.
-The factors $d_{\Dp \Dm}$ and $d_{\DO \aDO}$ are the Blatt-Weisskopf damping factors \cite{ref:Blatt:1952} for a vector resonance:
+The value of $\Gamma(M)$ represents the total width at the nominal mass of the resonance, while $d_{\Dp \Dm}$ and $d_{\DO \aDO}$ are the Blatt-Weisskopf damping factors \cite{ref:Blatt:1952} for a vector resonance:
 \beq
 \label{eq:blatt_weisskopf}
 d_{\DDbar} = \frac{ \rho_{\DDbar}^3 }{ \rho_{\DDbar}^2 + 1 }, \qquad \rho_{\DDbar} = q_D R_0 = \left( \frac{ \beta_D \, W }{ 2 } \right) R_0.
@@ -109,18 +112,22 @@ d_{\DDbar} = \frac{ \rho_{\DDbar}^3 }{ \rho_{\DDbar}^2 + 1 }, \qquad \rho_{\DDba
 
 \noindent
 Here, $q_D$ is the $D$ momentum in the center-of-mass frame, while $R_0$ represents the radius of the parent particle. 
-The $\DDbar$ partial width listed in Eq. \ref{eq:breit_wigner} is simply the total width rescaled according to $\BnDD$, the sum of all non-$\DDbar$ decay modes of $\psipp$:
+The $\DDbar$ partial width listed in Eq. \ref{eq:breit_wigner} is the total width rescaled according to $\BnDD$, the sum of all non-$\DDbar$ decay modes of $\psipp$:
 \beq
 \label{eq:Gamma_DDbar}
 \Gamma_{\DDbar}(W) = \Gamma(W) \times (1 - \BnDD).
 \eeq
-However, as a simplifying assumption, we use $\BnDD = 0$ throughout this part of the analysis.
+Theoretical calculations of $\BnDD$ place the value on the order of a few percent.
+However, experimental results have measured values throughout the range of \SIrange{0}{16}{\%}.
+Without a trustworthy measurement to use for our analysis, we elect to define the fit parameter $\Geepsipp$ to include the product with (1 - $\BnDD$).
+While this does not provide an immediate result, future values for either parameter allows the other to be easily determined.
+More information about the branching fraction is discussed in \Cref{ch:non_DDbar}.
 
 
 \section{Form Factors}
 \label{sec:form_factors}
-With the cross section formula calculated, the description of the form factor contribution (\Cref{eq:form_factor}) must now be determined.
-Since we assume the $\psip$ resonant contribution is negligible in the energy range of our measurements, the only major resonant contribution is from the $\psipp$:
+To apply the cross section formula derived above, the relevant form factors (\Cref{eq:form_factor}) must now be specified.
+We assume the $\psip$ resonant contribution is negligible in the energy range of our measurements, so the only significant resonant contribution is from the $\psipp$:
 \beq
 F_D(W) = F_D^{\text{NR}}(W) + F^{\psipp}_D(W) \, e^{i \phi^{\psipp} }.
 \eeq
@@ -134,7 +141,7 @@ F_D^{NR} = \FNR \, \exp ( -q_D^2 / \aNR^2 ),
 \eeq
 
 \noindent 
-where both $\FNR$ and $\aNR$ are parameters determined through fitting. 
+where both $\FNR$ and $\aNR$ are left free in the fit to the cross section.
 The second treatment implements a Vector Dominance Model (VDM).
 This assumes the interference effects are due to the $\psip$ mediating $\DDbar$ production above threshold,
 \beq
@@ -145,17 +152,21 @@ F_D^{NR}(W) = F_D^{\psip}(W) + F_0,
 \noindent
 and that the effective properties of the $\psip$ are similar to those of the $\psipp$.
 The real constant $F_0$ represents the potential effect of higher resonances, like the $\psi(4040)$.
-The first term is similar to \Cref{eq:breit_wigner}, but with a modification to the total width:
+The first term is similar to \Cref{eq:breit_wigner}, but with a modification to the total width,
 \beq
 \label{eq:Gamma_psip}
-\Gpsip(W) = \left( \frac{M^{\psip}}{W} \right) \left[ \frac{ z_{\DO \aDO}(W) \, d_{\DO \aDO}(W) + z_{\Dp \Dm}(W) \, d_{\Dp \Dm}(W) }{ z_{\DO \aDO}(M^{\psi''}) \, d_{\DO \aDO}(M^{\psi''}) + z_{\Dp \Dm}(M^{\psi''}) \, d_{\Dp \Dm}(M^{\psi''}) } \right] \Gpsip(M).
+\Gpsip(W) = \left( \frac{M^{\psip}}{W} \right) \left[ \frac{ zd_{\DO \aDO}(W) + zd_{\Dp \Dm}(W) }{ zd_{\DO \aDO}(M^{\psi''}) + zd_{\Dp \Dm}(M^{\psi''}) } \right] \Gpsip(M),
 \eeq
 
 \noindent
+where $zd_{\DDbar}(W) = z_{\DDbar}(W) \times d_{\DDbar}(W)$.
 Without this modification, the mass of the $\psip$ would be below the $\DDbar$ threshold, and thus, the vanishing $z_{\DDbar}$ terms would cause a singularity in the width.
 Therefore, we use the mass of the $\psipp$ in its place to estimate the effects in this region.
-While it may behave like the total width in \Cref{eq:Gamma_psip}, the true the physical meaning of the parameter $\Gpsip(W)$ is uncertain.
+While it may behave like the total width in \Cref{eq:Gamma_psip}, the true the physical meaning of the parameter $\Gpsip(W)$ is unclear.
+
 For the radii in \Cref{eq:blatt_weisskopf}, however, the values used are distinct for each meson: $R_{\psip} = \SI{0.75}{\fm}$ and $R_{\psipp} = \SI{1.00}{\fm}$.
+These are the same values as used in the KEDR procedure \cite{ref:Anashin:2012}, where each is quoted with an uncertainty of 25\%.
+This provides one of the largest sources of systematic uncertainty, and is discussed in \Cref{sec:systematics}.
 
 
 \section{Data and Monte Carlo Samples}
@@ -168,25 +179,25 @@ This analysis primarily uses scan data produced by BEPCII and collected by BESII
 These data are partitioned into 34 center-of-mass energy ($\Ecm$) bins of variable size over a range of \SIrange{3.735}{3.870}{\GeV}.
 The bin partitioning was determined from measurements of center-of-mass energies (\Cref{ssec:energy_measurement}).
 The total range was chosen to be above the $\DO\aDO$ threshold (\SI{3.730}{\GeV}) and below the $D^{*0}\aDO$ threshold (\SI{3.872}{\GeV}).
-This range includes bins which are below the threshold for $\Dp \Dm$ (\SI{3.739}{\GeV}), with production beginning in the third bin.
+Note, this includes values below the $\Dp \Dm$ threshold (\SI{3.739}{\GeV}), with production beginning in the third bin.
 
 Additionally, there are three higher statistics points used for comparison.
 These include an `On-Peak $\psipp$' sample of \SI{2.93}{\invfb} at $\Ecm = \SI{3.7732}{\GeV}$, an `$XYZ$-scan' sample of \SI{50.54}{\invpb} at $\Ecm = \SI{3.810}{\GeV}$, and an `$R$-scan' sample of \SI{7.95}{\invpb} at $\Ecm = \SI{3.850}{\GeV}$.
-The first of these is the high statistics measurement very near the $\psipp$ mass using double-tag reconstruction (both $\D$ and $\aD$ in a single event) performed by Derrick Toth.
+The first of these is the high statistics measurement very near the $\psipp$ peak that was used for a double-tag reconstruction (both $\D$ and $\aD$ reconstructed in a single event) measurement performed by Derrick Toth \cite{ref:Toth:2014}.
 The other two samples were analyzed using the same procedure as for the scan data (See \Cref{sec:signal,sec:efficiency,sec:fitting}).
-None of these points are used to determine the final results, as the differences between samples introduce additional systematics which overshadow any statistical improvement.
-However, these provide useful comparisons at important energy points along the cross section shape.
+None of these points are used to determine the final results, as the differences between samples introduce additional systematics which degrade any statistical improvement.
+However, these provide useful comparisons of cross section measurements at important energy points for the primary scan sample.
 
 
 \subsection{Center-of-Mass Energy Measurement}
 \label{ssec:energy_measurement}
 
-To precisely determine the values of center-of-mass energy along the scan data region, events of $\ee \rightarrow \mumu$ collisions were analyzed to determine their invariant mass ($\minv$).
-Assuming minimal radiating energy from the muons, this value is effectively equal to the energy produced by the collider.
+To precisely determine the values of center-of-mass energy along the scan data region, $\ee \rightarrow \mumu$ events were analyzed to determine their invariant mass ($\minv$).
+Assuming that minimal energy is radiated by the muons, this value is effectively equal to the energy produced by the collider.
 The selection process for such events is shown in \Cref{tab:muon_cuts}.
 The statistics of the scan data are too small to precisely determine the energy for individual runs.
-Therefore, multiple runs were combined together into bins based off the assumption each was taken at nearly identical energies.
-A comparison of the measured values to the online beam energies is shown in \Cref{fig:scan_E_cm_fit}.
+Therefore, multiple runs were combined together into bins based on the assumption that run groups were taken at nearly identical energies.
+A comparison of the measured values to the less well calibrated beam energies measured by BEPCII during runtime is shown in \Cref{fig:scan_E_cm_fit}.
 
 \begin{table}[H]
 \centering
@@ -208,21 +219,17 @@ Shower Energy & $\SI{0.0}{\GeV} < E_{EMC}^{\mu^\pm} < \SI{0.3}{GeV}$ \\
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/E_cm_shifts_scan_fit_cut_new.pdf}
-\caption{The differences measured for scan data center-of-mass energies.}
-{The average difference (green) is about \SI{1.29}{\MeV} higher than the recorded energy values provided by the collider at run time (red).}
+\caption{A comparison of online center-of-mass energies and measured $\mumu$ events.}
+{The average value of the $\mumu$ pair measurements (green) is higher than the average value of the online BEPCII measurements (red) by about \SI{1.29}{\MeV}.}
 \label{fig:scan_E_cm_fit}
 \end{figure}
 
 
-The use of muons to determine energy is subject to an overall scale shift due to potentially miscalibrated magnetic field effects.
-This requires a point of reference in order to ensure the measured values are correctly determined.
-We use the first round of the on-peak $\psipp$ sample for this comparison, as its center-of-mass energy has been alternatively measured to a very precise degree \cite{ref:Dong:2014}.
-The results of this method compared to our own for the on-peak data are shown in \Cref{fig:on_peak_E_cm_fit}.
-It is evident the official procedure using $\DDbar$ events provides more stability over the run range than using muons.
-Still, the difference between average values of each measurement is taken as the offset for shifting the measured scan data points.
-From this, the measured center-of-mass energies for the scan data are increased by \SI{1.86}{\MeV} to determine the final values.
-Compared to the initial measurements of scan data energy, this indicates the values were lower by ${\sim}\SI{0.7}{\MeV}$ on average.
-The final center-of-mass energies of the scan data, along with the luminosity of each bin, are shown in \Cref{tab:luminosity}.
+The use of muons to determine energy is subject to an overall scale shift due to potentially miscalibrated momentum measurements, most likely due to the magnetic field.
+This requires a point of reference to ensure that the measured values are correctly determined.
+We use the first round of the on-peak $\psipp$ sample for this comparison, as its center-of-mass energy has been measured very precisely using an independent technique involving $\DDbar$ events \cite{ref:Dong:2014}.
+The results of this method compared to our own are shown in \Cref{fig:on_peak_E_cm_fit}.
+It is evident the procedure using $\DDbar$ events provides more stability over the run range than using dimuon events.
 
 \begin{figure}[H]
 \centering
@@ -232,14 +239,22 @@ The final center-of-mass energies of the scan data, along with the luminosity of
 \label{fig:on_peak_E_cm_fit}
 \end{figure}
 
+To correct our measurements for the scan data, we use the difference in average values between the two methods, $\DeltaE_{\DDbar} - \DeltaE_{\mumu} \approx \SI{1.86}{\MeV}$ (see \Cref{fig:scan_E_cm_fit}). 
+Adding this difference to each scan data measurements, we obtain the center-of-mass values used in this analysis.
+Comparing this to the initial scan data center-of-mass energies, which were higher than the measured values by \SI{1.29}{\MeV} (see \Cref{fig:on_peak_E_cm_fit}), we find the initial values of the scan data were notably low ($\SI{1.86}{\MeV} - \SI{1.29}{\MeV} \approx \SI{0.7}{\MeV}$).
+In regions where the cross section rapidly changes, this can have a dramatic effect on determining the functional shape.
+Namely, this would correspond to a measured mass for the $\psipp$ which is off by \SI{0.7}{\MeV}.
+% From this procedure, we find the initial values of scan data energy were lower than these measured values by \SI{1.86}{\MeV} - \SI{1.29}{\MeV} $\approx$ \SI{0.7}{\MeV} on average, where the values are taken from \Cref{fig:scan_E_cm_fit,fig:on_peak_E_cm_fit}.
+The final center-of-mass energies of the scan data, along with the luminosity of each bin, are shown in \Cref{tab:luminosity}.
+
+\pagebreak
 
 \subsection{Luminosity Measurement}
 \label{ssec:luminosity_measurement}
 
-To precisely determine the values of luminosity for each bin, radiative Bhabha events ($\bhabha (\gamma)$) were analyzed to determine the total number of collisions produced.
-The procedure used is described in Ref. \cite{ref:Hafner:2015}.
-For each run, \num{1.4e6} events were generated using Babayaga 3.5.
-We select events with only two (oppositely) charged tracks, satisfying the event selection criteria shown in \Cref{tab:bhabha_cuts}.
+To precisely determine the values of integrated luminosity for each bin, radiative Bhabha events ($\bhabha (\gamma)$) were analyzed following the procedure of Ref. \cite{ref:Hafner:2015}.
+For each run, \num{1.4e6} simulated events were generated using Babayaga 3.5 to characterize the detector response.
+We select events with only two (oppositely) charged tracks, satisfying the criteria shown in \Cref{tab:bhabha_cuts}.
 
 \begin{table}[H]
 \centering
@@ -258,12 +273,13 @@ Exclude $\ee \rightarrow \gamma \jpsi, \; \jpsi \rightarrow \ee$ Events & \multi
 \end{table}
 
 Applying these cuts to both data and MC identically, we use the resulting number of events found in the MC divided by the number of total generated events to determine the efficiency $(\epsilon_{MC})$.
-From this, and using the cross section provided by the generator $(\sigma_{\text{Bhabha}})$, we can take the events found in data $(N_{\text{data}})$ to determine the integrated luminosity $(\lum)$ of each run:
+From this, and using the cross section provided by the generator $(\sigma_{\text{Bhabha}})$, we can determine the integrated luminosity $(\lum)$ of each run from the number of events passing the same cuts in data $(N_{\text{data}})$:
 \beq
 \lum = \frac{N_{\text{data}}}{\sigma_{\text{Bhabha}} ~ \epsilon_{MC}}
 \eeq
 The integrated luminosity for each bin is shown in \Cref{tab:luminosity}.
-The total luminosity for the scan data used is \SI{69.80 \pm 0.03}{\invpb}, where the error listed is statistical.
+The total luminosity for the scan data used is $(69.80 \pm 0.03 \pm 0.70)$ \si{\invpb}, where the errors are statistical and systematic, respectively.
+Effects from the systematic error are examined in \Cref{sec:systematics}.
 
 \begin{table}[H]
 \centering
@@ -306,44 +322,9 @@ Bin & Run Range & $\Ecm$ Range [\si{\GeV}] & $\lum$ [\si{\invpb}] \\
 31 & 14299 - 14299 & 3.849 - 3.855 & 0.2764(18) \\
 32 & 14300 - 14301 & 3.855 - 3.863 & 0.3188(19) \\
 33 & 14302 - 14303 & 3.863 - 3.870 & 0.3002(19) \\
-%  0 & 14000 - 14000 & 3.735 - 3.736 & 0.3357(21) \\ 
-%  1 & 14000 - 14000 & 3.736 - 3.737 & 0.4940(25) \\ 
-%  2 & 14000 - 14000 & 3.737 - 3.744 & 0.3310(21) \\ 
-%  3 & 14000 - 14000 & 3.744 - 3.746 & 0.9626(35) \\ 
-%  4 & 14000 - 14000 & 3.746 - 3.748 & 1.4260(43) \\ 
-%  5 & 14000 - 14000 & 3.748 - 3.750 & 2.2782(54) \\ 
-%  6 & 14000 - 14000 & 3.750 - 3.752 & 2.9970(63) \\ 
-%  7 & 14000 - 14000 & 3.752 - 3.754 & 3.3362(66) \\ 
-%  8 & 14000 - 14000 & 3.754 - 3.755 & 3.4380(67) \\ 
-%  9 & 14000 - 14000 & 3.755 - 3.758 & 3.8841(71) \\ 
-% 10 & 14000 - 14000 & 3.758 - 3.761 & 4.4496(76) \\ 
-% 11 & 14000 - 14000 & 3.761 - 3.764 & 4.4984(77) \\ 
-% 12 & 14000 - 14000 & 3.764 - 3.767 & 3.2856(66) \\ 
-% 13 & 14000 - 14000 & 3.767 - 3.770 & 2.4478(57) \\ 
-% 14 & 14000 - 14000 & 3.770 - 3.773 & 2.0184(52) \\ 
-% 15 & 14000 - 14000 & 3.773 - 3.776 & 1.8294(49) \\ 
-% 16 & 14000 - 14000 & 3.776 - 3.779 & 1.8252(49) \\ 
-% 17 & 14000 - 14000 & 3.779 - 3.782 & 1.9547(51) \\
-% 18 & 14000 - 14000 & 3.782 - 3.785 & 2.1555(53) \\
-% 19 & 14000 - 14000 & 3.785 - 3.788 & 2.5510(58) \\
-% 20 & 14000 - 14000 & 3.788 - 3.792 & 2.8330(61) \\
-% 21 & 14000 - 14000 & 3.792 - 3.796 & 3.5342(69) \\
-% 22 & 14000 - 14000 & 3.796 - 3.800 & 4.0536(73) \\
-% 23 & 14000 - 14000 & 3.800 - 3.803 & 3.9381(73) \\
-% 24 & 14000 - 14000 & 3.803 - 3.806 & 2.7087(60) \\
-% 25 & 14000 - 14000 & 3.806 - 3.809 & 1.7671(49) \\
-% 26 & 14000 - 14000 & 3.809 - 3.812 & 1.2619(41) \\
-% 27 & 14000 - 14000 & 3.812 - 3.815 & 0.9019(35) \\
-% 28 & 14000 - 14000 & 3.815 - 3.823 & 0.6846(30) \\
-% 29 & 14000 - 14000 & 3.823 - 3.830 & 0.4016(23) \\
-% 30 & 14000 - 14000 & 3.830 - 3.839 & 0.2851(20) \\
-% 31 & 14000 - 14000 & 3.839 - 3.847 & 0.2804(20) \\
-% 32 & 14000 - 14000 & 3.847 - 3.855 & 0.2774(19) \\
-% 33 & 14000 - 14000 & 3.855 - 3.863 & 0.3192(21) \\
-% 34 & 14000 - 14000 & 3.863 - 3.870 & 0.3001(20) \\
 \hline
 \end{tabular}
-\caption{Measured luminosities for each energy bin.}{The uncertainties listed are statistical errors from the data selection, as uncertainties from the MC statistics are negligible.}
+\caption{Measured integrated luminosities for each energy bin.}{The uncertainties listed are statistical errors from the data selection, as uncertainties from the MC statistics are negligible.}
 \label{tab:luminosity}
 \end{table}
 
@@ -351,104 +332,143 @@ Bin & Run Range & $\Ecm$ Range [\si{\GeV}] & $\lum$ [\si{\invpb}] \\
 \subsection{Monte Carlo Generation}
 \label{ssec:monte_carlo}
 
-To compare to the scan data sample, several Monte Carlo (MC) samples were produced.
-For the main signal determination, samples of generic $\DO \aDO$ from $\psipp$ and generic $\Dp \Dm$ from $\psipp$ were generated with \num{2e5} events per bin.
+To analyze the detection efficiencies and background levels of the detector, several MC samples were produced.
+For the signal determination, samples of generic $\DO \aDO$ and $\Dp \Dm$ from $\psipp$ were generated with \num{2e5} events per center-of-mass energy bin.
 In addition, $100\times$ data-size samples were produced for $\qqbar$, $\tautau$, radiative return to $\jpsi$ (denoted $\gamma \jpsi$), and radiative return to $\psip$ (denoted $\gamma \psi'$).
-Each of these samples was generated at the University of Minnesota in July of 2014 using BOSS 6.6.4.p02.
+Each of these samples was generated at the University of Minnesota in July of 2014 using BOSS version 6.6.4.p02.
 The $\DO \aDO$, $\Dp \Dm$, $\qqbar$, and $\tautau$ states were generated using KKMC, while the $\gamma \jpsi$ and $\gamma \psi'$ were generated with BesEvtGen.
 All except $\qqbar$ were then decayed with BesEvtGen.
-The total numbers of events in each sample can be found in \Cref{tab:mc_samples}.
-
-\begin{table}[h]
-\centering
-\renewcommand\arraystretch{1.0}
-\begin{tabular}{c c}
-\hline
-Sample & Number of Events \\
-\hline
-% $\psipp \rightarrow \DO \aDO$ & \num{1.660e7} \\
-% $\psipp \rightarrow \Dp \Dm$  & \num{1.620e7} \\
-$\psipp \rightarrow \DO \aDO$ & \num{6.800e6} \\
-$\psipp \rightarrow \Dp \Dm$  & \num{6.400e6} \\
-$\qqbar$                      & \num{8.916e7} \\
-$\gamma \jpsi$                & \num{7.307e6} \\
-$\gamma \psi'$                & \num{2.457e7} \\
-$\tautau$                     & \num{2.164e7} \\
-Data                          & \num{4.844e8} \\
-\hline
-\end{tabular}
-\caption{Number of events contained in each generated sample and the scan data.}
-\label{tab:mc_samples}
-\end{table}
-
-In general, all MC samples were generated based off communal decay card information used within BESIII. 
-However, the $\DDbar$ samples were generated by implementing the Born-level cross section shape from the final fit into KKMC.
-This procedure was repeated over five iterations in order to provide a more data-driven basis for the ISR corrections.
-The effects of this process are examined in \Cref{sec:systematics}.
-
-
-\subsection{Software Packages}
-\label{ssec:software}
-
-The main packages used for this analysis are shown in \Cref{tab:software_packages}.
-The package \texttt{DtagRecAlg} is a custom package used to extract variables from \texttt{DTagAlg} relevant to the analysis.
+The total numbers of events in each sample is shown in \Cref{tab:mc_samples}.
 
 \begin{table}[H]
 \centering
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{c c}
 \hline
-Package & Version \\
+Sample & Number of Events \\
 \hline
-    KKMC       & v00-00-51 \\
-    DTagAlg    & v00-00-51 \\
-    DTagRecAlg & v00-00-01 \\
+$\psipp \rightarrow \DO \aDO$ & \num{6.800e6} \\
+$\psipp \rightarrow \Dp \Dm$  & \num{6.400e6} \\
+$\qqbar$                      & \num{8.916e7} \\
+$\gamma \jpsi$                & \num{7.307e6} \\
+$\gamma \psi'$                & \num{2.457e7} \\
+$\tautau$                     & \num{2.164e7} \\
+% Data                          & \num{4.844e8} \\
 \hline
 \end{tabular}
-\caption{The software packages used in this analysis and their version numbers.}
-\label{tab:software_packages}
+\caption{Number of events contained in each generated sample.}% and the scan data.}
+\label{tab:mc_samples}
 \end{table}
+
+In general, all MC samples were generated based on decay tables developed and maintained within BESIII based on world-average branching fraction measurements. 
+The $\DDbar$ samples were generated by implementing the Born level shape measured in this analysis into KKMC.
+This procedure was iterated five times to provide a data-driven basis for the ISR corrections.
+The effects of this process are examined in \Cref{sec:systematics}.
+
+
+% \subsection{Software Packages}
+% \label{ssec:software}
+% 
+% The main BESIII software packages used for this analysis are shown in \Cref{tab:software_packages}.
+% The package \texttt{DTagRecAlg} is a custom package used to extract variables relevant to this analysis from the default BESIII version of \texttt{DTagAlg}.
+% 
+% \begin{table}[H]
+% \centering
+% \renewcommand\arraystretch{1.0}
+% \begin{tabular}{c c}
+% \hline
+% Package & Version \\
+% \hline
+%     KKMC       & v00-00-51 \\
+%     DTagAlg    & v00-00-51 \\
+%     DTagRecAlg & v00-00-01 \\
+% \hline
+% \end{tabular}
+% \caption{The software packages used in this analysis and their version numbers.}
+% \label{tab:software_packages}
+% \end{table}
+
+\pagebreak
 
 
 \section{Signal Determination}
 \label{sec:signal}
 
-We measure the yields of both $\DO \aDO$ and $\Dp \Dm$ events with two-dimensional fits to $\DeltaE$ and $\mbc$.
+We measure the yields of both $\DO \aDO$ and $\Dp \Dm$ events with two-dimensional fits to $\DeltaE$ and $\mbc$, as defined in \ref{ssec:dtag_reconstruction}.
 MC samples are partitioned into the following four groups: proper $D$-tags ($N_{\DDbar}$), misreconstructed $D$-tags ($N_{\text{misrec}}$), continuum ($N_{\qqbar}$), and other ($N_\text{other}$).
 The first two groups are obtained using truth information from the $\DDbar$ samples, while the last group is a combination of the $\tautau$, $\gamma \jpsi$, and $\gamma \psi'$ samples.
-These groups are fitted to data using the RooFit package to perform a negative log-likelihood minimization for each energy bin ($E_i$) separately for both $\DO$ and $\Dp$.
-For each fit, the four MC sample groups are used to construct 2D ($\DeltaE$ vs. $\mbc$) PDF functions that are fitted against the corresponding data histograms.
+These groups are fitted to data using the RooFit \cite{ref:RooFit} package to perform a negative log-likelihood minimization for each energy bin ($E_i$) separately for both $\DO$ and $\Dp$.
+For each fit, the four MC sample groups are used to construct 2D ($\DeltaE$ vs. $\mbc$) PDF functions that are used to fit the corresponding data histograms.
 The proper $\DDbar$ shape is treated as signal, and its integral after fitting $(N_{D})$ is used for determining the signal yields and cross sections.
 An example fit is shown in \Cref{fig:example_fit}, while the complete set of these plots can be found in \Cref{app:D0_signal_fits,app:Dp_signal_fits}.
 
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75]{figures/plots/fit_results/D0_bin_14.pdf}
-\caption{An example 2D ($\DeltaE$ vs. $\mbc$) signal fit.}{The covers $\DO$ events in the region $\SI{3.774}{\GeV} < \Ecm \leq \SI{3.777}{\GeV}$.
+\caption{An example 2D ($\DeltaE$ vs. $\mbc$) signal fit.}{The covers $\DO$ events in the region $\SI{3.774}{\GeV} \leq \Ecm < \SI{3.777}{\GeV}$.
 The data points (black) are fitted by the total MC shape (blue), which is the sum of the signal (green) and background (red) components.}
 \label{fig:example_fit}
 \end{figure}
+
+\pagebreak
 
 
 \section{Efficiency Correction}
 \label{sec:efficiency}
 
-In addition to the parameters gathered by \DTagAlg, truth information was taken from the generic $\DDbar$ samples in order to determine the mode-by-mode reconstruction efficiency.
+In addition to the parameters gathered by \DTagAlg, truth information was taken from the generic $\DDbar$ samples to determine the mode-by-mode reconstruction efficiencies.
 To be deemed proper, a reconstruction must pass not only the standard $\Dtag$ cuts, but also match the generator information for the event.
-This process removes peaking backgrounds from modes with similar constituents.
-The total number of proper $\Dtag$ reconstructions is then divided by the number of $\D$ particles generated for each mode, and the mode-by-mode efficiencies are weighted by the PDG branching ratios \cite{ref:Olive:2014} to determine the overall efficiency ($\epsilon_{\D}$) for each of $\DO$ and $\Dp$:
+This process removes backgrounds contributed by modes with similar constituents that tend to peak in the signal region.
+The total number of proper $\Dtag$ reconstructions is then divided by the number of $\D$ particles generated for each mode, and the mode-by-mode efficiencies are weighted by the world-average (PDG) branching ratios \cite{ref:Olive:2014} to determine the overall efficiency ($\epsilon_{\D}$) for each of $\DO$ and $\Dp$:
 \beq
 \label{eq:DDbar_eff}
 \epsilon_{D} = \sum_i \epsilon_{i \text{ rec}} \, \mathcal{B}_i = \sum_i \left( \frac{ N_{i \text{ prop}} }{ N_{i \text{ gen}} } \right) \mathcal{B}_i.
 \eeq
-Each $\DO$ efficiency also includes the corresponding DCSD terms for its decay (See \Cref{sec:d_tagging}).
+Each $\DO$ efficiency also includes the corresponding DCSD terms for its decay (see \Cref{sec:d_tagging}).
 
-To determine the cross section at each point, this procedure was applied separately for each energy bin.
-The total number of proper and generated particles for each energy bin are shown in \Cref{tab:DTag_eff_D0} for $\DO$ and \Cref{tab:DTag_eff_Dp_p1,tab:DTag_eff_Dp_p2} for $\Dp$.
-The efficiencies for $\Dp$ and $\DO$ were also calculated across the total sample, and are shown for each mode in \Cref{tab:DTag_eff} and \Cref{fig:D_eff_by_mode}.
-Total efficiencies of each bin for both $\DO$ and $\Dp$ are shown in \Cref{tab:DTag_eff_E_bin}.
+The efficiencies for $\Dp$ and $\DO$ calculated for the total sample are shown for each mode in \Cref{tab:DTag_eff} and \Cref{fig:D_eff_by_mode}.
+However, for the determination of the cross section, this procedure was applied separately for each energy bin.
+The numbers of proper and generated particles are shown in \Cref{tab:DTag_eff_D0} for $\DO$ and \Cref{tab:DTag_eff_Dp_p1,tab:DTag_eff_Dp_p2} for $\Dp$ while the total efficiencies for both $\DO$ and $\Dp$ are shown in \Cref{tab:DTag_eff_E_bin}.
 
-\begin{table}
+\begin{table}[h]
+\centering
+\begin{tabular}{l r@{$\; \pm \;$}l r@{$\; \pm \;$}l}
+\hline
+Decay Mode ($i$) & \multicolumn{2}{c}{PDG $\mathcal{B}_i$ [\%]} & \multicolumn{2}{c}{MC Efficiency $\epsilon_i$} \\
+\hline
+$\DOmodeA$ &  3.89 & 0.05 & 0.7002 & 0.0011 \\
+$\DOmodeB$ & 13.93 & 0.50 & 0.3794 & 0.0004 \\
+$\DOmodeC$ &  8.11 & 0.21 & 0.3988 & 0.0006 \\
+\hline
+\multicolumn{5}{c}{$\epsilon_{\DO} = (11.245 \pm 0.020)\%$} \\[1pt]
+\hline
+$\DpmodeA$ &  9.13 & 0.19 & 0.5471 & 0.0007 \\
+$\DpmodeB$ &  5.99 & 0.18 & 0.2739 & 0.0006 \\
+$\DpmodeC$ &  1.47 & 0.07 & 0.3883 & 0.0014 \\
+$\DpmodeD$ &  6.99 & 0.27 & 0.2079 & 0.0005 \\
+$\DpmodeE$ &  3.12 & 0.11 & 0.2237 & 0.0007 \\
+$\DpmodeF$ &  0.95 & 0.03 & 0.4317 & 0.0018 \\
+\hline
+\multicolumn{5}{c}{$\epsilon_{\Dp} = (9.770 \pm 0.063)\%$} \\[1pt]
+\hline
+\end{tabular}
+\caption{Mode-by-mode reconstruction efficiencies for $\DO$ and $\Dp$.}
+{The values shown are over the entire data sample, while calculations for the cross sections use the values for each energy point individually (see \Cref{tab:DTag_eff_E_bin}). The errors listed for the PDG branching fractions are shown for reference, and are not included in the efficiency errors (see \Cref{ssec:sys_pdg}).}
+\label{tab:DTag_eff}
+\end{table}
+
+
+\begin{figure}[H]
+\centering
+\includegraphics[scale=0.8]{figures/plots/D_eff_by_mode.pdf}
+\caption{Mode-by-mode efficiencies for $\DO$ and $\Dp$ determined with signal MC.}
+{The error bars are negligible on the scale shown.}
+\label{fig:D_eff_by_mode}
+\end{figure}
+
+
+
+\begin{table}[H]
 \renewcommand\arraystretch{1.0}
 \centering
 \begin{tabular}{c|C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}}
@@ -490,50 +510,15 @@ Bin & \multicolumn{3}{c|}{$\DOmodeA$} & \multicolumn{3}{c|}{$\DOmodeB$} & \multi
 31 & 10568 & 15438 & 0.685 & 20533 & 55825 & 0.368 & 12901 & 33745 & 0.382 \\
 32 & 10820 & 15679 & 0.690 & 20706 & 55823 & 0.371 & 13155 & 33810 & 0.389 \\
 33 & 10643 & 15736 & 0.676 & 20488 & 55672 & 0.368 & 12875 & 33547 & 0.384 \\
-%  0 &   5519  &   7658  &  10757  &  27894  &   6927  &  16948  \\
-%  1 &  11203  &  15778  &  21753  &  56203  &  13704  &  33428  \\
-%  2 &   5470  &   7686  &  10761  &  27725  &   6929  &  16962  \\
-%  3 &  10987  &  15550  &  21357  &  55223  &  13639  &  33704  \\
-%  4 &  16311  &  23268  &  31913  &  83399  &  19997  &  50031  \\
-%  5 &  27586  &  38880  &  53505  & 138886  &  33927  &  83498  \\
-%  6 &  49416  &  69908  &  95785  & 250493  &  60813  & 150614  \\
-%  7 &  43530  &  62064  &  85248  & 222230  &  54013  & 134237  \\
-%  8 &  49056  &  70191  &  95402  & 250020  &  61035  & 150852  \\
-%  9 &  38764  &  54791  &  75237  & 194185  &  48307  & 116868  \\
-% 10 &  55219  &  77765  & 107785  & 277958  &  69525  & 167368  \\
-% 11 &  55412  &  78328  & 108229  & 278765  &  68944  & 167385  \\
-% 12 &  38502  &  54639  &  75111  & 194082  &  48743  & 117181  \\
-% 13 &  32802  &  46683  &  64440  & 166338  &  41593  & 100543  \\
-% 14 &  21886  &  30983  &  43041  & 111230  &  27326  &  66506  \\
-% 15 &  21849  &  31151  &  42979  & 110746  &  27406  &  66800  \\
-% 16 &  16534  &  23429  &  31906  &  83165  &  20645  &  50035  \\
-% 17 &  21963  &  31442  &  42724  & 110981  &  27807  &  67080  \\
-% 18 &  27328  &  38791  &  53480  & 139055  &  34434  &  83489  \\
-% 19 &  27019  &  38726  &  53396  & 139091  &  34605  &  83915  \\
-% 20 &  38332  &  54586  &  75296  & 194835  &  47966  & 117143  \\
-% 21 &  38032  &  54321  &  74841  & 195177  &  47764  & 117511  \\
-% 22 &  43289  &  62110  &  84373  & 222186  &  53400  & 133871  \\
-% 23 &  48974  &  70058  &  93686  & 249998  &  58965  & 150580  \\
-% 24 &  32426  &  46536  &  62154  & 166927  &  38264  &  99797  \\
-% 25 &  27022  &  38674  &  51590  & 138723  &  31748  &  83715  \\
-% 26 &  16588  &  23491  &  30978  &  83656  &  19168  &  50246  \\
-% 27 &  10832  &  15519  &  20060  &  55573  &  12281  &  33523  \\
-% 28 &  10651  &  15284  &  20306  &  55439  &  12505  &  33815  \\
-% 29 &  10980  &  15661  &  20233  &  55701  &  12405  &  33649  \\
-% 30 &   5398  &   7822  &   9954  &  27637  &   6060  &  16711  \\
-% 31 &   5425  &   7804  &  10010  &  27618  &   6156  &  16729  \\
-% 32 &   5439  &   7830  &  10009  &  27799  &   5988  &  16695  \\
-% 33 &  10659  &  15442  &  20070  &  55385  &  12282  &  33515  \\
-% 34 &  10615  &  15443  &  19910  &  55573  &  12345  &  33592  \\
 \hline
 \end{tabular}
-\caption{Number of proper and generated particles for $\DO$.}
+\caption{Numbers of proper and generated particles for $\DO$.}
 {The mode-by-mode numbers of particles used in the efficiency calculations for $\DOmodeA, \DOmodeB,$ and $\DOmodeC$.}
 \label{tab:DTag_eff_D0}
 \end{table}
 
 
-\begin{table}
+\begin{table}[H]
 \renewcommand\arraystretch{1.0}
 \centering
 \begin{tabular}{c|C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}}
@@ -573,47 +558,15 @@ Bin & \multicolumn{3}{c|}{$\DpmodeA$} & \multicolumn{3}{c|}{$\DpmodeB$} & \multi
 31 & 20322 & 37280 & 0.545 & 6566 & 24389 & 0.269 & 2378 & 5927 & 0.401 \\
 32 & 20883 & 37992 & 0.550 & 6594 & 24249 & 0.272 & 2306 & 5855 & 0.394 \\
 33 & 20645 & 37738 & 0.547 & 6560 & 24195 & 0.271 & 2269 & 5945 & 0.382 \\
-%  3 &  20022  &  37668  &   6600  &  24160  &   2272  &   5902  \\
-%  4 &  30234  &  56234  &  10010  &  36416  &   3431  &   8931  \\
-%  5 &  50966  &  93874  &  16855  &  60686  &   5750  &  14833  \\
-%  6 &  91414  & 169401  &  29807  & 109330  &  10199  &  26677  \\
-%  7 &  81267  & 150434  &  26528  &  96948  &   9060  &  23797  \\
-%  8 &  90448  & 168761  &  30206  & 109641  &  10233  &  26927  \\
-%  9 &  71896  & 131281  &  23901  &  85264  &   8167  &  20918  \\
-% 10 & 103179  & 187949  &  34092  & 121352  &  11695  &  29969  \\
-% 11 & 103605  & 188336  &  34331  & 122120  &  11672  &  29828  \\
-% 12 &  72921  & 132064  &  23962  &  84947  &   8199  &  20937  \\
-% 13 &  62056  & 112433  &  20547  &  72991  &   7021  &  17781  \\
-% 14 &  41328  &  75280  &  13636  &  48338  &   4739  &  11979  \\
-% 15 &  41441  &  75211  &  13640  &  48504  &   4613  &  11861  \\
-% 16 &  31212  &  56487  &  10309  &  36655  &   3513  &   8982  \\
-% 17 &  41621  &  75045  &  13881  &  49145  &   4680  &  12048  \\
-% 18 &  51909  &  94077  &  16905  &  60819  &   5769  &  14879  \\
-% 19 &  52042  &  94156  &  17035  &  60618  &   5885  &  14977  \\
-% 20 &  72086  & 131300  &  23647  &  84907  &   8286  &  21035  \\
-% 21 &  72509  & 131694  &  23555  &  84570  &   8029  &  20806  \\
-% 22 &  82597  & 150805  &  26792  &  96787  &   9334  &  23503  \\
-% 23 &  92228  & 169069  &  29808  & 109702  &  10559  &  26985  \\
-% 24 &  61616  & 113123  &  19611  &  73321  &   6985  &  18018  \\
-% 25 &  50613  &  93767  &  16383  &  60811  &   5712  &  14759  \\
-% 26 &  30736  &  56653  &   9583  &  36280  &   3614  &   9245  \\
-% 27 &  20427  &  37582  &   6456  &  24186  &   2250  &   5811  \\
-% 28 &  20295  &  37687  &   6536  &  24289  &   2214  &   5811  \\
-% 29 &  20393  &  37337  &   6489  &  24201  &   2466  &   6167  \\
-% 30 &  10309  &  18737  &   3128  &  12099  &   1159  &   3003  \\
-% 31 &  10345  &  18895  &   3216  &  12023  &   1120  &   2946  \\
-% 32 &  10142  &  18893  &   3213  &  12066  &   1168  &   3020  \\
-% 33 &  20265  &  37114  &   6374  &  24194  &   2330  &   5967  \\
-% 34 &  20311  &  37337  &   6362  &  24378  &   2326  &   6057  \\
 \hline
 \end{tabular}
-\caption{Number of proper and generated particles for $\Dp$ (part 1).}
+\caption{Numbers of proper and generated particles for $\Dp$ (part 1).}
 {The mode-by-mode numbers of particles used in the efficiency calculations for $\DpmodeA, \DpmodeB,$ and $\DpmodeC$.}
 \label{tab:DTag_eff_Dp_p1}
 \end{table}
 
 
-\begin{table}
+\begin{table}[H]
 \renewcommand\arraystretch{1.0}
 \centering
 \begin{tabular}{c|C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}|C{1cm}C{1cm}C{1cm}}
@@ -654,107 +607,19 @@ Bin & \multicolumn{3}{c|}{$\DpmodeD$} & \multicolumn{3}{c|}{$\DpmodeE$} & \multi
 31 & 5556 & 27556 & 0.202 & 3288 & 15049 & 0.218 & 1746 & 3965 & 0.440 \\
 32 & 5785 & 27634 & 0.209 & 3259 & 14840 & 0.220 & 1680 & 3923 & 0.428 \\
 33 & 5653 & 27528 & 0.205 & 3287 & 14959 & 0.220 & 1734 & 4031 & 0.430 \\
-%  3 &   5578  &  27502  &   3414  &  14899  &   1698  &   3980  \\
-%  4 &   8468  &  41353  &   4999  &  22340  &   2485  &   5867  \\
-%  5 &  14556  &  69102  &   8309  &  37104  &   4344  &   9959  \\
-%  6 &  25432  & 124123  &  14807  &  66943  &   7430  &  17744  \\
-%  7 &  22850  & 110296  &  13319  &  60059  &   6723  &  15843  \\
-%  8 &  25820  & 124151  &  15057  &  66954  &   7478  &  17655  \\
-%  9 &  20373  &  96362  &  11898  &  52068  &   6093  &  13955  \\
-% 10 &  29030  & 138372  &  17076  &  74519  &   8425  &  19594  \\
-% 11 &  29195  & 137508  &  17221  &  74539  &   8534  &  19799  \\
-% 12 &  20216  &  96603  &  12006  &  52123  &   5985  &  13833  \\
-% 13 &  17507  &  82589  &  10228  &  44534  &   5111  &  11746  \\
-% 14 &  11705  &  54998  &   6839  &  29643  &   3429  &   7891  \\
-% 15 &  11602  &  55245  &   6810  &  29770  &   3461  &   7989  \\
-% 16 &   8763  &  41572  &   4963  &  22250  &   2564  &   5876  \\
-% 17 &  11651  &  55576  &   6953  &  29754  &   3341  &   7827  \\
-% 18 &  14509  &  68677  &   8617  &  37138  &   4235  &   9867  \\
-% 19 &  14565  &  68864  &   8466  &  36828  &   4361  &   9826  \\
-% 20 &  20572  &  97073  &  12192  &  52476  &   6187  &  13850  \\
-% 21 &  20411  &  96827  &  11748  &  52152  &   5898  &  13671  \\
-% 22 &  23090  & 109958  &  13325  &  59244  &   6906  &  15913  \\
-% 23 &  25746  & 124249  &  14667  &  66799  &   7601  &  17652  \\
-% 24 &  17179  &  82921  &   9571  &  44714  &   4994  &  11729  \\
-% 25 &  14120  &  69390  &   7922  &  37132  &   4165  &   9905  \\
-% 26 &   8380  &  41424  &   4794  &  22343  &   2562  &   5908  \\
-% 27 &   5593  &  27680  &   3072  &  14738  &   1694  &   3935  \\
-% 28 &   5627  &  27587  &   3151  &  14791  &   1657  &   3859  \\
-% 29 &   5677  &  27727  &   3118  &  14862  &   1700  &   3924  \\
-% 30 &   2863  &  13875  &   1604  &   7514  &    849  &   2003  \\
-% 31 &   2733  &  13650  &   1554  &   7495  &    828  &   1971  \\
-% 32 &   2808  &  13903  &   1491  &   7273  &    876  &   2005  \\
-% 33 &   5572  &  27708  &   3168  &  14898  &   1659  &   3890  \\
-% 34 &   5627  &  27755  &   3095  &  14821  &   1692  &   3962  \\
 \hline
 \end{tabular}
-\caption{Number of proper and generated particles for $\Dp$ (part 2).}
+\caption{Numbers of proper and generated particles for $\Dp$ (part 2).}
 {The mode-by-mode numbers of particles used in the efficiency calculations for $\DpmodeD, \DpmodeE,$ and $\DpmodeF$.}
 \label{tab:DTag_eff_Dp_p2}
 \end{table}
 
 
-\begin{table}[h]
-\centering
-% \begin{tabular}{l c c}
-\begin{tabular}{l r@{$\; \pm \;$}l r@{$\; \pm \;$}l}
-\hline
-% Decay Mode ($i$) & PDG $\mathcal{B}_i$ [\%] & MC Efficiency $\epsilon_i$ \\
-Decay Mode ($i$) & \multicolumn{2}{c}{PDG $\mathcal{B}_i$ [\%]} & \multicolumn{2}{c}{MC Efficiency $\epsilon_i$} \\
-$\DOmodeA$ &  3.89 & 0.05 & 0.7002 & 0.0011 \\
-$\DOmodeB$ & 13.93 & 0.50 & 0.3794 & 0.0004 \\
-$\DOmodeC$ &  8.11 & 0.21 & 0.3988 & 0.0006 \\
-\hline
-\multicolumn{5}{c}{$\epsilon_{\DO} = (11.245 \pm 0.020)\%$} \\[1pt]
-\hline
-$\DpmodeA$ &  9.13 & 0.19 & 0.5471 & 0.0007 \\
-$\DpmodeB$ &  5.99 & 0.18 & 0.2739 & 0.0006 \\
-$\DpmodeC$ &  1.47 & 0.07 & 0.3883 & 0.0014 \\
-$\DpmodeD$ &  6.99 & 0.27 & 0.2079 & 0.0005 \\
-$\DpmodeE$ &  3.12 & 0.11 & 0.2237 & 0.0007 \\
-$\DpmodeF$ &  0.95 & 0.03 & 0.4317 & 0.0018 \\
-\hline
-\multicolumn{5}{c}{$\epsilon_{\Dp} = (9.770 \pm 0.063)\%$} \\[1pt]
-\hline
-% \hline
-% $\DOmodeA$ & \pp 3.89 $\pm$ 0.05 & 0.70226(74) \\ 
-% $\DOmodeB$ &    13.93 $\pm$ 0.50 & 0.38190(29) \\ 
-% $\DOmodeC$ & \pp 8.11 $\pm$ 0.20 & 0.40277(38) \\ 
-% \hline
-% \multicolumn{3}{c}{$\epsilon_{\DO}$ = (11.320 $\pm$ 0.213)\%} \\
-% \hline
-% $\DpmodeA$ & \pp 9.13 $\pm$ 0.19 & 0.54699(42)\pp \\
-% $\DpmodeB$ & \pp 5.99 $\pm$ 0.18 & 0.27570(38)\pp \\
-% $\DpmodeC$ & \pp 1.47 $\pm$ 0.07 & 0.38972(89)\pp \\
-% $\DpmodeD$ & \pp 6.99 $\pm$ 0.27 & 0.20864(31)\pp \\
-% $\DpmodeE$ & \pp 3.12 $\pm$ 0.11 & 0.22540(43)\pp \\
-% $\DpmodeF$ & \pp 0.95 $\pm$ 0.03 & 0.43199(116)   \\
-% \hline
-% \multicolumn{3}{c}{$\epsilon_{\Dp}$ = (9.792 $\pm$ 0.134)\%} \\[1pt]
-% \hline
-\end{tabular}
-\caption{Mode-by-mode reconstruction efficiencies for $\DO$ and $\Dp$.}
-{The values shown are over the entire data sample, while calculations for the cross sections use the values of each energy point individually (see \Cref{tab:DTag_eff_E_bin}). The errors listed on the PDG branching fractions are shown for reference, and are not included in the efficiency errors (see \Cref{ssec:sys_pdg}).}
-\label{tab:DTag_eff}
-\end{table}
-
-
-\begin{figure}[h]
-\centering
-\includegraphics[scale=0.8]{figures/plots/D_eff_by_mode.pdf}
-\caption{Mode-by-mode MC efficiencies for $\DO$ and $\Dp$.}
-{The error bars are negligible on the scale shown.}
-\label{fig:D_eff_by_mode}
-\end{figure}
-
-
-\begin{table}
+\begin{table}[H]
 \centering
 \renewcommand\arraystretch{1.0}
-% \begin{tabular}{c C{3cm} C{3cm}}
 \begin{tabular}{c r@{$\; \pm \;$}l r@{$\; \pm \;$}l}
 \hline
-% $E_{\text{bin}}$ & $\epsilon_{\DO}$ & $\epsilon_{\Dp}$ \\
 $E_{\text{bin}}$ & \multicolumn{2}{c}{$\epsilon_{\DO}$} & \multicolumn{2}{c}{$\epsilon_{\Dp}$} \\
 \hline
  0 & 0.1146 & 0.0005 & \multicolumn{2}{c}{-} \\
@@ -791,41 +656,6 @@ $E_{\text{bin}}$ & \multicolumn{2}{c}{$\epsilon_{\DO}$} & \multicolumn{2}{c}{$\e
 31 & 0.1092 & 0.0005 & 0.0969 & 0.0005 \\
 32 & 0.1104 & 0.0005 & 0.0978 & 0.0005 \\
 33 & 0.1090 & 0.0005 & 0.0971 & 0.0005 \\
-%  0 & 0.1149 $\pm$ 0.0023 & -                   \\ 
-%  1 & 0.1148 $\pm$ 0.0022 & -                   \\ 
-%  2 & 0.1149 $\pm$ 0.0023 & -                   \\ 
-%  3 & 0.1142 $\pm$ 0.0022 & 0.0959 $\pm$ 0.0014 \\ 
-%  4 & 0.1130 $\pm$ 0.0022 & 0.0965 $\pm$ 0.0014 \\ 
-%  5 & 0.1142 $\pm$ 0.0022 & 0.0978 $\pm$ 0.0014 \\ 
-%  6 & 0.1135 $\pm$ 0.0021 & 0.0964 $\pm$ 0.0013 \\ 
-%  7 & 0.1134 $\pm$ 0.0021 & 0.0968 $\pm$ 0.0013 \\ 
-%  8 & 0.1132 $\pm$ 0.0021 & 0.0966 $\pm$ 0.0013 \\ 
-%  9 & 0.1150 $\pm$ 0.0022 & 0.0986 $\pm$ 0.0014 \\ 
-% 10 & 0.1153 $\pm$ 0.0022 & 0.0986 $\pm$ 0.0014 \\ 
-% 11 & 0.1150 $\pm$ 0.0022 & 0.0990 $\pm$ 0.0014 \\ 
-% 12 & 0.1151 $\pm$ 0.0022 & 0.0990 $\pm$ 0.0014 \\ 
-% 13 & 0.1149 $\pm$ 0.0022 & 0.0992 $\pm$ 0.0014 \\ 
-% 14 & 0.1147 $\pm$ 0.0022 & 0.0991 $\pm$ 0.0014 \\ 
-% 15 & 0.1146 $\pm$ 0.0022 & 0.0988 $\pm$ 0.0014 \\ 
-% 16 & 0.1144 $\pm$ 0.0022 & 0.0989 $\pm$ 0.0014 \\ 
-% 17 & 0.1144 $\pm$ 0.0022 & 0.0993 $\pm$ 0.0014 \\
-% 18 & 0.1144 $\pm$ 0.0022 & 0.0988 $\pm$ 0.0014 \\
-% 19 & 0.1141 $\pm$ 0.0022 & 0.0993 $\pm$ 0.0014 \\
-% 20 & 0.1144 $\pm$ 0.0022 & 0.0989 $\pm$ 0.0014 \\
-% 21 & 0.1136 $\pm$ 0.0022 & 0.0985 $\pm$ 0.0014 \\
-% 22 & 0.1124 $\pm$ 0.0021 & 0.0983 $\pm$ 0.0014 \\
-% 23 & 0.1112 $\pm$ 0.0021 & 0.0973 $\pm$ 0.0014 \\
-% 24 & 0.1101 $\pm$ 0.0021 & 0.0967 $\pm$ 0.0014 \\
-% 25 & 0.1098 $\pm$ 0.0021 & 0.0960 $\pm$ 0.0014 \\
-% 26 & 0.1100 $\pm$ 0.0021 & 0.0961 $\pm$ 0.0014 \\
-% 27 & 0.1072 $\pm$ 0.0021 & 0.0960 $\pm$ 0.0014 \\
-% 28 & 0.1081 $\pm$ 0.0021 & 0.0959 $\pm$ 0.0014 \\
-% 29 & 0.1078 $\pm$ 0.0021 & 0.0968 $\pm$ 0.0014 \\
-% 30 & 0.1064 $\pm$ 0.0021 & 0.0965 $\pm$ 0.0015 \\
-% 31 & 0.1074 $\pm$ 0.0021 & 0.0961 $\pm$ 0.0015 \\
-% 32 & 0.1063 $\pm$ 0.0021 & 0.0953 $\pm$ 0.0015 \\
-% 33 & 0.1071 $\pm$ 0.0021 & 0.0961 $\pm$ 0.0014 \\
-% 34 & 0.1065 $\pm$ 0.0021 & 0.0957 $\pm$ 0.0014 \\
 \hline
 \end{tabular}
 \caption{The overall reconstruction efficiency of $\DO$ and $\Dp$ for each energy bin.}
@@ -837,7 +667,7 @@ $E_{\text{bin}}$ & \multicolumn{2}{c}{$\epsilon_{\DO}$} & \multicolumn{2}{c}{$\e
 \subsection{$\sCP$ Violation Correction}
 \label{ssec:cp_correction}
 
-Due to $\sCP$ violation in the $\DO \aDO$ system, each of the neutral decay modes must be corrected to account for quantum correlations.
+Due to $\sCP$ violation in the $\DO \aDO$ system, each of the neutral decay modes must be corrected to account for quantum correlations arising from production through a $J^{PC} = 1^{--}$ state.
 This is done by applying scaling factors to the efficiency for each of the three modes used in reconstruction.
 The corrections are parameterized for each mode ($m$) by the following form \cite{ref:Asner:2008}:
 \beq
@@ -850,7 +680,7 @@ The value of $y$ represents the difference in total width components of the $\DO
 
 The mode-dependent values for these factors are listed in \Cref{tab:qc_factors}.
 These are taken from the $CPV$-allowed values in \cite{ref:HFAG:2015} for $\DOmodeA$, and from \cite{ref:Evans:2016} for $\DOmodeB$ and $\DOmodeC$.
-The value of $y = 0.0066^{+0.0007}_{-0.0010}$ is also from \cite{ref:HFAG:2015}, and is the same for all modes.
+The value $y = 0.0066^{+0.0007}_{-0.0010}$ is also from \cite{ref:HFAG:2015}, and is the same for all modes.
 After applying each of the mode-dependent corrections, the efficiency for the full sample changes from $\epsilon_{\DO} = (11.320 \pm 0.213)\%$ to $\epsilon_{\DO} = (11.352 \pm 0.213)\%$, and similarly for the efficiencies of each $\Ecm$ bin.
 
 \begin{table}[H]
@@ -868,19 +698,21 @@ $\DOmodeC$ & 0.0549 & 0.0006 & 0.43 & $^{+\;0.17}_{-\;0.13}$ & -52   & $^{+\;   
 \label{tab:qc_factors}
 \end{table}
 
+\pagebreak
+
 
 \section{Fitting Procedure}
 \label{sec:fitting}
 
-After applying the correction in \Cref{ssec:cp_correction}, the efficiency values (\Cref{tab:DTag_eff_E_bin}) were combined with the luminosity (\Cref{tab:luminosity}) and the signal values from each 2D fit (\Cref{tab:xsec_rc_data}) to determine the cross section at each energy point.  Since each $\psipp$ produces a $\DDbar$ pair, a factor of 2 is included to avoid double counting:
+After applying the correction in \Cref{ssec:cp_correction}, the efficiency values (\Cref{tab:DTag_eff_E_bin}) were combined with the luminosity (\Cref{tab:luminosity}) and the signal values from each 2D fit (\Cref{tab:xsec_rc_data}) to determine the cross section at each energy point.  Since each $\psipp$ produces a $\DDbar$ pair, a factor of 2 is included in the denominator to correct for double counting:
 \beq
 \label{eq:xsec_rc_data}
 \sigma_{\DDbar}^{RC}(E_i) = \frac{ N_D(E_i) }{ 2 \, \epsilon_D(E_i) \, \mathcal{L}(E_i) }.
 \eeq
-The resulting cross section values for $\DO$ and $\Dp$ are also listed in \Cref{tab:xsec_rc_data}, and shown in \Cref{fig:xsec_rc_data}.
+The resulting cross sections for $\DO$ and $\Dp$ are shown in \Cref{fig:xsec_rc_data} and \Cref{tab:xsec_rc_data}.
 
 
-\begin{table}%[h]
+\begin{table}
 \centering
 \begin{tabular}{c r@{$\;\pm\;$}r r@{$\;\pm\;$}l r@{$\;\pm\;$}r r@{$\;\pm\;$}l}
 \hline
@@ -920,46 +752,11 @@ $E_{\text{mid}}$ & \multicolumn{2}{c}{$N_{\DO \aDO}$} & \multicolumn{2}{c}{$\sig
 3.8494 &   11 &  6 & 0.186 & 0.104 &   10 &  6 & 0.186 & 0.118 \\
 3.8555 &   24 &  8 & 0.337 & 0.111 &   17 &  6 & 0.273 & 0.104 \\
 3.8632 &   22 &  8 & 0.340 & 0.127 &    6 &  5 & 0.099 & 0.091 \\
-% 3.7355 &   12 &  5 & 0.155 & 0.065 & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{-} \\ 
-% 3.7364 &   24 &  7 & 0.212 & 0.066 & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{-} \\ 
-% 3.7377 &   15 &  5 & 0.204 & 0.069 & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{-} \\ 
-% 3.7447 &  166 & 15 & 0.761 & 0.072 &   27 &  6 & 0.147 & 0.038 \\ 
-% 3.7464 &  266 & 20 & 0.823 & 0.064 &   98 & 12 & 0.361 & 0.046 \\  
-% 3.7485 &  508 & 27 & 0.970 & 0.056 &  199 & 17 & 0.446 & 0.040 \\ 
-% 3.7503 &  825 & 34 & 1.210 & 0.055 &  321 & 22 & 0.555 & 0.039 \\ 
-% 3.7525 & 1012 & 38 & 1.334 & 0.057 &  479 & 27 & 0.743 & 0.043 \\ 
-% 3.7541 & 1143 & 41 & 1.462 & 0.059 &  510 & 28 & 0.767 & 0.044 \\ 
-% 3.7556 & 1454 & 45 & 1.622 & 0.059 &  680 & 32 & 0.887 & 0.044 \\ 
-% 3.7586 & 1993 & 53 & 1.940 & 0.064 & 1036 & 39 & 1.177 & 0.048 \\ 
-% 3.7616 & 2388 & 58 & 2.303 & 0.071 & 1323 & 44 & 1.493 & 0.054 \\ 
-% 3.7646 & 2016 & 53 & 2.662 & 0.086 & 1224 & 42 & 1.884 & 0.070 \\ 
-% 3.7675 & 1719 & 48 & 3.051 & 0.104 & 1050 & 38 & 2.174 & 0.086 \\ 
-% 3.7705 & 1578 & 46 & 3.391 & 0.119 & 1044 & 38 & 2.610 & 0.103 \\ 
-% 3.7735 & 1561 & 46 & 3.708 & 0.131 & 1116 & 39 & 3.086 & 0.118 \\ 
-% 3.7765 & 1543 & 45 & 3.673 & 0.130 & 1108 & 39 & 3.058 & 0.118 \\ 
-% 3.7795 & 1522 & 46 & 3.372 & 0.121 & 1001 & 38 & 2.579 & 0.105 \\
-% 3.7826 & 1398 & 44 & 2.826 & 0.106 &  957 & 38 & 2.248 & 0.095 \\
-% 3.7855 & 1140 & 41 & 1.948 & 0.080 &  806 & 36 & 1.589 & 0.075 \\
-% 3.7885 &  848 & 38 & 1.310 & 0.064 &  645 & 34 & 1.147 & 0.064 \\
-% 3.7925 &  725 & 37 & 0.903 & 0.050 &  480 & 30 & 0.688 & 0.045 \\
-% 3.7964 &  514 & 35 & 0.561 & 0.040 &  321 & 31 & 0.403 & 0.040 \\
-% 3.8005 &  354 & 31 & 0.404 & 0.037 &  182 & 28 & 0.238 & 0.037 \\
-% 3.8036 &  194 & 23 & 0.324 & 0.039 &  117 & 22 & 0.223 & 0.043 \\
-% 3.8065 &  125 & 19 & 0.323 & 0.050 &   95 & 16 & 0.280 & 0.050 \\
-% 3.8095 &   57 & 13 & 0.206 & 0.048 &   33 & 13 & 0.138 & 0.055 \\
-% 3.8124 &   11 &  9 & 0.056 & 0.050 &   29 & 11 & 0.168 & 0.065 \\
-% 3.8157 &    6 &  7 & 0.046 & 0.050 &    8 &  8 & 0.067 & 0.062 \\
-% 3.8237 &   11 &  7 & 0.128 & 0.081 &   15 &  8 & 0.196 & 0.108 \\
-% 3.8315 &    7 &  5 & 0.118 & 0.086 &    2 &  6 & 0.039 & 0.114 \\
-% 3.8397 &   15 &  6 & 0.254 & 0.108 &   12 &  6 & 0.239 & 0.119 \\
-% 3.8475 &   14 &  6 & 0.250 & 0.109 &    9 &  6 & 0.172 & 0.121 \\
-% 3.8556 &   26 &  8 & 0.377 & 0.117 &   16 &  6 & 0.269 & 0.108 \\
-% 3.8636 &   15 &  6 & 0.236 & 0.099 &    7 &  5 & 0.138 & 0.095 \\
 \hline
 \end{tabular} 
 \caption{The $\DDbar$ cross section at each $\Ecm$ point.}
-{The number of data events observed in each $\Ecm$ bin are also shown.
-The uncertainties on the cross sections are statistical only and come from the signal fitting ($N_D$), PDG values (\Cref{tab:DTag_eff}), and MC reconstruction efficiency (\Cref{tab:DTag_eff_E_bin}).
+{The numbers of data events observed in each $\Ecm$ bin are also shown.
+The uncertainties on the cross sections are statistical only and come from the signal fitting ($N_D$), PDG values (\Cref{tab:DTag_eff}), and MC reconstruction efficiencies (\Cref{tab:DTag_eff_E_bin}).
 The values for $N_{\DO \aDO}$ and $N_{\Dp \Dm}$ are taken from the signal fits shown in \Cref{app:D0_signal_fits,app:Dp_signal_fits}.}
 \label{tab:xsec_rc_data}
 \end{table}
@@ -974,23 +771,22 @@ The values for $N_{\DO \aDO}$ and $N_{\Dp \Dm}$ are taken from the signal fits s
 \end{figure}
 
 
-Using the measured $\DDbar$ cross sections, we fit to \Cref{eq:xsec_rc_simp} using each of the form factor choices described in \Cref{sec:form_factors}.
-In each case, there are four common fit parameters: $\Mpsipp$, $\Gpsipp$, $\Geepsipp$, and $\Ppsipp$.
-These represent the mass, total width, electron partial width, and relative phase to the non-resonant contribution for the $\psipp$, respectively.
-This notation for the total width corresponds to $\Gamma(M)$ in \Cref{sec:xsec_derivation}.
-Two additional fitting parameters are dependent on which form factor is being used: $F_{NR}$ and $a_{NR}$ for the exponential, or $\Gpsip$ and $F_0$ for the VDM.
+These cross sections are fit to \Cref{eq:xsec_rc_simp} using each form factor choice described in \Cref{sec:form_factors}.
+There are four common fit parameters, $\Mpsipp$, $\Gpsipp$, $\Geepsipp$, and $\Ppsipp$, representing the mass, total width, electron partial width, and relative phase to the non-resonant contribution for the $\psipp$, respectively.
+The total width corresponds to $\Gamma(M)$ in \Cref{sec:xsec_derivation}.
+Two additional parameters are form factor dependent: $F_{NR}$ and $a_{NR}$ for the exponential, or $\Gpsip$ and $F_0$ for the VDM.
 For the former, these represent the amplitude and exponent normalization for the non-resonant contribution.
-In the latter case, these represent the modified total width for the $\psip$ above resonance (see \Cref{sec:form_factors}) and the constant contribution of resonances above the $\psipp$.
-The fitting is done simultaneously for $\DO$ and $\Dp$ with identical parameters using TMinuit with a $\chi^2$ minimization.
-The value minimized is the sum of the $\chi^2$ values from each of the $\DO$ and $\Dp$ cross section functions.  
-Results for the Exponential and VDM choices are shown in \Cref{fig:exp_results,fig:vdm_results}, respectively.
+For the latter, these represent the modified total width for the $\psip$ above resonance (see \Cref{sec:form_factors}) and the constant contribution of resonances above the $\psipp$.
+The fitting is done simultaneously for $\DO$ and $\Dp$ with identical parameters using TMinuit \cite{ref:TMinuit}.
+The minimized $\chi^2$ is the total contribution from both $\DO$ and $\Dp$.  
+Results for the Exponential and VDM form factors are shown in \Cref{fig:exp_results,fig:vdm_results}, respectively.
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_exp.pdf}
 \caption{The Exponential Model fit results.}
-{The results for $\DO$ are shown on the top and the results for $\Dp$ are shown on the bottom. The fit shape (blue) is calculated from \Cref{eq:xsec_rc} using the non-resonant component from \Cref{eq:exp_model}.}
+{Both the $\DO$ (top) and the $\Dp$ (bottom) use a fit shape (blue) calculated from \Cref{eq:xsec_rc} using the non-resonant component from \Cref{eq:exp_model}.}
 \label{fig:exp_results}
 \end{figure}
 
@@ -998,15 +794,21 @@ Results for the Exponential and VDM choices are shown in \Cref{fig:exp_results,f
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_vdm.pdf}
 \caption{The Vector Dominance Model fit results.}
-{The results for $\DO$ are shown on the top and the results for $\Dp$ are shown on the bottom. The fit shape (blue) is calculated from \Cref{eq:xsec_rc} using the non-resonant component from \Cref{eq:vdm_model}.}
+{Both the $\DO$ (top) and the $\Dp$ (bottom) use a fit shape (blue) calculated from \Cref{eq:xsec_rc} using the non-resonant component from \Cref{eq:vdm_model}.}
 \label{fig:vdm_results}
 \end{figure}
+
+Both form factor choices show generally good agreement with their theoretical formulation.
+While a value of $\chi^2 / \text{ D.o.F. (degrees of freedom)} \approx 2$ is a bit higher than desired, much of this excess is due to a small set of points.
+Namely, the two points within \SIrange{3.81}{3.82}{\GeV} for the $\DO$ cross section are well below the predicted shape.
+This could indicate the model used in our analysis does not well cover this region, and more information is needed to better understand the shape.
+Still, the parameters for the $\psipp$ are heavily dominated by the energy points in the peak region, and the overall consistency shown in this range provides confidence in the values obtained.
 
 
 \subsection{Coulomb Correction}
 \label{ssec:coulomb}
 
-In the development of this analysis, it was discovered that the theoretical formulation in \Cref{sec:xsec_derivation} did not lead to a successful fit of the $\DDbar$ cross sections, shown in \Cref{fig:vdm_Coulomb}.
+In the development of this analysis, it was discovered that the unmodified theoretical formulation in \Cref{sec:xsec_derivation} did not lead to a successful fit of the $\DDbar$ cross sections, as shown in \Cref{fig:vdm_Coulomb}.
 Namely, including the Coulomb effect pulls the $\DO \aDO$ and $\Dp \Dm$ cross sections in opposite directions.
 We found the best fits were achieved by altering \Cref{eq:z_Dp} to set the Coulomb factor to 1.
 While this disagrees with conventional theoretical wisdom, it is consistent with studies of $\Upsilon(4S) \rightarrow B\overline{B}$ where applying a Coulomb correction for the charged final state also leads to inconsistency with data.
@@ -1015,7 +817,7 @@ While this disagrees with conventional theoretical wisdom, it is consistent with
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_vdm_Coulomb.pdf}
 \caption{The Vector Dominance Model fit results with Coulomb interactions.}
-{The results for $\DO$ are shown on the top and the results for $\Dp$ are shown on the bottom.  Including this factor provides notably worse results than when excluding it (see \Cref{fig:vdm_results}).}
+{Including this factor provides notably worse results than when excluding it (see \Cref{fig:vdm_results}).}
 \label{fig:vdm_Coulomb}
 \end{figure}
 
@@ -1023,7 +825,7 @@ This is most clearly seen in the ratio of $\Dp \Dm$ and $\DO \aDO$ cross section
 Agreement of the measured cross section ratio with the `No Coulomb' calculation is substantially better.
 This is also true for the high statistics points measured at the $\psipp$ peak by Derrick Toth \cite{ref:Toth:2014} (light blue).
 As the data tend to follow the `No Coulomb' method, we choose this as our nominal method for the results, presented in \Cref{sec:results}.
-However, the interpretation for this behavior is still undetermined.
+However, the explanation for this behavior is still undetermined.
 
 \begin{figure}[H]
 \centering
@@ -1033,24 +835,26 @@ However, the interpretation for this behavior is still undetermined.
 \label{fig:Coulomb_ratio}
 \end{figure}
 
+\pagebreak
 
-\section{Systematics}
+
+\section{Systematic Uncertainties}
 \label{sec:systematics}
 
 To assess the systematic uncertainties in our results, we look at a variety of factors.
 Many of these affect all BESIII analyses, such as luminosity and tracking.
 Others, like the modification to KKMC generation (see \Cref{ssec:monte_carlo}), are specific to this analysis.
-The remaining systematics are typically due to less well-known parameters, like the radii used to describe the $\psip$ and $\psipp$ (see \Cref{sec:form_factors}).
+Additional analysis-specific systematics are typically due to less well-known parameters, like the radii used to describe the $\psip$ and $\psipp$ (see \Cref{sec:form_factors}).
 Each of these contributions, as well as their total, can be found in \Cref{tab:systematics}. 
 
 
-\subsection{$\psipp$ Parameter Systematics}
+\subsection{$\psipp$ Parameter Systematic Uncertainties}
 \label{ssec:sys_psipp}
 
-Each systematic is obtained by changing a specific aspect, and re-fitting to the altered values using the VDM method.
+Each systematic is obtained by changing a specific assumption, selection criteria, or another analysis feature and re-fitting to the altered cross section distribution using the VDM method.
 The uncertainties for each parameter are obtained by taking the difference between this result and the nominal fit (\Cref{fig:vdm_results}).
 Generally, each change was done both positively and negatively, and the values used are the largest differences seen between the two changes.
-The systematics examined in this analysis are summarized below, where a * denotes aspects which were deemed negligible.
+The systematics examined in this analysis are summarized below, where a * denotes potential sources that were found to be negligible.
 
 
 \subsection*{Luminosity}
@@ -1063,7 +867,7 @@ As this is an overall scale change, the only variable significantly affected is 
 \subsection*{$\pipm / \Kpm$ Tracking}
 \label{ssec:sys_Kpi_tracking}
 
-A \SI{1.0}{\%} change \cite{ref:Rong:2015} was applied for each $\pipm$ or $\Kpm$ in a given decay mode.  
+A \SI{1.0}{\%} efficiency change \cite{ref:Rong:2015} was applied for each $\pipm$ or $\Kpm$ in a given decay mode.  
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
@@ -1071,7 +875,7 @@ As this is an overall scale change, the only variable significantly affected is 
 \subsection*{$\piO$ Tracking}
 \label{ssec:sys_pi0_tracking}
 
-A \SI{2.0}{\%} change \cite{ref:Ke:2015} was applied for each $\piO$ in a given decay mode.
+A \SI{2.0}{\%} efficiency change \cite{ref:Ke:2015} was applied for each $\piO$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
@@ -1079,7 +883,7 @@ As this is an overall scale change, the only variable significantly affected is 
 \subsection*{$\Ks$ Tracking}
 \label{ssec:sys_Ks_tracking}
 
-A \SI{1.5}{\%} change \cite{ref:Ma:2014} was applied for each $\Ks$ in a given decay mode.
+A \SI{1.5}{\%} efficiency change \cite{ref:Ma:2014} was applied for each $\Ks$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
@@ -1088,7 +892,7 @@ As this is an overall scale change, the only variable significantly affected is 
 \label{ssec:sys_single_tag}
 
 A mode-dependent change \cite{ref:Toth:2014} was applied to $N$ in \Cref{eq:xsec_rc_data}.
-Differences from fitting were obtained by Derrick Toth after examining the use of single-Gaussian convolved signal shapes, and are shown in \Cref{tab:sys_single_tag}. 
+Differences from fitting were obtained by Derrick Toth after examining the use of single-Gaussian convolved signal shapes as alternatives to the standard procedure, and are shown in \Cref{tab:sys_single_tag}. 
 The changes applied were obtained from the sums of the mode-dependent values averaged over their efficiencies.
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
@@ -1096,24 +900,18 @@ As this is an overall scale change, the only variable significantly affected is 
 \begin{table}[H]
 \centering
 \renewcommand\arraystretch{1.0}
-\begin{tabular}{l|c}
+\begin{tabular}{l|c||l|c}
 \hline
-\multicolumn{1}{c|}{Tag Mode} & Difference (\%) \\
+\multicolumn{1}{c|}{Tag Mode} & Difference (\%) & \multicolumn{1}{c|}{Tag Mode} & Difference (\%) \\
 \hline
-$\DOmodeA$ & 0.27 \\
-$\DOmodeB$ & 0.10 \\
-$\DOmodeC$ & 0.47 \\
+$\DOmodeA$ & 0.27 & $\DpmodeA$ & 0.20 \\
+$\DOmodeB$ & 0.10 & $\DpmodeB$ & 0.00 \\
+$\DOmodeC$ & 0.47 & $\DpmodeC$ & 0.17 \\
+           &      & $\DpmodeD$ & 0.29 \\
+           &      & $\DpmodeE$ & 0.17 \\
+           &      & $\DpmodeF$ & 0.74 \\
 \hline
-\multicolumn{2}{c}{$\DO$ Average: \SI{0.25}{\%}} \\
-\hline
-$\DpmodeA$ & 0.20 \\
-$\DpmodeB$ & 0.00 \\
-$\DpmodeC$ & 0.17 \\
-$\DpmodeD$ & 0.29 \\
-$\DpmodeE$ & 0.17 \\
-$\DpmodeF$ & 0.74 \\
-\hline
-\multicolumn{2}{c}{$\Dp$ Average: \SI{0.20}{\%}} \\
+\multicolumn{2}{c||}{$\DO$ Average: \SI{0.25}{\%}} & \multicolumn{2}{c}{$\Dp$ Average: \SI{0.20}{\%}} \\ [1pt]
 \hline
 \end{tabular}
 \caption{Single-tag fitting differences by mode.}
@@ -1125,31 +923,32 @@ $\DpmodeF$ & 0.74 \\
 \subsection*{PDG Branching Fractions}
 \label{ssec:sys_pdg}
 
-A mode-dependent change based on the PDG branching fraction errors (\Cref{tab:DTag_eff}) was applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
-The branching fraction for each mode was changed by its uncertainty. 
+A mode-dependent change based on the PDG branching fractions (\Cref{tab:DTag_eff}) was applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
+The branching fraction for each mode was changed by its error. 
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
 
+\pagebreak
 
 \subsection*{Meson Radii}
 \label{ssec:sys_radii}
 
-The most uncertain parameters used in the analysis are the radii of the mesons $\psip$ and $\psipp$.
+The most uncertain parameters used in the analysis are the radii of the mesons $\psip$ and $\psipp$, which enter through the cross section parametrization
 We take the same values as used by KEDR, however, each of these is quoted to have an $\sim$25\% uncertainty.
 With this, we adjust the two radii values up or down by 25\% over the four possible combinations (both up, both down, and each opposite).
-The maximum deviations from the nominal method seen across all four cases is used as the systematic uncertainty.
-Due to the high level of uncertainty on these parameters, this effect provides one of the largest systematic sources in the analysis.
+The maximum deviations from the nominal method seen across all four cases are used as the systematic uncertainties.
+Due to the high level of uncertainty on these parameters, this effect is one of the largest sources of systematic uncertainty in the analysis.
 
 
 \subsection*{MC Iteration*}
 \label{ssec:sys_kkmc}
 
-In generating MC for this analysis, the $\DDbar$ samples used a modified form of KKMC which generates events based off an input Born cross-section shape for the $\psipp$.
-However, as this shape is also the final output of the procedure, only an estimation of the results can be used for generation.
+In generating MC for this analysis, the $\DDbar$ samples used a modified form of KKMC which generates events based on an input Born level shape for the $\psipp$.
+However, as this shape is also the final output of the analysis, only an estimate is available for generation.
 To assess the variation from the input shape, we compared the output fit parameters to those used in the generation process.
 This process used the Exponential method, and the results are shown in \Cref{tab:KKMC_parameters}.
-The numbers listed are from an earlier iteration of the MC than shown in \Cref{sec:fitting}, but the consistency seen is representative of all iterations.
-Very little difference is seen in the primary fitting parameters of the $\psipp$.
-These similarities show the fit result values converging, even after only a single iteration.
+The numbers listed are from an earlier iteration of the MC that than shown in \Cref{sec:fitting}, but the consistency seen is representative of all iterations.
+Very little difference is seen in the primary fit output parameters of the $\psipp$.
+These similarities show the fit values converging, even after only a single iteration.
 From this, we treat variations due to MC iteration as negligible.
 
 \begin{table}[H]
@@ -1168,7 +967,7 @@ $\aNR$          &             &  -1.6202 &  0.5271 &  -1.5265 &  0.5119 & 0.0937
 \hline
 \end{tabular} 
 \caption{Comparison of input and output fit parameters.}
-{The MC generation is done using the Exponential form factor model as an input Born cross section to generate $\DDbar$ events using KKMC.}
+{The MC generation is done using the Exponential form factor model as an input Born level shape to generate $\DDbar$ events using KKMC.}
 \label{tab:KKMC_parameters}
 \end{table}
 
@@ -1176,10 +975,10 @@ $\aNR$          &             &  -1.6202 &  0.5271 &  -1.5265 &  0.5119 & 0.0937
 \subsection*{MC ISR Generation*}
 \label{ssec:sys_conexc}
 
-To compare to the generation process of KKMC, we also generated alternative MC samples of $\DDbar$ using the ConExc ISR generator.
+To compare to the generation process of KKMC, we also generated alternative MC samples of $\DDbar$ using the ConExc \cite{ref:Ping:2014} ISR generator.
 This process used an input Born level shape identical to a previous iteration produced with KKMC.
 Each of the background samples used (such as $\qqbar$ and $\tautau$) were the same as in the nominal procedure.
-The cross section results using the VDM model are shown in \Cref{tab:ConExc}, and provide $\psipp$ fit parameters within the statistical errors of the nominal method.
+The cross section results using the VDM model are shown in \Cref{tab:ConExc}, and provide $\psipp$ fit parameters that are within the statistical errors of the nominal method.
 From this, we treat variations due to the MC ISR generator as negligible.
 
 \begin{table}[H]
@@ -1198,7 +997,8 @@ $F_0$           &             &  -2.3415 &  0.4898 &  -2.0768 &  0.4924 \\
 \hline
 \end{tabular} 
 \caption{Comparison of output fit parameters between ISR generators.}
-{The MC generation is done using both the ConExc and KKMC generators and the final VDM fit results are shown.  The values shown are from a previous iteration than the final results, but the output from each method remains very similar.}
+{The MC generation is done using both the ConExc and KKMC generators and the final VDM fit results are shown.
+The values shown are from an earlier iteration than the final results, but the output from each method remains very similar.}
 \label{tab:ConExc}
 \end{table}
 
@@ -1212,33 +1012,33 @@ $F_0$           &             &  -2.3415 &  0.4898 &  -2.0768 &  0.4924 \\
 % \label{fig:ConExc}
 % \end{figure}
 
+\pagebreak
 
 \subsection*{Intermediate Resonances*}
 \label{ssec:sys_intermediate_resonances}
 
-In looking at the mode $\DpmodeA$, we also analyzed the contribution of intermediate resonances, like the $\rho^0$.
-Using the \SI{2.93}{\invfb} data sample of $\psipp$ events at $\Ecm = \SI{3.773}{\GeV}$, we split the signal region of this mode based on a \SI{1.0}{(\GeV)^2} cut in both the invariant masses of $K \pi$ and $\pi \pi$ separately.
+In looking at the mode $\DpmodeA$, we also analyzed the contribution of intermediate resonances to the $\pip\pim$ system, like the $\rho^0$.
+Using the \SI{2.93}{\invfb} data sample of $\psipp$ events at $\Ecm = \SI{3.773}{\GeV}$, we split the signal region of this mode based on \SI{1.0}{\GeV^2} cuts for each of the invariant masses of $K \pi$ and $\pi \pi$.
 These cuts were chosen to separate the sample into distinctly different regions, as can be seen in \Cref{fig:Kpipi_mass}.
-Fitting the signal distributions for each of these subsamples, we found no statistically significant deviations in the measured yields.
-From this, we treat variations due to intermediate resonances as negligible.
+Fitting the signal distributions for each of these subsamples, we found no statistically significant deviations in the measured yields, and treat this contribution as negligible.
+% From this, we treat variations due to intermediate resonances as negligible.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.5]{figures/plots/Kpi_vs_pipi_Ecm.pdf}
 \caption{The $K \pi$ vs. $\pi \pi$ invariant masses for the mode $\DpmodeA$.}
-{The data used are from the on-peak $\psipp$ sample, as the statistics are significantly higher than for the scan data.}
+{The on-peak $\psipp$ data was used due to its significantly higher statistics.}
 \label{fig:Kpipi_mass}
 \end{figure}
 
+\pagebreak
 
-\subsection*{Non-Resonant Form Factor}
-\label{ssec:sys_form_factor}
+\subsection*{Total Systematic Uncertainties}
+\label{ssec:sys_total}
 
-In addition to the systematics described above, there is a significant source of uncertainty coming from the non-resonant form factor used.
-Each of the models examined, Exponential and VDM, provided quality fit results for the cross section shapes.
-From this, we conservatively assign an uncertainty equal to the differences in fit parameters provided by these two methods.
-Following the example of KEDR, we treat this as separate from the other systematics, and list it as a model uncertainty.
-
+Each of the systematic uncertainty sources considered are assumed to be independent, meaning they are combined in quadrature for the total value.
+The results are shown in \Cref{tab:systematics} along with a comparison to the statistical error.
+Because of the large uncertainty on the meson radii, our measurements are systematics limited, even given the relatively small data sample used.
 
 \begin{table}[H]
 \centering
@@ -1254,29 +1054,55 @@ $\Ks$ Tracking          & 0.000 & 0.004 & 0.260 & 0.019 \\
 Single Tag Fits         & 0.000 & 0.012 & 0.213 & 0.008 \\
 PDG Errors              & 0.000 & 0.017 & 2.840 & 0.036 \\
 Meson Radii             & 0.016 & 2.411 & 3.512 & 1.477 \\
-Form Factor$^\dagger$   & 0.034 & 7.909 & 8.016 & 3.613 \\
 \hline
 Total [\%]                      & 0.016 & 2.411 & 5.389 & 1.479 \\
 Relative Stat. Error [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
 \hline
 \end{tabular} 
-\caption{Systematic uncertainties relative to the measured parameters of the $\psipp$.}{
-$^\dagger$The Form Factor is treated as an uncertainty on the model, and is not included in the total systematic error.}
+\caption{Systematic uncertainties relative to the measured parameters of the $\psipp$.}
 \label{tab:systematics}
 \end{table}
 
 
-\subsection{Cross Section Systematics}
+\subsection*{Non-Resonant Form Factor}
+\label{ssec:sys_form_factor}
+
+In addition to the systematics described above, there is a significant source of uncertainty coming from the non-resonant form factor used.
+Both models examined, Exponential and VDM, provided quality fit results for the cross section shapes.
+From this, we conservatively assign an uncertainty equal to the differences in fit parameters provided by these two methods, as shown in \Cref{tab:sys_form_factor}.
+Following the example of KEDR, we treat this as a model-dependent uncertainty separate from the other systematics.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|cccc}
+\hline 
+Form Factor & $\Mpsipp$ [\si{\GeV}] & $\Gpsipp$ [\si{\MeV}] & $\GeepsipptoDD$ [\si{\eV}] & $\Ppsipp$ [\si{\degree}] \\
+\hline 
+VDM & 3.7821 & 26.004 & 233.13 & 214.60 \\
+VDM & 3.7808 & 24.098 & 215.83 & 207.12 \\
+\hline
+Difference & 0.0013 & 1.906 & 17.30 & 7.48 \\
+\hline
+\end{tabular} 
+\caption{Parameter differences based on the choice of form factor.}
+{These are treated as model-dependent errors, not as part of the total systematics.}
+\label{tab:sys_form_factor}
+\end{table}
+
+
+
+\subsection{Cross Section Systematic Uncertainties}
 \label{ssec:sys_cross_section}
 
 In addition to the statistical uncertainties provided in \Cref{tab:xsec_rc_data}, we also provide systematic uncertainties on the cross section measurements.
 These are calculated from the systematic shifts ($\Delta S$) which affect \Cref{eq:xsec_rc_data}: Luminosity, $\Kpm / \pipm$ Tracking, $\piO$ Tracking, $\Ks$ Tracking, and Single Tag Fits.
-For the luminosity, this value is the same 1\% shift used previously.
-The others are calculated by weighting the efficiency from each decay mode:
+For the luminosity, this is the same as the $\pm1\%$ shift used previously.
+The others are calculated by weighting the efficiency over decay modes:
 \beq
 \Delta S = \frac{ \sum\limits_m \epsilon_m \Delta S_m }{ \sum\limits_m \epsilon_m }
 \eeq
-The value of $\Delta S_m$ for $\Kpm / \pipm$ Tracking is 1.0\% per $\Kpm$ or $\pipm$ in each decay mode, and defined similarly for the other systematics using the previously listed values.
+The value of $\Delta S_m$ for $\Kpm / \pipm$ Tracking is 1.0\% per $\Kpm$ or $\pipm$, and is defined similarly for the other systematics using the previously listed values.
 The calculated shifts are listed in \Cref{tab:sys_shifts}, and the resulting cross section values are listed in \Cref{tab:xsec_rc_data_sys}.
 
 
@@ -1345,41 +1171,6 @@ $E_{\text{mid}}$ [GeV] & \multicolumn{3}{c}{$\sigma^{RC}_{\DO \aDO}$ [nb]} & \mu
 3.8494 & 0.186 & 0.104 & 0.005 & 0.186 & 0.118 & 0.005 \\
 3.8555 & 0.337 & 0.111 & 0.010 & 0.273 & 0.104 & 0.008 \\
 3.8632 & 0.340 & 0.127 & 0.010 & 0.099 & 0.091 & 0.003 \\
-% 3.7355 & $0.153 \pm 0.064 \pm 0.004$ &              -              \\ 
-% 3.7364 & $0.210 \pm 0.065 \pm 0.006$ &              -              \\ 
-% 3.7377 & $0.202 \pm 0.068 \pm 0.006$ &              -              \\ 
-% 3.7447 & $0.754 \pm 0.071 \pm 0.022$ & $0.146 \pm 0.037 \pm 0.004$ \\ 
-% 3.7464 & $0.815 \pm 0.063 \pm 0.024$ & $0.357 \pm 0.045 \pm 0.010$ \\ 
-% 3.7485 & $0.960 \pm 0.055 \pm 0.028$ & $0.442 \pm 0.039 \pm 0.013$ \\ 
-% 3.7503 & $1.198 \pm 0.055 \pm 0.035$ & $0.549 \pm 0.039 \pm 0.016$ \\ 
-% 3.7525 & $1.321 \pm 0.056 \pm 0.039$ & $0.736 \pm 0.043 \pm 0.021$ \\ 
-% 3.7541 & $1.448 \pm 0.059 \pm 0.042$ & $0.759 \pm 0.044 \pm 0.022$ \\ 
-% 3.7556 & $1.606 \pm 0.059 \pm 0.047$ & $0.878 \pm 0.043 \pm 0.025$ \\ 
-% 3.7586 & $1.921 \pm 0.063 \pm 0.056$ & $1.165 \pm 0.048 \pm 0.034$ \\ 
-% 3.7616 & $2.280 \pm 0.071 \pm 0.067$ & $1.478 \pm 0.054 \pm 0.043$ \\ 
-% 3.7646 & $2.635 \pm 0.086 \pm 0.077$ & $1.865 \pm 0.069 \pm 0.054$ \\ 
-% 3.7675 & $3.021 \pm 0.103 \pm 0.089$ & $2.153 \pm 0.085 \pm 0.062$ \\ 
-% 3.7705 & $3.358 \pm 0.118 \pm 0.099$ & $2.584 \pm 0.102 \pm 0.074$ \\ 
-% 3.7735 & $3.672 \pm 0.129 \pm 0.108$ & $3.055 \pm 0.117 \pm 0.088$ \\ 
-% 3.7765 & $3.637 \pm 0.129 \pm 0.107$ & $3.028 \pm 0.117 \pm 0.087$ \\ 
-% 3.7795 & $3.338 \pm 0.120 \pm 0.098$ & $2.553 \pm 0.104 \pm 0.074$ \\
-% 3.7826 & $2.798 \pm 0.105 \pm 0.082$ & $2.226 \pm 0.094 \pm 0.064$ \\
-% 3.7855 & $1.929 \pm 0.080 \pm 0.057$ & $1.573 \pm 0.075 \pm 0.045$ \\
-% 3.7885 & $1.297 \pm 0.064 \pm 0.038$ & $1.135 \pm 0.064 \pm 0.033$ \\
-% 3.7925 & $0.894 \pm 0.049 \pm 0.026$ & $0.681 \pm 0.044 \pm 0.020$ \\
-% 3.7964 & $0.556 \pm 0.039 \pm 0.016$ & $0.399 \pm 0.040 \pm 0.012$ \\
-% 3.8005 & $0.400 \pm 0.037 \pm 0.012$ & $0.236 \pm 0.037 \pm 0.007$ \\
-% 3.8036 & $0.321 \pm 0.039 \pm 0.009$ & $0.221 \pm 0.043 \pm 0.006$ \\
-% 3.8065 & $0.320 \pm 0.049 \pm 0.009$ & $0.278 \pm 0.049 \pm 0.008$ \\
-% 3.8095 & $0.204 \pm 0.048 \pm 0.006$ & $0.137 \pm 0.055 \pm 0.004$ \\
-% 3.8124 & $0.056 \pm 0.049 \pm 0.002$ & $0.166 \pm 0.065 \pm 0.005$ \\
-% 3.8157 & $0.046 \pm 0.049 \pm 0.001$ & $0.067 \pm 0.061 \pm 0.002$ \\
-% 3.8237 & $0.127 \pm 0.080 \pm 0.004$ & $0.194 \pm 0.107 \pm 0.006$ \\
-% 3.8315 & $0.117 \pm 0.086 \pm 0.003$ & $0.039 \pm 0.113 \pm 0.001$ \\
-% 3.8397 & $0.251 \pm 0.107 \pm 0.007$ & $0.237 \pm 0.118 \pm 0.007$ \\
-% 3.8475 & $0.248 \pm 0.108 \pm 0.007$ & $0.171 \pm 0.120 \pm 0.005$ \\
-% 3.8556 & $0.373 \pm 0.116 \pm 0.011$ & $0.266 \pm 0.107 \pm 0.008$ \\
-% 3.8636 & $0.234 \pm 0.098 \pm 0.007$ & $0.136 \pm 0.094 \pm 0.004$ \\
 \hline
 \end{tabular} 
 \caption{Measurements of the $\DO$ / $\Dp$ cross sections.}
@@ -1415,6 +1206,8 @@ $\Ppsipp$       & $\PP 207 \; \pm \pp  3 \; \pm \pp 3 \; \pm \pp 7$ & $[\si{^\ci
 Additionally, since this analysis is based on an approach developed by the KEDR collaboration, a comparison to their results is also shown in \cref{tab:fit_results}.  
 For their measurement of $\Geepsipp$, two solutions were found with very close $\chi^2$ values, so both are quoted in their final results.
 With the larger statistics available at BESIII, no alternate solution was found during searches over the parameter space.
+It is clear the VDM results are well in line with the parameters found by the KEDR collaboration, but with significantly smaller statistical errors.
+Each of these measurements are also highly discrepant with the current PDG world averages.
 
 \begin{table}[H]
 \centering
@@ -1434,6 +1227,7 @@ PDG         & $3773.15 \pm 0.33$     & $27.2 \pm 0.9$       & $[262 \pm 18] \tim
 \label{tab:fit_results}
 \end{table}
 
+\pagebreak
 
 We can also compare our results to the cross section values found in the previous analysis of BESIII's on-peak $\psipp$ data sample of \SI{2.93}{\invfb} by Derrick Toth \cite{ref:Toth:2014}.
 The values displayed on \Cref{fig:exp_results,fig:vdm_results} are his double-tag (DT) values.

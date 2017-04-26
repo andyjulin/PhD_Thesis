@@ -418,7 +418,7 @@ Four main subdetector systems:
 \item Main Drift Chamber
 \item Time-of-Flight
 \item Electromagnetic Calorimeter
-\item Muon Chamber
+\item Muon Identifier 
 \end{itemize}
 
 \vspace{-0.3cm}
@@ -478,7 +478,7 @@ BESIII Event Display
 }
 
 \additem{Helps distinguish between $\Kpm$ and $\pipm$ candidates at lower momenta
-\additem{Combined with MDC $\tdEdx$ measurements to set particle hypothesis}
+\additem{Combined with $\tdEdx$ measurements in MDC to set particle hypothesis}
 }
 
 \vspace{-0.6cm}
@@ -516,15 +516,21 @@ BESIII Event Display
 \additem{Energy lost primarily in gaps of arrangement or out the back of crystals}
 }
 }
-\additem{Allows reconstruction of neutral particles, such as $\piO \rightarrow \photon\photon$}
+\additem{Allows reconstruction of purely neutral decays, such as $\piO \rightarrow \photon\photon$}
 
 \begin{figure}
 \includegraphics[width=0.5\linewidth]{../figures/images/EMC.pdf}
 \end{figure}
 }
 
-\addframe{Muon Chamber (MUC)}{
-Identifies tracks traversing through multiple layers as muons
+\addframe{Muon Identifier (MUC)}{
+\additem{Identify tracks traversing through multiple layers as muons
+\additem{Most particle types will be stopped before reaching the MUC
+\additem{Electrons susceptible to Bremsstrahlung radiation}
+\additem{Kaons and pions susceptible to strong interactions}
+}
+\additem{Requires muons with $p > \SI{0.4}{\GeV}$ for appropriate curvature}
+}
 }
 
 \addframe{Triggering System}{
