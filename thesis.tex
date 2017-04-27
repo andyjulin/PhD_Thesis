@@ -14,6 +14,9 @@
 \usepackage{caption}
 \usepackage{subcaption}
 \usepackage{float}
+\usepackage{dcolumn}
+\usepackage{tabularx}
+\usepackage{array}
 \usepackage{setspace}  % Adjust spacing in captions, single by default
 \usepackage{xspace}    % Automatically adjusting space after macros
 \usepackage{amsmath}   % \text, and other math formatting options
@@ -22,7 +25,6 @@
 \usepackage{hyperref}  % Add clickable links to other parts of the document
 \usepackage[noabbrev]{cleveref} % Automatically determine \cref type
 
-\usepackage{dcolumn}
 % \newcolumntype{d}[1]{D{.}{X}{#1} }
 % Configure the siunitx package
 \sisetup{
@@ -30,6 +32,8 @@
     list-final-separator = {, and }, % Always use the serial comma in \SIlist
     separate-uncertainty = true,
 }
+\newcolumntype{C}[1]{>{\centering\let\newline\\\arraybackslash\hspace{0pt}}m{#1}}
+% \newcolumntype{C}{>{\centering\arraybackslash}X}
 
 % Configure the cleveref package
 \newcommand{\creflastconjunction}{, and } % Always use the serial comma
@@ -42,7 +46,6 @@
 % Compile only the chapters listed here
 \includeonly{
     sections/default/title,
-    sections/default/conclusion,
     sections/default/references,
     sections/main/01_intro,
     sections/main/02_theory,
@@ -50,6 +53,7 @@
     sections/main/04_software,
     sections/main/05_cross_section,
     sections/main/06_non_DDbar,
+    sections/main/07_conclusion,
     sections/appendix/A1_glossary,
     sections/appendix/A2_D0_signal_fits,
     sections/appendix/A3_Dp_signal_fits,
@@ -66,7 +70,7 @@
 % Title and other sections that come before the body of the document
 \include{sections/default/title}
 
-% Now lets include the body of the document...
+% Introduction
 \include{sections/main/01_intro}
 
 % Main Chapters
@@ -77,11 +81,10 @@
 \include{sections/main/06_non_DDbar}
 
 % Conclusion
-\include{sections/default/conclusion}
+\include{sections/main/07_conclusion}
 
 % Bibliography
 \include{sections/default/references}
-% \bibliography{references}
 
 % Appendices
 \appendix
@@ -89,7 +92,7 @@
 \include{sections/appendix/A2_D0_signal_fits}
 \include{sections/appendix/A3_Dp_signal_fits}
 \include{sections/appendix/A4_scan_hadronic_count_fits}
-\include{sections/appendix/A5_scan_rec_efficiencies},
-\include{sections/appendix/A6_scan_signal_counts},
+\include{sections/appendix/A5_scan_rec_efficiencies}
+\include{sections/appendix/A6_scan_signal_counts}
 
 \end{document}

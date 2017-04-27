@@ -9,6 +9,8 @@ HELPER_FILES= makefile format/mnthesis.cls
 CHAPTERS:=$(wildcard sections/*.tex)
 FIGURES := $(wildcard figures/*)
 
+AUX := $(wildcard sections/default/*.aux) $(wildcard sections/main/*.aux) $(wildcard sections/appendix/*.aux)
+
 # Tell make what our reserved target names are
 #
 # By using ALWAYS_COMPILE as an undefined target, it will always force the main
@@ -25,7 +27,7 @@ $(MAIN_PDF): ALWAYS_COMPILE $(MAIN_TEX) $(HELPER_FILES) $(CHAPTERS) $(FIGURES)
 
 # Clean up all the regeneratable files except for the final document (the .pdf)
 tidy:
-	$(LATEXMK) -c $(MAIN_TEX) $(CHAPTERS)
+	$(LATEXMK) -c $(MAIN_TEX) $(CHAPTERS); rm `find . -type f \( -iname "*.aux" \)`
 
 # Clean up all the regeneratable files, including the final document
 clean:

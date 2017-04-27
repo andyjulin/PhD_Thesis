@@ -1,14 +1,29 @@
 \chapter{Measurement of Hadronic Production and $\Gamma(\psipptononDD)$}
 \label{ch:non_DDbar}
 
-The second half of this analysis concerns the measurement of hadronic production.
-Namely, we are examining hadronic events in the regions above the $\DDbar$ threshold (scan data) and below the $\psip$ peak (continuum data).
-After identifying the total number of hadronic events in data, we can determine $\xsecpsipptononDDbar$ in the scan region by subtracting off all other known decay processes.
-Using this, along with the previous values of $\xsecpsipptoDDbar$, we can measure the $\nonDDbar$ branching fraction:
+The second half of this analysis concerns the measurement of the branching fraction for $\nonDDbar$ events coming from the $\psipp$.
+While multiple other experiments have performed measurements of this value, the results have been highly discrepant with one another.
+For instance, in 2008 BESII \cite{ref:Ablikim:2008} measured a value of ($15.1 \pm 5.6 \pm 1.8$)\%, while in 2010 CLEO \cite{ref:Besson:2010} measured a value of ($-3.3 \pm 1.4 \pm ^{+6.6}_{-4.8}$)\%.
+Results like these make it difficult to conclusively infer the true value.
+With the high statistics available at BESIII, we aim to obtain more precise results in order to conclusively settle this controversy.
+
+
+In order to determine the branching fraction, we measure the total rate of hadronic production.
+From this, we subtract all non-$\psipp$ background components leaving only the contribution of events produced by the $\psipp$.
+Subtracting the measured $\xsecpsipptoDDbar$ gives the cross section for $\nonDDbar$ events from $\psipp$ $(\xsecpsipptononDDbar$), and the branching fraction follows immediately:
 \beq
 \label{eq:nonDDbar_bf}
 \Gamma(\psipptononDD) = \frac{ \xsecpsipptononDDbar }{ \xsecpsipptoDDbar + \xsecpsipptononDDbar }.
 \eeq
+
+The total hadronic production rate in this region is dominated by continuum events, denoted $\ee \rightarrow \qqbar$, where $\qqbar$ represents any number of hadrons comprised of $\qup, \; \qdown,$ or $\qstrange$ quarks.
+However, a precise simulation of this contribution near $\psipp$ has proven difficult to accurately produce.
+Instead, we determine this shape using $\qqbar$ measurements at lower energies, below the $\psip$ peak, where the decays are simpler.
+Extracting this component proceeds similarly as in the $\psipp$ region, where subtracting known non-$\qqbar$ backgrounds from the total measured rate leaves only $\qqbar$ events.
+Under the assumption that this shape scales as a simple function of energy, we extrapolate this rate to the energy range around the $\psipp$ to determine the $\qqbar$ contribution at each energy point.
+As a result, the measured value for the branching fraction is highly dependent on the accuracy of this extrapolation.
+From our investigation, the primary determinant of this accuracy is the shape of the $\psip$ cross section, a measurement which merits more careful study.
+
 
 \section{Data and Monte Carlo Samples}
 \label{sec:non_DDbar_data_samples}
@@ -1100,7 +1115,7 @@ From our analysis of the $\psip$ background (see \Cref{sec:psip_background}), we
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{c|c|c c c c c}
 \hline
-Sample & $\Ecm$ [\si{\GeV}] & $\DO\aDO$ [\si{\nb}] & $\Dp\Dm$ [\si{\nb}] & $\tautau$ [\si{\nb}] & $\yjpsi$ [\si{\nb}] & $\ypsip$ [\si{\nb}] \\
+Sample & $\Ecm$ [\si{\GeV}] & $\DO\aDO$ & $\Dp\Dm$ & $\tautau$ & $\yjpsi$ & $\ypsip$ \\
 \hline
 3734 (Scan) & 3.7342 & 0.164 & 0.000 & 2.467 & 1.060 & 5.359 \\
 3736 (Scan) & 3.7368 & 0.218 & 0.000 & 2.475 & 1.055 & 5.094 \\
@@ -1139,6 +1154,7 @@ Sample & $\Ecm$ [\si{\GeV}] & $\DO\aDO$ [\si{\nb}] & $\Dp\Dm$ [\si{\nb}] & $\tau
 \hline
 \end{tabular}
 \caption{Energy values and background cross sections for the scan data.}
+{Each cross section listed is in units of [\si{\nb}].}
 \label{tab:nonDDbar_scan_data}
 \end{table}
 

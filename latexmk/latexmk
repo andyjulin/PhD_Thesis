@@ -372,7 +372,7 @@ else {
 #Line length in log file that indicates wrapping.  
 # This number EXCLUDES line-end characters, and is one-based
 # It is the parameter max_print_line in the TeX program.  (tex.web)
-$log_wrap = 79;
+$log_wrap = 120;
 
 #########################################################################
 ## Default parsing and file-handling settings
@@ -409,7 +409,7 @@ $log_wrap = 79;
 #    or (b) its hash changes
 #  So it is useful to ignore lines in the hash calculation only if they
 #  are of a fixed size (as with a date/time stamp).
-%hash_calc_ignore_pattern =();
+%hash_calc_ignore_pattern = ();
 
 
 # Specification of templates for extra rules.
@@ -1075,7 +1075,7 @@ $max_repeat = 5;        # Maximum times I repeat latex.  Normally
                         # usually an indication of a problem; further
                         # runs may not resolve the problem, and
                         # instead could cause an infinite loop.
-$clean_ext = "";        # space separated extensions of files that are
+$clean_ext = "aux";   # space separated extensions of files that are
                         # to be deleted when doing cleanup, beyond
                         # standard set
 $clean_full_ext = "";   # space separated extensions of files that are
@@ -2286,7 +2286,7 @@ foreach $filename ( @file_list )
             show_array( " Yet other generated files:\n",
                         keys %generated_exts_all );
         }
-        &cleanup1( $aux_dir1, $fdb_ext, 'blg', 'ilg', 'log', 'aux.bak', 'idx.bak',
+        &cleanup1( $aux_dir1, $fdb_ext, 'blg', 'ilg', 'log', 'aux', 'aux.bak', 'idx.bak',
                    split('\s+',$clean_ext),
                    keys %generated_exts_all 
                  );
