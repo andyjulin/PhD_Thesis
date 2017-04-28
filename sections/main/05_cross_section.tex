@@ -8,7 +8,7 @@ Fits to this region with a single Breit-Wigner shape (i.e., no interference) hav
 The most straightforward modification of this assumption is to incorporate a contribution from the $\psip$.
 This is the form considered here, where the procedure largely follows the methodology of the KEDR collaboration \cite{ref:Anashin:2012}.
 With the larger statistics available at BESIII, however, an inclusive cross section measurement (such as performed by KEDR) is not required.
-Instead, we measure the production of $\psipptoDD$ events directly.
+Instead, we measure the production of $\psipptoDDbar$ events directly.
 
 
 \section{Derivation of $\xsecpsipptoDDbar$}
@@ -790,6 +790,12 @@ Results for the Exponential and VDM form factors are shown in \Cref{fig:exp_resu
 \label{fig:exp_results}
 \end{figure}
 
+Both form factor choices show generally good agreement with their theoretical formulation.
+While a value of $\chi^2 / \text{ D.o.F. (degrees of freedom)} \approx 2$ is a bit higher than desired, much of this excess is due to a small set of points.
+Namely, the two points within \SIrange{3.81}{3.82}{\GeV} for the $\DO$ cross section are well below the predicted shape.
+This could indicate the model used in our analysis does not well cover this region, and more information is needed to better understand the shape.
+Still, the parameters for the $\psipp$ are heavily dominated by the energy points in the peak region, and the overall consistency shown in this range provides confidence in the values obtained.
+
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_vdm.pdf}
@@ -798,12 +804,14 @@ Results for the Exponential and VDM form factors are shown in \Cref{fig:exp_resu
 \label{fig:vdm_results}
 \end{figure}
 
-Both form factor choices show generally good agreement with their theoretical formulation.
-While a value of $\chi^2 / \text{ D.o.F. (degrees of freedom)} \approx 2$ is a bit higher than desired, much of this excess is due to a small set of points.
-Namely, the two points within \SIrange{3.81}{3.82}{\GeV} for the $\DO$ cross section are well below the predicted shape.
-This could indicate the model used in our analysis does not well cover this region, and more information is needed to better understand the shape.
-Still, the parameters for the $\psipp$ are heavily dominated by the energy points in the peak region, and the overall consistency shown in this range provides confidence in the values obtained.
+Another crucial aspect revealed by these fits is the behavior of the Born level cross section (shown in dark red on \Cref{fig:exp_results,fig:vdm_results}).
+Namely, it vanishes near \SI{3.81}{\GeV} then reappears for higher energies.
+Indeed, this is also prominently seen in the splitting of signal events in $\mbc$, such as in \Cref{fig:fit_result_D0_20,fig:fit_result_D0_21,fig:fit_result_D0_22,fig:fit_result_D0_23,fig:fit_result_D0_24}.
+In each of these, there is a peak from Born level events (near $m_{\DO} = \SI{1.865}{\GeV}$) and a peak from events affected by ISR (near the beam energy).
+More over, the Born peak is steadily diminished over this range, but is again seen at higher energies, such as in \Cref{fig:fit_result_D0_30}.
+This behavior is a strong indication for needing interference, as such a shape would be impossible to model with only two non-interfering Breit-Wigner components.
 
+\pagebreak
 
 \subsection{Coulomb Correction}
 \label{ssec:coulomb}
@@ -861,7 +869,7 @@ The systematics examined in this analysis are summarized below, where a * denote
 \label{ssec:sys_luminosity}
 
 A \SI{1}{\%} change \cite{ref:Ablikim:2013b} was applied to $\lum$ in \Cref{eq:xsec_rc_data}.
-As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
 
 \subsection*{$\pipm / \Kpm$ Tracking}
@@ -869,7 +877,7 @@ As this is an overall scale change, the only variable significantly affected is 
 
 A \SI{1.0}{\%} efficiency change \cite{ref:Rong:2015} was applied for each $\pipm$ or $\Kpm$ in a given decay mode.  
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
-As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
 
 \subsection*{$\piO$ Tracking}
@@ -877,7 +885,7 @@ As this is an overall scale change, the only variable significantly affected is 
 
 A \SI{2.0}{\%} efficiency change \cite{ref:Ke:2015} was applied for each $\piO$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
-As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
 
 \subsection*{$\Ks$ Tracking}
@@ -885,7 +893,7 @@ As this is an overall scale change, the only variable significantly affected is 
 
 A \SI{1.5}{\%} efficiency change \cite{ref:Ma:2014} was applied for each $\Ks$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
-As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
 
 \subsection*{Single Tag Fitting}
@@ -894,7 +902,7 @@ As this is an overall scale change, the only variable significantly affected is 
 A mode-dependent change \cite{ref:Toth:2014} was applied to $N$ in \Cref{eq:xsec_rc_data}.
 Differences from fitting were obtained by Derrick Toth after examining the use of single-Gaussian convolved signal shapes as alternatives to the standard procedure, and are shown in \Cref{tab:sys_single_tag}. 
 The changes applied were obtained from the sums of the mode-dependent values averaged over their efficiencies.
-As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
 
 \begin{table}[H]
@@ -925,7 +933,7 @@ $\DOmodeC$ & 0.47 & $\DpmodeC$ & 0.17 \\
 
 A mode-dependent change based on the PDG branching fractions (\Cref{tab:DTag_eff}) was applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 The branching fraction for each mode was changed by its error. 
-As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDD$.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
 \pagebreak
 
@@ -958,12 +966,12 @@ From this, we treat variations due to MC iteration as negligible.
 \hline
 \multicolumn{2}{c}{Parameter} & \multicolumn{2}{c}{KKMC Input} & \multicolumn{2}{c}{Fit Results} & Difference \\
 \hline
-$\Mpsipp$       & [\si{\GeV}] &   3.7815 &  0.0003 &   3.7814 &  0.0003 & 0.0001 \\
-$\Gpsipp$       & [\si{\MeV}] &  24.887  &  0.686  &  24.839  &  0.681  & 0.048  \\
-$\GeepsipptoDD$ & [\si{\eV}]  & 217.55   & 11.18   & 214.65   & 11.10   & 2.90   \\
-$\Ppsipp$       &             &   3.6374 &  0.0513 &   3.6375 &  0.0518 & 0.0001 \\
-$\FNR$          &             &  21.394  &  1.866  &  20.147  &  1.765  & 0.992  \\
-$\aNR$          &             &  -1.6202 &  0.5271 &  -1.5265 &  0.5119 & 0.0937 \\
+$\Mpsipp$          & [\si{\GeV}] &   3.7815 &  0.0003 &   3.7814 &  0.0003 & 0.0001 \\
+$\Gpsipp$          & [\si{\MeV}] &  24.887  &  0.686  &  24.839  &  0.681  & 0.048  \\
+$\GeepsipptoDDbar$ & [\si{\eV}]  & 217.55   & 11.18   & 214.65   & 11.10   & 2.90   \\
+$\Ppsipp$          &             &   3.6374 &  0.0513 &   3.6375 &  0.0518 & 0.0001 \\
+$\FNR$             &             &  21.394  &  1.866  &  20.147  &  1.765  & 0.992  \\
+$\aNR$             &             &  -1.6202 &  0.5271 &  -1.5265 &  0.5119 & 0.0937 \\
 \hline
 \end{tabular} 
 \caption{Comparison of input and output fit parameters.}
@@ -988,12 +996,12 @@ From this, we treat variations due to the MC ISR generator as negligible.
 \hline
 \multicolumn{2}{c}{Parameter} & \multicolumn{2}{c}{ConExc Fit Results} & \multicolumn{2}{c}{KKMC Fit Results} \\
 \hline
-$\Mpsipp$       & [\si{\GeV}] &   3.7803 &  0.0003 &   3.7804 &  0.0003 \\
-$\Gpsipp$       & [\si{\MeV}] &  23.784  &  0.616  &  23.732  &  0.612  \\
-$\GeepsipptoDD$ & [\si{\eV}]  & 204.68   & 10.28   & 207.35   & 10.02   \\
-$\Ppsipp$       &             &   3.5954 &  0.0559 &   3.5952 &  0.0525 \\
-$\Geepsip$      & [\si{\MeV}] &  12.229  &  1.336  &  14.070  &  1.431  \\
-$F_0$           &             &  -2.3415 &  0.4898 &  -2.0768 &  0.4924 \\
+$\Mpsipp$          & [\si{\GeV}] &   3.7803 &  0.0003 &   3.7804 &  0.0003 \\
+$\Gpsipp$          & [\si{\MeV}] &  23.784  &  0.616  &  23.732  &  0.612  \\
+$\GeepsipptoDDbar$ & [\si{\eV}]  & 204.68   & 10.28   & 207.35   & 10.02   \\
+$\Ppsipp$          &             &   3.5954 &  0.0559 &   3.5952 &  0.0525 \\
+$\Geepsip$         & [\si{\MeV}] &  12.229  &  1.336  &  14.070  &  1.431  \\
+$F_0$              &             &  -2.3415 &  0.4898 &  -2.0768 &  0.4924 \\
 \hline
 \end{tabular} 
 \caption{Comparison of output fit parameters between ISR generators.}
@@ -1045,7 +1053,7 @@ Because of the large uncertainty on the meson radii, our measurements are system
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{c|cccc}
 \hline 
-Systematic & $\Mpsipp$ [\%] & $\Gpsipp$ [\%] & $\GeepsipptoDD$ [\%] & $\Ppsipp$ [\%] \\
+Systematic & $\Mpsipp$ [\%] & $\Gpsipp$ [\%] & $\GeepsipptoDDbar$ [\%] & $\Ppsipp$ [\%] \\
 \hline 
 Luminosity              & 0.000 & 0.004 & 1.005 & 0.014 \\
 $\Kpm / \pipm$ Tracking & 0.000 & 0.008 & 2.646 & 0.033 \\
@@ -1077,7 +1085,7 @@ Following the example of KEDR, we treat this as a model-dependent uncertainty se
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{c|cccc}
 \hline 
-Form Factor & $\Mpsipp$ [\si{\GeV}] & $\Gpsipp$ [\si{\MeV}] & $\GeepsipptoDD$ [\si{\eV}] & $\Ppsipp$ [\si{\degree}] \\
+Form Factor & $\Mpsipp$ [\si{\GeV}] & $\Gpsipp$ [\si{\MeV}] & $\GeepsipptoDDbar$ [\si{\eV}] & $\Ppsipp$ [\si{\degree}] \\
 \hline 
 VDM & 3.7821 & 26.004 & 233.13 & 214.60 \\
 VDM & 3.7808 & 24.098 & 215.83 & 207.12 \\
@@ -1173,7 +1181,7 @@ $E_{\text{mid}}$ [GeV] & \multicolumn{3}{c}{$\sigma^{RC}_{\DO \aDO}$ [nb]} & \mu
 3.8632 & 0.340 & 0.127 & 0.010 & 0.099 & 0.091 & 0.003 \\
 \hline
 \end{tabular} 
-\caption{Measurements of the $\DO$ / $\Dp$ cross sections.}
+\caption{Measurements of the $\DO$ and $\Dp$ cross sections.}
 {The first errors are statistical and the second are systematic.}
 \label{tab:xsec_rc_data_sys}
 \end{table}
@@ -1191,10 +1199,10 @@ The Exponential model is used as a measure of uncertainty, however, the quality 
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{C{2.25cm} l c}
 \hline 
-$\Mpsipp$       & $    3780.8 \pm     0.2   \pm    0.6   \pm   1.3$ & $[\si{\MeV}]$   \\
-$\Gpsipp$       & $\PP 24.1   \pm     0.5   \pm    0.6   \pm   1.9$ & $[\si{\MeV}]$   \\
-$\GeepsipptoDD$ & $\PP 216 \; \pm \pp  9 \; \pm    11 \; \pm    17$ & $[\si{\eV}]$    \\
-$\Ppsipp$       & $\PP 207 \; \pm \pp  3 \; \pm \pp 3 \; \pm \pp 7$ & $[\si{^\circ}]$ \\
+$\Mpsipp$          & $    3780.8 \pm     0.2   \pm    0.6   \pm   1.3$ & $[\si{\MeV}]$   \\
+$\Gpsipp$          & $\PP 24.1   \pm     0.5   \pm    0.6   \pm   1.9$ & $[\si{\MeV}]$   \\
+$\GeepsipptoDDbar$ & $\PP 216 \; \pm \pp  9 \; \pm    11 \; \pm    17$ & $[\si{\eV}]$    \\
+$\Ppsipp$          & $\PP 207 \; \pm \pp  3 \; \pm \pp 3 \; \pm \pp 7$ & $[\si{^\circ}]$ \\
 \hline
 \end{tabular} 
 \caption{Final results for the $\psipp$ parameters.}
@@ -1214,7 +1222,7 @@ Each of these measurements are also highly discrepant with the current PDG world
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{C{3cm} L{3cm} L{3cm} L{3cm}}
 \hline
-Method & $\Mpsipp$ [MeV] & $\Gpsipp$ [MeV] & $\GeepsipptoDD$ [eV] \\
+Method & $\Mpsipp$ [MeV] & $\Gpsipp$ [MeV] & $\GeepsipptoDDbar$ [eV] \\
 \hline
 Exponential & $3782.1 \pm 0.3 \pm 0.6$ & $26.0 \pm 0.6 \pm 0.7$ & $233 \pm 10 \pm 13$ \\
 VDM         & $3780.8 \pm 0.2 \pm 0.6$ & $24.1 \pm 0.6 \pm 0.6$ & $216 \pm  9 \pm 12$ \\
