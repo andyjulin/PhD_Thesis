@@ -18,9 +18,9 @@ Subtracting the measured $\xsecpsipptoDDbar$ gives the cross section for $\nonDD
 The total hadronic production rate in this region is dominated by events of the form $\ee \rightarrow \qqbar$, where $\qqbar$ fragments into any number of hadrons comprised of $\qup, \; \qdown,$ or $\qstrange$ quarks.
 However, a precise determination of this contribution at $\psipp$ is impossible, because these multihadronic events cannot be reliably separated from $\psipp$ decays.
 Instead, we extrapolate measurements made at lower energies, not only below the $\DDbar$ threshold, but also below the $\psip$ peak. 
-Under the physics assumption that $\ee \rightarrow \qqbar$ scales as a simple function of energy ($\tfrac{1}{s}$), we can determine the contribution of these events near $\psipp$, as long as the detector response and backgrounds are well understood.
+Under the physics assumption that $\ee \rightarrow \qqbar$ scales as a simple function of energy ($\tfrac{1}{s}$, as required by QCD), we can determine the contribution of these events near $\psipp$, as long as the detector response and backgrounds are well understood.
 The measured value for the $\nonDDbar$ branching fraction is highly dependent on the accuracy of this extrapolation.
-From our investigation, the primary determinant of this accuracy is the shape of the $\psip$ cross section, a measurement which we have learned will require more careful study to determine a precise measurement.
+From our investigation, the primary determinant of this accuracy is the energy dependence of the $\psip$ cross section, which we have learned will require more careful study to determine a precise measurement.
 
 
 \section{Data and Monte Carlo Samples}
@@ -132,7 +132,7 @@ These are listed in \Cref{tab:bhabha_cuts_non_DDbar}.
 \label{tab:bhabha_cuts_non_DDbar}
 \end{table}
 
-After applying these preliminary cuts, there are three groups selections criteria for multihadronic events: Standard (SHAD), Loose (LHAD), and Tight (THAD).
+After applying these preliminary cuts, there are three groups of selection criteria for multihadronic events: Standard (SHAD), Loose (LHAD), and Tight (THAD).
 For the nominal procedure, SHAD is used, while LHAD and THAD are for systematic considerations.
 The cuts included in each of these sets are shown in \Cref{tab:shad_cuts_non_DDbar,tab:lhad_cuts_non_DDbar,tab:thad_cuts_non_DDbar}.
 These apply to the number of charged tracks ($\Ntrk$), the visible energy ($\Evis$), the total visible momentum in the $z$-direction ($\pzvistot$), the maximum shower energy ($\Eemcmax$), and the total shower energy ($\Eemctot$).
@@ -239,7 +239,7 @@ Each background contributes to the total number of reconstructed events based on
 \eeq
 The efficiency is simply the fraction of reconstructed tracks compared to the total generated in a given MC sample:
 \beq
-\effmc = \left( \frac{ N_{\text{rec}} }{ N_{\text{gen}} } \right)
+\effmc = \left( \frac{ N_{\text{rec}} }{ N_{\text{gen}} } \right).
 \eeq
 The MC samples were generated with \num{2.5e3} events for each of the 79 runs in the old continuum data for each of the included backgrounds.
 Each sample was analyzed with all three cut selection groups (see \Cref{sec:non_DDbar_event_selection}).
@@ -265,7 +265,7 @@ $\psip^\dagger$ &   0.150 && 62.9891 & 0.0078 && 69.2882 & 0.0082 && 51.6942 & 0
 \end{tabular}
 \caption{Reconstruction of background samples for the old continuum data.}
 {These include standard QED two-track processes ($\ee$, $\mumu$, $\tautau$, $\gamma\gamma$), radiative $\jpsi$ ($\gamma\jpsi$) and two photon fusion ($2\gamma$) events, and a contribution coming from $\psip$. \\
-$^\dagger$ The $\psip$ is assumed to have a standard Breit-Wigner shape.}
+$^\dagger$The $\psip$ is assumed to have a standard Breit-Wigner shape.}
 \label{tab:3650_old_reconstruction}
 \end{table}
 
@@ -297,8 +297,8 @@ Hadrons         && 435234 & 694 &&& 484842 & 745 &&& 343779 & 615 & \\
 \end{tabular}
 \caption{Hadronic events selected in the old continuum data.}
 {As expected, SHAD finds less events than LHAD and more than THAD. \\
-$^*$ The contribution is neglected for the total results. \\
-$^\dagger$ The $\psip$ is assumed to have a standard Breit-Wigner shape.}
+$^*$The contribution is neglected for the total results. \\
+$^\dagger$The $\psip$ is assumed to have a standard Breit-Wigner shape.}
 \label{tab:3650_old_results}
 \end{table}
 
@@ -307,10 +307,10 @@ $^\dagger$ The $\psip$ is assumed to have a standard Breit-Wigner shape.}
 \label{sec:efficiency_extrapolation}
 
 Due to the increase in event complexity above the $\DDbar$ threshold, $\qqbar$ events not coming from $\psipp$ are not well modeled by our MC generators.
-In order to accurately count these events, we repeat the procedure for the rest of the continuum data, and extrapolate the results to the $\psipp$ region.
+In order to accurately estimate these events, we repeat the procedure for the lower-energy points (below $\psipp$), and extrapolate to the $\psipp$ region.
 Measuring the hadronic events for the new continuum data follows exactly as for the old continuum data, but with the negligible backgrounds excluded.
-The number of hadrons found in each data sample can be seen in \Cref{fig:hadron_fits_3500_new,fig:hadron_fits_3542_new,fig:hadron_fits_3600_new,fig:hadron_fits_3650_new,fig:hadron_fits_3671_new}.
-Reconstruction efficiencies are shown in \Cref{tab:3650_new_reconstruction} with the total results shown in \Cref{tab:3650_new_results}.
+The number of hadrons found in each data sample are determined from the fits shown in \Cref{fig:hadron_fits_3500_new,fig:hadron_fits_3542_new,fig:hadron_fits_3600_new,fig:hadron_fits_3650_new,fig:hadron_fits_3671_new}.
+Reconstruction efficiencies are shown in \Cref{tab:3650_new_reconstruction} with the total results listed in \Cref{tab:3650_new_results}.
 
 \begin{figure}[H]
 \centering
@@ -455,7 +455,8 @@ $\psip^\dagger$ & 0.436 && 62.989 & 0.008 &&& 69.288 & 0.008 &&& 51.694 & 0.007 
 \end{tabular}
 
 \caption{Reconstruction of background samples for the new continuum data.}
-{$^\dagger$ The $\psip$ is assumed to have a standard Breit-Wigner shape.}
+{Cross sections for $\tautau$ are zero below its production threshold at \SI{3.554}{\GeV}. \\ 
+$^\dagger$The $\psip$ is assumed to have a standard Breit-Wigner shape.}
 \label{tab:3650_new_reconstruction}
 \end{table}
 
@@ -550,33 +551,33 @@ Hadrons         && 44528 & 224 &&& 49141 & 239 &&& 35405 & 199 & \\
 \end{tabular}
 
 \caption{Hadronic events selected in the new continuum data.}
-{$^\dagger$ The $\psip$ is assumed to have a standard Breit-Wigner shape.}
+{$^\dagger$The $\psip$ is assumed to have a standard Breit-Wigner shape.}
 \label{tab:3650_new_results}
 \end{table}
 
-Assuming the rate of $\qqbar$ production varies smoothly with energy ($\tfrac{1}{s}$), the reconstruction efficiency (relative to the old continuum data) for a given $\Ecm$ point (in \si{\MeV}) can be calculated as follows:
+Assuming the rate of $\qqbar$ production varies smoothly with energy ($\tfrac{1}{s}$), the reconstruction efficiency (relative to the old continuum data) for a given $\Ecm$ point (in \si{\MeV}) can be determined from the ratio of yields as follows:
 \beq
 \label{eq:eff_extrapolation}
 \frac{ \epsilon(\Ecm) }{ \epsilon(3650) } = \left[ \frac{ \Nhad(\Ecm) }{ \Nhad(3650) } \right] \left[ \frac{ \lum(3650) }{ \lum(\Ecm) } \right] \bigg[ \frac{ \Ecm }{ 3650 } \bigg]^2.
 \eeq
 This efficiency ratio is calculated for each point in the new continuum data, and a linear fit is performed for each of the selection cut methods.
-From this slope, we can extrapolate to find the expected number of hadronic events for the $\psipp$ data.
-As the old continuum data was taken at a relatively similar time as the $\psipp$ data, we use it as a normalization point for the efficiency extrapolation.
+We use this slope to extrapolate and find the expected number of hadronic events for the $\psipp$ data.
+As the old continuum data was taken under conditions more similar to R1 of the $\psipp$ data taking than the new continuum data, we use it as a normalization point for the efficiency extrapolation.
 The results for each cut are shown in \Cref{fig:extrapolation_SHAD,fig:extrapolation_LHAD,fig:extrapolation_THAD}.
 
-From these extrapolations, it is evident the highest energy new continuum point (\SI{3.665}{\GeV}) is generally lower than the other new continuum points.
-This is most likely due to the assumption of a standard Breit-Wigner shape for the $\psip$.
+From these extrapolations, it is evident the highest energy new continuum point (\SI{3.665}{\GeV}) falls below the trend suggested by the other new continuum points and is inconsistent with the assumed linear behavior.
+We hypothesize that this reflects a $\psip$ line shape which differs from the expected Breit-Wigner shape.
 Recent experimental evidence indicates this resonance may be susceptible to interference effects which distort the shape away from its peak.
 If the actual shape is lower than expected for the higher energy continuum points, it would decrease the background contribution thereby raising the efficiency ratio.
-This behavior is explored in \Cref{sec:psip_background}, as BESIII plans to take considerably more data across this region in the near future.
+This behavior is discussed further in \Cref{sec:psip_background}, and BESIII plans to take considerably more data across this region in the near future.
 For now, we continue with the default Breit-Wigner assumption, and apply the procedure for the $\psipp$ data.
-While the final results may not be indicative of the true values, it will provide limits for measuring various important other parameters of the $\psipp$.
+All results presented here should be viewed as illustrative of the procedure and not be construed as BESIII measurements of the $\nonDDbar$ decays of $\psipp$.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/SHAD_psip_BW.pdf}
 \caption{The continuum extrapolation for SHAD events.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum energy point at \SI{3.650}{\GeV} (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum energy point at \SI{3.650}{\GeV} (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_SHAD}
 \end{figure}
@@ -585,7 +586,7 @@ While the final results may not be indicative of the true values, it will provid
 \centering
 \includegraphics[scale=0.75]{figures/plots/LHAD_psip_BW.pdf}
 \caption{The continuum extrapolation for LHAD events.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum energy point at \SI{3.650}{\GeV} (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum energy point at \SI{3.650}{\GeV} (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_LHAD}
 \end{figure}
@@ -594,7 +595,7 @@ While the final results may not be indicative of the true values, it will provid
 \centering
 \includegraphics[scale=0.75]{figures/plots/THAD_psip_BW.pdf}
 \caption{The continuum extrapolation for THAD events.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum energy point at \SI{3.650}{\GeV} (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum energy point at \SI{3.650}{\GeV} (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_THAD}
 \end{figure}
@@ -603,12 +604,12 @@ While the final results may not be indicative of the true values, it will provid
 
 
 
-\section{Results for $\psipp$ Data}
+\section{Procedure for $\psipp$ Data}
 \label{sec:non_DDbar_results_psipp}
 
-The procedure for determining the hadronic events in the $\psipp$ data is similar to the continuum region, but with certain modifications required by other backgrounds introduced in this region.
-Namely, above the $\DDbar$ peak, contributions from $\DO\aDO$ and $\Dp\Dm$ events must be accounted for.
-Also, instead of the $\psip$ component, there is now a background from radiative $\psip$ production ($\ypsip$).
+The procedure for determining the hadronic events in the $\psipp$ data is similar to the continuum region, but with modifications required for the backgrounds introduced in this region.
+Most notably, we utilize the measured $\psipptoDDbar$ cross section to subtract off the contributions from $\DO\aDO$ and $\Dp\Dm$.
+Instead of the direct $\psip$ component, there is instead a background from radiative $\psip$ production ($\ypsip$).
 Lastly, due to the minimal contribution of two photon fusion events ($\twophoton$) in this region, this component is neglected for the $\psipp$ samples.
 The counting of total hadronic events, however, functions identically to the continuum data, and the results are shown in \Cref{fig:hadron_fits_psipp_R1,fig:hadron_fits_psipp_R2}.
 
@@ -638,15 +639,16 @@ The counting of total hadronic events, however, functions identically to the con
 \end{figure}
 
 
-\subsection{$\DDbar$ Correction}
+\subsection{$\DDbar$ Subtraction}
 \label{ssec:DDbar_correction}
 
-Since the $\DDbar$ cross section is not a smooth scaling of energy (like $\qqbar$), we must precisely determine its reconstruction efficiency using data.
-Instead of using the standard definition of $\effmc$ for $\DDbar$, we apply a correction based on the multiplicity of $\DDbar$ events in both data and MC.
+To subtract the $\DDbar$ component from the hadronic cross section, we must have a data-driven procedure for determining the efficiencies of these events passing the SHAD, LHAD, and THAD cuts.
+MC samples are not reliable for this, largely due to poor modeling of the charged and neutral track multiplicities.
+Instead, our procedure is to re-weight the MC samples in order to better reflect the data distribution.
 This is done by finding single-tagged $D$ candidates and counting the number of tracks not used for reconstruction.
 By randomly sampling pairs of points from this distribution, and assuming the decays are uncorrelated, we can produce an average representation of multiplicity in $\DDbar$ events.
-From this new distribution, selections methods for SHAD, LHAD, and THAD are performed based off number of tracks selected by the simplified cut criteria shown in \Cref{tab:DDbar_corr_cuts} relative to the total.
-The corrections applied to each efficiency are the ratio of these selections in data and MC.
+From this new distribution, selections with SHAD, LHAD, and THAD are performed based off number of tracks selected by the simplified cut criteria shown in \Cref{tab:DDbar_corr_cuts} relative to the total.
+The corrections applied to each efficiency are the ratios of these selections in data and MC.
 As the $\psipp$ samples for R1 and R2 were taken at different times, they are treated separately for this process.
 The results for each are shown in \Cref{tab:DDbar_corr_results} with the corresponding distributions shown in \Cref{fig:DD_corr_D0_R1,fig:DD_corr_Dp_R1,fig:DD_corr_D0_R2,fig:DD_corr_Dp_R2}.
  
@@ -730,18 +732,18 @@ The number of tracks in the $\Dp\Dm$ multiplicity distribution is used to determ
 \subsection{Reconstruction Efficiencies}
 \label{ssec:nonDDbar_rec_efficiency_psipp}
 
-MC samples for each of the new backgrounds introduced above the $\DDbar$ threshold were generated in the same way as for the continuum data.
+MC samples for each of the new processes introduced above the $\DDbar$ threshold were generated in the same way as for the continuum data.
 The reconstruction efficiencies for each are shown in \Cref{tab:psipp_reconstruction}.
-Values for the $\DO\aDO$ and $\Dp\Dm$ samples have already been multiplied by the correction factors discussed in \Cref{ssec:DDbar_correction}.
+Values for $\DO\aDO$ and $\Dp\Dm$ have been multiplied by the correction factors discussed in \Cref{ssec:DDbar_correction}.
 
-For the cross section of $\ypsip$, rather than the radiative return formula (as used with $\yjpsi$), we use results from CLEO-c \cite{ref:Adam:2006} and BESIII \cite{ref:Ablikim:2013c} to determine the value.
+For the cross section of $\ypsip$, rather than the radiative return formula (as used with $\yjpsi$), we use cross section results from CLEO-c \cite{ref:Adam:2006} and BESIII \cite{ref:Ablikim:2013c}.
 These values are $\sigma(\ee \rightarrow \ypsip, \; \psip \rightarrow \pip \pim \jpsi) = (1036 \pm 13 \pm 23) \; \si{\pb}$ from the CLEO-c measurement, and $\Gamma(\psip \rightarrow \pip \pim \jpsi) = \SI{34.43 \pm 0.30}{\%}$ after averaging the BESIII measurement with the value from the PDG.
 From this, we determine
 \beq
 \label{eq:ypsip_xsec}
 \sigma(\ee \rightarrow \gamma\psi') = \frac{ \sigma(\ee \rightarrow \gamma\psi', \; \psi' \rightarrow \pip \pim \jpsi) }{ \Gamma(\psi' \rightarrow \pip \pim \jpsi) } = \SI{3009 \pm 81}{\pb}.
 \eeq
-Additionally, the $\DO\aDO$ and $\Dp\Dm$ cross sections are taken from the on-peak $\psipp$ measurement performed by Derrick Toth \cite{ref:Toth:2014}.
+Additionally, the $\DO\aDO$ and $\Dp\Dm$ cross sections are taken from the BESIII on-peak $\psipp$ measurement performed by Derrick Toth \cite{ref:Toth:2014}.
 
 
 \begin{table}[H]
@@ -787,11 +789,11 @@ $\ypsip$     & 3.009 && 63.7345 & 0.0097 && 70.4050 & 0.0102 && 52.1189 & 0.0088
 \subsection{Signal Amounts}
 \label{ssec:nonDDbar_signal_amounts_psipp}
 
-Using the reconstruction efficiencies from \Cref{ssec:nonDDbar_rec_efficiency_psipp}, we can compute the contribution of background events for each sample.
+Using the reconstruction efficiencies from \Cref{ssec:nonDDbar_rec_efficiency_psipp}, we can compute the contribution for each sample.
 For the $\qqbar$ component, we scale the number of hadronic events found in the old continuum data based on \Cref{eq:eff_extrapolation} for both R1 and R2 separately.
-Due to the uncertainty on the extrapolation procedure, this becomes the dominant source of error on the resulting hadronic events.
+Due to the uncertainty on the extrapolation procedure, this becomes the dominant source of error in the resulting hadronic event yield.
 This is also highly susceptible to the assumption of the $\psip$ shape when analyzing the new continuum points for the extrapolation fit.
-The resulting number of hadronic events is shown in \Cref{tab:psipp_results}.
+The resulting numbers of hadronic events are shown in \Cref{tab:psipp_results}.
 
 \begin{table}[H]
 \centering
@@ -837,23 +839,24 @@ Hadrons           &&  1179686 & 155135 &&  1589187 & 165610 &&   991049 & 134532
 \end{tabular}
 
 \caption{Hadronic events selected in the $\psipp$ data.}
-{$^\dagger$ The $\qqbar$ contribution is obtained using an extrapolation from the continuum region in which the $\psip$ is assumed to have a standard Breit-Wigner shape.}
+{$^\dagger$The $\qqbar$ contribution is obtained using an extrapolation from the continuum region in which the $\psip$ is assumed to have a standard Breit-Wigner shape.}
 \label{tab:psipp_results}
 \end{table}
 
 \pagebreak
 
 
-\subsection{Non-$\DDbar$ Branching Fraction (Breit-Wigner)}
+\subsection{Non-$\DDbar$ Branching Fraction Exploration (Breit-Wigner)}
 \label{ssec:nonDDbar_bf_bw}
 
-The resulting hadronic production is assumed to result from $\nonDDbar$ decays of the $\psipp$.
-We can convert this into a cross section as follows:
+Illustrative results have been obtained using the Breit-Wigner line shape for $\psip$ in the continuum subtraction procedure.
+However, these are not official BESIII results, which will be finalized only after additional data are collected.
+As the resulting hadronic production is assumed to result only from $\nonDDbar$ decays of the $\psipp$, We can determine the cross section as follows:
 \beq
 \label{eq:nonDDbar_xsec}
 \xsecpsipptononDDbar) = \frac{ N_{\nonDDbar} }{ \epsilon_{\nonDDbar} \times \lum }.
 \eeq
-For the efficiency of $\nonDDbar$ events, the value of $\effmc$ for $\ypsip$ is used due to the assumption of similar behavior in their decays.
+For the efficiency of $\nonDDbar$ events, the value of $\effmc$ for $\ypsip$ is used based on an assumption of similar behavior in their decays.
 Using the standard Breit-Wigner assumption for the $\psip$, the results for the cross section and branching fraction of $\nonDDbar$ decays from $\psipp$ are shown in \Cref{tab:nonDDbar_xsec_psipp,tab:nonDDbar_bf_psipp}.
 
 \begin{table}[H]
@@ -871,7 +874,8 @@ Lum. Weighted && 1.0563 & 0.1223 && 1.2528 & 0.1182 && 1.0754 & 0.1296 & \\
 \end{tabular}
 \caption{Cross sections for $\psipptononDDbar$ found using the $\psipp$ data.}
 {The $\qqbar$ contributions were calculated using the Breit-Wigner formulation for the $\psip$ component in the continuum extrapolation.
-Each cross section is in units of [\si{\nb}].}
+Each cross section is in units of [\si{\nb}].
+These results are presented only to illustrate the procedure, and are not official BESIII measurements.}
 \label{tab:nonDDbar_xsec_psipp}
 \end{table}
 
@@ -889,7 +893,8 @@ Lum. Weighted && 0.1408 & 0.0185 && 0.1627 & 0.0187 && 0.1430 & 0.0192 & \\
 \hline
 \end{tabular}
 \caption{Branching fractions for $\psipptononDDbar$ found using the $\psipp$ data.}
-{The $\qqbar$ contributions were calculated using the Breit-Wigner formulation for the $\psip$ component in the continuum extrapolation.}
+{The $\qqbar$ contributions were calculated using the Breit-Wigner formulation for the $\psip$ component in the continuum extrapolation.
+These results are presented only to illustrate the procedure, and are not official BESIII measurements.}
 \label{tab:nonDDbar_bf_psipp}
 \end{table}
 
@@ -934,7 +939,7 @@ Sample & $\Ecm$ [\si{\GeV}] & $\sigma_{\psip}$ [\si{\nb}] (Ratio) & $\sigma_{\ps
 \end{table}
 
 
-\subsection{Non-$\DDbar$ Branching Fraction ($\psip$ from Data)}
+\subsection{Non-$\DDbar$ Branching Fraction Exploration ($\psip$ from Data)}
 \label{ssec:nonDDbar_bf_calc}
 
 We repeat the procedure using the cross sections calculated based off \Cref{eq:psip_xsec_ratio} in place of the Breit-Wigner values (see \Cref{tab:psip_xsec_ratio}).
@@ -956,7 +961,8 @@ Lum. Weighted && 0.9039 & 0.1228 && 1.1008 & 0.1187 && 0.9220 & 0.1302 & \\
 \end{tabular}
 \caption{Cross sections for $\psipptononDDbar$ found using the $\psipp$ data.}
 {The $\qqbar$ contributions were calculated using $\psip$ data for the $\psip$ components in the continuum extrapolation.
-Each cross section is in units of [\si{\nb}].}
+Each cross section is in units of [\si{\nb}].
+These results are presented only to illustrate the procedure, and are not official BESIII measurements.}
 \label{tab:nonDDbar_xsec_psipp_calc}
 \end{table}
 
@@ -974,7 +980,8 @@ Lum. Weighted && 0.1230 & 0.0182 && 0.1458 & 0.0183 && 0.1251 & 0.0190 & \\
 \hline
 \end{tabular}
 \caption{Branching fractions for $\psipptononDDbar$ found using the $\psipp$ data.}
-{The $\qqbar$ contributions were calculated using $\psip$ data for the $\psip$ components in the continuum extrapolation.}
+{The $\qqbar$ contributions were calculated using $\psip$ data for the $\psip$ components in the continuum extrapolation.
+These results are presented only to illustrate the procedure, and are not official BESIII measurements.}
 \label{tab:nonDDbar_bf_psipp_calc}
 \end{table}
 
@@ -982,7 +989,7 @@ Lum. Weighted && 0.1230 & 0.0182 && 0.1458 & 0.0183 && 0.1251 & 0.0190 & \\
 \centering
 \includegraphics[scale=0.75]{figures/plots/SHAD_psip_calc.pdf}
 \caption{The continuum extrapolation for SHAD events using $\psip$ data.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_SHAD_ratio}
 \end{figure}
@@ -991,7 +998,7 @@ Lum. Weighted && 0.1230 & 0.0182 && 0.1458 & 0.0183 && 0.1251 & 0.0190 & \\
 \centering
 \includegraphics[scale=0.75]{figures/plots/LHAD_psip_calc.pdf}
 \caption{The continuum extrapolation for LHAD events using $\psip$ data.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_LHAD_ratio}
 \end{figure}
@@ -1000,18 +1007,18 @@ Lum. Weighted && 0.1230 & 0.0182 && 0.1458 & 0.0183 && 0.1251 & 0.0190 & \\
 \centering
 \includegraphics[scale=0.75]{figures/plots/THAD_psip_calc.pdf}
 \caption{The continuum extrapolation for THAD events using $\psip$ data.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_THAD_ratio}
 \end{figure}
 
 \pagebreak
 
-\subsection{Non-$\DDbar$ Branching Fraction ($\psip$ Excluded)}
+\subsection{Non-$\DDbar$ Branching Fraction Exploration ($\psip$ Excluded)}
 \label{ssec:nonDDbar_bf_none}
 
 From our initial procedure, the Breit-Wigner formulation likely provides an upper bound to the $\nonDDbar$ branching fraction.
-Additionally, the modification detailed in \Cref{sec:psip_background} provides an estimation of the actual value, but neither of these are sufficient to pin down the fluctuating values seen in previous experiments.
+Additionally, the modification detailed in \Cref{sec:psip_background} provides an estimation of the actual value, but neither of these is sufficiently reliable to present a definitive BESIII result.
 However, we can obtain a lower bound on the branching fraction by repeating the measurement without including a contribution from $\psip$ events.
 This will increase the extrapolated reconstruction efficiency fits, as seen in \Cref{fig:extrapolation_SHAD_none,fig:extrapolation_LHAD_none,fig:extrapolation_THAD_none}.
 As a result, more hadrons are subtracted from the $\psipp$ data, and the corresponding branching fraction is lower, as shown in \Cref{tab:nonDDbar_xsec_psipp_none,tab:nonDDbar_bf_psipp_none}.
@@ -1031,7 +1038,8 @@ Lum. Weighted && 0.6864 & 0.1236 && 0.8839 & 0.1195 && 0.7033 & 0.1311 & \\
 \end{tabular}
 \caption{Cross sections for $\psipptononDDbar$ found using the $\psipp$ data.}
 {The $\qqbar$ contributions were calculated after excluding the $\psip$ components in the continuum extrapolation.
-Each cross section is in units of [\si{\nb}].}
+Each cross section is in units of [\si{\nb}].
+These results are presented only to illustrate the procedure, and are not official BESIII measurements.}
 \label{tab:nonDDbar_xsec_psipp_none}
 \end{table}
 
@@ -1049,7 +1057,8 @@ Lum. Weighted && 0.0962 & 0.0179 && 0.1205 & 0.0178 && 0.0983 & 0.0188 & \\
  \hline
 \end{tabular}
 \caption{Branching fractions for $\psipptononDDbar$ found using the $\psipp$ data.}
-{The $\qqbar$ contributions were calculated after excluding the $\psip$ components in the continuum extrapolation.}
+{The $\qqbar$ contributions were calculated after excluding the $\psip$ components in the continuum extrapolation.
+These results are presented only to illustrate the procedure, and are not official BESIII measurements.}
 \label{tab:nonDDbar_bf_psipp_none}
 \end{table}
 
@@ -1057,7 +1066,7 @@ Lum. Weighted && 0.0962 & 0.0179 && 0.1205 & 0.0178 && 0.0983 & 0.0188 & \\
 \centering
 \includegraphics[scale=0.75]{figures/plots/SHAD_psip_none.pdf}
 \caption{The continuum extrapolation for SHAD events without $\psip$ events.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_SHAD_none}
 \end{figure}
@@ -1066,7 +1075,7 @@ Lum. Weighted && 0.0962 & 0.0179 && 0.1205 & 0.0178 && 0.0983 & 0.0188 & \\
 \centering
 \includegraphics[scale=0.75]{figures/plots/LHAD_psip_none.pdf}
 \caption{The continuum extrapolation for LHAD events without $\psip$ events.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_LHAD_none}
 \end{figure}
@@ -1075,7 +1084,7 @@ Lum. Weighted && 0.0962 & 0.0179 && 0.1205 & 0.0178 && 0.0983 & 0.0188 & \\
 \centering
 \includegraphics[scale=0.75]{figures/plots/THAD_psip_none.pdf}
 \caption{The continuum extrapolation for THAD events without $\psip$ events.}
-{The new continuum points (blue) are fit using a linear slope (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
+{The new continuum points (blue) are fit using a straight line (dashed black), then extrapolated to higher energies (solid green) based on the old continuum point (cyan).
  The energy point for the $\psipp$ samples at \SI{3.773}{\GeV} is also shown (solid red).}
 \label{fig:extrapolation_THAD_none}
 \end{figure}
@@ -1083,7 +1092,7 @@ Lum. Weighted && 0.0962 & 0.0179 && 0.1205 & 0.0178 && 0.0983 & 0.0188 & \\
 \pagebreak
 
 
-\section{Results for Scan Data}
+\section{Procedure for Scan Data}
 \label{sec:non_DDbar_results_scan}
 
 In addition to the $\psipp$ data, we also examine the energy points of the scan data.
@@ -1091,7 +1100,7 @@ While the statistics for these points are far lower, it will provide insight for
 We use $\psip$ data in order to extrapolate the $\qqbar$ events throughout this region (see \Cref{ssec:nonDDbar_bf_calc}).
 
 Each scan data point used will be referred to by its name listed in \Cref{tab:nonDDbar_scan_data}.
-The cross sections for each background sample are also listed, where the $\DDbar$ values are taken from the results in \Cref{tab:xsec_rc_data_sys}.
+The cross sections for all background samples are also listed, where the $\DDbar$ values are taken from the results in \Cref{tab:xsec_rc_data_sys}.
 To determine the cross sections of $\ypsip$ at each point, the values were calculated using the standard radiative formula (as for $\yjpsi$), then scaled by the ratio of the data-driven value from \Cref{eq:ypsip_xsec} to the value of this formula at \SI{3.773}{\GeV}.
 
 The total hadronic counting fits for the scan data can be found in \Cref{app:nonDDbar_hadron_counts_scan}.
@@ -1100,14 +1109,13 @@ The reconstruction efficiencies and signal amounts can be found in \Cref{app:non
 
 In addition to the $\nonDDbar$ branching fraction, we can also examine the inclusive hadronic cross section as a function of center-of-mass energy:
 Dividing the fit counts for each selection method from \Cref{app:nonDDbar_hadron_counts_scan} by the luminosities from \Cref{tab:luminosity}, we find the inclusive cross sections shown in \Cref{fig:xsec_inclusive_scan}.
-As these values are independent of the extrapolation procedure, they are immediately ready for use in future analyses.
+These values are independent of the extrapolation procedure.
 
 The $\nonDDbar$ cross sections and branching ratios calculated for each scan point are shown in \Cref{fig:xsec_nonDDbar_scan,fig:bf_nonDDbar_scan}, respectively.
 For comparison, the same calculation for the $\psipp$ data is also shown on each of these plots.
 Due to the uncertain cross section shape of the $\psip$ required to properly extrapolate to the scan data region, these values are not representative of a true measurement for the branching fraction.
 For now, we have done our best to ensure the accuracy of all other background components analyzed.
 This means, with an improved understanding of the $\psip$ cross section in the continuum region (likely to be analyzed in the very near future, as BESIII has data taking planned for this region), the branching fraction value can easily be updated for a final result.
-From our analysis of the $\psip$ background (see \Cref{sec:psip_background}), we expect this value to be in the range \SIrange{9.6}{14.1}{\%} with our current estimate being \SI{12.3}{\%}.
 
 
 \begin{table}[H]

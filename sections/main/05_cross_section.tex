@@ -162,7 +162,7 @@ The first term is similar to \Cref{eq:breit_wigner}, but with a modification to 
 where $zd_{\DDbar}(W) = z_{\DDbar}(W) \times d_{\DDbar}(W)$.
 Without this modification, the mass of the $\psip$ would be below the $\DDbar$ threshold, and thus, the vanishing $z_{\DDbar}$ terms would cause a singularity in the width.
 Therefore, we use the mass of the $\psipp$ in its place to estimate the effects in this region.
-While it may behave like the total width in \Cref{eq:Gamma_psip}, the true the physical meaning of the parameter $\Gpsip(W)$ is unclear.
+While it may behave like the total width in \Cref{eq:Gamma_psip}, the true physical meaning of the parameter $\Gpsip(W)$ is unclear.
 
 For the radii in \Cref{eq:blatt_weisskopf}, however, the values used are distinct for each meson: $R_{\psip} = \SI{0.75}{\fm}$ and $R_{\psipp} = \SI{1.00}{\fm}$.
 These are the same values as used in the KEDR procedure \cite{ref:Anashin:2012}, where each is quoted with an uncertainty of 25\%.
@@ -202,7 +202,7 @@ A comparison of the measured values to the less well calibrated beam energies me
 \begin{table}[H]
 \centering
 \renewcommand\arraystretch{1.0}
-\begin{tabular}{c| c}%D{<}{\; < \;}{-1} }
+\begin{tabular}{c|c}
 \hline
 Vertex ($xy$) & $V_{xy} < \pp \SI{1}{\cm}$ \\
 Vertex ($z$)  & $|Vz|   < \SI{10}{\cm}$ \\
@@ -220,7 +220,7 @@ Shower Energy & $\SI{0.0}{\GeV} < E_{EMC}^{\mu^\pm} < \SI{0.3}{GeV}$ \\
 \centering
 \includegraphics[scale=0.75]{figures/plots/E_cm_shifts_scan_fit_cut_new.pdf}
 \caption{A comparison of online center-of-mass energies and measured $\mumu$ events.}
-{The average value of the $\mumu$ pair measurements (green) is higher than the average value of the online BEPCII measurements (red) by about \SI{1.29}{\MeV}.}
+{The average value of the $\mumu$ pair measurements (green) is higher than the average value of the online BEPCII measurements taken during run-time (red) by about \SI{1.29}{\MeV}.}
 \label{fig:scan_E_cm_fit}
 \end{figure}
 
@@ -235,7 +235,7 @@ It is evident the procedure using $\DDbar$ events provides more stability over t
 \centering
 \includegraphics[scale=0.75]{figures/plots/E_cm_fit_cut_new.pdf}
 \caption{The values measured for on-peak data center-of-mass energies.}
-{The difference between our measured values (blue) and the official values (red) is used to shift the results of the measured scan data energy values.}
+{The difference between our measured values (blue) and the $\DDbar$-based measurement values (red) is used to shift the results of the measured scan data energy values.}
 \label{fig:on_peak_E_cm_fit}
 \end{figure}
 
@@ -244,7 +244,6 @@ Adding this difference to each scan data measurements, we obtain the center-of-m
 Comparing this to the initial scan data center-of-mass energies, which were higher than the measured values by \SI{1.29}{\MeV} (see \Cref{fig:on_peak_E_cm_fit}), we find the initial values of the scan data were notably low ($\SI{1.86}{\MeV} - \SI{1.29}{\MeV} \approx \SI{0.7}{\MeV}$).
 In regions where the cross section rapidly changes, this can have a dramatic effect on determining the functional shape.
 Namely, this would correspond to a measured mass for the $\psipp$ which is off by \SI{0.7}{\MeV}.
-% From this procedure, we find the initial values of scan data energy were lower than these measured values by \SI{1.86}{\MeV} - \SI{1.29}{\MeV} $\approx$ \SI{0.7}{\MeV} on average, where the values are taken from \Cref{fig:scan_E_cm_fit,fig:on_peak_E_cm_fit}.
 The final center-of-mass energies of the scan data, along with the luminosity of each bin, are shown in \Cref{tab:luminosity}.
 
 \pagebreak
@@ -405,18 +404,23 @@ An example fit is shown in \Cref{fig:example_fit}, while the complete set of the
 \begin{figure}[h]
 \centering
 \includegraphics[scale=0.75]{figures/plots/fit_results/D0_bin_14.pdf}
-\caption{An example 2D ($\DeltaE$ vs. $\mbc$) signal fit.}{The covers $\DO$ events in the region $\SI{3.774}{\GeV} \leq \Ecm < \SI{3.777}{\GeV}$.
+\caption{Projections of the 2D ($\DeltaE$ vs. $\mbc$) signal fit.}
+{This covers $\DO$ events in the region $\SI{3.774}{\GeV} \leq \Ecm < \SI{3.777}{\GeV}$.
 The data points (black) are fitted by the total MC shape (blue), which is the sum of the signal (green) and background (red) components.}
 \label{fig:example_fit}
 \end{figure}
 
-\pagebreak
+The $\mbc$ signal component is formed from two sources: events which are produced by Born level direct production (which peak at $m_D$) and events which are affected by ISR (which peak at $\Ebeam$).
+For most of the lower energy points, these values are similar, and the peaks are generally indistinguishable.
+However, starting around \SI{3.8}{\GeV}, the splitting becomes more visible (see \Cref{fig:fit_result_D0_20,fig:fit_result_D0_21,fig:fit_result_D0_22}).
+This trend continues for the higher energy points, though it is somewhat difficult to distinguish given the statistics of the scan data.
+Regardless, this effect provides further constraints on potential fit shapes (see \Cref{sec:fitting}).
 
 
 \section{Efficiency Correction}
 \label{sec:efficiency}
 
-In addition to the parameters gathered by \DTagAlg, truth information was taken from the generic $\DDbar$ samples to determine the mode-by-mode reconstruction efficiencies.
+In addition to the parameters gathered during reconstruction, truth information was taken from the generic $\DDbar$ samples to determine the mode-by-mode reconstruction efficiencies.
 To be deemed proper, a reconstruction must pass not only the standard $\Dtag$ cuts, but also match the generator information for the event.
 This process removes backgrounds contributed by modes with similar constituents that tend to peak in the signal region.
 The total number of proper $\Dtag$ reconstructions is then divided by the number of $\D$ particles generated for each mode, and the mode-by-mode efficiencies are weighted by the world-average (PDG) branching ratios \cite{ref:Olive:2014} to determine the overall efficiency ($\epsilon_{\D}$) for each of $\DO$ and $\Dp$:
@@ -513,7 +517,7 @@ Bin & \multicolumn{3}{c|}{$\DOmodeA$} & \multicolumn{3}{c|}{$\DOmodeB$} & \multi
 \hline
 \end{tabular}
 \caption{Numbers of proper and generated particles for $\DO$.}
-{The mode-by-mode numbers of particles used in the efficiency calculations for $\DOmodeA, \DOmodeB,$ and $\DOmodeC$.}
+{The mode-by-mode numbers of particles used in the efficiency calculations for $\DOmodeA, \; \DOmodeB,$ and $\DOmodeC$.}
 \label{tab:DTag_eff_D0}
 \end{table}
 
@@ -561,7 +565,7 @@ Bin & \multicolumn{3}{c|}{$\DpmodeA$} & \multicolumn{3}{c|}{$\DpmodeB$} & \multi
 \hline
 \end{tabular}
 \caption{Numbers of proper and generated particles for $\Dp$ (part 1).}
-{The mode-by-mode numbers of particles used in the efficiency calculations for $\DpmodeA, \DpmodeB,$ and $\DpmodeC$.}
+{The mode-by-mode numbers of particles used in the efficiency calculations for $\DpmodeA, \; \DpmodeB,$ and $\DpmodeC$.}
 \label{tab:DTag_eff_Dp_p1}
 \end{table}
 
@@ -574,7 +578,6 @@ Bin & \multicolumn{3}{c|}{$\DpmodeA$} & \multicolumn{3}{c|}{$\DpmodeB$} & \multi
 Bin & \multicolumn{3}{c|}{$\DpmodeD$} & \multicolumn{3}{c|}{$\DpmodeE$} & \multicolumn{3}{c}{$\DpmodeF$} \\
 & $\Nprop$ & $\Ngen$ & $\epsilon_{\text{rec}}$ & $\Nprop$ & $\Ngen$ & $\epsilon_{\text{rec}}$ & $\Nprop$ & $\Ngen$ & $\epsilon_{\text{rec}}$ \\
 \hline
-
  2 & 5742 & 27235 & 0.211 & 3562 & 15019 & 0.237 & 1720 & 4019 & 0.428 \\
  3 & 5668 & 27699 & 0.205 & 3169 & 14877 & 0.213 & 1637 & 3970 & 0.412 \\
  4 & 5710 & 27527 & 0.207 & 3358 & 14750 & 0.228 & 1791 & 4016 & 0.446 \\
@@ -610,7 +613,7 @@ Bin & \multicolumn{3}{c|}{$\DpmodeD$} & \multicolumn{3}{c|}{$\DpmodeE$} & \multi
 \hline
 \end{tabular}
 \caption{Numbers of proper and generated particles for $\Dp$ (part 2).}
-{The mode-by-mode numbers of particles used in the efficiency calculations for $\DpmodeD, \DpmodeE,$ and $\DpmodeF$.}
+{The mode-by-mode numbers of particles used in the efficiency calculations for $\DpmodeD, \; \DpmodeE,$ and $\DpmodeF$.}
 \label{tab:DTag_eff_Dp_p2}
 \end{table}
 
@@ -754,10 +757,10 @@ $E_{\text{mid}}$ & \multicolumn{2}{c}{$N_{\DO \aDO}$} & \multicolumn{2}{c}{$\sig
 3.8632 &   22 &  8 & 0.340 & 0.127 &    6 &  5 & 0.099 & 0.091 \\
 \hline
 \end{tabular} 
-\caption{The $\DDbar$ cross section at each $\Ecm$ point.}
-{The numbers of data events observed in each $\Ecm$ bin are also shown.
+\caption{The measured $\DDbar$ cross sections at each $\Ecm$ point.}
+{The numbers of data events ($N_{\DO \aDO}$ and $N_{\Dp \Dm}$) observed in each $\Ecm$ bin are also shown.
 The uncertainties on the cross sections are statistical only and come from the signal fitting ($N_D$), PDG values (\Cref{tab:DTag_eff}), and MC reconstruction efficiencies (\Cref{tab:DTag_eff_E_bin}).
-The values for $N_{\DO \aDO}$ and $N_{\Dp \Dm}$ are taken from the signal fits shown in \Cref{app:D0_signal_fits,app:Dp_signal_fits}.}
+The data event values are taken from the signal fits shown in \Cref{app:D0_signal_fits,app:Dp_signal_fits}.}
 \label{tab:xsec_rc_data}
 \end{table}
 
@@ -785,7 +788,7 @@ Results for the Exponential and VDM form factors are shown in \Cref{fig:exp_resu
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_exp.pdf}
-\caption{The Exponential Model fit results.}
+\caption{The fit results for the Exponential Model form factor.}
 {Both the $\DO$ (top) and the $\Dp$ (bottom) use a fit shape (blue) calculated from \Cref{eq:xsec_rc} using the non-resonant component from \Cref{eq:exp_model}.}
 \label{fig:exp_results}
 \end{figure}
@@ -799,17 +802,15 @@ Still, the parameters for the $\psipp$ are heavily dominated by the energy point
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/lineshape_vdm.pdf}
-\caption{The Vector Dominance Model fit results.}
+\caption{The fit results for the Vector Dominance Model form factor.}
 {Both the $\DO$ (top) and the $\Dp$ (bottom) use a fit shape (blue) calculated from \Cref{eq:xsec_rc} using the non-resonant component from \Cref{eq:vdm_model}.}
 \label{fig:vdm_results}
 \end{figure}
 
 Another crucial aspect revealed by these fits is the behavior of the Born level cross section (shown in dark red on \Cref{fig:exp_results,fig:vdm_results}).
-Namely, it vanishes near \SI{3.81}{\GeV} then reappears for higher energies.
-Indeed, this is also prominently seen in the splitting of signal events in $\mbc$, such as in \Cref{fig:fit_result_D0_20,fig:fit_result_D0_21,fig:fit_result_D0_22,fig:fit_result_D0_23,fig:fit_result_D0_24}.
-In each of these, there is a peak from Born level events (near $m_{\DO} = \SI{1.865}{\GeV}$) and a peak from events affected by ISR (near the beam energy).
-More over, the Born peak is steadily diminished over this range, but is again seen at higher energies, such as in \Cref{fig:fit_result_D0_30}.
-This behavior is a strong indication for needing interference, as such a shape would be impossible to model with only two non-interfering Breit-Wigner components.
+Namely, there is a minimum in the shape near \SI{3.81}{\GeV} which then increases for higher energies.
+This is also clearly seen from the behavior of the Born level peak in the $\mbc$ distributions; these events vanish over this range (see \Cref{fig:fit_result_D0_24,fig:fit_result_D0_25,fig:fit_result_D0_26,fig:fit_result_D0_27}) then reappear above (see \Cref{fig:fit_result_D0_28,fig:fit_result_D0_29,fig:fit_result_D0_30,fig:fit_result_D0_31,fig:fit_result_D0_32,fig:fit_result_D0_33}).
+Such behavior is a strong indication for needing interference, as this shape would be impossible to model with only two non-interfering Breit-Wigner components.
 
 \pagebreak
 
@@ -839,7 +840,9 @@ However, the explanation for this behavior is still undetermined.
 \centering
 \includegraphics[scale=0.75]{figures/plots/Coulomb_ratio.pdf}
 \caption{The ratio of measured $\Dp$ to $\DO$ cross sections.}
-{Several levels of Coulomb interactions are examined.}
+{Several levels of Coulomb interactions are examined based on modifications to \Cref{eq:xsec_rc_simp} and \Cref{eq:Gamma_psip}.
+`Partial Coulomb' refers to setting the numerical value of $\zDD = 1$ in the former, while `No Coulomb' refers to applying this change in both.
+`Full Coulomb' refers to the original formulation described in \Cref{sec:xsec_derivation}, and shows substantial disagreement with the data.}
 \label{fig:Coulomb_ratio}
 \end{figure}
 

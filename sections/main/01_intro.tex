@@ -8,7 +8,7 @@ This has led to the further discovery of many more resonances, as shown in \Cref
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.50]{figures/images/R_scan.pdf}
-\caption{Measurements of $R = \sigma(\ee \rightarrow \text{hadrons}) / \sigma(\ee \rightarrow \mumu)$.}
+\caption{Measurements of $R = \sigma(\ee \rightarrow \text{(hadrons)}) / \sigma(\ee \rightarrow \mumu)$.}
 \label{fig:R_scan}
 \end{figure}
 
@@ -48,7 +48,7 @@ BaBar  \cite{ref:Aubert:2008a}   & 3775.5 $\pm$ 2.4 $\pm$ 0.5 & & \\
 \end{table}
 
 Both BaBar \cite{ref:Aubert:2008b} and KEDR \cite{ref:Anashin:2012} found it necessary to include interference effects in $\DDbar$ production in order to fit to the cross sections of $\ee \rightarrow \gamma\DDbar$ and $\ee \rightarrow \text{(hadrons)}$, respectively.
-In the case of KEDR, the statistics were insufficient to fully resolve the discrepancies seen with other experiments that ignored interference.
+In the case of the KEDR measurement, the statistics were insufficient to fully resolve the discrepancies seen with other experiments that ignored interference.
 {\bf Using the larger data sample available at BESIII, we have precisely measured and analyzed the shape of the $\DDbar$ spectrum around the $\psipp$ resonance.}
 We have also used this measurement to probe the branching fraction of $\nonDDbar$ decays in this region.
 
@@ -63,7 +63,7 @@ Because the input energy can be precisely tuned, specific states with the right 
 However, resonances like this will decay almost instantaneously.
 For example, the $\psipp$ has an average lifetime of ${\sim}\SI{e-23}{\s}$, and disappears far too quickly to be directly observed.
 Even the initial decay into $\DDbar$ pairs is too fast to precisely measure, as the average lifetime ($\tau_{D} \approx \SI{~4e-13}{\s}$) would correspond to a distance of ${\sim}\SI{1}{\mm}$ if it were traveling at $c$.
-Because the available energy in these decays is small ($m_{\psipp} - 2 \times m_{D} \approx \SI{40}{\MeV}$), even the maximum velocity ($\beta \approx 0.15$) is too small to observe any displacement.
+Because the available energy in these decays is small ($m_{\psipp} - 2 \times m_{D} \approx \SI{40}{\MeV}$), even the maximum velocity ($\beta \approx 0.15$) is too small to observe any displacement in the detector.
 
 % \tau = 1 / 25 [1/MeV] * (200 MeV / 1e-15 m) / (3e8 m / s) = 200 / (3 * 25) e-23 s ~ 10^-13 s
 
@@ -75,22 +75,12 @@ The various components of the BESIII detector analyze these tracks to determine 
 By analyzing sets of particles corresponding to the chosen decay modes, we can reconstruct the possible combinations and select those most likely to have originated from a $D$ based on their total energy and momentum.
 
 
-To determine the $\psipptoDDbar$ cross section, we need to count the number of $\DDbar$ pairs produced, as well as measure the total quantity of $\ee$ collisions (the integrated luminosity), at each energy point in our data sample.
+To determine the $\psipptoDDbar$ cross section, we need to count the number of $\DDbar$ pairs produced, as well as measure the total quantity of $\ee$ collisions (the integrated luminosity, $\lum$), at each energy point in our data sample.
 This counting is done not only for the actual collision data collected, but also for simulated samples, known as Monte Carlo (MC), to estimate detection efficiencies and backgrounds in our measurement.
 Each potential background corresponds to a particular event type which may be mistaken as signal, such as $\ee \rightarrow \tautau$.
 We subtract these misidentified contributions from the total amount found in data to determine the actual number of reconstructed $\DDbar$ events.
 The detection efficiency of reconstructing $\DDbar$ is determined by counting the number of simulated signal events that pass our selection criteria and dividing by the number of events generated.
 Then, using the measured luminosity for each energy point, we determine the cross section as a function of center-of-mass energy.
-
-% 
-% While energy and momentum conservation remain fundamental laws of physics, accounting for the 
-% 
-% Also must correct for initial state radiation
-% Accelerated particles (such as those traveling around a circular collider) radiate energy
-% This energy reduces the total amount available in a collision
-% Can lead to producing lower resonances (jpsi, psip) instead of targeted psipp
-% Also decreases total energy available at each point, and must be accounted for
-% Effect is very calculable, and included in cross section derivation
 
 
 The specific details of this analysis start with Chapter 2, which provides a discussion of relevant theoretical concepts.

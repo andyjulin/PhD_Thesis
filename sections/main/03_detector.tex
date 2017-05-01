@@ -61,7 +61,7 @@ It allows typical charged particles to sufficiently interact with much of the tr
 \centering
 \includegraphics[scale=0.50]{figures/images/detector.pdf}
 \caption{A schematic of the BESIII detector.}
-{There are four main layers surrounding the beam-pipe: the Main Drift Chamber (MDC), the Time-of-Flight (ToF), the Electromagnetic Calorimeter (EMC), and the Muon Chamber (MUC).  All but the MUC are surrounded by a uniform \SI{1.0}{\tesla} magnetic field produced by the super conducting solenoidal magnet.}
+{There are four main layers surrounding the beam-pipe: the Main Drift Chamber (MDC), the Time-of-Flight (ToF), the Electromagnetic Calorimeter (EMC), and the Muon Chamber (MUC).  All but the MUC are surrounded by a uniform \SI{1.0}{\tesla} magnetic field produced by the super-conducting solenoidal magnet.}
 \label{fig:detector}
 \end{figure}
 
@@ -118,7 +118,7 @@ The uncertainty is due to fluctuations in the number of primary ionizations alon
 \centering
 \includegraphics[scale=0.60]{figures/images/dEdx.pdf}
 \caption{MDC energy deposition for various particles as a function of momenta.}
-{Distinction between $K$ and $\pi$ tracks is easier for low momenta, but becomes very difficult for higher values.}
+{Distinction between $\Kpm$ and $\pipm$ tracks is easier for low momenta, but becomes very difficult for higher values.}
 \label{fig:dEdx}
 \end{figure}
 
@@ -129,7 +129,7 @@ To identify a particle from the various candidates, the measured energy depositi
 \chi^2 = \sum\limits_i\chi_i^2 = \left( \frac{\tdEdx_{\text{meas}} - \tdEdx_{\text{exp}}}{\sigma} \right)_i^2,
 \eeq
 where $\sigma$ represents the uncertainty on the measured energy deposition.
-This process provides a separation of $3\sigma$ between $K$ and $\pi$ tracks with momenta up to \SI{770}{\MeV}.
+This process provides a separation of $3\sigma$ between $\Kpm$ and $\pipm$ tracks with momenta up to \SI{770}{\MeV}.
 
 
 \subsection{Time-of-Flight System}
@@ -139,14 +139,14 @@ The purpose of the Time-of-Flight System is to determine the velocity of charged
 This is useful for distinguishing particles with similar momenta, but different masses, as shown in \Cref{fig:ToF}.
 It uses information provided by the MDC to determine the probability for each charged track to match the possible particle hypotheses.
 Namely, this includes the measured momentum, the expected time interval based on its trajectory, and the mass for each particle hypothesis.
-This process provides a separation of $3\sigma$ between $K$ and $\pi$ tracks with momenta up to \SI{900}{\MeV}.
+This process provides a separation of $3\sigma$ between $\Kpm$ and $\pipm$ tracks with momenta up to \SI{900}{\MeV}.
 
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.60]{figures/images/ToF.pdf}
 \caption{ToF measurements for various particles as a function of momenta.}
-{Distinction between $K$ and $\pi$ tracks is very easy for low momenta, but becomes more difficult for higher values.}
+{Distinction between $\Kpm$ and $\pipm$ tracks is very easy for low momenta, but becomes more difficult for higher values.}
 \label{fig:ToF}
 \end{figure}
 
@@ -173,7 +173,7 @@ Energy measurements from the EMC are also useful for identifying neutral particl
 \centering
 \includegraphics[scale=0.60]{figures/images/EMC.pdf}
 \caption{EMC energy deposition for various particles as a function of momentum.}
-{As the mass of $\lel$ is so small, it deposits virtually all of its energy in the EMC.  Both $\lmu$ and $\pi$ are generally minimum ionizing particles in this momenta range, and their similar masses make them difficult to distinguish with the EMC measurements alone.}
+{As the mass of $\lel$ is so small, it deposits virtually all of its energy in the EMC.  Both $\lmu$ and $\pim$ are generally minimum ionizing particles in this momenta range, and their similar masses make them difficult to distinguish with the EMC measurements alone.}
 \label{fig:EMC}
 \end{figure}
 
@@ -226,7 +226,7 @@ For Bhabha events ($\bhabha$), which are used for calibration and luminosity mea
 \includegraphics[scale=0.75]{figures/images/triggering.pdf}
 \caption{Triggering systems for event filtering at BESIII.}
 {To prevent overloading the event recording system, non-physics background events must be eliminated from the data stream.
-This processing uses simple read-out information from each of the layer of the detector to quickly and efficiently determine whether or not events should be further considered for analysis.}
+This processing uses simple read-out information from each layer of the detector to quickly and efficiently determine whether or not events should be further considered for analysis.}
 \label{fig:triggering}
 \end{figure}
 

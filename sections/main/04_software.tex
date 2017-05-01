@@ -187,7 +187,7 @@ The two collections are then matched with reconstructed tracks from the MDC.
 Since low momentum muons may cause only a few layers to fire, a subsequent search is performed over unused hits based on the extrapolated trajectories of MDC tracks.
 The reconstruction process primarily analyzes the depth of the track in the MUC, the maximum number of hits in the layers fired by a track, and the matching between a MDC track with the MUC stand-alone track.
 These parameters, along with the track momentum and MDC exit angle, are input into an Artificial Neural Network in order to distinguish between hadron and muon tracks.
-The identification process is quite effective, generally removing \SI{\sim96}{\%} of pions and keeping around \SI{\sim90}{\%} of muons.
+The identification process is quite effective, generally removing \SI{\sim96}{\%} of pions and retaining \SI{\sim90}{\%} of muons.
 
 
 
@@ -207,16 +207,17 @@ The modes used are chosen for their overall efficiency of reconstruction in the 
 For the neutral modes, this procedure also includes the doubly-Cabbibo suppressed decays (DCSD), such as $\DO \rightarrow \Kp \; \pim$, which have small and well-measured branching fractions.
 
 \begin{table}[h]
-    \centering
-    \begin{tabular}{l|l l}
-        \hline
-        (0) $\DOmodeA$ & (200) $\DpmodeA$ & (203) $\DpmodeD$ \\
-        (1) $\DOmodeB$ & (201) $\DpmodeB$ & (204) $\DpmodeE$ \\
-        (3) $\DOmodeC$ & (202) $\DpmodeC$ & (205) $\DpmodeF$ \\
-        \hline
-    \end{tabular}
-    \caption{The reconstructed $\Dtag$ modes used in this analysis.}
-    \label{tab:dtag_modes}
+\centering
+\begin{tabular}{l|l l}
+\hline
+(0) $\DOmodeA$ & (200) $\DpmodeA$ & (203) $\DpmodeD$ \\
+(1) $\DOmodeB$ & (201) $\DpmodeB$ & (204) $\DpmodeE$ \\
+(3) $\DOmodeC$ & (202) $\DpmodeC$ & (205) $\DpmodeF$ \\
+\hline
+\end{tabular}
+\caption{The reconstructed $\Dtag$ modes used in this analysis.}
+{The numerical values are shorthand codes used by the reconstruction software.}
+\label{tab:dtag_modes}
 \end{table}
 
 This process occurs for each event and searches over each decay mode for each charm state ($\Dp$ and $\Dm$).
@@ -328,7 +329,7 @@ Fit Quality  & $\chi^2 < 100$, Converged \\
 \subsubsection{Cosmic Ray and Lepton Veto}
 \label{sssec:cosmic_and_lepton}
 
-Lastly, when reconstructing the mode $\DOmodeA$, an additional veto is used.
+When reconstructing the mode $\DOmodeA$, an additional veto is used.
 Since this mode has only two charged tracks, it is common to misidentify particles which come from cosmic ray and backgrounds like $\ee \rightarrow \{\gamma\ee, \; \gamma\mumu\}$.
 To prevent this, cuts on the timing difference between the tracks, as well as on the particle identification variables, are imposed.
 The values used for these requirements are shown in \Cref{tab:veto_cuts}.
