@@ -215,7 +215,7 @@
 \sectionframe{Introduction}
 
 \addframe{Introduction}{
-Describe basic meaning of $\psipptoDD$ cross section
+Describe basic meaning of $\psipptoDDbar$ cross section
 }
 
 \addframe{Previous Measurements}{
@@ -263,38 +263,38 @@ Describe getting counts to determine cross section
 \sout{4) Gravity} {\sl Negligible at this mass scale}
 }
 
-\addframe{Fermions and Bosons}{
-
-\begin{columns}
-
-\column{.45\textwidth} % Left column and width
-\textbf{Fermions}
-\begin{enumerate}
-\item Half-Integer Spin
-\item Explanation
-\item Example
-\end{enumerate}
-
-Examples:
-\additem{Quarks  ($\quark$):             \\ $\qup, \; \qdown, \; \qstrange, \; \qcharm, \; \qbottom, \; \qtop$}
-\additem{Leptons ($\lepton$):            \\ $\lel, \; \lmu,   \; \ltau,     \; \vel,    \; \vmu,     \; \vtau$}
-\additem{Baryons ($\quark\quark\quark$): \\ $p,    \; n,      \; \Delta,    \; \Lambda, \; \ldots$}
-
-\column{.45\textwidth} % Right column and width
-\textbf{Bosons}
-\begin{enumerate}
-\item Integer Spin 
-\item Explanation
-\item Example
-\end{enumerate}
-
-Examples:
-\additem{Gauge Bosons:             \\ $\photon, \; \W^\pm, \; \Z,   \; \gluon$}
-\additem{Higgs Boson:              \\ $\Higgs$}
-\additem{Mesons ($\quark\aquark$): \\ $\pipm,   \; \piO,   \; \Kpm, \; \Ks, \; \ldots$} 
-
-\end{columns}
-}
+% \addframe{Fermions and Bosons}{
+% 
+% \begin{columns}
+% 
+% \column{.45\textwidth} % Left column and width
+% \textbf{Fermions}
+% \begin{enumerate}
+% \item Half-Integer Spin
+% \item Explanation
+% \item Example
+% \end{enumerate}
+% 
+% Examples:
+% \additem{Quarks  ($\quark$):             \\ $\qup, \; \qdown, \; \qstrange, \; \qcharm, \; \qbottom, \; \qtop$}
+% \additem{Leptons ($\lepton$):            \\ $\lel, \; \lmu,   \; \ltau,     \; \vel,    \; \vmu,     \; \vtau$}
+% \additem{Baryons ($\quark\quark\quark$): \\ $p,    \; n,      \; \Delta,    \; \Lambda, \; \ldots$}
+% 
+% \column{.45\textwidth} % Right column and width
+% \textbf{Bosons}
+% \begin{enumerate}
+% \item Integer Spin 
+% \item Explanation
+% \item Example
+% \end{enumerate}
+% 
+% Examples:
+% \additem{Gauge Bosons:             \\ $\photon, \; \W^\pm, \; \Z,   \; \gluon$}
+% \additem{Higgs Boson:              \\ $\Higgs$}
+% \additem{Mesons ($\quark\aquark$): \\ $\pipm,   \; \piO,   \; \Kpm, \; \Ks, \; \ldots$} 
+% 
+% \end{columns}
+% }
 
 \addframe{Standard Standard Model Slide}{
 \begin{figure}
@@ -531,34 +531,180 @@ BESIII Event Display
 }
 \additem{Requires muons with $p > \SI{0.4}{\GeV}$ for appropriate curvature}
 }
+
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{../figures/images/muon.jpg}
+\end{figure}
 }
 
 \addframe{Triggering System}{
-Collisions filtered unless passing event reconstruction criteria
+
+\additem{Events filtered through two-step process
+    \additem{L1: Hardware - Extracts information from various subdetectors
+        \additem{MDC \\
+            \qquad - Examines the number of superlayers each track passes through \\
+            \qquad \qquad \textit{\scriptsize Superlayer: a collection of wires at same radial distance} \\
+            \qquad - Applies a cut on minimum transverse momentum for each 
+        }
+        \additem{ToF \\
+            \qquad - Examines number of hits in barrel and endcap regions \\
+            \qquad - Checks for hits which are on opposite sides of the detector
+        }
+        \additem{EMC \\
+            \qquad - Examines clustering of deposited energy around local maximum
+        }
+    }
+    \additem{L3: Software - Assembles information to decide if potentially relevant}
+}
+\additem{Quickly and efficiently removes non-physics background events
+\additem{e.g., reduces beam-related backgrounds from {$\sim$}\SI{13}{\MHz} to {$\sim$}\SI{1}{\kHz}}
 }
 
+}
 
 \sectionframe{Analysis Software}{
 % Show images of event display and... generic code? I dont know
 
 \addframe{Monte Carlo Generation}{
-Describe process and usage of MC samples
+\additem{Create simulations of detector construction and particle interactions
+\additem{Model material composition and detector arrangement in GEANT4}
+\additem{Simulate particle decay behavior using physics generators}
+\additem{Generate decays which could be mistaken as $\DDbar$ in reconstruction \\
+$\quad \ee \rightarrow \tautau, \quad \ee \rightarrow \ypsip, \quad \ee \rightarrow \qqbar, \quad \ldots$}
+}
+\additem{Process samples using BESIII Offline Software System (BOSS)
+\additem{Use information gathered by subdetectors to reconstruct events} 
+% \additem{Assemble combinations of reconstructed tracks through `$D$-Tagging'}
+\additem{Extract relevant physical parameters ($\DeltaE, \; \mbc, \; \ldots$) from each}
+}
+\additem{Identify contributions of generated background samples seen in data
+\additem{Process both data and Monte Carlo (MC) samples identically}
+\additem{Subtract background components from data to determine signal events}
+}
 }
 
 \addframe{Monte Carlo Generators}{
-Describe usage of KKMC
 
-Describe usage of BesEvtGen
+\additem{KKMC
+\additem{Used to model electroweak interactions: $\ee \rightarrow \ffbar + (n)\gamma$ \\
+\quad {\footnotesize $\fermion = \{\lmu, \; \ltau, \; \qup, \; \qdown, \; \qstrange, \; \qcharm, \; \qbottom \}$ and $(n)\gamma$ = (additional photons)}
+}
+\additem{Decays $\ffbar$ pair based on involved fermions (TAUOLA, PYTHIA)}
+\additem{Takes into account initial- and final-state radiation (ISR / FSR)
+\additem{For resonances, only handles ISR, then passes off $\photon^*$ to BesEvtGen}
+}
+}
 
-Describe usage of Babayaga
+
+\additem{BesEvtGen
+\additem{Handles resonance decay as well as radiative effects
+\additem{Reduced $\Ecm$ such that only lower mass resonances can be produced}
+}
+}
+
+\additem{Babayaga
+\additem{Used to model QED processes: $\ee \rightarrow \{\ee, \; \mumu, \; \yy\}$}
+\additem{Very accurate results; estimated theoretical uncertainty of \SI{0.1}{\%}
+\additem{High precision required for determination of integrated luminosity}
+}
+}
 }
 
 \addframe{$D$-Tagging}{
-Describe process and usage of $D$-Tagging
+
+\begin{columns}
+
+\column{0.6\textwidth} % Left column and width
+\vspace{-0.6cm}
+
+\additem{Reconstruct $D$ candidates from decays \\
+\qquad $D \rightarrow \{\pipm, \; \Kpm, \; \piO, \; \Ks\}$
+}
+
+\additem{Modes selected based on \\ reconstruction efficiency
+\additem{High branching fractions}
+\additem{Manageable number of tracks (multiplicity)}
+}
+
+\additem{Search through track combinations for those matching reconstructed modes
+\additem{Take best set per mode based on \\
+\vspace{0.2cm}
+$\DeltaE = |\Ebeam - \Etag|$ \\
+\vspace{0.2cm}
+$\mbc = \sqrt{\Ebeam^2 - |\ptag|^2}$
+}
+\additem{Allows multiple candidates per event}
+}
+
+\column{0.45\textwidth} % Right column and width
+\vspace{-0.6cm}
+
+\begin{table}[h]
+\renewcommand\arraystretch{1.3}
+\centering
+\begin{tabular}{c l}
+\multicolumn{2}{c}{Reconstructed Modes} \\
+\hline
+(0) & $\DOmodeA$ \\
+(1) & $\DOmodeB$ \\
+(3) & $\DOmodeC$ \\
+\hline
+(200) & $\DpmodeA$ \\               
+(201) & $\DpmodeB$ \\
+(202) & $\DpmodeC$ \\
+(203) & $\DpmodeD$ \\
+(204) & $\DpmodeE$ \\               
+(205) & $\DpmodeF$ \\               
+\hline
+\multicolumn{2}{c}{{\footnotesize *Charge conjugation implied}} \\
+\end{tabular}
+\end{table}
+
+\end{columns}
+
 }
 
 \addframe{Selection Cuts}{
-Show cuts on $\pipm, \Kpm, \piO, \Ks$
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c| r@{$\; < \;$}l }
+\multicolumn{3}{c}{$\pipm$ and $\Kpm$ Selection} \\
+\hline
+Vertex ($xy$)    & $V_{xy}$ & \pp \SI{1}{\cm} \\
+Vertex ($z$)     & $|Vz|$   & \SI{10}{\cm} \\
+MDC Angle        & $|\cos\theta|$ & 0.93 \\
+Pion Probability & \multicolumn{2}{c}{ $\pp P(\pi) > 0, \quad P(\pi) > P(K)$ } \\
+Kaon Probability & \multicolumn{2}{c}{ $    P(K)   > 0, \quad P(K) > P(\pi)$ } \\
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c r}
+\multicolumn{3}{c}{$\photon$ Selection} \\
+\hline
+Min. Energy (Barrel) & $E_{\text{EMC}} > \SI{25}{\MeV}$ & $       (|\cos\theta| < 0.80)$ \\
+Min. Energy (Endcap) & $E_{\text{EMC}} > \SI{50}{\MeV}$ & $(0.84 < |\cos\theta| < 0.92)$ \\
+TDC Timing & $ (0 \leq t \leq 14) \times \SI{50}{\ns} $ \\ 
+\hline
+\end{tabular}
+\end{table}
+
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c}
+& $\piO \rightarrow \yy$ Selection & $\Ks \rightarrow \pip\pim$ Selection \\
+\hline
+Nominal Mass & $115 < m_{\piO} [\si{\MeV}] < 150$ & $487 < m_{\Ks} [\si{\MeV}] < 511$ \\
+Fit Quality  & $\chi^2 < 200$, Converged& $\chi^2 < 100$, Converged \\
+\hline
+\end{tabular}
+\end{table}
+
 }
 
 
@@ -589,9 +735,9 @@ Show derivation of cross section
 Show derivation of cross section
 }
 
-\addframe{Derivation of $\xsecpsipptoDDbar$ - Part III}{
-Show derivation of cross section
-}
+% \addframe{Derivation of $\xsecpsipptoDDbar$ - Part III}{
+% Show derivation of cross section
+% }
 
 \addframe{Form Factors}{
 Explain form factor choices and describe necessary modifications
@@ -619,6 +765,10 @@ Describe process of 2D fitting to $\DeltaE$ and $\mbc$
 Show example results plot near $\psipp$
 }
 
+\addframe{Born Level Event Contribution}{
+Show splitting of Born / ISR events in $\mbc$ 
+}
+
 \addframe{Efficiency Correction}{
 Describe process of averaging efficiency over all decay modes
 }
@@ -639,6 +789,10 @@ Show Exponential results
 Show VDM results
 }
 
+\addframe{Results Overview}{
+Describe quality of fit and interference implication
+}
+
 \addframe{Systematic Uncertainties}{
 Describe process of measuring systematics
 }
@@ -657,14 +811,12 @@ Single Tag Fitting
 PDG Branching Fractions
 
 Meson Radii
-}
 
-\addframe{Negligible Systematics}{
-MC Iteration
+*MC Iteration
 
-MC ISR Generation
+*MC ISR Generation
 
-Intermediate Resonances
+*Intermediate Resonances
 }
 
 \addframe{Model Dependent Systematic}{
@@ -752,14 +904,14 @@ Example plots for $\DO$ and $\Dp$ of R1
 }
 
 \addframe{Reconstruction Efficiencies}{
-Show different backgrounds for SHAD
+Show example backgrounds for SHAD
 
 Describe correction used for $\ypsip$ events
 
 Point out cross sections used by Derrick for $\psipp$ data
 }
 
-\addframe{Initial Results - $\psipp$ Data}{
+\addframe{Initial Attempt - $\psipp$ Data}{
 Show cross section / branching fractions
 
 Point out likely high values due to $\psip$ shape
