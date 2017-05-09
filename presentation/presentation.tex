@@ -617,7 +617,7 @@ $\mbc = \sqrt{\Ebeam^2 - |\ptag|^2}$
 \renewcommand\arraystretch{1.3}
 \centering
 \begin{tabular}{c l}
-\multicolumn{2}{c}{Reconstructed Modes} \\
+\multicolumn{2}{c}{Reconstructed Modes*} \\
 \hline
 (0) & $\DOmodeA$ \\
 (1) & $\DOmodeB$ \\
@@ -899,10 +899,10 @@ $\DpmodeF$ &  0.95 & 0.03 & 0.4317 & 0.0018 \\
 }
 
 \addframe{Coulomb Interaction}{
-\additem{Significantly worse results when including value for $\zDD$ ($\chi^2 \approx 5$)
-\additem{Results shown previously use $\zDD = 1$ for calculations}
+\additem{Significantly worse results when including value for ${\color{red} \zDD}$ ($\chi^2 \approx 5$)
+\additem{Results shown previously use ${\color{red} \zDD} = 1$ for calculations}
 }
-\additem{Ratio of cross sections ($\sigma_{\Dp} / \sigma_{\DO}$) prefers lack of value
+\additem{Ratio of cross sections ($\sigma_{\Dp} / \sigma_{\DO}$) prefers excluding value
 \additem{Unclear explanation for behavior, but consistent with $\Upsilon \rightarrow B\overline{B}$ studies}
 }
 \begin{figure}
@@ -911,7 +911,7 @@ $\DpmodeF$ &  0.95 & 0.03 & 0.4317 & 0.0018 \\
 }
 
 \addframe{Systematic Uncertainties}{
-\additem{Examine uncertainty on parameters involved throughout procedure
+\additem{Examine uncertainty from parameters involved throughout procedure
 \additem{Individually increase / decrease value by the uncertainty of each}
 \additem{Re-fit cross section with altered values and take maximal variation}
 }
@@ -988,9 +988,10 @@ Relative Stat. Error [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
 
 
 \addframe{Form Factor Uncertainty}{
-\additem{Substantial contribution from choice of non-resonant form factor}
-\additem{Use difference between Exponential and VDM values as uncertainty
-\additem{Follows example of KEDR with model-dependent uncertainty}
+\additem{Notable discrepancy between choices of non-resonant form factor
+\additem{Both methods provide reasonably good fit with data}
+\additem{Use difference of Exponential and VDM fit values as uncertainty}
+\additem{Follow example of KEDR by treating as model-dependent uncertainty}
 }
 
 \begin{table}
@@ -1001,10 +1002,10 @@ Relative Stat. Error [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
 \hline 
 Form Factor & $\Mpsipp$ [\si{\GeV}] & $\Gpsipp$ [\si{\MeV}] & $\GeepsipptoDDbar$ [\si{\eV}] & $\Ppsipp$ [\si{\degree}] \\
 \hline 
-VDM & 3.7821 & 26.004 & 233.13 & 214.60 \\
-VDM & 3.7808 & 24.098 & 215.83 & 207.12 \\
+Exponential & 3.7821 & 26.004 & 233.13 & 214.60 \\
+VDM         & 3.7808 & 24.098 & 215.83 & 207.12 \\
 \hline
-Difference & 0.0013 & 1.906 & 17.30 & 7.48 \\
+Difference & 0.0013 & \pp1.906 & \pp17.30 & \PP7.48 \\
 \hline
 \end{tabular} 
 \end{table}
@@ -1068,94 +1069,459 @@ Examination of Results for $\psipp$ Data
 Background Investigation
 
 Examination of Results for Scan Data
+
 }
 
 \addframe{Data Samples}{
-Show 3650 Data Sets
+\additem{Use data from continuum (Old / New), $\psipp$ (R1 / R2), and scan}
 
-Mention energy measurement
+\begin{columns}
+
+\column{.4\textwidth} % Left column and width
+\vspace{0.8cm}
+\additem{$\Ecm$ measured as before
+\additem{4-6 \si{\MeV} shift in new continuum samples}
+\additem{No shift for old continuum samples}
 }
 
-\addframe{Event Selection}{
-Charged Track Selection
+\column{.6\textwidth} % Right column and width
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{l|c r}
+\hline
+Sample Name & $\Ecm$ [\si{\GeV}] & Luminosity [\si{\invpb}] \\
+\hline
+3500 (New)    & 3.496 & \num{  3.680 \pm 0.009} \\
+3542 (New)    & 3.538 & \num{  3.481 \pm 0.009} \\
+3600 (New)    & 3.596 & \num{  0.395 \pm 0.019} \\
+3650 (New)    & 3.644 & \num{  5.420 \pm 0.009} \\
+3671 (New)    & 3.665 & \num{  4.669 \pm 0.009} \\
+3650 (Old)    & 3.650 & \num{ 44.334 \pm 0.009} \\
+$\psipp$ (R1) & 3.773 & \num{926.922 \pm 0.092} \\
+$\psipp$ (R2) & 3.773 & \num{1978.92 \pm 0.091} \\
+\hline
+\end{tabular}
+\end{table}
 
-Neutral Track Selection
+\end{columns}
 
-Background Rejection
+\additem{Requires precise $\Ecm$ measurement for extrapolation procedure
+\additem{Cross section of $\psip$ rapidly changes near its peak}
+}
 }
 
-\addframe{Hadronic Selection}{
-Show SHAD, LHAD, and THAD cut tables
+\addframe{Event Selection Criteria}{
+\additem{Apply cuts on charged (neutral) tracks in the MDC (EMC)}
+\additem{Apply cuts on highest energy / momentum to remove $\ee \rightarrow \{\ee, \; \yy\}$ backgrounds}
+
+\additem{Apply groups of cuts to select multihadron events
+\additem{Number of Tracks}
+\additem{Visible Energy}
+\additem{Visible Momentum ($z$-direction)}
+\additem{Max Shower Energy}
+\additem{Total Shower Energy}
+}
+\additem{Values for group cuts dependent on level of impact
+\additem{Standard (SHAD), Loose (LHAD), Tight (THAD)}
+}
 }
 
 \addframe{Signal Counting}{
-Show signal counting fits for data
+\additem{Identify events using average distance of closest approach in $z$ ($V_z$)
+\additem{Signal tracks will originate within few \si{\cm} of vertex}
+
+\additem{Background tracks can originate away from collision point}
+}
+\additem{Fit with a double Gaussian (sig) + $2^{\text{nd}}$-order polynomial (bkg) shape}
+
+\begin{figure}
+\centering
+\includegraphics[width=0.33\textwidth]{../figures/plots/nonDDbar_fit_results/3650_old/fit_old_3650_data_SHAD.pdf}
+\includegraphics[width=0.33\textwidth]{../figures/plots/nonDDbar_fit_results/3650_old/fit_old_3650_data_LHAD.pdf}
+\includegraphics[width=0.33\textwidth]{../figures/plots/nonDDbar_fit_results/3650_old/fit_old_3650_data_THAD.pdf}
+\end{figure}
+
 }
 
 \addframe{Background Subtraction}{
-List MC samples considered (and note those excluded)
+\additem{Need to determine background contributions seen in data
+\addcenter{$\Nhad = \lum \times \sigma \times \effmc = \lum \times \sigma \times \left( \frac{ N_{\text{rec}} }{ N_{\text{gen}} } \right)$}
+}
 
-Relate to total number of hadrons found for future extrapolation
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+\multicolumn{8}{c}{3650 (Old) Reconstruction} \\
+\hline
+Sample & $\sigma$ [\si{\nb}] & \multicolumn{2}{c}{$\effmc$ (SHAD) [\%]} & \multicolumn{2}{c}{$\effmc$ (LHAD) [\%]} & \multicolumn{2}{c}{$\effmc$ (THAD) [\%]} \\
+\hline
+$\ee$           & 554.562 &  0.0006 & 0.0002 &  0.0008 & 0.0002 &  0.0001 & 0.0001 \\
+$\mumu$         &   5.560 &  0.0033 & 0.0004 &  0.0044 & 0.0005 &  0.0029 & 0.0004 \\
+$\tautau$       &   1.844 & 12.8351 & 0.0255 & 28.7692 & 0.0382 &  9.9371 & 0.0224 \\
+$\yjpsi$        &   1.260 & 45.9222 & 0.0482 & 55.1722 & 0.0529 & 34.1250 & 0.0416 \\
+$\yy$           &  21.530 &  0.0009 & 0.0002 &  0.0010 & 0.0002 &  0.0005 & 0.0002 \\
+$\twophoton$    &   1.257 &  2.4109 & 0.0110 &  4.6297 & 0.0153 &  1.6468 & 0.0091 \\
+$\psip^\dagger$ &   0.150 & 62.9891 & 0.0078 & 69.2882 & 0.0082 & 51.6942 & 0.0071 \\
+\hline
+\mcc{8}{$^\dagger$Contribution from $\psip$ assumes standard Breit-Wigner shape}
+\end{tabular}
+\end{table}
+
+}
+
+\addframe{Background Subtraction}{
+
+\additem{Subtract backgrounds from total data events to get signal hadrons
+\additem{Ignore negligible samples for extrapolation \{$\ee, \; \mumu, \; \yy$\}}
+}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+\multicolumn{7}{c}{3650 (Old) Results} \\
+\hline
+Sample         & \multicolumn{2}{c}{$\Nhad$ (SHAD)} & \multicolumn{2}{c}{$\Nhad$ (LHAD)} & \multicolumn{2}{c}{$\Nhad$ (THAD)} \\
+\hline
+Data            & 477001 & 691 & 546546 & 739 & 375380 & 613 \\
+$\ee{^*}$       &    149 &  43 &    187 &  48 &     12 &  12 \\
+$\mumu{^*}$     &      8 &   1 &     11 &   1 &      7 &   1 \\
+$\tautau$       &  10490 &  30 &  23514 &  59 &   8122 &  25 \\
+$\yjpsi$        &  25658 &  60 &  30826 &  71 &  19067 &  46 \\
+$\yy{^*}$       &      9 &   2 &     10 &   2 &      4 &   1 \\
+$\twophoton$    &   1443 &   7 &   2771 &  11 &    986 &   6 \\
+$\psip^\dagger$ &   4175 &   9 &   4593 &  10 &   3427 &   7 \\
+\hline                                                       
+Hadrons         & 435234 & 694 & 484842 & 745 & 343779 & 615 \\
+\hline
+\mcc{7}{$^\dagger$Contribution from $\psip$ assumes standard Breit-Wigner shape}
+\end{tabular}
+\end{table}
+
 }
 
 \addframe{Efficiency Extrapolation}{
-Repeat procedure for new continuum data
-
-Extrapolate efficiency based on $\Ecm$
-
-Show extrapolation plots for SHAD, LHAD, and THAD
+\additem{Contribution of $\qqbar$ events above $\DDbar$ threshold not well modeled
+\additem{Repeat procedure for new continuum data to extrapolate}
+}
+\addcenter{$\frac{ \epsilon(\Ecm) }{ \epsilon(3650) } = \left[ \frac{ \Nhad(\Ecm) }{ \Nhad(3650) } \right] \left[ \frac{ \lum(3650) }{ \lum(\Ecm) } \right] \bigg[ \frac{ \Ecm }{ 3650 } \bigg]^2$}
+\begin{figure}
+\centering
+\includegraphics[width=0.6\textwidth]{../figures/plots/SHAD_psip_BW.pdf}
+\end{figure}
 }
 
 \addframe{Procedure for $\psipp$ Data}{
-Repeat procedure for $\psipp$ data
-
-Introduction of new backgrounds and $\DDbar$ component
+\additem{Repeat procedure for $\psipp$ data samples
+\additem{Use extrapolation to determine $\qqbar$ background contribution}
+}
+\additem{Modify included backgrounds to account for $\DDbar$ threshold
+\additem{Use measurement of $\psipptoDDbar$ cross section for $\DDbar$ component
+\additem{Use measurement from `On-Peak` sample for initial exploration}
+}
+\additem{Switch direct contribution from $\psip$ to radiative decays ($\ypsip$)
+\additem{Use measurements from CLEO-c and BESIII for cross section value}
+}
+\additem{Neglect $\twophoton$ events due to minimal contribution in this region}
+}
+\additem{Need data-driven procedure to correctly determine $\DDbar$ efficiencies
+\additem{MC samples unreliable at modeling track multiplicities}
+\additem{Re-weight MC samples based off differences seen in data
+\additem{Scale by track multiplicity ratios for data / MC}
+}
+}
 }
 
-\addframe{$\DDbar$ Correction}{
-Create multiplicity distributions from single-tag events
+\addframe{$\DDbar$ Efficiency Correction}{
 
-Obtain correction factors for R1 and R2 separately
+\begin{columns}
+\column{0.3\textwidth}
+\vspace{-0.5cm}
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|c}
+\hline
+Group & Multiplicity \\
+\hline
+SHAD & $\Ntrk > 2$ \\
+LHAD & $\Ntrk > 1$ \\
+THAD & $\Ntrk > 3$ \\
+\hline
+\end{tabular}
+\end{table}
 
-Example plots for $\DO$ and $\Dp$ of R1
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|c}
+\hline
+\mcc{2}{$\psipp$ R1 - $\DO$} \\
+\hline 
+Group & $(\effdata / \effmc)$ \\
+\hline
+SHAD & 0.9751 \\
+LHAD & 0.9930 \\
+THAD & 0.9662 \\
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{-0.5cm}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|c}
+\hline
+\mcc{2}{$\psipp$ R1 - $\Dp$} \\
+\hline 
+Group & $(\effdata / \effmc)$ \\
+\hline
+SHAD & 0.9992 \\
+LHAD & 1.0018 \\
+THAD & 1.0064 \\
+\hline
+\end{tabular}
+\end{table}
+
+
+
+\column{0.7\textwidth}
+\vspace{-0.6cm}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/plots/DD_corr_plots/DD_psipp_D0D0bar_R1.pdf}
+\end{figure}
+\vspace{-0.6cm}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/plots/DD_corr_plots/DD_psipp_DpDm_R1.pdf}
+\end{figure}
+
+\end{columns}
 }
 
-\addframe{Reconstruction Efficiencies}{
-Show example backgrounds for SHAD
+\addframe{Hadronic Counts - $\psipp$ (R1)}{
 
-Describe correction used for $\ypsip$ events
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+\multicolumn{8}{c}{$\psipp$ (R1) Reconstruction} \\
+\hline
+Sample & $\sigma$ [\si{\nb}] & \multicolumn{2}{c}{$\effmc$ (SHAD) [\%]} & \multicolumn{2}{c}{$\effmc$ (LHAD) [\%]} & \multicolumn{2}{c}{$\effmc$ (THAD) [\%]} \\
+\hline
+$\DO\aDO$ & 3.615 & 73.9324 & 0.0142 & 79.8496 & 0.0147 & 60.3601 & 0.0128 \\
+$\Dp\Dm$  & 2.830 & 61.4048 & 0.0146 & 68.8212 & 0.0154 & 49.4007 & 0.0131 \\
+$\tautau$ & 2.652 & 12.7566 & 0.0253 & 28.0142 & 0.0374 &  9.8776 & 0.0222 \\
+$\yjpsi$  & 0.986 & 46.6185 & 0.0206 & 56.2494 & 0.0227 & 34.7544 & 0.0178 \\
+$\ypsip$  & 3.009 & 63.2551 & 0.0137 & 69.9696 & 0.0144 & 51.5643 & 0.0123 \\
+\hline          
+\end{tabular}
+\end{table}
 
-Point out cross sections used by Derrick for $\psipp$ data
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+\multicolumn{7}{c}{$\psipp$ (R1) Results} \\
+\hline
+Sample & \multicolumn{2}{c}{$\Nhad$ (SHAD)} & \multicolumn{2}{c}{$\Nhad$ (LHAD)} & \multicolumn{2}{c}{$\Nhad$ (THAD)} \\
+\hline
+Data             & 15694505 &  3962 & 17722728 &  4210 & 12580701 &  3547 \\
+$\qqbar^\dagger$ &  8522688 & 71353 &  9330411 & 76320 &  6789405 & 61599 \\
+$\DO\aDO$        &  2477345 &   534 &  2675620 &   560 &  2022561 &   473 \\
+$\Dp\Dm$         &  1610764 &   414 &  1805311 &   442 &  1295875 &   366 \\
+$\tautau$        &   313542 &   622 &   688559 &   922 &   242781 &   547 \\
+$\yjpsi$         &   425891 &   193 &   513875 &   213 &   317504 &   166 \\
+$\ypsip$         &  1764254 &   419 &  1951528 &   445 &  1438185 &   372 \\
+\hline                                                    
+Hadrons          &   490569 & 71795 &   658730 & 76807 &   401064 & 61995 \\
+\hline
+\end{tabular}
+\end{table}
 }
 
-\addframe{Initial Attempt - $\psipp$ Data}{
-Show cross section / branching fractions
+\addframe{Initial Exploration of $\psipp$ Data}{
+\additem{Convert hadronic signal to $\nonDDbar$ cross section 
+\additem{Assume efficiency is similar to that for $\ypsip$ decays}
+}
+\addcenter{$\xsecpsipptononDDbar = \frac{ N_{\nonDDbar} }{ \epsilon_{\nonDDbar} \times \lum }$}
 
-Point out likely high values due to $\psip$ shape
+\vspace{-0.5cm}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+Sample & \multicolumn{2}{c}{$\sigma_{\nonDDbar}$ (SHAD)} & \multicolumn{2}{c}{$\sigma_{\nonDDbar}$ (LHAD)} & \multicolumn{2}{c}{$\sigma_{\nonDDbar}$ (THAD)} \\[1pt]
+\hline
+$\psipp$ (R1) & 0.9892 & 0.1219 & 1.1679 & 0.1179 & 0.9925 & 0.1291 \\
+$\psipp$ (R2) & 1.0877 & 0.1224 & 1.2926 & 0.1183 & 1.1142 & 0.1298 \\
+\hline                                                    
+Lum. Weighted & 1.0563 & 0.1223 & 1.2528 & 0.1182 & 1.0754 & 0.1296 \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\vspace{-0.3cm}
+\additem{Likely overestimated due to assumption of Breit-Wigner for $\psip$}
+
+\additem{Convert cross section to branching fraction using $\DDbar$ measurements
+\addcenter{$\BFpsipptononDDbar = \frac{ \xsecpsipptononDDbar }{ \xsecpsipptoDDbar + \xsecpsipptononDDbar }$}
+}
+\addcenter{\textbf{Begin exploratory analysis - NOT OFFICIAL MEASUREMENTS}}
 }
 
-\addframe{Background Investigation - Part I}{
-Describe alternate estimation for $\psip$ events
+\addframe{Investigation I: Standard Breit-Wigner for $\psip$}{
 
-Show branching fraction results with estimation
+\begin{columns}
+\column{0.4\textwidth}
+\vspace{-0.6cm}
+\additem{$\psip$ calculated as standard Breit-Wigner}
+
+\additem{Significant drop in last point of efficiency ratio}
+
+\additem{Upper bound for branching fraction}
+
+\column{0.6\textwidth}
+\vspace{-0.6cm}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/plots/SHAD_psip_BW.pdf}
+\end{figure}
+
+\end{columns}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+Sample & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (SHAD)} & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (LHAD)} & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (THAD)} \\[1pt]
+\hline
+$\psipp$ (R1) & 0.1331 & 0.0183 & 0.1534 & 0.0185 & 0.1334 & 0.0190 \\
+$\psipp$ (R2) & 0.1444 & 0.0186 & 0.1671 & 0.0189 & 0.1474 & 0.0193 \\
+\hline                                                    
+Lum. Weighted & 0.1408 & 0.0185 & 0.1627 & 0.0187 & 0.1430 & 0.0192 \\ 
+\hline
+\end{tabular}
+\end{table}
+
 }
 
-\addframe{Background Investigation - Part II}{
-Describe alternate estimation ignoring $\psip$ events
+\addframe{Investigation II: Continuum Ratio Estimation}{
 
-Show branching fraction results with estimation
+\begin{columns}
+\column{0.4\textwidth}
+\vspace{-0.6cm}
+\additem{$\psip$ approximated by}
+\addcenter{$\frac{ \sigma_{\text{res}} }{ \sigma_{\text{cont}}(\Ecm) } = \frac{ \sqrt{2\pi} \; (M_{\text{res}} - \Ecm)^2 }{ \Gamma_{\text{res}} \times \delta_{\Ecm}}$}
+\additem{Use $\sigma_{\psip}$ from BESIII
+\additem{$\delta_{\Ecm} \approx \SI{1.5}{\MeV}$}
+}
+\additem{Estimated value for branching fraction}
+
+\column{0.6\textwidth}
+\vspace{-0.6cm}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/plots/SHAD_psip_calc.pdf}
+\end{figure}
+
+\end{columns}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+Sample & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (SHAD)} & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (LHAD)} & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (THAD)} \\[1pt]
+\hline
+$\psipp$ (R1) & 0.1149 & 0.0180 & 0.1361 & 0.0181 & 0.1152 & 0.0188 \\
+$\psipp$ (R2) & 0.1267 & 0.0183 & 0.1504 & 0.0185 & 0.1297 & 0.0190 \\
+\hline                                                    
+Lum. Weighted & 0.1230 & 0.0182 & 0.1458 & 0.0183 & 0.1251 & 0.0190 \\ 
+\hline
+\end{tabular}
+\end{table}
+
 }
 
-\addframe{Procedure for Scan Data}{
-Using best information available from $\psipp$ results
+\addframe{Investigation III: No $\psip$ Contribution}{
 
-Show hadronic cross section over region
+\begin{columns}
+\column{0.4\textwidth}
+\vspace{-0.6cm}
+\additem{$\psip$ ignored}
+
+\additem{Inaccurate assumption}
+
+\additem{Lower bound for branching fraction}
+
+\column{0.6\textwidth}
+\vspace{-0.6cm}
+\begin{figure}
+\includegraphics[width=\textwidth]{../figures/plots/SHAD_psip_none.pdf}
+\end{figure}
+
+\end{columns}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|r@{$\; \pm \;$}r r@{$\; \pm \;$}r r@{$\; \pm \;$}r}
+\hline
+Sample & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (SHAD)} & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (LHAD)} & \multicolumn{2}{c}{$\Gamma_{\nonDDbar}$ (THAD)} \\[1pt]
+\hline
+$\psipp$ (R1) & 0.0876 & 0.0178 & 0.1102 & 0.0176 & 0.0878 & 0.0187 \\
+$\psipp$ (R2) & 0.1002 & 0.0180 & 0.1254 & 0.0179 & 0.1033 & 0.0188 \\
+\hline                                                    
+Lum. Weighted & 0.0962 & 0.0179 & 0.1205 & 0.0178 & 0.0983 & 0.0188 \\
+ \hline
+\end{tabular}
+\end{table}
+
 }
 
-\addframe{Results for Scan Data}{
-Show $\nonDDbar$ cross section over region
+\addframe{Inclusive Cross Section for Scan Data}{
+\vspace{-0.3cm}
+\additem{Inclusive hadronic cross section useful for analyses in $\psipp$ region}
+\vspace{-0.3cm}
+\begin{figure}
+\includegraphics[width=0.8\textwidth]{../figures/plots/xsec_inclusive_scan.png}
+\end{figure}
 
-Show $\nonDDbar$ branching fraction over region
+}
+
+\addframe{$\NonDDbar$ Cross Section for Scan Data}{
+\vspace{-0.5cm}
+\begin{figure}
+\includegraphics[width=0.88\textwidth]{../figures/plots/xsec_nonDDbar_scan.png}
+\end{figure}
+}
+\addframe{$\NonDDbar$ Branching Fraction for Scan Data}{
+\vspace{-0.5cm}
+\begin{figure}
+\includegraphics[width=0.88\textwidth]{../figures/plots/bf_nonDDbar_scan.png}
+\end{figure}
+
 }
 
 
@@ -1258,6 +1624,14 @@ $}
 
 \addframe{$\sCP$ Violation Correction}{
 Quickly list process of correcting for $\sCP$
+}
+
+\addframe{Hadronic Selection Event Cuts}{
+Show charged / neutral / QED cut tables
+}
+
+\addframe{Hadronic Selection Group Cuts}{
+Show SHAD, LHAD, and THAD cut tables
 }
 
 \end{document} 
