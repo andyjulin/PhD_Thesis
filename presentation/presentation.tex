@@ -82,6 +82,8 @@
 \usepackage{siunitx}  % \num{} formatting and SI unit formatting
 \usepackage{setspace}
 \usepackage[normalem]{ulem}
+\usepackage{xcolor}
+\definecolor{green2}{RGB}{0, 200, 50}
 
 \sisetup{
     group-separator = {,}, % Use , to separate groups of digits, like 12,345
@@ -574,39 +576,11 @@ $\quad \ee \rightarrow \tautau, \quad \ee \rightarrow \ypsip, \quad \ee \rightar
 }
 \additem{Process samples using BESIII Offline Software System (BOSS)
 \additem{Use information gathered by subdetectors to reconstruct events} 
-% \additem{Assemble combinations of reconstructed tracks through `$D$-Tagging'}
 \additem{Extract relevant physical parameters ($\DeltaE, \; \mbc, \; \ldots$) from each}
 }
 \additem{Identify contributions of generated background samples seen in data
 \additem{Process both data and Monte Carlo (MC) samples identically}
 \additem{Subtract background components from data to determine signal events}
-}
-}
-
-\addframe{Monte Carlo Generators}{
-
-\additem{KKMC
-\additem{Used to model electroweak interactions: $\ee \rightarrow \ffbar + (n)\gamma$ \\
-\quad {\footnotesize $\fermion = \{\lmu, \; \ltau, \; \qup, \; \qdown, \; \qstrange, \; \qcharm, \; \qbottom \}$ and $(n)\gamma$ = (additional photons)}
-}
-\additem{Decays $\ffbar$ pair based on involved fermions (TAUOLA, PYTHIA)}
-\additem{Takes into account initial- and final-state radiation (ISR / FSR)
-\additem{For resonances, only handles ISR, then passes off $\photon^*$ to BesEvtGen}
-}
-}
-
-
-\additem{BesEvtGen
-\additem{Handles resonance decay as well as radiative effects
-\additem{Reduced $\Ecm$ such that only lower mass resonances can be produced}
-}
-}
-
-\additem{Babayaga
-\additem{Used to model QED processes: $\ee \rightarrow \{\ee, \; \mumu, \; \yy\}$}
-\additem{Very accurate results; estimated theoretical uncertainty of \SI{0.1}{\%}
-\additem{High precision required for determination of integrated luminosity}
-}
 }
 }
 
@@ -664,49 +638,6 @@ $\mbc = \sqrt{\Ebeam^2 - |\ptag|^2}$
 
 }
 
-\addframe{Selection Cuts}{
-
-\begin{table}[h]
-\centering
-\begin{tabular}{c| r@{$\; < \;$}l }
-\multicolumn{3}{c}{$\pipm$ and $\Kpm$ Selection} \\
-\hline
-Vertex ($xy$)    & $V_{xy}$ & \pp \SI{1}{\cm} \\
-Vertex ($z$)     & $|Vz|$   & \SI{10}{\cm} \\
-MDC Angle        & $|\cos\theta|$ & 0.93 \\
-Pion Probability & \multicolumn{2}{c}{ $\pp P(\pi) > 0, \quad P(\pi) > P(K)$ } \\
-Kaon Probability & \multicolumn{2}{c}{ $    P(K)   > 0, \quad P(K) > P(\pi)$ } \\
-\hline
-\end{tabular}
-\end{table}
-
-
-\begin{table}[h]
-\centering
-\begin{tabular}{c|c r}
-\multicolumn{3}{c}{$\photon$ Selection} \\
-\hline
-Min. Energy (Barrel) & $E_{\text{EMC}} > \SI{25}{\MeV}$ & $       (|\cos\theta| < 0.80)$ \\
-Min. Energy (Endcap) & $E_{\text{EMC}} > \SI{50}{\MeV}$ & $(0.84 < |\cos\theta| < 0.92)$ \\
-TDC Timing & $ (0 \leq t \leq 14) \times \SI{50}{\ns} $ \\ 
-\hline
-\end{tabular}
-\end{table}
-
-
-\begin{table}[h]
-\centering
-\begin{tabular}{c|c|c}
-& $\piO \rightarrow \yy$ Selection & $\Ks \rightarrow \pip\pim$ Selection \\
-\hline
-Nominal Mass & $115 < m_{\piO} [\si{\MeV}] < 150$ & $487 < m_{\Ks} [\si{\MeV}] < 511$ \\
-Fit Quality  & $\chi^2 < 200$, Converged& $\chi^2 < 100$, Converged \\
-\hline
-\end{tabular}
-\end{table}
-
-}
-
 
 \sectionframe{Measurement of the $\DDbar$ Cross Section}
 % Show images of derivation formulas, energy measurements, fitting plots, cross sections, and systematics
@@ -727,106 +658,392 @@ Combine everything to determine cross section
 Assess systematic uncertainties
 }
 
-\addframe{Derivation of $\xsecpsipptoDDbar$ - Part I}{
-Show derivation of cross section
+\addframe{Derivation of $\xsecpsipptoDDbar$}{
+\additem{Need to convert integral expression into measurable function 
+\addcenter{$\sigma^{RC}_{\DDbar}(W) = \int
+{\color{red} z_{\DDbar}(W \sqrt{1-x})} \,
+{\color{blue} \sigma_{\DDbar}(W \sqrt{1-x})} \,
+{\color{green2} \mathcal{F}(x, W^2)} \,
+dx$}
+\additem{${\color{red}z_{\DDbar}}$: Coulomb interaction ($\Dp\Dm$) and mass constraints}
+\additem{${\color{blue}\sigma_{\DDbar}}$: Born level (lowest order) cross section}
+\additem{${\color{green2}\mathcal{F}}$: Initial State Radiation (ISR) correction}
+\additem{$x$: Approximation for fraction of energy radiated away}
 }
-
-\addframe{Derivation of $\xsecpsipptoDDbar$ - Part II}{
-Show derivation of cross section
+\additem{Strategy: Split integral over $x$ into small intervals and sum results
+\additem{Treat {\color{red}$z_{\Dp\Dm}$} and {\color{blue}$\sigma_{\DDbar}$} as constant in each interval
+\additem{Use value at midpoint of interval for approximation}
 }
-
-% \addframe{Derivation of $\xsecpsipptoDDbar$ - Part III}{
-% Show derivation of cross section
-% }
+\additem{Integrate simple function of ${\color{green2}\mathcal{F}(x, W^2)} = \beta \, x^{\beta - 1} F(W^2)$ over $x$}
+\additem{Obtain complicated, but calculable function for $\DDbar$ cross section}
+}
+}
 
 \addframe{Form Factors}{
-Explain form factor choices and describe necessary modifications
+\additem{Need to parameterize the {\color{orange}form factor} in the Born level cross section
+    \addcenter{${\color{blue}\sigma_{\DDbar}(W)} = \frac{ \pi \alpha^2 }{ 3 W^2 } \beta_D^3 {\color{orange}|F_D(W)|^2}, \qquad \beta_D = \sqrt{1 - \frac{ 4 m_D^2 }{ W^2 } }$}
+}
+\additem{Comprised of resonant ($R$) and non-resonant ($NR$) components
+    \addcenter{${\color{orange}F_D(W)} = F_D^{\text{NR}}(W) + \sum\limits_r F^{R_r}_D(W) \, e^{i \phi_r }$}
+}
+\additem{Resonant components parametrized by Breit-Wigner shape
+    \addcenter{$F^R_D(W) = \frac{ 6 \, W \sqrt{ (\Gamma_{ee} / \alpha^2 ) ( \Gamma_{\DDbar}(W) / \beta^3_D ) } }{ M^2 - W^2 - i M \Gamma(W)}, \qquad \Gamma_{\DDbar}(W) = \Gamma(W) \times \BDD$}
+}
+\additem{Non-resonant component has no definitive parametrization 
+\additem{Investigate two potential models for analysis
+\additem{Exponential: generic form to approximate shape}
+\additem{Vector Dominance Model (VDM): physically based parameters}
+}
+}
+}
+
+\addframe{Form Factor Models}{
+\begin{columns}
+
+\column{0.45\textwidth} % Left column and width
+\vspace{-0.6cm}
+\addcenter{\textbf{Exponential Model}}
+\addcenter{$F_D^{NR} = \FNR \, \exp ( -q_D^2 / \aNR^2 )$}
+\additem{Fit Parameters
+\additem{$\FNR$: Amplitude}
+\additem{$\aNR$: Width}
+}
+\additem{Used for systematic check}
+
+\column{0.6\textwidth} % Right column and width
+\vspace{-0.6cm}
+\addcenter{\textbf{Vector Dominance Model}}
+\addcenter{$F_D^{NR}(W) = F_D^{\psip}(W) + F_0$}
+\additem{Fit Parameters
+\additem{$\Gpsip$: Decay width for $\psip$*}
+\additem{$F_0$: Higher resonances ($\psi(4040)$)}
+}
+\additem{Used for final results}
+\additem{Use $\Mpsipp$ in place of $\Mpsip$
+\additem{Avoid mass below $\DDbar$ threshold}
+\additem{*Unclear physical meaning}
+}
+
+\end{columns}
 }
 
 \addframe{Data Samples}{
-Show scan data and describe usage $\psipp$, $R$-scan, and $XYZ$-scan samples
+\additem{Use scan data to determine overall cross section shape
+\additem{Taken over an energy range of \SIrange{3.643}{3.890}{\GeV}}
+\additem{Split into 34 bins based on measurements of $\Ecm$}
+\additem{Luminosity measured using $\ee \rightarrow \ee(\gamma)$ events ($\lum = \SI{69.80}{\invpb}$)}
+\additem{Chosen to be above $\DO\aDO$ threshold and below $D^{*0}\aDO$ threshold}
+\additem{Includes two bins below $\Dp\Dm$ threshold which have zero production}
+}
+\additem{Use additional high statistics samples for comparison measurements
+\begin{table}
+\renewcommand\arraystretch{1.1}
+\centering
+\begin{tabular}{c|c|r}
+Name & $\Ecm$ [\si{\GeV}] & \multicolumn{1}{c}{$\lum$} \\
+\hline
+On-Peak $\psipp^\dagger$ & 3.773 & \SI{2.93}{\invfb} \\
+$XYZ$-Scan & 3.810 & \SI{50.54}{\invpb} \\
+$R$-Scan & 3.850 & \SI{7.95}{\invpb} \\
+\hline
+\multicolumn{3}{l}{\footnotesize $^\dagger$Analysis of $\DDbar$ cross section performed independently}
+\end{tabular}
+\end{table}
+}
 }
 
 \addframe{Center-of-Mass Energy}{
-Describe measurement and correction process
+\addcenter{\textbf{Accurate $\Ecm$ required for precise determination of $\Mpsipp$}}
+\additem{Measure $\Ecm$ using $M_{\text{inv}}$ of `On-Peak $\psipp$' $\ee \rightarrow \mumu$ events}
+\additem{Compare results to separate, trustworthy procedure using $\DDbar$ events
+\additem{Difference in average values determines correction to $\mumu$ procedure}
+}
+\additem{Measure $\Ecm$ for scan data using $\mumu$ procedure
+\additem{Shift values by correction from $\DDbar$ procedure to get final results}
 }
 
-\addframe{Luminosity}{
-Describe measurement process
+\begin{figure}
+\includegraphics[width=0.5\linewidth]{../figures/plots/E_cm_fit_cut_new.pdf}
+\includegraphics[width=0.5\linewidth]{../figures/plots/E_cm_shifts_scan_fit_cut_new.pdf}
+\end{figure}
 }
 
 \addframe{Monte Carlo Generation}{
-List included MC samples and explain KKMC modification
+\additem{Generate MC samples to help identify signal and background rates
+\additem{Signal: $\qquad \qquad \psipp \rightarrow \DO\aDO, \qquad \psipp \rightarrow \Dp\Dm$}
+\additem{Background: $\qquad \quad \qqbar, \quad \tautau, \quad \yjpsi, \quad \ypsip$}
+\additem{Events per sample of ${\sim}10^6$-$10^7$ depending on decay type}
+\additem{Decays simulated using run-dependent $\Ecm$ and accelerator conditions}
+}
+
+\vspace{0.7cm}
+
+\additem{Samples of $\psipp \rightarrow \DDbar$ generated using our cross section results 
+\additem{Use Born cross section from final fit results to improve MC generator}
+\additem{Requires iteration of MC generation to properly reflect true shape
+\additem{Performed 5 iterations of input shapes for analysis}
+}
+}
 }
 
 \addframe{Signal Determination}{
-Describe process of 2D fitting to $\DeltaE$ and $\mbc$
+\additem{Measure $\DO\aDO$ / $\Dp\Dm$ yields separately with 2D fit
+\additem{Use $D$-tagging code to identify candidates in each sample (data / MC)}
+\additem{Extract $\DeltaE$ and $\mbc$ distributions and arrange MC samples into groups \\
+\begin{columns}
+\column{0.45\textwidth} % Left column and width
+\hspace{1.3cm} (1) Proper $D$-tags \\
+\hspace{1.3cm} (2) Improper $D$-tags
 
-Show example results plot near $\psipp$
+\column{0.45\textwidth} % Right column and width
+(3) $\qqbar$ \\
+(4) $\tautau + \yjpsi + \ypsip$
+\end{columns}
 }
-
-\addframe{Born Level Event Contribution}{
-Show splitting of Born / ISR events in $\mbc$ 
+\additem{Float normalizations of each group to match data distributions ($\chi^2$)}
+}
+\begin{figure}
+\includegraphics[width=\linewidth]{../figures/plots/fit_results/D0_bin_14.pdf}
+\end{figure}
 }
 
 \addframe{Efficiency Correction}{
-Describe process of averaging efficiency over all decay modes
+\additem{Correct for $D$ reconstruction efficiency to determine total production
+\additem{Average MC candidate amounts ($N_{\text{prop}}$ vs. $N_{\text{gen}}$) over decay modes}
+\addcenter{$\epsilon_{D} = \sum\limits_i \epsilon_{i \text{ rec}} \, \mathcal{B}_i = \sum\limits_i \left( \frac{ N_{i \text{ prop}} }{ N_{i \text{ gen}} } \right) \mathcal{B}_i$}
 }
 
-\addframe{$\sCP$ Violation Correction}{
-Quickly list process of correcting for $\sCP$
+{\footnotesize
+\begin{table}
+\centering
+\begin{tabular}{l r@{$\; \pm \;$}l r@{$\; \pm \;$}l}
+\hline
+Decay Mode ($i$) & \multicolumn{2}{c}{PDG $\mathcal{B}_i$ [\%]} & \multicolumn{2}{c}{MC Efficiency $\epsilon_{i \text{ rec}}$} \\
+\hline
+$\DOmodeA$ &  3.89 & 0.05 & 0.7002 & 0.0011 \\
+$\DOmodeB$ & 13.93 & 0.50 & 0.3794 & 0.0004 \\
+$\DOmodeC$ &  8.11 & 0.21 & 0.3988 & 0.0006 \\
+\hline
+\multicolumn{5}{c}{$\epsilon_{\DO} = (11.245 \pm 0.020)\%$} \\[1pt]
+\hline
+$\DpmodeA$ &  9.13 & 0.19 & 0.5471 & 0.0007 \\
+$\DpmodeB$ &  5.99 & 0.18 & 0.2739 & 0.0006 \\
+$\DpmodeC$ &  1.47 & 0.07 & 0.3883 & 0.0014 \\
+$\DpmodeD$ &  6.99 & 0.27 & 0.2079 & 0.0005 \\
+$\DpmodeE$ &  3.12 & 0.11 & 0.2237 & 0.0007 \\
+$\DpmodeF$ &  0.95 & 0.03 & 0.4317 & 0.0018 \\
+\hline
+\multicolumn{5}{c}{$\epsilon_{\Dp} = (9.770 \pm 0.063)\%$} \\[1pt]
+\hline
+\end{tabular}
+\end{table}
+}
 }
 
 \addframe{Cross Section Fitting}{
-Describe procedure of obtaining $\psipp$ parameters
+\additem{Use signal amount, efficiency, and luminosity to find cross sections:
+\additem{Include factor of 2 to correct for double counting ($D$ vs. $\DDbar$)}
+}
+\addcenter{$\sigma_{\DDbar}^{RC}(E_i) = \frac{ N_D(E_i) }{ 2 \, \epsilon_D(E_i) \, \mathcal{L}(E_i) }$}
+
+\additem{Fit to theoretical formulation to determine $\psipp$ parameters
+\additem{$\Mpsipp \qquad \Gpsipp \qquad \GeepsipptoDDbar \qquad \Ppsipp$}
+\additem{Use $\GeepsipptoDDbar$ in place of known $\BnDD$ or $\Geepsipp$}
+}
+\additem{Two additional fit parameters depending on form factor choice
+\additem{Exponential: $\quad \FNR \qquad \aNR \qquad \qquad$ VDM: $\quad \Gpsip \qquad F_0$}
+}
+\additem{Minimize sum of $\chi^2$ distributions for $\DO$ and $\Dp$}
 }
 
 \addframe{Exponential Results}{
-Show Exponential results
+\begin{figure}
+\includegraphics[scale=0.47]{../figures/plots/lineshape_exp.pdf}
+\end{figure}
 }
 
 \addframe{Vector Dominance Model Results}{
-Show VDM results
+\begin{figure}
+\includegraphics[scale=0.47]{../figures/plots/lineshape_vdm.pdf}
+\end{figure}
 }
 
 \addframe{Results Overview}{
-Describe quality of fit and interference implication
+\additem{Both form factor choices show generally good agreement
+\additem{Excess in $\chi^2$ largely due to two $\DO$ points just above \SI{3.81}{\GeV}}
+\additem{Could indicate need for improved model in higher energy region}
+}
+\additem{Values for $\psipp$ parameters primarily dependent on peak region
+\additem{Consistent shape in this region emphasizes quality of results}
+}
+\additem{Inteference related to behavior of Born level cross section
+\additem{Reappearance of Born level events is strong indication of interference}
+\additem{Impossible to reproduce with two non-interfering Breit-Wigner shapes}
+}
+}
+
+\addframe{Born Level Event Contribution in $\mbc$}{
+\begin{figure}
+{\small \hspace{-0.5cm} At $\psipp$ Peak \hspace{2cm} Approaching Born Minimum}
+\includegraphics[trim={12cm 0 0 0},clip,width=0.3\linewidth]{../figures/plots/fit_results/D0_bin_14.pdf}
+\includegraphics[trim={12cm 0 0 0},clip,width=0.3\linewidth]{../figures/plots/fit_results/D0_bin_20.pdf}
+\includegraphics[trim={12cm 0 0 0},clip,width=0.3\linewidth]{../figures/plots/fit_results/D0_bin_21.pdf}
+\end{figure}
+\vspace{-0.5cm}
+\begin{figure}
+{\small \hspace{1cm} At Born Minimum \hspace{3cm} Above}
+\includegraphics[trim={12cm 0 0 0},clip,width=0.3\linewidth]{../figures/plots/fit_results/D0_bin_24.pdf}
+\includegraphics[trim={12cm 0 0 0},clip,width=0.3\linewidth]{../figures/plots/fit_results/D0_bin_25.pdf}
+\includegraphics[trim={12cm 0 0 0},clip,width=0.3\linewidth]{../figures/plots/fit_results/D0_bin_30.pdf}
+\end{figure}
+}
+
+\addframe{Coulomb Interaction}{
+\additem{Significantly worse results when including value for $\zDD$ ($\chi^2 \approx 5$)
+\additem{Results shown previously use $\zDD = 1$ for calculations}
+}
+\additem{Ratio of cross sections ($\sigma_{\Dp} / \sigma_{\DO}$) prefers lack of value
+\additem{Unclear explanation for behavior, but consistent with $\Upsilon \rightarrow B\overline{B}$ studies}
+}
+\begin{figure}
+\includegraphics[scale=0.43]{../figures/plots/Coulomb_ratio.pdf}
+\end{figure}
 }
 
 \addframe{Systematic Uncertainties}{
-Describe process of measuring systematics
+\additem{Examine uncertainty on parameters involved throughout procedure
+\additem{Individually increase / decrease value by the uncertainty of each}
+\additem{Re-fit cross section with altered values and take maximal variation}
+}
+\additem{Many uncertainties adjust overall scale of cross section normalization
+\additem{Only affects the value of $\GeepsipptoDDbar$}
 }
 
-\addframe{Systematics}{
-Luminosity
-
-$\pipm / \Kpm$ Tracking
-
-$\piO$ Tracking
-
-$\Ks$ Tracking
-
-Single Tag Fitting
-
-PDG Branching Fractions
-
-Meson Radii
-
-*MC Iteration
-
-*MC ISR Generation
-
-*Intermediate Resonances
+\begin{table}
+\centering
+\begin{tabular}{l|c|l}
+\mccl{1}{Name} & Change & \mcc{1}{Description} \\
+\hline
+Luminosity              & $\lum$                     & \SI{1.0}{\%} \\
+$\pipm / \Kpm$ Tracking & $\epsilon_{i \text{ rec}}$ & \SI{1.0}{\%} per $\pipm$ or $\Kpm$ in the mode \\
+$\piO$ Tracking         & $\epsilon_{i \text{ rec}}$ & \SI{2.0}{\%} per $\piO$ in the mode \\
+$\Ks$ Tracking          & $\epsilon_{i \text{ rec}}$ & \SI{1.5}{\%} per $\Ks$ in the mode \\
+Single Tag Fits         & $N_D$                      & Adjust by fit difference (small) \\
+PDG Branching Fractions & $\epsilon_{i \text{ rec}}$ & Adjust by PDG errors \\
+\hline
+\end{tabular}
+\end{table}
 }
 
-\addframe{Model Dependent Systematic}{
-Form Factor assumption
+
+\addframe{Systematic Uncertainties}{
+\additem{\textbf{Meson Radii}
+\additem{Adjust values of $R_{\psip}$ and $R_{\psipp}$ by \SI{25}{\%} (from KEDR)}
+\additem{Take max variation over all four combinations of up / down on each}
+\additem{Accounts for most significant source of systematic uncertainty}
+}
+
+\additem{\textbf{MC Iteration} (negligible)
+\additem{Take difference in parameters before / after Born level modification}
+}
+
+\additem{\textbf{MC ISR Generation} (negligible)
+\additem{Take difference in fit results with KKMC vs. ConExc generators}
+}
+
+\additem{\textbf{Intermediate Resonances} (negligible)
+\additem{Examine effects of $\rho^0 \rightarrow \pip \pim$ in the mode $\DpmodeA$}
+\additem{Take difference in $K\pi$ vs. $\pi\pi$ invariant mass splits using `On-Peak' data}
+}
+}
+
+\addframe{Systematic Uncertainties}{
+\additem{Uncertainties summed in quadrature (assumed independent)}
+\additem{Total contribution similar to statistical error for most parameters
+\additem{Value for $\Mpsipp$ is small, but has very small statistical error}
+}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|cccc}
+\hline 
+Systematic & $\Mpsipp$ [\%] & $\Gpsipp$ [\%] & $\GeepsipptoDDbar$ [\%] & $\Ppsipp$ [\%] \\
+\hline 
+Luminosity              & 0.000 & 0.004 & 1.005 & 0.014 \\
+$\Kpm / \pipm$ Tracking & 0.000 & 0.008 & 2.646 & 0.033 \\
+$\piO$ Tracking         & 0.000 & 0.012 & 0.746 & 0.028 \\
+$\Ks$ Tracking          & 0.000 & 0.004 & 0.260 & 0.019 \\ 
+Single Tag Fits         & 0.000 & 0.012 & 0.213 & 0.008 \\
+PDG Errors              & 0.000 & 0.017 & 2.840 & 0.036 \\
+Meson Radii             & 0.016 & 2.411 & 3.512 & 1.477 \\
+\hline
+Total [\%]                      & 0.016 & 2.411 & 5.389 & 1.479 \\
+Relative Stat. Error [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
+\hline
+\end{tabular} 
+\end{table}
+}
+
+
+\addframe{Form Factor Uncertainty}{
+\additem{Substantial contribution from choice of non-resonant form factor}
+\additem{Use difference between Exponential and VDM values as uncertainty
+\additem{Follows example of KEDR with model-dependent uncertainty}
+}
+
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|cccc}
+\hline 
+Form Factor & $\Mpsipp$ [\si{\GeV}] & $\Gpsipp$ [\si{\MeV}] & $\GeepsipptoDDbar$ [\si{\eV}] & $\Ppsipp$ [\si{\degree}] \\
+\hline 
+VDM & 3.7821 & 26.004 & 233.13 & 214.60 \\
+VDM & 3.7808 & 24.098 & 215.83 & 207.12 \\
+\hline
+Difference & 0.0013 & 1.906 & 17.30 & 7.48 \\
+\hline
+\end{tabular} 
+\end{table}
 }
 
 \addframe{Final Results}{
-Show final results with systematics
+\additem{Results limited by systematics and model-dependency
+\begin{table}
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{C{2.25cm} l c}
+\hline 
+$\Mpsipp$          & $    3780.8 \pm     0.2   \pm    0.6   \pm   1.3$ & $[\si{\MeV}]$   \\
+$\Gpsipp$          & $\PP 24.1   \pm     0.5   \pm    0.6   \pm   1.9$ & $[\si{\MeV}]$   \\
+$\GeepsipptoDDbar$ & $\PP 216 \; \pm \pp  9 \; \pm    11 \; \pm    17$ & $[\si{\eV}]$    \\
+$\Ppsipp$          & $\PP 207 \; \pm \pp  3 \; \pm \pp 3 \; \pm \pp 7$ & $[\si{^\circ}]$ \\
+\hline
+\multicolumn{3}{l}{\footnotesize Errors are statistical, systematic, and model-dependent, respectively}
+\end{tabular} 
+\end{table}
+}
 
-Compare to KEDR and PDG
+\additem{Results consistent with KEDR and very inconsistent with PDG
+\begin{table}
+\footnotesize
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c L{2.8cm} L{2.5cm} L{2.5cm}}
+\hline
+Method & $\Mpsipp$ [MeV] & $\Gpsipp$ [MeV] & $\GeepsipptoDDbar$ [eV] \\
+\hline
+Exponential & $3782.1 \pm 0.3 \pm 0.6$ & $26.0 \pm 0.6 \pm 0.7$ & $233 \pm 10 \pm 13$ \\
+VDM         & $3780.8 \pm 0.2 \pm 0.6$ & $24.1 \pm 0.6 \pm 0.6$ & $216 \pm  9 \pm 12$ \\
+KEDR        & $3779.2^{+1.8 +0.5 +0.3}_{-1.7 -0.7 -0.3}$ & $24.9^{+4.6 + 0.5 +0.2}_{-4.0 -0.6 -0.9}$ & $154^{+79 +17 +13}_{-58 -9\pp -25}$, $414^{+72 +24 +90}_{-80 -26 -10}$ \\
+PDG         & $3773.15 \pm 0.33$     & $27.2 \pm 0.9$       & $[262 \pm 18] \times ~\BDD$ \\
+\hline
+\end{tabular}
+\end{table}
+}
 }
 
 
@@ -950,6 +1167,97 @@ Show overview of measurements for $\DDbar$ cross section and $\nonDDbar$ branchi
 List results of parameters for $\psipp$
 
 List branching fraction range for $\nonDDbar$
+}
+
+
+\begin{frame}[c]{}
+\linespread{2.5}
+\begin{block}{$\;$}
+\begin{center}
+{\Huge Backup Slides}
+\end{center}
+\end{block}
+\end{frame}
+
+\addframe{Monte Carlo Generators}{
+
+\additem{KKMC
+\additem{Used to model electroweak interactions: $\ee \rightarrow \ffbar + (n)\gamma$ \\
+\quad {\footnotesize $\fermion = \{\lmu, \; \ltau, \; \qup, \; \qdown, \; \qstrange, \; \qcharm, \; \qbottom \}$ and $(n)\gamma$ = (additional photons)}
+}
+\additem{Decays $\ffbar$ pair based on involved fermions (TAUOLA, PYTHIA)}
+\additem{Takes into account initial- and final-state radiation (ISR / FSR)
+\additem{For resonances, only handles ISR, then passes off $\photon^*$ to BesEvtGen}
+}
+}
+
+\additem{BesEvtGen
+\additem{Handles resonance decay as well as radiative effects
+\additem{Reduced $\Ecm$ such that only lower mass resonances can be produced}
+}
+}
+
+\additem{Babayaga
+\additem{Used to model QED processes: $\ee \rightarrow \{\ee, \; \mumu, \; \yy\}$}
+\additem{Very accurate results; estimated theoretical uncertainty of \SI{0.1}{\%}
+\additem{High precision required for determination of integrated luminosity}
+}
+}
+}
+
+\addframe{Selection Cuts}{
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c| r@{$\; < \;$}l }
+\multicolumn{3}{c}{$\pipm$ and $\Kpm$ Selection} \\
+\hline
+Vertex ($xy$)    & $V_{xy}$ & \pp \SI{1}{\cm} \\
+Vertex ($z$)     & $|Vz|$   & \SI{10}{\cm} \\
+MDC Angle        & $|\cos\theta|$ & 0.93 \\
+Pion Probability & \multicolumn{2}{c}{ $\pp P(\pi) > 0, \quad P(\pi) > P(K)$ } \\
+Kaon Probability & \multicolumn{2}{c}{ $    P(K)   > 0, \quad P(K) > P(\pi)$ } \\
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c r}
+\multicolumn{3}{c}{$\photon$ Selection} \\
+\hline
+Min. Energy (Barrel) & $E_{\text{EMC}} > \SI{25}{\MeV}$ & $       (|\cos\theta| < 0.80)$ \\
+Min. Energy (Endcap) & $E_{\text{EMC}} > \SI{50}{\MeV}$ & $(0.84 < |\cos\theta| < 0.92)$ \\
+TDC Timing & $ (0 \leq t \leq 14) \times \SI{50}{\ns} $ \\ 
+\hline
+\end{tabular}
+\end{table}
+
+\begin{table}[h]
+\centering
+\begin{tabular}{c|c|c}
+& $\piO \rightarrow \yy$ Selection & $\Ks \rightarrow \pip\pim$ Selection \\
+\hline
+Nominal Mass & $115 < m_{\piO} [\si{\MeV}] < 150$ & $487 < m_{\Ks} [\si{\MeV}] < 511$ \\
+Fit Quality  & $\chi^2 < 200$, Converged& $\chi^2 < 100$, Converged \\
+\hline
+\end{tabular}
+\end{table}
+
+}
+
+
+\addframe{Derivation of $\xsecpsipptoDDbar$}{
+\additem{$
+\mathcal{F}(x, W^2) = \beta \, x^{\beta - 1} \left[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^2}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta + \beta^2 \left( \frac{37}{96} - \frac{\pi^2}{12} - \frac{L}{72} \right) \right] = \beta \, x^{\beta - 1} F(W^2), 
+\qquad \qquad \qquad \beta = \frac{2 \alpha}{\pi} (L - 1), \qquad L = \log \left( \frac{W^2}{m_e^2} \right)
+$}
+% , \qquad \beta_D = \sqrt{1 - \frac{ 4 m_D^2 }{ W^2 } }$}
+% \additem{$F_D(W) = F_D^{\text{NR}}(W) + \sum\limits_r F^{R_r}_D(W) \, e^{i \phi_r }$}
+}
+
+\addframe{$\sCP$ Violation Correction}{
+Quickly list process of correcting for $\sCP$
 }
 
 \end{document} 
