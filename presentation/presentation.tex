@@ -641,7 +641,7 @@ BESIII Event Display
 \additem{Simulate particle decay behavior using physics generators}
 }
 \additem{Generate $\DDbar$ components to determine accuracy of reconstruction
-\additem{Check if generated decay matches reconstructed decay}
+\additem{Check how often generated decay matches reconstructed decay}
 }
 \additem{Generate decays which could be mistaken as $\DDbar$ in reconstruction \\
 $\quad \ee \rightarrow \tautau, \quad \ee \rightarrow \ypsip, \quad \ee \rightarrow \qqbar (uds), \quad \ldots$}
@@ -680,6 +680,12 @@ $\DeltaE = \Ebeam - \Etag \qquad \qquad \mbc = \sqrt{\Ebeam^2 - |\ptag|^2}$ }
 \additem{High branching fractions}
 \additem{Manageable number of tracks (multiplicity)}
 }
+
+\vspace{-0.5cm}
+
+\begin{figure}
+\includegraphics[width=0.8\linewidth]{../figures/images/DTagging.png}
+\end{figure}
 
 % \additem{Search through track combinations for those matching reconstructed modes
 % \additem{Allows multiple candidates per event}
@@ -968,7 +974,7 @@ $\DpmodeF$ &  0.95 & 0.03 & 0.4317 & 0.0018 \\
 
 \addframe{Coulomb Interaction}{
 \additem{Results shown previously use ${\color{red} \zDD} = 1$ for calculations
-\additem{Significantly worse results when including value for ${\color{red} \zDD}$ ($\chi^2 \approx 5$)}
+\additem{Significantly worse results when including value for ${\color{red} \zDD}$ ($\chi_r^2 \approx 5$)}
 }
 \additem{Ratio of cross sections ($\sigma_{\Dp} / \sigma_{\DO}$) prefers ${\color{red} \zDD}$ value excluded
 \additem{Unclear explanation for behavior, but consistent with $\Upsilon(4S) \rightarrow B\overline{B}$}
@@ -1056,9 +1062,9 @@ Total [\%]                      & 0.016 & 2.411 & 5.389 & 1.479 \\
 \centering
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{c|cccc}
-Systematic & $\Mpsipp$ [\%] & $\Gpsipp$ [\%] & $\GeepsipptoDDbar$ [\%] & $\Ppsipp$ [\%] \\
+& $\Mpsipp$ & $\Gpsipp$ & $\GeepsipptoDDbar$ & $\Ppsipp$ \\
 \hline
-Relative to Stat. [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
+$\sigma_{\text{sys}} / \sigma_{\text{stat}}$ & 3.000 & 1.088 & 1.342 & 1.229 \\
 \hline
 \end{tabular} 
 \end{table}
