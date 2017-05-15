@@ -1048,8 +1048,7 @@ Fitting the signal distributions for each of these subsamples, we found no stati
 \label{ssec:sys_total}
 
 Each of the systematic uncertainty sources considered are assumed to be independent, meaning they are combined in quadrature for the total value.
-The results are shown in \Cref{tab:systematics} along with a comparison to the statistical error.
-Because of the large uncertainty on the meson radii, our measurements are systematics limited, even given the relatively small data sample used.
+The values are shown in \Cref{tab:systematics}.
 
 \begin{table}[H]
 \centering
@@ -1066,13 +1065,31 @@ Single Tag Fits         & 0.000 & 0.012 & 0.213 & 0.008 \\
 PDG Errors              & 0.000 & 0.017 & 2.840 & 0.036 \\
 Meson Radii             & 0.016 & 2.411 & 3.512 & 1.477 \\
 \hline
-Total [\%]                      & 0.016 & 2.411 & 5.389 & 1.479 \\
-Relative Stat. Error [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
+Total                   & 0.016 & 2.411 & 5.389 & 1.479 \\
+% Relative Stat. Error [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
 \hline
 \end{tabular} 
 \caption{Systematic uncertainties relative to the measured parameters of the $\psipp$.}
 \label{tab:systematics}
 \end{table}
+
+Most of the values for the $\psipp$ parameters are comparable to their statistical error, except for the mass, as seen in \Cref{tab:sys_stat_ratio}.
+While the value of $\Mpsipp$ may seem large, this is primarily due to its very small statistical uncertainty.
+
+\begin{table}[H]
+\centering
+\renewcommand\arraystretch{1.0}
+\begin{tabular}{c|cccc}
+\hline 
+& $\Mpsipp$ [\sigma] & $\Gpsipp$ [\sigma] & $\GeepsipptoDDbar$ [\sigma] & $\Ppsipp$ [\sigma] \\
+\hline  
+($\sigma_{\text{sys}} / \sigma_{\text{stat}}$) & 3.000 & 1.088 & 1.342 & 1.229 \\
+\hline
+\end{tabular} 
+\caption{A comparison of statistical and systematic uncertainties for each $\psipp$ parameter.}
+\label{tab:sys_stat_ratio}
+\end{table}
+
 
 
 \subsection*{Non-Resonant Form Factor}
@@ -1129,13 +1146,13 @@ $\Kpm / \pipm$ Tracking & 2.58 & 2.59 \\
 $\piO$ Tracking         & 0.94 & 0.63 \\
 $\Ks$ Tracking          & 0.00 & 0.42 \\ 
 Single Tag Fits         & 0.25 & 0.20 \\
-PDG Error               & 0.31 & 0.18 \\
+PDG Errors              & 0.31 & 0.18 \\
 \hline
 Total                   & 2.95 & 2.89 \\
 \hline
 \end{tabular} 
 \caption{Systematics shifts affecting the cross section measurements.}
-    {The total shifts are used to calculate the systematic uncertainties of the $\DO$ and $\Dp$ cross sections.}
+{The total shifts are used to calculate the systematic uncertainties of the $\DO$ and $\Dp$ cross sections.}
 \label{tab:sys_shifts}
 \end{table}
 
@@ -1147,7 +1164,6 @@ Total                   & 2.95 & 2.89 \\
 \hline 
 $E_{\text{mid}}$ [GeV] & \multicolumn{3}{c}{$\sigma^{RC}_{\DO \aDO}$ [nb]} & \multicolumn{3}{c}{$\sigma^{RC}_{\Dp \Dm}$ [nb]} \\
 \hline
-
 3.7342 & 0.164 & 0.046 & 0.005 & \multicolumn{2}{c}{-} \\
 3.7368 & 0.218 & 0.068 & 0.006 & \multicolumn{2}{c}{-} \\
 3.7447 & 0.765 & 0.070 & 0.023 & 0.150 & 0.038 & 0.004 \\
@@ -1225,7 +1241,7 @@ Each of these measurements are also highly discrepant with the current PDG world
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{C{3cm} L{3cm} L{3cm} L{3cm}}
 \hline
-Method & $\Mpsipp$ [MeV] & $\Gpsipp$ [MeV] & $\GeepsipptoDDbar$ [eV] \\
+Method & $\Mpsipp$ [\si{\MeV}] & $\Gpsipp$ [\si{\MeV}] & $\GeepsipptoDDbar$ [\si{\eV}] \\
 \hline
 Exponential & $3782.1 \pm 0.3 \pm 0.6$ & $26.0 \pm 0.6 \pm 0.7$ & $233 \pm 10 \pm 13$ \\
 VDM         & $3780.8 \pm 0.2 \pm 0.6$ & $24.1 \pm 0.6 \pm 0.6$ & $216 \pm  9 \pm 12$ \\
@@ -1258,7 +1274,7 @@ VDM          & $3.748 \pm 0.131 \pm 0.111$ & $2.951 \pm 0.118 \pm 0.085$ \\
 \hline
 \end{tabular}
 \caption{Comparison of cross section calculations at $\Ecm = \SI{3.7732}{\GeV}$}
-    {The values measured previously used a \SI{2.93}{\invfb} data sample of $\psipp$ events to reconstruct double-tag (DT) decays.  The first errors listed are statistical, while the second is systematic.}
+{The values measured previously used a \SI{2.93}{\invfb} data sample of $\psipp$ events to reconstruct double-tag (DT) decays.  The first errors listed are statistical, while the second is systematic.}
 \label{tab:Derrick_xsec}
 \end{table}
 
