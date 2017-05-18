@@ -35,7 +35,7 @@ We also use Round 1 (R1) and Round 2 (R2) of the high-statistics $\psipp$ data t
 Each of these samples, and their integrated luminosities, can be seen in \Cref{tab:data_samples_non_DDbar}.
 The values of luminosity were measured during a previous version of this analysis using the procedure described in \Cref{ssec:luminosity_measurement}.
 The labels given to each continuum point are the nominal center-of-mass energies set during BEPCII operation, which were subsequently discovered through our more precise calibration to differ from the true values.
-In addition to these datasets, the scan data described previously (\Cref{ssec:data_samples}) is also used.
+In addition to these datasets, the scan data described previously (see \Cref{ssec:data_samples}) is also used.
 
 
 \subsection{Center-of-Mass Energy Measurement}
@@ -89,6 +89,7 @@ MDC Angle & $|\cos\theta|$ & 0.93 \\
 \hline
 \end{tabular}
 \caption{Selection cuts on charged tracks used to count hadronic events.}
+{These cuts are the same as those shown previously, and are common to most BESIII analyses.}
 \label{tab:charged_cuts_non_DDbar}
 \end{table}
 
@@ -105,6 +106,7 @@ TDC Timing & $(0 \leq t \leq 14) \times \SI{50}{\ns}$ & \\
 \hline
 \end{tabular}
 \caption{Selection cuts on neutral tracks used to count hadronic events.}
+{These cuts are the same as those shown previously, and are common to most BESIII analyses.}
 \label{tab:neutral_cuts_non_DDbar}
 \end{table}
 
@@ -156,6 +158,7 @@ Maximum Shower Energy                & $\EemcEmax$ & $ < 0.75$           & $(\Nt
 \hline
 \end{tabular}
 \caption{Standard selection cuts (SHAD) for counting hadronic events.}
+{These cuts represent the nominal values used for the final results.}
 \label{tab:shad_cuts_non_DDbar}
 \end{table}
 
@@ -180,6 +183,7 @@ Number of Tracks                       & $\Ntrk$ & $ > 1$               &       
 \hline
 \end{tabular}
 \caption{Loose selection cuts (LHAD) for counting hadronic events.}
+{These cuts are looser than those used for the nominal values, and are intended for systematic comparisons.}
 \label{tab:lhad_cuts_non_DDbar}
 \end{table}
 
@@ -201,6 +205,7 @@ Maximum Shower Energy                & $\EemcEmax$ & $ < 0.75$           & $(\Nt
 \hline
 \end{tabular}
 \caption{Tight selection cuts (THAD) for counting hadronic events.}
+{These cuts are tighter than those used for the nominal values, and are intended for systematic comparisons.}
 \label{tab:thad_cuts_non_DDbar}
 \end{table}
 
@@ -264,7 +269,7 @@ $\psip^\dagger$ &   0.150 && 62.9891 & 0.0078 && 69.2882 & 0.0082 && 51.6942 & 0
 \hline
 \end{tabular}
 \caption{Reconstruction of background samples for the old continuum data.}
-{These include standard QED two-track processes ($\ee$, $\mumu$, $\tautau$, $\gamma\gamma$), radiative $\jpsi$ ($\gamma\jpsi$) and two photon fusion ($2\gamma$) events, and a contribution coming from $\psip$. \\
+{These include standard QED two-track processes ($\ee$, $\mumu$, $\tautau$, $\gamma\gamma$), radiative $\jpsi$ ($\gamma\jpsi$), two photon fusion ($2\gamma$), and a contribution coming from $\psip$. \\
 $^\dagger$The $\psip$ is assumed to have a standard Breit-Wigner shape.}
 \label{tab:3650_old_reconstruction}
 \end{table}
@@ -665,6 +670,7 @@ THAD & $\Ntrk > 3$ \\
 \hline
 \end{tabular}
 \caption{Selection methods for the $\DDbar$ efficiency correction.}
+{These methods are a simplification of the standard SHAD, LHAD, and THAD cuts.}
 \label{tab:DDbar_corr_cuts}
 \end{table}
  
@@ -781,6 +787,7 @@ $\ypsip$     & 3.009 && 63.7345 & 0.0097 && 70.4050 & 0.0102 && 52.1189 & 0.0088
 \end{tabular}
 
 \caption{Reconstruction of background samples for the $\psipp$ data.}
+{Several backgrounds are changed compared to the continuum data, most notably the inclusion of the $\DDbar$ components.}
 \label{tab:psipp_reconstruction}
 \end{table}
 
@@ -935,6 +942,7 @@ Sample & $\Ecm$ [\si{\GeV}] & $\sigma_{\psip}$ [\si{\nb}] (Ratio) & $\sigma_{\ps
 \hline                                                         
 \end{tabular}
 \caption{Cross sections of $\psip$ calculated using two different methods.}
+{The effect is most dramatic for the higher energy points where the $\psip$ cross section is rapidly changing.}
 \label{tab:psip_xsec_ratio}
 \end{table}
 
@@ -1170,7 +1178,7 @@ Sample & $\Ecm$ [\si{\GeV}] & $\DO\aDO$ & $\Dp\Dm$ & $\tautau$ & $\yjpsi$ & $\yp
 \centering
 \includegraphics[scale=0.75]{figures/plots/xsec_inclusive_scan.png}
 \caption{The inclusive cross sections measured for the scan data region.}
-{The cyan, purple, and yellow points correspond to the luminosity-averaged inclusive cross sections measured for the $\psipp$ data.}
+{The additional points (cyan, purple, and yellow) correspond to the luminosity-averaged inclusive cross sections measured for the $\psipp$ data.}
 \label{fig:xsec_inclusive_scan}
 \end{figure}
 
@@ -1178,7 +1186,7 @@ Sample & $\Ecm$ [\si{\GeV}] & $\DO\aDO$ & $\Dp\Dm$ & $\tautau$ & $\yjpsi$ & $\yp
 \centering
 \includegraphics[scale=0.75]{figures/plots/xsec_nonDDbar_scan.png}
 \caption{The $\nonDDbar$ cross sections measured for the scan data region.}
-{The cyan, purple, and yellow points correspond to the luminosity-averaged $\nonDDbar$ cross sections measured for the $\psipp$ data.}
+{The additional points (cyan, purple, and yellow) correspond to the luminosity-averaged $\nonDDbar$ cross sections measured for the $\psipp$ data.}
 \label{fig:xsec_nonDDbar_scan}
 \end{figure}
 
@@ -1186,7 +1194,7 @@ Sample & $\Ecm$ [\si{\GeV}] & $\DO\aDO$ & $\Dp\Dm$ & $\tautau$ & $\yjpsi$ & $\yp
 \centering
 \includegraphics[scale=0.75]{figures/plots/bf_nonDDbar_scan.png}
 \caption{The $\nonDDbar$ branching fractions measured for the scan data region.}
-{The cyan, purple, and yellow points correspond to the luminosity-averaged $\nonDDbar$ branching fractions measured for the $\psipp$ data.}
+{The additional points (cyan, purple, and yellow) correspond to the luminosity-averaged $\nonDDbar$ branching fractions measured for the $\psipp$ data.}
 \label{fig:bf_nonDDbar_scan}
 \end{figure}
 

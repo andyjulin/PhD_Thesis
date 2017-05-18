@@ -201,7 +201,7 @@ Reconstructing one of these decays requires assembling the right combination of 
 
 
 This reconstruction technique is known as `$\D$-Tagging', and was pioneered by the MARK-III collaboration \cite{ref:Baltrusaitis:1986,ref:Adler:1988}.
-For our analysis, the particles analyzed in the detector include $\pipm, \Kpm, \piO,$ and $\Ks$, and the decay modes used are shown in \Cref{tab:dtag_modes}.
+For our analysis, the particles analyzed in the detector include $\pipm, \; \Kpm, \; \piO,$ and $\Ks$, and the decay modes used are shown in \Cref{tab:dtag_modes}.
 There are three $\DO$ modes and six $\Dp$ modes, where charge conjugation (converting all particles to their anti-particles) is implied throughout the analysis.
 The modes used are chosen for their overall efficiency of reconstruction in the detector; they generally have higher branching fractions and manageable multiplicity (the number of tracks in the final state).
 For the neutral modes, this procedure also includes the doubly-Cabbibo suppressed decays (DCSD), such as $\DO \rightarrow \Kp \; \pim$, which have small and well-measured branching fractions.
@@ -254,6 +254,8 @@ Kaon Probability & \multicolumn{2}{c}{ $P(K)   > 0, \quad P(K) > P(\pi)$ } \\
 \hline
 \end{tabular}
 \caption{The required cuts to identify charged tracks as $\pipm$ or $\Kpm$.}
+{The first two cuts ensure each track originates near the collision vertex, while the third ensures the track does not disappear down the beam-pipe.
+The final two cuts categorize the particle candidate, ensuring there is at least some likelihood to be the intended particle.}
 \label{tab:kpi_cuts}
 \end{table}
 
@@ -276,6 +278,7 @@ TDC Timing & $ (0 \leq t \leq 14) \times \SI{50}{\ns} $ \\
 \hline
 \end{tabular}
 \caption{The required cuts to identify neutral showers as a $\photon$.}
+{The first two cuts ensure the photon track is above background noise levels, while the third ensures the track came from the actual collision.}
 \label{tab:photon_cuts}
 \end{table}
 
@@ -299,6 +302,7 @@ Fit Quality  & $\chi^2 < 200$, Converged \\
 \hline
 \end{tabular}
 \caption{The required cuts to reconstruct $\yy$ pairs as a $\piO$.}
+{The first cut ensures the reconstructed pair is consistent with a $\piO$, while the second ensures the vertex fitting procedure is properly applied.}
 \label{tab:pi0_cuts}
 \end{table}
 
@@ -323,6 +327,7 @@ Fit Quality  & $\chi^2 < 100$, Converged \\
 \hline
 \end{tabular}
 \caption{The required cuts to reconstruct $\pip\pim$ pairs as a $\Ks$.}
+{The first cut ensures the reconstructed pair is consistent with a $\Ks$, while the second ensures the vertex fitting procedure is properly applied.}
 \label{tab:ks_cuts}
 \end{table}
 
@@ -343,6 +348,7 @@ Particle Identification & $(\chi_{\lel}^2 + \chi_{\alel}^2) - (\chi_{\Km}^2 + \c
 \hline
 \end{tabular}
 \caption{Cuts to suppress cosmic ray and lepton backgrounds in $\DOmodeA$.}
+{The first cut ensures the tracks are consistent with an actual collision event, while the second ensures the hypothesis is most likely to be the decay mode $\DOmodeA$.}
 \label{tab:veto_cuts}
 \end{table}
 

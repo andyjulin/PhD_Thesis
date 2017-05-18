@@ -14,46 +14,93 @@ Instead, we measure the production of $\psipptoDDbar$ events directly.
 \section{Derivation of $\xsecpsipptoDDbar$}
 \label{sec:xsec_derivation}
 
-The production rate for a pair of $D$ mesons coming from $\psipp$ at a given center-of-mass energy can be calculated following an approach of Kuraev and Fadin \cite{ref:Kuraev:1985}.
-This method includes Initial State Radiation (ISR), which effectively replaces the well-defined $\ee$ center-of-mass energy of the accelerator with a distribution of energies, is given by the following:
+The production rate for a pair of $D$ mesons coming from $\psipp$ at a given center-of-mass energy ($W$) can be calculated following an approach of Kuraev and Fadin \cite{ref:Kuraev:1985}:
 \beq
 \label{eq:xsec_rc}
-\sigma^{RC}_{\DDbar}(W) = \int z_{\DDbar}(W \sqrt{1-x}) \, \sigma_{\DDbar}(W \sqrt{1-x}) \, \mathcal{F}(x, W^2) \, dx.
+\sigma^{\text{RC}}_{\DDbar}(W) = \int z_{\DDbar}(W \sqrt{1-x}) \, \sigma_{\DDbar}(W \sqrt{1-x}) \, \fancyF \, dx.
 \eeq
 
 \noindent 
-Here, $W$ is the center-of-mass energy after the collision, $x$ parametrizes the fraction of radiated energy, and $\mathcal{F}(x, W^2)$ is the probability of losing this energy by ISR:
-\label{eq:fancy_f}
-\begin{align}
-\mathcal{F}(x, W^2) &= \beta \, x^{\beta - 1} \left[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^2}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta + \beta^2 \left( \frac{37}{96} - \frac{\pi^2}{12} - \frac{L}{72} \right) \right] = \beta \, x^{\beta - 1} F(W^2), \notag \\ 
-& \qquad \qquad \qquad \beta = \frac{2 \alpha}{\pi} (L - 1), \qquad L = \log \left( \frac{W^2}{m_e^2} \right).
-\end{align}
+This method includes Initial State Radiation (ISR), which effectively replaces the well-defined $\ee$ center-of-mass energy of the accelerator with a distribution of energies based on the fraction of radiated energy, $x$.
 
-\noindent
-The factor $z_{\DDbar}$ accounts for the expected Coulomb interaction between the mesons for the charged mode ($\Dp \Dm$),
+The Coulomb interaction between the charged mode  mesons ($\Dp \Dm$) is given by
 \beq
 \label{eq:z_Dp}
-z_{\Dp \Dm} = \frac{\pi \alpha / \beta_{\Dp} }{ 1 - \text{exp} (-\pi \alpha / \beta_{\Dp} ) } \times \theta (W - 2 m_{\Dp} ),
+z_{\Dp \Dm}(W) = \frac{\pi \alpha / \beta_{\Dp}(W) }{ 1 - \text{exp} (-\pi \alpha / \beta_{\Dp}(W) ) } \times \theta (W - 2 m_{\Dp} ), \qquad \beta_D(W) = \sqrt{1 - \frac{ 4 m_D^2 }{ W^2 } },
 \eeq
 
 \noindent 
-but only accounts for the $\DDbar$ energy threshold in the neutral mode ($\DO \aDO$),
+where $\beta_D$ is the velocity of the $D$ meson in the center-of-mass system.
+The theta function is used to impose the step in the cross section at the production threshold.
+For the neutral mode ($\DO \aDO$), there is no Coulomb interaction, meaning this factor only accounts for the $\DDbar$ energy threshold:
 \beq
 \label{eq:z_D0}
 z_{\DO \aDO} = \theta (W - 2 m_{\DO} ).
 \eeq
 
-\noindent
-The theta function imposes the step in the cross section at the production threshold.
- 
-The integral in Eq. \ref{eq:xsec_rc} can be simplified by taking advantage of the relatively constant values of $z_{\DDbar}$ and $\sigma_{\DDbar}$ over sufficiently small intervals.
-By splitting the full $W$ range into such intervals approximating the integral over each, this becomes
+The Born level (lowest order) $\DDbar$ cross section is given by
 \beq
-\int \mathcal{F}(x, W^2)~dx \approx \sum\limits_{n=0}^N F(W^2) \int_{\tfrac{n}{N}}^{\tfrac{n+1}{N}} \beta x^{\beta-1}~dx = \sum\limits_n^N F(W^2) \left[ x_{\text{upper}}^\beta - x_{\text{lower}}^\beta \right].
+\label{eq:born_xsec}
+\sigma_{\DDbar} = \frac{ \pi \alpha^2 }{ 3 W^2 } \beta_D^3(W) |F_D(W)|^2. 
+\eeq
+
+\noindent
+The form factor $F_D$ governs the contributions of each individual resonant (R) component and the total non-resonant (NR) component.
+Each resonant piece is parametrized with a phase angle ($\phi$) relative to the non-resonant contribution:
+\beq
+\label{eq:form_factor}
+F_D(W) = F_D^{\text{NR}}(W) + \sum_r F^{\text{R}_r}_D(W) \, e^{i \phi_r }.
+\eeq
+
+\noindent
+The resonant contributions to the form factor are modeled by a Breit-Wigner amplitude,
+\beq
+\label{eq:breit_wigner}
+F^\text{R}_D(W) = \frac{ 6 \, W \sqrt{ (\Gamma_{ee} / \alpha^2 ) ( \Gamma_{\DDbar}(W) / \beta^3_D(W) ) } }{ M^2 - W^2 - i M \Gamma(W) },
 \eeq
 
 \noindent 
-The upper, lower, and mid-point values are given by
+where $\Gamma_{ee}$ is the dielectron partial width, and $\Gamma(W)$ represents the total width of the resonance with mass $M$: 
+\beq\label{eq:Gamma}
+\Gamma(W) = \left( \frac{M}{W} \right) \left[ \frac{ z_{\DDbar}(W) \, d_{\DDbar}(W) }{ z_{\DO \aDO}(M) \, d_{\DO \aDO}(M) + z_{\Dp \Dm}(M) \, d_{\Dp \Dm}(M) } \right] \Gamma(M).
+\eeq
+
+\noindent
+The value of $\Gamma(M)$ represents the total width at the nominal mass of the resonance, while $d_{\Dp \Dm}$ and $d_{\DO \aDO}$ are the Blatt-Weisskopf damping factors \cite{ref:Blatt:1952} for a vector resonance:
+\beq
+\label{eq:blatt_weisskopf}
+d_{\DDbar}(W) = \frac{ \rho_{\DDbar}^3(W) }{ \rho_{\DDbar}^2(W) + 1 }, \qquad \rho_{\DDbar} = q_D(W) \times R_0, \qquad q_D(W) = \sqrt{\frac{W^2}{4} - m_D^2}.%\left( \frac{ \beta_D \, W }{ 2 } \right) R_0.
+\eeq
+
+\noindent
+Here, $q_D$ is the $D$ momentum in the center-of-mass frame, while $R_0$ represents the radius of the parent particle. 
+The $\DDbar$ partial width listed in \Cref{eq:breit_wigner} is the total width rescaled according to $\BDD$, the sum of all $\DDbar$ decay modes of $\psipp$:
+\beq
+\label{eq:Gamma_DDbar}
+\Gamma_{\DDbar}(W) = \Gamma(W) \times \BDD = \Gamma(W) \times (1 - \BnDD).
+\eeq
+Theoretical calculations of $\BnDD$ place the value on the order of a few percent.
+However, experimental results have measured values throughout the range of \SIrange{0}{16}{\%}.
+Without a trustworthy measurement to use for our analysis, we elect to define a fit parameter as the product of the two, $\GeepsipptoDDbar = \Geepsipp \times \BDD$.
+While this does not provide an immediate result, future values for either parameter allows the other to be easily determined.
+More information about the branching fraction is discussed in \Cref{ch:non_DDbar}.
+
+The probability of losing a given fraction of energy via ISR is given by
+\label{eq:fancy_f}
+\begin{align}
+\fancyF &= \beta \, x^{\beta - 1} \left[ 1 + \frac{\alpha}{\pi} \left( \frac{\pi^2}{3} - \frac{1}{2} \right) + \frac{3}{4} \beta + \beta^2 \left( \frac{37}{96} - \frac{\pi^2}{12} - \frac{L}{72} \right) \right] = \beta \, x^{\beta - 1} F(W^2), \notag \\ 
+& \qquad \qquad \qquad \beta = \frac{2 \alpha}{\pi} (L - 1), \qquad L = \log \left( \frac{W^2}{m_e^2} \right).
+\end{align}
+
+With this in mind, the integral in \Cref{eq:xsec_rc} can be simplified by taking advantage of the relatively constant values of $z_{\DDbar}$ and $\sigma_{\DDbar}$ over sufficiently small intervals.
+As a result, we can split the full range of $x$ into narrow bins, and pull these two factors outside the integral in each one.
+This leaves only $\fancyF$, which is simple to evaluate:
+\beq
+\int \fancyF ~dx \approx \sum\limits_{n=0}^N F(W^2) \int_{\tfrac{n}{N}}^{\tfrac{n+1}{N}} \beta x^{\beta-1}~dx = \sum\limits_n^N F(W^2) \left[ x_{\text{upper}}^\beta - x_{\text{lower}}^\beta \right],
+\eeq
+
+\noindent 
+where the upper, lower, and mid-point values are given by
 \beq
 \renewcommand\arraystretch{1.0}
 \label{eq:x_terms}
@@ -67,61 +114,14 @@ x_i = \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right] \left( \frac{n_i}{ 
 \eeq
 
 \noindent
-The bracketed expression in Eq. \ref{eq:x_terms} represents the maximum value of $x$ determined by the theta functions of Eqs. \ref{eq:z_Dp} and \ref{eq:z_D0}.
+The bracketed expression in \Cref{eq:x_terms} represents the maximum value of $x$ determined by the theta functions of \Cref{eq:z_Dp,eq:z_D0}.
 To maintain sufficient precision with this interval approximation, the value of $N = 1024$ is used.
-Combining this with the other factors in Eq. \ref{eq:xsec_rc}, the cross section including the effect of ISR becomes
+Combining this with the other factors in \Cref{eq:xsec_rc}, the cross section including the effect of ISR becomes
 \beq
 \label{eq:xsec_rc_simp}
-\sigma^{RC}_{\DDbar}(W) = \sum_{n = 0}^N z_{\DDbar}(W') \, \sigma_{\DDbar}(W') \, F(W^2) \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right]^\beta \left[ \frac{ [(n + 1)^\beta - n^\beta] }{ N^\beta } \right],
+\sigma^{\text{RC}}_{\DDbar}(W) = \sum_{n = 0}^N z_{\DDbar}(W') \, \sigma_{\DDbar}(W') \, F(W^2) \left[ 1 - \left( \frac{ 2 m_D}{ W } \right)^2 \right]^\beta \left[ \frac{ [(n + 1)^\beta - n^\beta] }{ N^\beta } \right],
 \eeq
 where $W' = W \sqrt{1 - x_{\text{mid}}}$.
-The Born level (lowest order) $\DDbar$ cross section is given by
-\beq
-\label{eq:born_xsec}
-\sigma_{\DDbar} = \frac{ \pi \alpha^2 }{ 3 W^2 } \beta_D^3 |F_D(W)|^2, \qquad \beta_D = \sqrt{1 - \frac{ 4 m_D^2 }{ W^2 } }.
-\eeq
-
-\noindent
-Here, $\beta_D$ is the velocity of the $D$ meson in the center-of-mass system.
-The form factor $F_D$ governs the contributions of each individual resonant ($R$) component and the total non-resonant ($NR$) component.
-Each resonant piece is parametrized with a phase angle relative to the non-resonant contribution:
-\beq
-\label{eq:form_factor}
-F_D(W) = F_D^{\text{NR}}(W) + \sum_r F^{R_r}_D(W) \, e^{i \phi_r }.
-\eeq
-
-\noindent
-Each resonant contribution to the form factor is modeled by a Breit-Wigner amplitude,
-\beq
-\label{eq:breit_wigner}
-F^R_D(W) = \frac{ 6 \, W \sqrt{ (\Gamma_{ee} / \alpha^2 ) ( \Gamma_{\DDbar}(W) / \beta^3_D ) } }{ M^2 - W^2 - i M \Gamma(W) },
-\eeq
-
-\noindent 
-where $\Gamma_{ee}$ is the dielectron partial width, and $\Gamma(W)$ represents the total width of the resonance with mass $M$: 
-\beq\label{eq:Gamma}
-\Gamma(W) = \left( \frac{M}{W} \right) \left[ \frac{ z_{\DDbar}(W) \, d_{\DDbar}(W) }{ z_{\DO \aDO}(M) \, d_{\DO \aDO}(M) + z_{\Dp \Dm}(M) \, d_{\Dp \Dm}(M) } \right] \Gamma(M).
-\eeq
-
-\noindent
-The value of $\Gamma(M)$ represents the total width at the nominal mass of the resonance, while $d_{\Dp \Dm}$ and $d_{\DO \aDO}$ are the Blatt-Weisskopf damping factors \cite{ref:Blatt:1952} for a vector resonance:
-\beq
-\label{eq:blatt_weisskopf}
-d_{\DDbar} = \frac{ \rho_{\DDbar}^3 }{ \rho_{\DDbar}^2 + 1 }, \qquad \rho_{\DDbar} = q_D R_0 = \left( \frac{ \beta_D \, W }{ 2 } \right) R_0.
-\eeq
-
-\noindent
-Here, $q_D$ is the $D$ momentum in the center-of-mass frame, while $R_0$ represents the radius of the parent particle. 
-The $\DDbar$ partial width listed in Eq. \ref{eq:breit_wigner} is the total width rescaled according to $\BnDD$, the sum of all non-$\DDbar$ decay modes of $\psipp$:
-\beq
-\label{eq:Gamma_DDbar}
-\Gamma_{\DDbar}(W) = \Gamma(W) \times (1 - \BnDD).
-\eeq
-Theoretical calculations of $\BnDD$ place the value on the order of a few percent.
-However, experimental results have measured values throughout the range of \SIrange{0}{16}{\%}.
-Without a trustworthy measurement to use for our analysis, we elect to define the fit parameter $\Geepsipp$ to include the product with (1 - $\BnDD$).
-While this does not provide an immediate result, future values for either parameter allows the other to be easily determined.
-More information about the branching fraction is discussed in \Cref{ch:non_DDbar}.
 
 
 \section{Form Factors}
@@ -137,7 +137,7 @@ Currently, there is no definitive model for the non-resonant term, so we use two
 The first is a simple exponential model:
 \beq
 \label{eq:exp_model}
-F_D^{NR} = \FNR \, \exp ( -q_D^2 / \aNR^2 ),
+F_D^{\text{NR}} = \FNR \, \exp ( -q_D^2 / \aNR^2 ),
 \eeq
 
 \noindent 
@@ -146,7 +146,7 @@ The second treatment implements a Vector Dominance Model (VDM).
 This assumes the interference effects are due to the $\psip$ mediating $\DDbar$ production above threshold,
 \beq
 \label{eq:vdm_model}
-F_D^{NR}(W) = F_D^{\psip}(W) + F_0,
+F_D^{\text{NR}}(W) = F_D^{\psip}(W) + F_0,
 \eeq
 
 \noindent
@@ -184,7 +184,7 @@ Note, this includes values below the $\Dp \Dm$ threshold (\SI{3.739}{\GeV}), wit
 Additionally, there are three higher statistics points used for comparison.
 These include an `On-Peak $\psipp$' sample of \SI{2.93}{\invfb} at $\Ecm = \SI{3.7732}{\GeV}$, an `$XYZ$-scan' sample of \SI{50.54}{\invpb} at $\Ecm = \SI{3.810}{\GeV}$, and an `$R$-scan' sample of \SI{7.95}{\invpb} at $\Ecm = \SI{3.850}{\GeV}$.
 The first of these is the high statistics measurement very near the $\psipp$ peak that was used for a double-tag reconstruction (both $\D$ and $\aD$ reconstructed in a single event) measurement performed by Derrick Toth \cite{ref:Toth:2014}.
-The other two samples were analyzed using the same procedure as for the scan data (See \Cref{sec:signal,sec:efficiency,sec:fitting}).
+The other two samples were analyzed using the same procedure as for the scan data (see \Cref{sec:signal,sec:efficiency,sec:fitting}).
 None of these points are used to determine the final results, as the differences between samples introduce additional systematics which degrade any statistical improvement.
 However, these provide useful comparisons of cross section measurements at important energy points for the primary scan sample.
 
@@ -227,14 +227,14 @@ Shower Energy & $\SI{0.0}{\GeV} < E_{EMC}^{\mu^\pm} < \SI{0.3}{GeV}$ \\
 
 The use of muons to determine energy is subject to an overall scale shift due to potentially miscalibrated momentum measurements, most likely due to the magnetic field.
 This requires a point of reference to ensure that the measured values are correctly determined.
-We use the first round of the on-peak $\psipp$ sample for this comparison, as its center-of-mass energy has been measured very precisely using an independent technique involving $\DDbar$ events \cite{ref:Dong:2014}.
+We use the first round of the On-Peak $\psipp$ sample for this comparison, as its center-of-mass energy has been measured very precisely using an independent technique involving $\DDbar$ events \cite{ref:Dong:2014}.
 The results of this method compared to our own are shown in \Cref{fig:on_peak_E_cm_fit}.
-It is evident the procedure using $\DDbar$ events provides more stability over the run range than using dimuon events.
+It is evident the procedure using $\DDbar$ events provides more stability over the run range than using $\mumu$ events.
 
 \begin{figure}[H]
 \centering
 \includegraphics[scale=0.75]{figures/plots/E_cm_fit_cut_new.pdf}
-\caption{The values measured for on-peak data center-of-mass energies.}
+\caption{The values measured for On-Peak data center-of-mass energies.}
 {The difference between our measured values (blue) and the $\DDbar$-based measurement values (red) is used to shift the results of the measured scan data energy values.}
 \label{fig:on_peak_E_cm_fit}
 \end{figure}
@@ -268,13 +268,15 @@ Exclude $\ee \rightarrow \gamma \jpsi, \; \jpsi \rightarrow \ee$ Events & \multi
 \hline
 \end{tabular}
 \caption{Selection cuts on electron tracks used to determine the luminosity.}
+{The tracking cuts are similar as for $\pipm / \Kpm$ tracks, but with the Barrel region ($|\cos\theta| > 0.86$) excluded.
+There are also cuts on the deposited energy and the momentum of each track to ensure they are consistent with $\ee$ tracks.}
 \label{tab:bhabha_cuts}
 \end{table}
 
-Applying these cuts to both data and MC identically, we use the resulting number of events found in the MC divided by the number of total generated events to determine the efficiency $(\epsilon_{MC})$.
-From this, and using the cross section provided by the generator $(\sigma_{\text{Bhabha}})$, we can determine the integrated luminosity $(\lum)$ of each run from the number of events passing the same cuts in data $(N_{\text{data}})$:
+Applying these cuts to both data and MC identically, we use the resulting number of events found in the MC divided by the number of total generated events to determine the efficiency $(\epsilon_{\text{MC}})$.
+From this, and using the cross section provided by the generator $(\sigma_{\text{Bhabha}})$, we can determine the integrated luminosity $(\lum)$ of each run from the number of events passing the same cuts in data $(N_{\text{Data}})$:
 \beq
-\lum = \frac{N_{\text{data}}}{\sigma_{\text{Bhabha}} ~ \epsilon_{MC}}
+\lum = \frac{N_{\text{Data}}}{\sigma_{\text{Bhabha}} ~ \epsilon_{\text{MC}}}
 \eeq
 The integrated luminosity for each bin is shown in \Cref{tab:luminosity}.
 The total luminosity for the scan data used is $(69.80 \pm 0.03 \pm 0.70)$ \si{\invpb}, where the errors are statistical and systematic, respectively.
@@ -323,7 +325,8 @@ Bin & Run Range & $\Ecm$ Range [\si{\GeV}] & $\lum$ [\si{\invpb}] \\
 33 & 14302 - 14303 & 3.863 - 3.870 & 0.3002(19) \\
 \hline
 \end{tabular}
-\caption{Measured integrated luminosities for each energy bin.}{The uncertainties listed are statistical errors from the data selection, as uncertainties from the MC statistics are negligible.}
+\caption{Measured integrated luminosities for each energy bin.}
+{The uncertainties listed are statistical errors from the data selection, as uncertainties from the MC statistics are negligible.}
 \label{tab:luminosity}
 \end{table}
 
@@ -356,6 +359,7 @@ $\tautau$                     & \num{2.164e7} \\
 \hline
 \end{tabular}
 \caption{Number of events contained in each generated sample.}% and the scan data.}
+{Each sample was generated using run-dependent accelerator conditions and center-of-mass energies.}
 \label{tab:mc_samples}
 \end{table}
 
@@ -393,7 +397,7 @@ The effects of this process are examined in \Cref{sec:systematics}.
 \section{Signal Determination}
 \label{sec:signal}
 
-We measure the yields of both $\DO \aDO$ and $\Dp \Dm$ events with two-dimensional fits to $\DeltaE$ and $\mbc$, as defined in \ref{ssec:dtag_reconstruction}.
+We measure the yields of both $\DO \aDO$ and $\Dp \Dm$ events with two-dimensional fits to $\DeltaE$ and $\mbc$, as defined in \Cref{ssec:dtag_reconstruction}.
 MC samples are partitioned into the following four groups: proper $D$-tags ($N_{\DDbar}$), misreconstructed $D$-tags ($N_{\text{misrec}}$), continuum ($N_{\qqbar}$), and other ($N_\text{other}$).
 The first two groups are obtained using truth information from the $\DDbar$ samples, while the last group is a combination of the $\tautau$, $\gamma \jpsi$, and $\gamma \psi'$ samples.
 These groups are fitted to data using the RooFit \cite{ref:RooFit} package to perform a negative log-likelihood minimization for each energy bin ($E_i$) separately for both $\DO$ and $\Dp$.
@@ -698,6 +702,7 @@ $\DOmodeC$ & 0.0549 & 0.0006 & 0.43 & $^{+\;0.17}_{-\;0.13}$ & -52   & $^{+\;   
 \hline 
 \end{tabular}
 \caption{The quantum correlated factors for the $\DO$ modes.}
+{The effect provides a small correction to the efficiency of $\DO$ reconstruction.}
 \label{tab:qc_factors}
 \end{table}
 
@@ -707,10 +712,10 @@ $\DOmodeC$ & 0.0549 & 0.0006 & 0.43 & $^{+\;0.17}_{-\;0.13}$ & -52   & $^{+\;   
 \section{Fitting Procedure}
 \label{sec:fitting}
 
-After applying the correction in \Cref{ssec:cp_correction}, the efficiency values (\Cref{tab:DTag_eff_E_bin}) were combined with the luminosity (\Cref{tab:luminosity}) and the signal values from each 2D fit (\Cref{tab:xsec_rc_data}) to determine the cross section at each energy point.  Since each $\psipp$ produces a $\DDbar$ pair, a factor of 2 is included in the denominator to correct for double counting:
+After applying the correction in \Cref{ssec:cp_correction}, the efficiency values (see \Cref{tab:DTag_eff_E_bin}) were combined with the luminosity (see \Cref{tab:luminosity}) and the signal values from each 2D fit (see \Cref{tab:xsec_rc_data}) to determine the cross section at each energy point.  Since each $\psipp$ produces a $\DDbar$ pair, a factor of 2 is included in the denominator to correct for double counting:
 \beq
 \label{eq:xsec_rc_data}
-\sigma_{\DDbar}^{RC}(E_i) = \frac{ N_D(E_i) }{ 2 \, \epsilon_D(E_i) \, \mathcal{L}(E_i) }.
+\sigma_{\DDbar}^{\text{RC}}(E_i) = \frac{ N_D(E_i) }{ 2 \, \epsilon_D(E_i) \, \mathcal{L}(E_i) }.
 \eeq
 The resulting cross sections for $\DO$ and $\Dp$ are shown in \Cref{fig:xsec_rc_data} and \Cref{tab:xsec_rc_data}.
 
@@ -719,7 +724,7 @@ The resulting cross sections for $\DO$ and $\Dp$ are shown in \Cref{fig:xsec_rc_
 \centering
 \begin{tabular}{c r@{$\;\pm\;$}r r@{$\;\pm\;$}l r@{$\;\pm\;$}r r@{$\;\pm\;$}l}
 \hline
-$E_{\text{mid}}$ & \multicolumn{2}{c}{$N_{\DO \aDO}$} & \multicolumn{2}{c}{$\sigma^{RC}_{\DO \aDO}$ [\si{\nb}]} & \multicolumn{2}{c}{$N_{\Dp \Dm}$}  & \multicolumn{2}{c}{$\sigma^{RC}_{\Dp \Dm}$ [\si{\nb}]} \\
+$E_{\text{mid}}$ & \multicolumn{2}{c}{$N_{\DO \aDO}$} & \multicolumn{2}{c}{$\sigma^{\text{RC}}_{\DO \aDO}$ [\si{\nb}]} & \multicolumn{2}{c}{$N_{\Dp \Dm}$}  & \multicolumn{2}{c}{$\sigma^{\text{RC}}_{\Dp \Dm}$ [\si{\nb}]} \\
 \hline
 3.7342 &   32 &  9 & 0.169 & 0.046 & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{-} \\
 3.7368 &   16 &  5 & 0.218 & 0.068 & \multicolumn{2}{c}{-} & \multicolumn{2}{c}{-} \\
@@ -759,7 +764,7 @@ $E_{\text{mid}}$ & \multicolumn{2}{c}{$N_{\DO \aDO}$} & \multicolumn{2}{c}{$\sig
 \end{tabular} 
 \caption{The measured $\DDbar$ cross sections at each $\Ecm$ point.}
 {The numbers of data events ($N_{\DO \aDO}$ and $N_{\Dp \Dm}$) observed in each $\Ecm$ bin are also shown.
-The uncertainties on the cross sections are statistical only and come from the signal fitting ($N_D$), PDG values (\Cref{tab:DTag_eff}), and MC reconstruction efficiencies (\Cref{tab:DTag_eff_E_bin}).
+The uncertainties on the cross sections are statistical only and come from the signal fitting ($N_D$) and MC reconstruction efficiencies (see \Cref{tab:DTag_eff_E_bin}).
 The data event values are taken from the signal fits shown in \Cref{app:D0_signal_fits,app:Dp_signal_fits}.}
 \label{tab:xsec_rc_data}
 \end{table}
@@ -863,7 +868,7 @@ Each of these contributions, as well as their total, can be found in \Cref{tab:s
 \label{ssec:sys_psipp}
 
 Each systematic is obtained by changing a specific assumption, selection criteria, or another analysis feature and re-fitting to the altered cross section distribution using the VDM method.
-The uncertainties for each parameter are obtained by taking the difference between this result and the nominal fit (\Cref{fig:vdm_results}).
+The uncertainties for each parameter are obtained by taking the difference between this result and the nominal fit (see \Cref{fig:vdm_results}).
 Generally, each change was done both positively and negatively, and the values used are the largest differences seen between the two changes.
 The systematics examined in this analysis are summarized below, where a * denotes potential sources that were found to be negligible.
 
@@ -877,7 +882,6 @@ As this is an overall scale change, the only variable significantly affected is 
 
 \subsection*{$\pipm / \Kpm$ Tracking}
 \label{ssec:sys_Kpi_tracking}
-
 A \SI{1.0}{\%} efficiency change \cite{ref:Rong:2015} was applied for each $\pipm$ or $\Kpm$ in a given decay mode.  
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
@@ -896,6 +900,12 @@ As this is an overall scale change, the only variable significantly affected is 
 
 A \SI{1.5}{\%} efficiency change \cite{ref:Ma:2014} was applied for each $\Ks$ in a given decay mode.
 The summed contribution for each mode is applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
+As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
+
+
+\subsection*{$\pipm / \Kpm$ Particle Identification (PID)}
+\label{ssec:sys_Kpi_pid}
+A \SI{0.5}{\%} efficiency change \cite{ref:Rong:2015} was applied identically to the procedure for $\pipm / \Kpm$ Tracking.
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
 
@@ -934,11 +944,10 @@ $\DOmodeC$ & 0.47 & $\DpmodeC$ & 0.17 \\
 \subsection*{PDG Branching Fractions}
 \label{ssec:sys_pdg}
 
-A mode-dependent change based on the PDG branching fractions (\Cref{tab:DTag_eff}) was applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
-The branching fraction for each mode was changed by its error. 
+A mode-dependent change equal to the PDG branching fraction uncertainties (see \Cref{tab:DTag_eff}) was applied to $\epsilon_m$ in \Cref{eq:DDbar_eff}.
 As this is an overall scale change, the only variable significantly affected is $\GeepsipptoDDbar$.
 
-\pagebreak
+% \pagebreak
 
 \subsection*{Meson Radii}
 \label{ssec:sys_radii}
@@ -1038,7 +1047,7 @@ Fitting the signal distributions for each of these subsamples, we found no stati
 \centering
 \includegraphics[scale=0.5]{figures/plots/Kpi_vs_pipi_Ecm.pdf}
 \caption{The $K \pi$ vs. $\pi \pi$ invariant masses for the mode $\DpmodeA$.}
-{The on-peak $\psipp$ data was used due to its significantly higher statistics.}
+{The On-Peak $\psipp$ data was used due to its significantly higher statistics.}
 \label{fig:Kpipi_mass}
 \end{figure}
 
@@ -1061,12 +1070,12 @@ Luminosity              & 0.000 & 0.004 & 1.005 & 0.014 \\
 $\Kpm / \pipm$ Tracking & 0.000 & 0.008 & 2.646 & 0.033 \\
 $\piO$ Tracking         & 0.000 & 0.012 & 0.746 & 0.028 \\
 $\Ks$ Tracking          & 0.000 & 0.004 & 0.260 & 0.019 \\ 
+$\Kpm / \pipm$ PID      & 0.000 & 0.020 & 1.297 & 0.025 \\
 Single Tag Fits         & 0.000 & 0.012 & 0.213 & 0.008 \\
 PDG Errors              & 0.000 & 0.017 & 2.840 & 0.036 \\
 Meson Radii             & 0.016 & 2.411 & 3.512 & 1.477 \\
 \hline
-Total                   & 0.016 & 2.411 & 5.389 & 1.479 \\
-% Relative Stat. Error [$\sigma$] & 3.000 & 1.088 & 1.342 & 1.229 \\
+Total                   & 0.016 & 2.411 & 5.398 & 1.479 \\
 \hline
 \end{tabular} 
 \caption{Systematic uncertainties relative to the measured parameters of the $\psipp$.}
@@ -1081,12 +1090,12 @@ While the value of $\Mpsipp$ may seem large, this is primarily due to its very s
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{c|cccc}
 \hline 
-& $\Mpsipp$ [\sigma] & $\Gpsipp$ [\sigma] & $\GeepsipptoDDbar$ [\sigma] & $\Ppsipp$ [\sigma] \\
+& $\Mpsipp$ [$\sigma$] & $\Gpsipp$ [$\sigma$] & $\GeepsipptoDDbar$ [$\sigma$] & $\Ppsipp$ [$\sigma$] \\
 \hline  
-($\sigma_{\text{sys}} / \sigma_{\text{stat}}$) & 3.000 & 1.088 & 1.342 & 1.229 \\
+($\sigma_{\text{sys}} / \sigma_{\text{stat}}$) & 3.000 & 1.088 & 1.381 & 1.229 \\
 \hline
 \end{tabular} 
-\caption{A comparison of statistical and systematic uncertainties for each $\psipp$ parameter.}
+\caption{A comparison of measured statistical and systematic uncertainties.}
 \label{tab:sys_stat_ratio}
 \end{table}
 
@@ -1145,10 +1154,11 @@ Luminosity              & 1.00 & 1.00 \\
 $\Kpm / \pipm$ Tracking & 2.58 & 2.59 \\
 $\piO$ Tracking         & 0.94 & 0.63 \\
 $\Ks$ Tracking          & 0.00 & 0.42 \\ 
+$\Kpm / \pipm$ PID      & 1.29 & 1.30 \\
 Single Tag Fits         & 0.25 & 0.20 \\
 PDG Errors              & 0.31 & 0.18 \\
 \hline
-Total                   & 2.95 & 2.89 \\
+Total                   & 3.22 & 3.17 \\
 \hline
 \end{tabular} 
 \caption{Systematics shifts affecting the cross section measurements.}
@@ -1161,43 +1171,77 @@ Total                   & 2.95 & 2.89 \\
 \centering
 \renewcommand\arraystretch{1.0}
 \begin{tabular}{c|c@{$\; \pm \;$}c@{$\; \pm \;$}c c@{$\; \pm \;$}c@{$\; \pm \;$}c}
-\hline 
-$E_{\text{mid}}$ [GeV] & \multicolumn{3}{c}{$\sigma^{RC}_{\DO \aDO}$ [nb]} & \multicolumn{3}{c}{$\sigma^{RC}_{\Dp \Dm}$ [nb]} \\
+\hline \\ [-10pt]
+$E_{\text{mid}}$ [\si{\GeV}] & \multicolumn{3}{c}{$\sigma^{\text{RC}}_{\DO \aDO}$ [\si{\nb}]} & \multicolumn{3}{c}{$\sigma^{\text{RC}}_{\Dp \Dm}$ [\si{\nb}]} \\ [4pt]
 \hline
-3.7342 & 0.164 & 0.046 & 0.005 & \multicolumn{2}{c}{-} \\
-3.7368 & 0.218 & 0.068 & 0.006 & \multicolumn{2}{c}{-} \\
-3.7447 & 0.765 & 0.070 & 0.023 & 0.150 & 0.038 & 0.004 \\
-3.7483 & 0.838 & 0.064 & 0.025 & 0.360 & 0.048 & 0.010 \\
-3.7501 & 0.968 & 0.053 & 0.029 & 0.439 & 0.040 & 0.013 \\
-3.7517 & 1.237 & 0.052 & 0.036 & 0.574 & 0.040 & 0.017 \\
-3.7534 & 1.377 & 0.051 & 0.041 & 0.748 & 0.042 & 0.022 \\
-3.7556 & 1.566 & 0.055 & 0.046 & 0.797 & 0.045 & 0.023 \\
-3.7562 & 1.629 & 0.051 & 0.048 & 0.914 & 0.042 & 0.026 \\
-3.7592 & 1.948 & 0.052 & 0.057 & 1.192 & 0.045 & 0.034 \\
-3.7624 & 2.385 & 0.058 & 0.070 & 1.534 & 0.051 & 0.044 \\
-3.7650 & 2.715 & 0.071 & 0.080 & 1.882 & 0.066 & 0.054 \\
-3.7676 & 3.102 & 0.087 & 0.092 & 2.200 & 0.081 & 0.064 \\
-3.7713 & 3.406 & 0.101 & 0.100 & 2.634 & 0.098 & 0.076 \\
-3.7742 & 3.714 & 0.111 & 0.110 & 3.067 & 0.111 & 0.089 \\
-3.7775 & 3.692 & 0.111 & 0.109 & 3.078 & 0.111 & 0.089 \\
-3.7802 & 3.444 & 0.104 & 0.102 & 2.599 & 0.100 & 0.075 \\
-3.7829 & 2.791 & 0.090 & 0.082 & 2.206 & 0.088 & 0.064 \\
-3.7869 & 1.995 & 0.072 & 0.059 & 1.627 & 0.073 & 0.047 \\
-3.7891 & 1.361 & 0.058 & 0.040 & 1.178 & 0.062 & 0.034 \\
-3.7926 & 0.920 & 0.045 & 0.027 & 0.680 & 0.045 & 0.020 \\
-3.7970 & 0.562 & 0.037 & 0.017 & 0.414 & 0.039 & 0.012 \\
-3.8003 & 0.424 & 0.035 & 0.013 & 0.241 & 0.037 & 0.007 \\
-3.8024 & 0.325 & 0.038 & 0.010 & 0.236 & 0.043 & 0.007 \\
-3.8070 & 0.352 & 0.050 & 0.010 & 0.289 & 0.051 & 0.008 \\
-3.8093 & 0.233 & 0.050 & 0.007 & 0.132 & 0.055 & 0.004 \\
-3.8135 & 0.060 & 0.049 & 0.002 & 0.153 & 0.066 & 0.004 \\
-3.8153 & 0.056 & 0.051 & 0.002 & 0.089 & 0.063 & 0.003 \\
-3.8229 & 0.140 & 0.083 & 0.004 & 0.197 & 0.107 & 0.006 \\
-3.8320 & 0.069 & 0.086 & 0.002 & 0.046 & 0.099 & 0.001 \\
-3.8390 & 0.237 & 0.105 & 0.007 & 0.254 & 0.124 & 0.007 \\
-3.8494 & 0.186 & 0.104 & 0.005 & 0.186 & 0.118 & 0.005 \\
-3.8555 & 0.337 & 0.111 & 0.010 & 0.273 & 0.104 & 0.008 \\
-3.8632 & 0.340 & 0.127 & 0.010 & 0.099 & 0.091 & 0.003 \\
+3.7342 & 0.168 & 0.048 & 0.005 & \mcc{3}{-}            \\ 
+3.7368 & 0.215 & 0.067 & 0.007 & \mcc{3}{-}            \\ 
+3.7447 & 0.756 & 0.069 & 0.024 & 0.148 & 0.037 & 0.005 \\ 
+3.7483 & 0.828 & 0.063 & 0.027 & 0.355 & 0.048 & 0.011 \\ 
+3.7501 & 0.956 & 0.052 & 0.031 & 0.434 & 0.039 & 0.014 \\ 
+3.7517 & 1.221 & 0.051 & 0.039 & 0.566 & 0.039 & 0.018 \\ 
+3.7534 & 1.360 & 0.050 & 0.044 & 0.739 & 0.041 & 0.023 \\ 
+3.7556 & 1.547 & 0.054 & 0.050 & 0.786 & 0.044 & 0.025 \\ 
+3.7562 & 1.608 & 0.050 & 0.052 & 0.903 & 0.042 & 0.029 \\ 
+3.7592 & 1.923 & 0.051 & 0.062 & 1.177 & 0.044 & 0.037 \\ 
+3.7624 & 2.355 & 0.057 & 0.076 & 1.515 & 0.050 & 0.048 \\ 
+3.7650 & 2.680 & 0.070 & 0.086 & 1.858 & 0.065 & 0.059 \\ 
+3.7676 & 3.062 & 0.086 & 0.099 & 2.172 & 0.080 & 0.069 \\ 
+3.7713 & 3.363 & 0.100 & 0.108 & 2.601 & 0.096 & 0.082 \\ 
+3.7742 & 3.667 & 0.109 & 0.118 & 3.028 & 0.110 & 0.096 \\ 
+3.7775 & 3.645 & 0.110 & 0.117 & 3.039 & 0.110 & 0.096 \\ 
+3.7802 & 3.400 & 0.103 & 0.109 & 2.566 & 0.099 & 0.081 \\ 
+3.7829 & 2.756 & 0.089 & 0.089 & 2.178 & 0.087 & 0.069 \\
+3.7869 & 1.969 & 0.071 & 0.063 & 1.606 & 0.072 & 0.051 \\
+3.7891 & 1.344 & 0.057 & 0.043 & 1.163 & 0.061 & 0.037 \\
+3.7926 & 0.908 & 0.045 & 0.029 & 0.672 & 0.045 & 0.021 \\
+3.7970 & 0.555 & 0.037 & 0.018 & 0.409 & 0.038 & 0.013 \\
+3.8003 & 0.419 & 0.035 & 0.013 & 0.238 & 0.036 & 0.008 \\
+3.8024 & 0.321 & 0.038 & 0.010 & 0.233 & 0.042 & 0.007 \\
+3.8070 & 0.348 & 0.049 & 0.011 & 0.285 & 0.050 & 0.009 \\
+3.8093 & 0.231 & 0.049 & 0.007 & 0.130 & 0.054 & 0.004 \\
+3.8135 & 0.059 & 0.049 & 0.002 & 0.151 & 0.065 & 0.005 \\
+3.8153 & 0.055 & 0.050 & 0.002 & 0.088 & 0.062 & 0.003 \\
+3.8229 & 0.138 & 0.082 & 0.004 & 0.195 & 0.105 & 0.006 \\
+3.8320 & 0.068 & 0.084 & 0.002 & 0.045 & 0.098 & 0.001 \\
+3.8390 & 0.234 & 0.104 & 0.008 & 0.251 & 0.123 & 0.008 \\
+3.8494 & 0.184 & 0.103 & 0.006 & 0.183 & 0.116 & 0.006 \\
+3.8555 & 0.333 & 0.109 & 0.011 & 0.269 & 0.103 & 0.009 \\
+3.8632 & 0.335 & 0.125 & 0.011 & 0.098 & 0.090 & 0.003 \\
+% 3.7342 & 0.164 & 0.046 & 0.005 & \multicolumn{2}{c}{-} \\
+% 3.7368 & 0.218 & 0.068 & 0.006 & \multicolumn{2}{c}{-} \\
+% 3.7447 & 0.765 & 0.070 & 0.023 & 0.150 & 0.038 & 0.004 \\
+% 3.7483 & 0.838 & 0.064 & 0.025 & 0.360 & 0.048 & 0.010 \\
+% 3.7501 & 0.968 & 0.053 & 0.029 & 0.439 & 0.040 & 0.013 \\
+% 3.7517 & 1.237 & 0.052 & 0.036 & 0.574 & 0.040 & 0.017 \\
+% 3.7534 & 1.377 & 0.051 & 0.041 & 0.748 & 0.042 & 0.022 \\
+% 3.7556 & 1.566 & 0.055 & 0.046 & 0.797 & 0.045 & 0.023 \\
+% 3.7562 & 1.629 & 0.051 & 0.048 & 0.914 & 0.042 & 0.026 \\
+% 3.7592 & 1.948 & 0.052 & 0.057 & 1.192 & 0.045 & 0.034 \\
+% 3.7624 & 2.385 & 0.058 & 0.070 & 1.534 & 0.051 & 0.044 \\
+% 3.7650 & 2.715 & 0.071 & 0.080 & 1.882 & 0.066 & 0.054 \\
+% 3.7676 & 3.102 & 0.087 & 0.092 & 2.200 & 0.081 & 0.064 \\
+% 3.7713 & 3.406 & 0.101 & 0.100 & 2.634 & 0.098 & 0.076 \\
+% 3.7742 & 3.714 & 0.111 & 0.110 & 3.067 & 0.111 & 0.089 \\
+% 3.7775 & 3.692 & 0.111 & 0.109 & 3.078 & 0.111 & 0.089 \\
+% 3.7802 & 3.444 & 0.104 & 0.102 & 2.599 & 0.100 & 0.075 \\
+% 3.7829 & 2.791 & 0.090 & 0.082 & 2.206 & 0.088 & 0.064 \\
+% 3.7869 & 1.995 & 0.072 & 0.059 & 1.627 & 0.073 & 0.047 \\
+% 3.7891 & 1.361 & 0.058 & 0.040 & 1.178 & 0.062 & 0.034 \\
+% 3.7926 & 0.920 & 0.045 & 0.027 & 0.680 & 0.045 & 0.020 \\
+% 3.7970 & 0.562 & 0.037 & 0.017 & 0.414 & 0.039 & 0.012 \\
+% 3.8003 & 0.424 & 0.035 & 0.013 & 0.241 & 0.037 & 0.007 \\
+% 3.8024 & 0.325 & 0.038 & 0.010 & 0.236 & 0.043 & 0.007 \\
+% 3.8070 & 0.352 & 0.050 & 0.010 & 0.289 & 0.051 & 0.008 \\
+% 3.8093 & 0.233 & 0.050 & 0.007 & 0.132 & 0.055 & 0.004 \\
+% 3.8135 & 0.060 & 0.049 & 0.002 & 0.153 & 0.066 & 0.004 \\
+% 3.8153 & 0.056 & 0.051 & 0.002 & 0.089 & 0.063 & 0.003 \\
+% 3.8229 & 0.140 & 0.083 & 0.004 & 0.197 & 0.107 & 0.006 \\
+% 3.8320 & 0.069 & 0.086 & 0.002 & 0.046 & 0.099 & 0.001 \\
+% 3.8390 & 0.237 & 0.105 & 0.007 & 0.254 & 0.124 & 0.007 \\
+% 3.8494 & 0.186 & 0.104 & 0.005 & 0.186 & 0.118 & 0.005 \\
+% 3.8555 & 0.337 & 0.111 & 0.010 & 0.273 & 0.104 & 0.008 \\
+% 3.8632 & 0.340 & 0.127 & 0.010 & 0.099 & 0.091 & 0.003 \\
 \hline
 \end{tabular} 
 \caption{Measurements of the $\DO$ and $\Dp$ cross sections.}
@@ -1230,7 +1274,7 @@ $\Ppsipp$          & $\PP 207 \; \pm \pp  3 \; \pm \pp 3 \; \pm \pp 7$ & $[\si{^
 \end{table}
 
 
-Additionally, since this analysis is based on an approach developed by the KEDR collaboration, a comparison to their results is also shown in \cref{tab:fit_results}.  
+Additionally, since this analysis is based on an approach developed by the KEDR collaboration, a comparison to their results is also shown in \Cref{tab:fit_results}.  
 For their measurement of $\Geepsipp$, two solutions were found with very close $\chi^2$ values, so both are quoted in their final results.
 With the larger statistics available at BESIII, no alternate solution was found during searches over the parameter space.
 It is clear the VDM results are well in line with the parameters found by the KEDR collaboration, but with significantly smaller statistical errors.
@@ -1256,7 +1300,7 @@ PDG         & $3773.15 \pm 0.33$     & $27.2 \pm 0.9$       & $[262 \pm 18] \tim
 
 \pagebreak
 
-We can also compare our results to the cross section values found in the previous analysis of BESIII's on-peak $\psipp$ data sample of \SI{2.93}{\invfb} by Derrick Toth \cite{ref:Toth:2014}.
+We can also compare our results to the cross section values found in the previous analysis of the On-Peak $\psipp$ data sample of \SI{2.93}{\invfb} by Derrick Toth \cite{ref:Toth:2014}.
 The values displayed on \Cref{fig:exp_results,fig:vdm_results} are his double-tag (DT) values.
 Each of these cross sections are shown in \Cref{tab:Derrick_xsec}.
 Further analysis to better understand the differences seen is still in progress, however both methods used in this analysis are within ${\sim}1\sigma$ of the high statistics method.
@@ -1274,7 +1318,7 @@ VDM          & $3.748 \pm 0.131 \pm 0.111$ & $2.951 \pm 0.118 \pm 0.085$ \\
 \hline
 \end{tabular}
 \caption{Comparison of cross section calculations at $\Ecm = \SI{3.7732}{\GeV}$}
-{The values measured previously used a \SI{2.93}{\invfb} data sample of $\psipp$ events to reconstruct double-tag (DT) decays.  The first errors listed are statistical, while the second is systematic.}
+{The values measured previously using the On-Peak $\psipp$ data sample to reconstruct double-tag (DT) decays.  The first errors listed are statistical, while the second are systematic.}
 \label{tab:Derrick_xsec}
 \end{table}
 
